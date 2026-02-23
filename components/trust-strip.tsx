@@ -9,11 +9,11 @@ const trustItems = [
 
 export function TrustStrip() {
   return (
-    <section className="py-6 md:py-10 lg:py-14 px-4 md:px-12">
+    <section className="py-5 md:py-10 lg:py-14 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Mobile - Horizontal scroll */}
         <div className="md:hidden">
-          <div className="flex gap-3 overflow-x-auto scrollbar-hide -mx-4 px-4 pb-1">
+          <div className="flex gap-3 overflow-x-auto scrollbar-hide px-3 pb-1">
             {trustItems.map((item) => (
               <div
                 key={item.label}

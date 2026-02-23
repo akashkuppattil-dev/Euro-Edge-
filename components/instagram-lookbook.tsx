@@ -12,7 +12,7 @@ const lookbookImages = [
 
 export function InstagramLookbook() {
   return (
-    <section className="py-6 md:py-16 lg:py-24 px-4 md:px-12">
+    <section className="py-6 md:py-16 lg:py-24 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-4 md:mb-10 lg:mb-14">
           <a
@@ -30,14 +30,14 @@ export function InstagramLookbook() {
         </div>
 
         {/* Mobile - 3x2 compact grid */}
-        <div className="md:hidden grid grid-cols-3 gap-1.5">
+        <div className="md:hidden grid grid-cols-3 gap-0.5">
           {lookbookImages.map((img, i) => (
             <a
               key={i}
               href="https://www.instagram.com/joohaa__luxe"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square rounded-lg overflow-hidden"
+              className="group relative aspect-square overflow-hidden"
             >
               <Image
                 src={img.src}

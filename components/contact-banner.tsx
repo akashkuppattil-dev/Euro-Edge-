@@ -6,7 +6,7 @@ export function ContactBanner() {
   return (
     <section className="relative overflow-hidden">
       {/* Mobile - Compact card */}
-      <div className="md:hidden px-4 py-6">
+      <div className="md:hidden px-3 py-4">
         <div className="bg-card border border-border/40 rounded-2xl p-5 flex flex-col items-center text-center">
           <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-3">
             <MessageCircle className="w-5 h-5 text-accent" />

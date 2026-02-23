@@ -5,8 +5,8 @@ export function EditorialSection() {
   return (
     <section className="relative overflow-hidden">
       {/* Mobile - Compact card */}
-      <div className="md:hidden px-4 py-6">
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+      <div className="md:hidden py-4">
+        <div className="relative overflow-hidden aspect-[4/5]">
           <Image
             src="/images/product-6.png"
             alt="Black dahlia floral maxi nighty - JOOHAA LUXE"

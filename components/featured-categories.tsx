@@ -43,7 +43,7 @@ const categories = [
 
 export function FeaturedCategories() {
   return (
-    <section className="py-6 md:py-16 lg:py-24 px-4 md:px-12">
+    <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-4 md:mb-12 md:justify-center md:flex-col md:text-center">
@@ -59,7 +59,7 @@ export function FeaturedCategories() {
         </div>
 
         {/* Mobile - 2 column compact grid */}
-        <div className="md:hidden grid grid-cols-2 gap-2.5">
+        <div className="md:hidden grid grid-cols-2 gap-2">
           {categories.map((cat) => (
             <Link key={cat.title} href={cat.href} className="group relative rounded-xl overflow-hidden aspect-[3/4]">
               <Image

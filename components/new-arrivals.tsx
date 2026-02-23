@@ -46,7 +46,7 @@ const products = [
 
 export function NewArrivals() {
   return (
-    <section className="py-6 md:py-16 lg:py-24 px-4 md:px-12 bg-secondary/50">
+    <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12 bg-secondary/50">
       <div className="max-w-7xl mx-auto">
         {/* Header - compact on mobile */}
         <div className="flex items-center justify-between mb-4 md:mb-12">
@@ -66,7 +66,7 @@ export function NewArrivals() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6">
           {products.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}

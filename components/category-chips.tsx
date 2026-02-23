@@ -15,11 +15,11 @@ const categories = [
 
 export function CategoryChips() {
   return (
-    <section className="py-4 md:py-8 px-4 md:px-12">
+    <section className="py-4 md:py-8 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Mobile - Horizontal scroll with icon circles */}
         <div className="md:hidden">
-          <div className="flex gap-5 overflow-x-auto scrollbar-hide pb-1 -mx-4 px-4">
+          <div className="flex gap-5 overflow-x-auto scrollbar-hide pb-1 px-4">
             {categories.map((cat) => (
               <Link
                 key={cat.label}
