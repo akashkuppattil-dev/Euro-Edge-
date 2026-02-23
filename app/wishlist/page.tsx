@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 import { Heart, X, ShoppingBag } from "lucide-react"
 
 interface WishlistItem {
@@ -51,7 +52,7 @@ export default function WishlistPage() {
   }
 
   return (
-    <main>
+    <main className="pb-16 md:pb-0">
       <Header />
 
       <div className="px-4 lg:px-12 py-8 lg:py-16">
@@ -138,6 +139,7 @@ export default function WishlistPage() {
       </div>
 
       <Footer />
+      <BottomNav />
     </main>
   )
 }

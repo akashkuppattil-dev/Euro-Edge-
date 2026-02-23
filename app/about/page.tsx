@@ -1,10 +1,11 @@
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="pb-16 md:pb-0">
       <Header />
 
       {/* Hero */}
@@ -99,6 +100,7 @@ export default function AboutPage() {
       </section>
 
       <Footer />
+      <BottomNav />
     </main>
   )
 }

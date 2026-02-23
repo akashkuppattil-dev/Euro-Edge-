@@ -4,20 +4,47 @@ import Link from "next/link"
 export function EditorialSection() {
   return (
     <section className="relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[60vh] lg:min-h-[70vh]">
-        {/* Image Left */}
+      {/* Mobile - Compact card */}
+      <div className="md:hidden px-4 py-6">
+        <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+          <Image
+            src="/images/product-6.png"
+            alt="Black dahlia floral maxi nighty - JOOHAA LUXE"
+            fill
+            className="object-cover object-top"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-5">
+            <div className="w-6 h-px bg-accent mb-3" />
+            <h2 className="font-serif text-xl text-primary-foreground tracking-tight leading-tight">
+              Crafted for <em className="italic">Everyday Elegance</em>
+            </h2>
+            <p className="mt-2 text-primary-foreground/50 text-[11px] font-sans leading-relaxed max-w-[240px]">
+              Every stitch and print is made with intention for comfort and beauty.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center mt-3 px-5 py-2 border border-primary-foreground/25 text-primary-foreground text-[10px] tracking-[0.15em] uppercase font-medium font-sans rounded-full"
+            >
+              Our Story
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop - Split layout */}
+      <div className="hidden md:grid grid-cols-2 min-h-[60vh] lg:min-h-[70vh]">
         <div className="relative min-h-[45vh] lg:min-h-full">
           <Image
             src="/images/product-6.png"
             alt="Black dahlia floral maxi nighty - JOOHAA LUXE"
             fill
             className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="50vw"
           />
         </div>
-
-        {/* Content Right */}
-        <div className="flex flex-col justify-center bg-primary px-6 lg:px-16 py-16 lg:py-24">
+        <div className="flex flex-col justify-center bg-primary px-8 lg:px-16 py-16 lg:py-24">
           <div className="w-8 h-px bg-accent mb-6" />
           <span className="text-xs tracking-[0.3em] uppercase text-primary-foreground/50 font-sans">
             The JOOHAA LUXE Promise
@@ -28,7 +55,7 @@ export function EditorialSection() {
             <em className="italic">Everyday Elegance</em>
           </h2>
           <p className="mt-5 text-primary-foreground/50 text-base font-sans max-w-md leading-relaxed">
-            Every stitch, every print, every fabric choice is made with intention. 
+            Every stitch, every print, every fabric choice is made with intention.
             Our pieces are designed to make you feel beautiful, from sunrise to starlight.
           </p>
           <Link

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 import { Instagram, Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react"
 
 export default function ContactPage() {
@@ -22,7 +23,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main>
+    <main className="pb-16 md:pb-0">
       <Header />
 
       {/* Hero */}
@@ -302,6 +303,7 @@ export default function ContactPage() {
       </section>
 
       <Footer />
+      <BottomNav />
     </main>
   )
 }

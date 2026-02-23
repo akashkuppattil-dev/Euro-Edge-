@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 import { Minus, Plus, X, ShoppingBag } from "lucide-react"
 
 interface CartItem {
@@ -60,7 +61,7 @@ export default function CartPage() {
   const total = subtotal + shipping
 
   return (
-    <main>
+    <main className="pb-16 md:pb-0">
       <Header />
 
       <div className="px-4 lg:px-12 py-8 lg:py-16">
@@ -223,6 +224,7 @@ export default function CartPage() {
       )}
 
       <Footer />
+      <BottomNav />
     </main>
   )
 }

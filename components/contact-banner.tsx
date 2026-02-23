@@ -5,20 +5,50 @@ import { MessageCircle } from "lucide-react"
 export function ContactBanner() {
   return (
     <section className="relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[40vh] lg:min-h-[45vh]">
-        {/* Image */}
+      {/* Mobile - Compact card */}
+      <div className="md:hidden px-4 py-6">
+        <div className="bg-card border border-border/40 rounded-2xl p-5 flex flex-col items-center text-center">
+          <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-3">
+            <MessageCircle className="w-5 h-5 text-accent" />
+          </div>
+          <h2 className="font-serif text-lg text-foreground tracking-tight">
+            Need Help?
+          </h2>
+          <p className="mt-1 text-muted-foreground text-[11px] font-sans leading-relaxed max-w-[220px]">
+            Questions about sizing, orders, or fabrics? We are here for you.
+          </p>
+          <div className="flex items-center gap-2.5 mt-4">
+            <Link
+              href="/contact"
+              className="px-5 py-2 bg-primary text-primary-foreground text-[10px] tracking-[0.12em] uppercase font-medium font-sans rounded-full"
+            >
+              Contact
+            </Link>
+            <a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-5 py-2 bg-[#25d366] text-white text-[10px] tracking-[0.1em] uppercase font-medium font-sans rounded-full"
+            >
+              <MessageCircle className="w-3 h-3" />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop - Split layout */}
+      <div className="hidden md:grid grid-cols-2 min-h-[40vh] lg:min-h-[45vh]">
         <div className="relative min-h-[30vh] lg:min-h-full">
           <Image
             src="/images/product-5.png"
             alt="JOOHAA LUXE - Contact us"
             fill
             className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="50vw"
           />
         </div>
-
-        {/* Content */}
-        <div className="flex flex-col justify-center bg-secondary px-6 lg:px-16 py-12 lg:py-20">
+        <div className="flex flex-col justify-center bg-secondary px-8 lg:px-16 py-12 lg:py-20">
           <div className="w-8 h-px bg-accent mb-6" />
           <h2 className="font-serif text-3xl lg:text-4xl text-foreground tracking-tight text-balance">
             We are here to help.

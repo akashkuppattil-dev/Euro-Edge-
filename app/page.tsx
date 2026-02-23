@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 import { HeroSection } from "@/components/hero-section"
 import { CategoryChips } from "@/components/category-chips"
 import { FeaturedCategories } from "@/components/featured-categories"
@@ -13,19 +14,20 @@ import { ContactBanner } from "@/components/contact-banner"
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="pb-16 md:pb-0">
       <Header />
       <HeroSection />
       <CategoryChips />
-      <FeaturedCategories />
       <NewArrivals />
-      <EditorialSection />
+      <FeaturedCategories />
       <BestSellers />
+      <EditorialSection />
       <FabricStory />
       <TrustStrip />
       <InstagramLookbook />
       <ContactBanner />
       <Footer />
+      <BottomNav />
     </main>
   )
 }

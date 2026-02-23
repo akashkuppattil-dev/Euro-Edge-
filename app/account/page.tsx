@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BottomNav } from "@/components/bottom-nav"
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react"
 
 export default function AccountPage() {
@@ -138,6 +139,7 @@ export default function AccountPage() {
       </div>
 
       <Footer />
+      <BottomNav />
     </main>
   )
 }
