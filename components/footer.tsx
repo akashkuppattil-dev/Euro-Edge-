@@ -1,18 +1,20 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram, Facebook, Twitter } from "lucide-react"
+import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react"
 
 const shopLinks = [
   { label: "New Arrivals", href: "/shop?sort=newest" },
   { label: "Best Sellers", href: "/shop?sort=popular" },
-  { label: "Maxi Nighties", href: "/shop?category=maxi" },
-  { label: "Kaftans", href: "/shop?category=kaftan" },
-  { label: "Pajama Sets", href: "/shop?category=sets" },
+  { label: "Round Neck", href: "/shop?category=round-neck" },
+  { label: "Pajama Sets", href: "/shop?category=pajama-set" },
+  { label: "V Neck - Full Length", href: "/shop?category=v-neck-full-length" },
+  { label: "Feeding Friendly", href: "/shop?category=feeding-friendly" },
 ]
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Collections", href: "/collections" },
   { label: "Shipping Policy", href: "/shipping" },
   { label: "Return Policy", href: "/returns" },
   { label: "Privacy Policy", href: "/privacy" },
@@ -21,9 +23,9 @@ const companyLinks = [
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="px-4 lg:px-12 py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand */}
+      <div className="px-4 lg:px-12 py-14 lg:py-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {/* Brand + Address */}
           <div className="lg:col-span-1">
             <Image
               src="/images/logo.png"
@@ -33,10 +35,29 @@ export function Footer() {
               className="h-14 w-auto object-contain brightness-200 mb-5"
             />
             <p className="text-primary-foreground/60 text-sm leading-relaxed font-sans max-w-xs">
-              Premium nightwear crafted with the finest imported rayon.
-              Designed for the modern woman who values comfort and elegance.
+              Everyday wear, made beautiful. Premium imported ladies wear crafted for the modern woman.
             </p>
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex flex-col gap-3 mt-5">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <p className="text-primary-foreground/50 text-xs font-sans leading-relaxed">
+                  Areekode, Malappuram 673639,<br />Kerala, India
+                </p>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="tel:+919876543210" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
+                  +91 98765 43210
+                </a>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
+                <a href="mailto:hello@joohaaluxe.com" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
+                  hello@joohaaluxe.com
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 mt-5">
               <a
                 href="https://www.instagram.com/joohaa__luxe"
                 target="_blank"
@@ -52,13 +73,6 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-primary-foreground/50 hover:text-accent transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -107,7 +121,7 @@ export function Footer() {
               Stay Connected
             </h3>
             <p className="text-sm text-primary-foreground/50 mb-5 font-sans leading-relaxed">
-              Subscribe for early access to new collections and exclusive offers.
+              DM us on Instagram for orders or subscribe for early access to new collections.
             </p>
             <form className="flex flex-col gap-3">
               <input

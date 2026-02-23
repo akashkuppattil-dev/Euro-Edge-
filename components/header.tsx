@@ -48,22 +48,28 @@ export function Header() {
 
   return (
     <>
-      {/* Promo Banner */}
-      <div className="bg-primary text-primary-foreground text-center py-2 px-4">
-        <p className="text-[10px] md:text-xs tracking-wider font-sans">
-          Free Shipping on orders above Rs. 999 &nbsp;|&nbsp; COD Available
-        </p>
-      </div>
-
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-card/95 backdrop-blur-md shadow-sm" : "bg-card"
         }`}
       >
         {/* Desktop Header */}
-        <div className="hidden md:block">
+        <div className="hidden md:block border-b border-border/30">
           <div className="px-6 lg:px-12 py-4">
-            <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              {/* Logo - Left */}
+              <Link href="/" className="flex-shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="JOOHAA LUXE"
+                  width={120}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                  priority
+                />
+              </Link>
+
+              {/* Nav - Center */}
               <nav className="flex items-center gap-7">
                 {navLinks.map((link) => (
                   <Link
@@ -76,17 +82,7 @@ export function Header() {
                 ))}
               </nav>
 
-              <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-                <Image
-                  src="/images/logo.png"
-                  alt="JOOHAA LUXE"
-                  width={120}
-                  height={48}
-                  className="h-12 w-auto object-contain"
-                  priority
-                />
-              </Link>
-
+              {/* Icons - Right */}
               <div className="flex items-center gap-5">
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
@@ -126,18 +122,11 @@ export function Header() {
           )}
         </div>
 
-        {/* Mobile Header - App Style */}
-        <div className="md:hidden">
+        {/* Mobile Header - Logo left, icons + menu right */}
+        <div className="md:hidden border-b border-border/30">
           <div className="flex items-center justify-between px-4 py-2.5">
-            <button
-              onClick={() => setMobileOpen(true)}
-              className="text-foreground p-1.5 -ml-1.5"
-              aria-label="Open menu"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
-
-            <Link href="/">
+            {/* Logo - Left */}
+            <Link href="/" className="flex-shrink-0">
               <Image
                 src="/images/logo.png"
                 alt="JOOHAA LUXE"
@@ -148,6 +137,7 @@ export function Header() {
               />
             </Link>
 
+            {/* Icons + Menu - Right */}
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
@@ -162,6 +152,13 @@ export function Header() {
                   0
                 </span>
               </Link>
+              <button
+                onClick={() => setMobileOpen(true)}
+                className="text-foreground p-1.5"
+                aria-label="Open menu"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
             </div>
           </div>
 
@@ -185,9 +182,9 @@ export function Header() {
       {mobileOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
           <div className="absolute inset-0 bg-primary/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute left-0 top-0 bottom-0 w-[82%] max-w-[300px] bg-card shadow-2xl flex flex-col animate-in slide-in-from-left duration-300">
+          <div className="absolute right-0 top-0 bottom-0 w-[82%] max-w-[300px] bg-card shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
             <div className="flex items-center justify-between px-5 py-4 border-b border-border/40">
-              <Image src="/images/logo.png" alt="JOOHAA LUXE" width={80} height={32} className="h-7 w-auto object-contain" />
+              <span className="text-xs tracking-[0.15em] uppercase text-foreground/50 font-sans font-medium">Menu</span>
               <button onClick={() => setMobileOpen(false)} className="text-foreground/50 p-1" aria-label="Close menu">
                 <X className="w-5 h-5" />
               </button>

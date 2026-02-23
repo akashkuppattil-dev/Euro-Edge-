@@ -116,7 +116,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-foreground font-sans">Location</h3>
-                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">India</p>
+                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">Areekode, Malappuram 673639,<br />Kerala, India</p>
                 </div>
               </div>
 
