@@ -1,13 +1,13 @@
 import Image from "next/image"
 import { Instagram } from "lucide-react"
 
-const images = [
-  "/images/product-1.png",
-  "/images/product-2.png",
-  "/images/product-3.png",
-  "/images/product-5.png",
-  "/images/product-6.png",
-  "/images/product-4.png",
+const lookbookImages = [
+  { src: "/images/product-1.png", alt: "Blue gingham bow pajama set" },
+  { src: "/images/product-2.png", alt: "Teal floral kaftan maxi" },
+  { src: "/images/product-3.png", alt: "Blue rose kaftan maxi" },
+  { src: "/images/product-5.png", alt: "Navy floral bouquet maxi" },
+  { src: "/images/product-6.png", alt: "Black dahlia floral maxi" },
+  { src: "/images/product-4.png", alt: "Blue rose print kaftan" },
 ]
 
 export function InstagramLookbook() {
@@ -15,19 +15,25 @@ export function InstagramLookbook() {
     <section className="py-16 lg:py-24 px-4 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 lg:mb-14">
-          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans">
+          <a
+            href="https://www.instagram.com/joohaa__luxe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans hover:text-foreground transition-colors"
+          >
+            <Instagram className="w-4 h-4" />
             @joohaa__luxe
-          </span>
+          </a>
           <h2 className="font-serif text-3xl lg:text-5xl mt-3 text-foreground tracking-tight">
             The Lookbook
           </h2>
           <p className="mt-3 text-muted-foreground text-sm font-sans">
-            Follow us on Instagram for daily inspiration
+            Follow us on Instagram for daily inspiration and new drops
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
-          {images.map((img, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-3">
+          {lookbookImages.map((img, i) => (
             <a
               key={i}
               href="https://www.instagram.com/joohaa__luxe"
@@ -36,8 +42,8 @@ export function InstagramLookbook() {
               className="group relative aspect-square rounded-lg overflow-hidden"
             >
               <Image
-                src={img}
-                alt={`JOOHAA LUXE lookbook image ${i + 1}`}
+                src={img.src}
+                alt={img.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
@@ -54,7 +60,7 @@ export function InstagramLookbook() {
             href="https://www.instagram.com/joohaa__luxe"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase font-medium font-sans rounded-full hover:bg-primary/90 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase font-medium font-sans rounded-full hover:bg-primary/90 transition-all duration-300 hover:translate-y-[-1px] hover:shadow-lg"
           >
             <Instagram className="w-4 h-4" />
             Follow Us
