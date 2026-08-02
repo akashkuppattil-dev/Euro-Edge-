@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export function NewArrivals() {
   // Display products marked as New or a slice of first few items
-  const newArrivals = allProducts.filter((p) => p.badge === "New" || p.id === "4" || p.id === "5" || p.id === "7" || p.id === "6").slice(0, 5)
+  const newArrivals = allProducts.filter((p) => p.badge === "New" || p.id === "4" || p.id === "5" || p.id === "7" || p.id === "6" || p.id === "8").slice(0, 5)
 
   return (
     <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12 bg-secondary/50">

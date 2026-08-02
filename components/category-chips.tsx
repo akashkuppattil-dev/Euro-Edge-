@@ -1,52 +1,49 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 const categories = [
-  { label: "Girls Collection", short: "GC", href: "/shop?category=girls+collection" },
-  { label: "Boys Collection", short: "BC", href: "/shop?category=boys+collection" },
-  { label: "Baby Collection", short: "Baby", href: "/shop?category=baby+collection" },
-  { label: "Footwear", short: "FW", href: "/shop?category=footwear" },
-  { label: "Accessories", short: "AC", href: "/shop?category=accessories" },
-  { label: "Toys", short: "TY", href: "/shop?category=toys" },
+  { label: "Girls", image: "/images/product-1.png", href: "/shop?category=girls+collection" },
+  { label: "Boys", image: "/images/product-2.png", href: "/shop?category=boys+collection" },
+  { label: "Baby", image: "/images/product-4.png", href: "/shop?category=baby+collection" },
+  { label: "Footwear", image: "/images/product-2.png", href: "/shop?category=footwear" },
+  { label: "Accessories", image: "/images/product-5.png", href: "/shop?category=accessories" },
+  { label: "Toys", image: "/images/product-6.png", href: "/shop?category=toys" },
 ]
 
 export function CategoryChips() {
   return (
-    <section className="py-4 md:py-8 md:px-12">
+    <section className="py-6 md:py-10 px-4 md:px-12 bg-background border-b border-border/20">
       <div className="max-w-7xl mx-auto">
-        {/* Mobile - Horizontal scroll with icon circles */}
-        <div className="md:hidden">
-          <div className="flex gap-5 overflow-x-auto scrollbar-hide pb-1 px-4">
-            {categories.map((cat) => (
-              <Link
-                key={cat.label}
-                href={cat.href}
-                className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary border-2 border-border/50 flex items-center justify-center text-xs font-serif font-bold text-accent group-hover:bg-accent/10 group-hover:border-accent/40 transition-all duration-200">
-                  {cat.short}
-                </div>
-                <span className="text-[10px] font-sans text-foreground/60 text-center w-[60px] leading-tight line-clamp-2">
-                  {cat.label.replace(" Collection", "")}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop - Pill chips */}
-        <div className="hidden md:flex flex-wrap items-center justify-center gap-3">
+        
+        {/* Horizontal scroll on mobile, flex grid on desktop */}
+        <div className="flex md:flex-wrap items-center justify-start md:justify-center gap-6 md:gap-8 overflow-x-auto scrollbar-hide py-2 px-1 md:overflow-visible md:py-0 md:px-0">
           {categories.map((cat) => (
             <Link
               key={cat.label}
               href={cat.href}
-              className="px-5 py-2.5 border border-border rounded-full text-xs tracking-[0.1em] uppercase text-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 font-sans"
+              className="flex flex-col items-center flex-shrink-0 group text-center cursor-pointer select-none"
             >
-              {cat.label}
+              {/* Circle Image Wrapper */}
+              <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border border-border/60 group-hover:border-accent shadow-sm group-hover:shadow-md transition-all duration-300">
+                <Image
+                  src={cat.image}
+                  alt={cat.label}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 64px, 96px"
+                />
+              </div>
+
+              {/* Label below */}
+              <span className="mt-2 text-[10px] md:text-[11px] tracking-wider font-sans font-bold text-foreground/75 uppercase group-hover:text-accent-foreground transition-colors leading-tight">
+                {cat.label}
+              </span>
             </Link>
           ))}
         </div>
+
       </div>
     </section>
   )

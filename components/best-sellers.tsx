@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export function BestSellers() {
   // Pull products marked as Best Seller, Premium, or Festive
-  const bestSellers = allProducts.filter((p) => p.badge === "Best Seller" || p.badge === "Premium" || p.badge === "Festive" || p.id === "1" || p.id === "2" || p.id === "8").slice(0, 5)
+  const bestSellers = allProducts.filter((p) => p.badge === "Best Seller" || p.badge === "Premium" || p.badge === "Festive" || p.id === "1" || p.id === "2" || p.id === "8" || p.id === "6").slice(0, 5)
 
   return (
     <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12">

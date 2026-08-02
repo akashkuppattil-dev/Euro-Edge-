@@ -47,7 +47,7 @@ export default function ProductDetailPage({ params }: { params: any }) {
     ((product.originalPrice - product.price) / product.originalPrice) * 100
   )
 
-  const handleWhatsAppOrder = () => {
+  const handleWhatsAppOrder = async () => {
     if (!selectedSize) {
       alert("Please select a size first.")
       return
@@ -64,7 +64,33 @@ I'm interested in the following product:
 
 Please let me know its availability.`
 
-    const encoded = encodeURIComponent(message)
+    // Attempt to share the actual image file using the Web Share API (supported on mobile browsers)
+    if (typeof navigator !== "undefined" && navigator.share && navigator.canShare) {
+      try {
+        const response = await fetch(product.image)
+        const blob = await response.blob()
+        const file = new File([blob], `${product.slug}.png`, { type: blob.type })
+
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: product.name,
+            text: message,
+          })
+          return
+        }
+      } catch (err) {
+        console.error("Web Share failed, falling back to URL link:", err)
+      }
+    }
+
+    // Fallback for desktop or unsupported browsers (wa.me text link with rich preview URL fallback)
+    const fallbackMessage = `${message}
+
+• Product Image: ${window.location.origin}${product.image}
+• Product Link: ${window.location.href}`
+
+    const encoded = encodeURIComponent(fallbackMessage)
     const url = `https://wa.me/918129780324?text=${encoded}`
     window.open(url, "_blank")
   }
