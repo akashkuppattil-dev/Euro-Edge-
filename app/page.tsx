@@ -6,6 +6,7 @@ import { CategoryChips } from "@/components/category-chips"
 import { FeaturedCategories } from "@/components/featured-categories"
 import { NewArrivals } from "@/components/new-arrivals"
 import { BestSellers } from "@/components/best-sellers"
+import { ShopByAge } from "@/components/shop-by-age"
 import { EditorialSection } from "@/components/editorial-section"
 import { FabricStory } from "@/components/fabric-story"
 import { TrustStrip } from "@/components/trust-strip"
@@ -21,6 +22,7 @@ export default function HomePage() {
       <NewArrivals />
       <FeaturedCategories />
       <BestSellers />
+      <ShopByAge />
       <EditorialSection />
       <FabricStory />
       <TrustStrip />

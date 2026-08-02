@@ -3,14 +3,12 @@
 import Link from "next/link"
 
 const categories = [
-  { label: "Round Neck", short: "RN" },
-  { label: "Pajama Set", short: "PS" },
-  { label: "V Neck - Full Length", short: "VF" },
-  { label: "Normal Nighty", short: "NN" },
-  { label: "Full Sleeves", short: "FS" },
-  { label: "V Neck - Ankle", short: "VA" },
-  { label: "Feeding Friendly", short: "FF" },
-  { label: "Lace Detailed", short: "LD" },
+  { label: "Girls Collection", short: "GC", href: "/shop?category=girls+collection" },
+  { label: "Boys Collection", short: "BC", href: "/shop?category=boys+collection" },
+  { label: "Baby Collection", short: "Baby", href: "/shop?category=baby+collection" },
+  { label: "Footwear", short: "FW", href: "/shop?category=footwear" },
+  { label: "Accessories", short: "AC", href: "/shop?category=accessories" },
+  { label: "Toys", short: "TY", href: "/shop?category=toys" },
 ]
 
 export function CategoryChips() {
@@ -23,14 +21,14 @@ export function CategoryChips() {
             {categories.map((cat) => (
               <Link
                 key={cat.label}
-                href={`/shop?category=${encodeURIComponent(cat.label.toLowerCase())}`}
+                href={cat.href}
                 className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
               >
-                <div className="w-14 h-14 rounded-full bg-secondary border-2 border-border/50 flex items-center justify-center text-sm font-serif font-semibold text-accent group-hover:bg-accent/10 group-hover:border-accent/40 transition-all duration-200">
+                <div className="w-14 h-14 rounded-full bg-secondary border-2 border-border/50 flex items-center justify-center text-xs font-serif font-bold text-accent group-hover:bg-accent/10 group-hover:border-accent/40 transition-all duration-200">
                   {cat.short}
                 </div>
                 <span className="text-[10px] font-sans text-foreground/60 text-center w-[60px] leading-tight line-clamp-2">
-                  {cat.label}
+                  {cat.label.replace(" Collection", "")}
                 </span>
               </Link>
             ))}
@@ -42,7 +40,7 @@ export function CategoryChips() {
           {categories.map((cat) => (
             <Link
               key={cat.label}
-              href={`/shop?category=${encodeURIComponent(cat.label.toLowerCase())}`}
+              href={cat.href}
               className="px-5 py-2.5 border border-border rounded-full text-xs tracking-[0.1em] uppercase text-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 font-sans"
             >
               {cat.label}

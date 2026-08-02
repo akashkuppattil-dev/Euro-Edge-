@@ -1,9 +1,9 @@
 import { Gem, Wind, RotateCcw, Truck } from "lucide-react"
 
 const trustItems = [
-  { icon: Gem, label: "Premium Imported Fabric" },
-  { icon: Wind, label: "Soft & Breathable" },
-  { icon: RotateCcw, label: "7-Day Easy Returns" },
+  { icon: Gem, label: "Premium Cotton & Linen" },
+  { icon: Wind, label: "Soft & Hypoallergenic" },
+  { icon: RotateCcw, label: "Easy Sizing Exchanges" },
   { icon: Truck, label: "Pan India Shipping" },
 ]
 

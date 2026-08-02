@@ -5,10 +5,9 @@ import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react"
 const shopLinks = [
   { label: "New Arrivals", href: "/shop?sort=newest" },
   { label: "Best Sellers", href: "/shop?sort=popular" },
-  { label: "Round Neck", href: "/shop?category=round-neck" },
-  { label: "Pajama Sets", href: "/shop?category=pajama-set" },
-  { label: "V Neck - Full Length", href: "/shop?category=v-neck-full-length" },
-  { label: "Feeding Friendly", href: "/shop?category=feeding-friendly" },
+  { label: "Girls Collection", href: "/shop?category=girls+collection" },
+  { label: "Boys Collection", href: "/shop?category=boys+collection" },
+  { label: "Baby Collection", href: "/shop?category=baby+collection" },
 ]
 
 const companyLinks = [
@@ -29,46 +28,39 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Image
               src="/images/logo.png"
-              alt="JOOHAA LUXE"
+              alt="Tiny Trends"
               width={140}
               height={56}
               className="h-14 w-auto object-contain brightness-200 mb-5"
             />
             <p className="text-primary-foreground/60 text-sm leading-relaxed font-sans max-w-xs">
-              Everyday wear, made beautiful. Premium imported ladies wear crafted for the modern woman.
+              Premium children's apparel crafted for everyday elegance and playful comfort. Discover the finest boutique styles for your little ones.
             </p>
             <div className="flex flex-col gap-3 mt-5">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <p className="text-primary-foreground/50 text-xs font-sans leading-relaxed">
-                  Areekode, Malappuram 673639,<br />Kerala, India
+                  Karuvankallu, Kondotty,<br />Malappuram, Kerala - 673638
                 </p>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-accent flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
-                  +91 98765 43210
+                <a href="tel:+918129780324" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
+                  +91 81297 80324
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                <a href="mailto:hello@joohaaluxe.com" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
-                  hello@joohaaluxe.com
+                <a href="mailto:tinytrends189@gmail.com" className="text-primary-foreground/50 text-xs font-sans hover:text-primary-foreground transition-colors">
+                  tinytrends189@gmail.com
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-4 mt-5">
               <a
-                href="https://www.instagram.com/joohaa__luxe"
+                href="https://www.facebook.com/share/1Epwasev5t/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/50 hover:text-accent transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
                 className="text-primary-foreground/50 hover:text-accent transition-colors"
                 aria-label="Facebook"
               >
@@ -144,7 +136,7 @@ export function Footer() {
       <div className="border-t border-primary-foreground/10 px-4 lg:px-12 py-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-primary-foreground/40 font-sans">
-            2026 JOOHAA LUXE Clothing. All rights reserved.
+            2026 Tiny Trends. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/terms" className="text-xs text-primary-foreground/40 hover:text-primary-foreground/60 transition-colors font-sans">

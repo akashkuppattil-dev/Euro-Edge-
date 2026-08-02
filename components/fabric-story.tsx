@@ -1,21 +1,21 @@
 import Image from "next/image"
-import { Droplets, Wind, Sparkles } from "lucide-react"
+import { ShieldAlert, Wind, Sparkles } from "lucide-react"
 
 const features = [
   {
-    icon: Droplets,
-    title: "Ultra Soft Touch",
-    description: "Premium imported rayon that feels like silk against your skin.",
+    icon: ShieldAlert,
+    title: "100% Skin-Safe Materials",
+    description: "Premium cotton and linen that are completely hypoallergenic and gentle on young skin.",
   },
   {
     icon: Wind,
-    title: "Breathable Comfort",
-    description: "Lightweight and airy fabric perfect for all seasons.",
+    title: "Breathable & Play-Friendly",
+    description: "Lightweight, stretch-comfortable fabrics that let active children move and play freely.",
   },
   {
     icon: Sparkles,
-    title: "Lasting Elegance",
-    description: "Color-fast prints that stay vibrant wash after wash.",
+    title: "Durable Boutique Finish",
+    description: "Reinforced seams and color-fast prints that look premium even after endless wash cycles.",
   },
 ]
 
@@ -27,17 +27,17 @@ export function FabricStory() {
         <div className="md:hidden">
           <div className="text-center mb-5">
             <h2 className="font-serif text-lg text-foreground tracking-tight">
-              Why Premium Rayon?
+              Why Choose Tiny Trends?
             </h2>
             <p className="mt-1 text-muted-foreground text-[11px] font-sans leading-relaxed max-w-[260px] mx-auto">
-              We source only the finest imported rayon for nightwear that drapes beautifully.
+              We source only the gentlest, premium fabrics to keep your children looking sharp and feeling cozy.
             </p>
           </div>
 
           <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-5">
             <Image
               src="/images/product-4.png"
-              alt="Premium rayon fabric detail"
+              alt="Premium skin-safe fabrics for kids"
               fill
               className="object-cover"
               sizes="100vw"
@@ -69,29 +69,28 @@ export function FabricStory() {
             <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
               <Image
                 src="/images/product-4.png"
-                alt="Premium rayon kaftan fabric detail"
+                alt="Premium skin-safe fabrics for kids"
                 fill
                 className="object-cover"
                 sizes="50vw"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 bg-card border border-border rounded-xl p-4 lg:p-5 shadow-lg max-w-[200px]">
-              <p className="text-xs tracking-[0.1em] uppercase text-accent font-sans font-medium">100% Imported</p>
-              <p className="text-sm text-foreground font-serif mt-1">Premium Rayon Fabric</p>
+              <p className="text-xs tracking-[0.1em] uppercase text-accent font-sans font-medium">Boutique Grade</p>
+              <p className="text-sm text-foreground font-serif mt-1">Hypoallergenic Fabrics</p>
             </div>
           </div>
 
           <div>
             <div className="w-8 h-px bg-accent mb-6" />
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans">
-              The Fabric Difference
+              The Quality Difference
             </span>
             <h2 className="font-serif text-3xl lg:text-5xl mt-3 text-foreground tracking-tight text-balance">
-              Why Premium Rayon?
+              Why Choose Tiny Trends?
             </h2>
             <p className="mt-5 text-muted-foreground text-base leading-relaxed font-sans max-w-md">
-              We source only the finest imported rayon to create nightwear
-              that drapes beautifully and feels incredibly soft.
+              We select fabrics that support your child's daily adventures while remaining incredibly gentle on sensitive skin.
             </p>
             <div className="mt-10 flex flex-col gap-7">
               {features.map((feat) => (

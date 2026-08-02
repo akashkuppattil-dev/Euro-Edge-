@@ -24,7 +24,7 @@ export default function AccountPage() {
             <p className="text-sm text-muted-foreground font-sans mt-2">
               {isLogin
                 ? "Sign in to access your account"
-                : "Join JOOHAA LUXE for exclusive access"}
+                : "Join Tiny Trends for exclusive access"}
             </p>
           </div>
 
@@ -117,7 +117,7 @@ export default function AccountPage() {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground font-sans">
-              {isLogin ? "New to JOOHAA LUXE?" : "Already have an account?"}
+              {isLogin ? "New to Tiny Trends?" : "Already have an account?"}
               <button
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-accent ml-1.5 hover:underline font-medium"

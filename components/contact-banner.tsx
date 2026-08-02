@@ -12,10 +12,10 @@ export function ContactBanner() {
             <MessageCircle className="w-5 h-5 text-accent" />
           </div>
           <h2 className="font-serif text-lg text-foreground tracking-tight">
-            Need Help?
+            Need Sizing Help?
           </h2>
           <p className="mt-1 text-muted-foreground text-[11px] font-sans leading-relaxed max-w-[220px]">
-            Questions about sizing, orders, or fabrics? We are here for you.
+            Questions about child sizes, fits, or orders? We are here for you on WhatsApp.
           </p>
           <div className="flex items-center gap-2.5 mt-4">
             <Link
@@ -25,7 +25,7 @@ export function ContactBanner() {
               Contact
             </Link>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918129780324"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-5 py-2 bg-[#25d366] text-white text-[10px] tracking-[0.1em] uppercase font-medium font-sans rounded-full"
@@ -42,7 +42,7 @@ export function ContactBanner() {
         <div className="relative min-h-[30vh] lg:min-h-full">
           <Image
             src="/images/product-5.png"
-            alt="JOOHAA LUXE - Contact us"
+            alt="Tiny Trends - Contact us"
             fill
             className="object-cover object-top"
             sizes="50vw"
@@ -54,7 +54,7 @@ export function ContactBanner() {
             We are here to help.
           </h2>
           <p className="mt-3 text-muted-foreground text-sm font-sans leading-relaxed max-w-md">
-            Have questions about sizing, orders, or our fabrics? Our team is just a message away.
+            Have questions about child sizes, materials, or custom orders? Our team is just a WhatsApp message away.
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <Link
@@ -64,7 +64,7 @@ export function ContactBanner() {
               Contact Us
             </Link>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918129780324"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#25d366] text-white text-xs tracking-[0.15em] uppercase font-medium font-sans rounded-full hover:bg-[#1ebe5a] transition-all duration-300"

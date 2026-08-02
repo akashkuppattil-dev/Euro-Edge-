@@ -1,154 +1,116 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import Image from "next/image"
+import { Check, MessageCircle } from "lucide-react"
 
-const heroImages = [
-  { src: "/images/product-2.png", alt: "Teal Floral Kaftan", label: "Kaftans" },
-  { src: "/images/product-3.png", alt: "Blue Rose Maxi Nighty", label: "Maxi Nighties" },
-  { src: "/images/product-6.png", alt: "Black Dahlia Nighty", label: "V Neck Collection" },
+const collageCards = [
+  {
+    label: "Girls Collection",
+    image: "/images/product-1.png",
+    aspect: "aspect-[3/4]",
+    gridSpan: "col-span-1 row-span-2",
+    href: "/shop?category=girls+collection"
+  },
+  {
+    label: "Boys Collection",
+    image: "/images/product-2.png",
+    aspect: "aspect-square",
+    gridSpan: "col-span-1",
+    href: "/shop?category=boys+collection"
+  },
+  {
+    label: "Baby Collection",
+    image: "/images/product-4.png",
+    aspect: "aspect-[3/4]",
+    gridSpan: "col-span-1 row-span-2",
+    href: "/shop?category=baby+collection"
+  },
+  {
+    label: "Party Wear",
+    image: "/images/product-3.png",
+    aspect: "aspect-square",
+    gridSpan: "col-span-1",
+    href: "/shop?category=girls+collection"
+  },
+  {
+    label: "Daily Wear",
+    image: "/images/product-6.png",
+    aspect: "aspect-square",
+    gridSpan: "col-span-1",
+    href: "/shop?category=girls+collection"
+  },
+  {
+    label: "Nightwear",
+    image: "/images/product-5.png",
+    aspect: "aspect-square",
+    gridSpan: "col-span-1",
+    href: "/shop?category=girls+collection"
+  }
 ]
 
 export function HeroSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
   return (
-    <section className="relative w-full">
-      {/* ---- MOBILE: Single rotating image ---- */}
-      <div className="md:hidden relative h-[75vh] min-h-[480px] max-h-[640px] overflow-hidden">
-        {/* Rotating single background image */}
-        {heroImages.map((img, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              i === activeIndex ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover object-top"
-              sizes="100vw"
-              priority={i === 0}
-            />
-          </div>
-        ))}
+    <section className="relative w-full overflow-hidden bg-background py-8 md:py-16 lg:py-24 px-4 sm:px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-        {/* Subtle bottom-only gradient for text readability */}
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-        {/* Content at bottom */}
-        <div className="absolute inset-x-0 bottom-0 pb-8 px-5">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-accent font-sans font-semibold">
-            Joohaa Luxe
-          </p>
-          <h1 className="font-serif text-3xl text-white mt-1.5 leading-[1.15] text-balance">
-            Everyday Wear,{" "}
-            <em className="italic">Made Beautiful</em>
+        {/* Left Side: Copy */}
+        <div className="lg:col-span-5 flex flex-col justify-center text-left">
+          <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-accent-foreground/60 font-sans font-bold">
+            Tiny Trends
+          </span>
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mt-4 leading-[1.1] tracking-tight">
+            Everyday Wear, <br />
+            <span className="italic text-accent-foreground/80">Made Beautiful</span>
           </h1>
-          <p className="text-white/70 text-xs font-sans mt-2 max-w-[260px] leading-relaxed">
-            Premium imported ladies wear crafted for everyday elegance.
+          <p className="mt-5 text-muted-foreground text-sm md:text-base font-sans leading-relaxed">
+            Premium children's apparel. Shipping all over India.
           </p>
 
-          {/* CTA */}
-          <div className="flex items-center gap-3 mt-4">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3.5 mt-8">
             <Link
               href="/shop"
-              className="px-6 py-2.5 bg-accent text-accent-foreground text-[10px] tracking-[0.18em] uppercase font-sans font-medium rounded-full active:scale-95 transition-transform"
+              className="px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.18em] uppercase font-sans font-semibold rounded-full hover:bg-primary/95 transition-all shadow-md hover:shadow-lg active:scale-95"
             >
-              Shop Now
-            </Link>
-            <Link
-              href="/collections"
-              className="px-6 py-2.5 border border-white/40 text-white text-[10px] tracking-[0.18em] uppercase font-sans font-medium rounded-full active:scale-95 transition-transform"
-            >
-              Collections
+              Shop Collection
             </Link>
           </div>
+        </div>
 
-          {/* Dot indicators */}
-          <div className="flex items-center gap-2 mt-4">
-            {heroImages.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={`transition-all duration-300 rounded-full ${
-                  i === activeIndex
-                    ? "w-6 h-1.5 bg-accent"
-                    : "w-1.5 h-1.5 bg-white/40"
-                }`}
-                aria-label={`View ${img.label}`}
-              />
+        {/* Right Side: Boutique Collage Layout */}
+        <div className="lg:col-span-7 w-full">
+          <div className="grid grid-cols-3 gap-3 md:gap-4 select-none">
+            {collageCards.map((card, idx) => (
+              <Link
+                key={idx}
+                href={card.href}
+                className={`group relative rounded-2xl overflow-hidden bg-secondary/30 border border-border/40 hover:border-accent/80 transition-all duration-300 ${card.gridSpan} ${card.aspect}`}
+              >
+                {/* Image underlay */}
+                <Image
+                  src={card.image}
+                  alt={card.label}
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 30vw, 20vw"
+                  priority={idx < 3}
+                />
+
+                {/* Dashed placeholder border overlay representing upload area/styling details */}
+                <div className="absolute inset-2 border border-dashed border-white/40 rounded-xl group-hover:border-accent/70 transition-colors pointer-events-none" />
+
+                {/* Bottom label banner */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent p-3 md:p-4 flex flex-col justify-end h-[60%]">
+                  <span className="text-[10px] md:text-xs tracking-wider font-sans font-medium text-white/95 truncate">
+                    {card.label}
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* ---- DESKTOP: 3 crisp image panels with minimal overlay ---- */}
-      <div className="hidden md:block relative h-[80vh] min-h-[560px] max-h-[800px] overflow-hidden">
-        {/* 3 image panels */}
-        <div className="absolute inset-0 grid grid-cols-3">
-          {heroImages.map((img, i) => (
-            <div key={i} className="relative overflow-hidden group cursor-pointer" onClick={() => setActiveIndex(i)}>
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                sizes="34vw"
-                priority
-              />
-              {/* Very light bottom gradient only - keeps image quality */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
-              <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/80 font-sans font-medium whitespace-nowrap">
-                {img.label}
-              </span>
-              {/* Thin divider line between panels */}
-              {i < heroImages.length - 1 && (
-                <div className="absolute top-0 right-0 w-px h-full bg-white/15" />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Center floating content card - no full-screen dark overlay */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-center pointer-events-auto bg-primary/75 backdrop-blur-sm px-12 py-10 rounded-sm">
-            <p className="text-[11px] tracking-[0.35em] uppercase text-accent font-sans font-semibold">
-              Joohaa Luxe Clothing
-            </p>
-            <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-white mt-4 leading-[1.1] text-balance">
-              Everyday Wear,{" "}
-              <em className="italic">Made Beautiful</em>
-            </h1>
-            <p className="mt-3 text-white/60 text-sm font-sans leading-relaxed max-w-md mx-auto">
-              Premium imported ladies wear. Shipping all over India.
-            </p>
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <Link
-                href="/shop"
-                className="px-8 py-3 bg-accent text-accent-foreground text-[11px] tracking-[0.18em] uppercase font-sans font-medium rounded-full hover:bg-accent/90 transition-colors"
-              >
-                Shop Collection
-              </Link>
-              <Link
-                href="/collections"
-                className="px-8 py-3 border border-white/30 text-white text-[11px] tracking-[0.18em] uppercase font-sans font-medium rounded-full hover:bg-white/10 transition-colors"
-              >
-                View All
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

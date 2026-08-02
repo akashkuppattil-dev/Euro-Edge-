@@ -9,19 +9,17 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/shop" },
   { label: "Collections", href: "/collections" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ]
 
 const categories = [
-  "Round Neck",
-  "Pajama Set",
-  "V Neck - Full Length",
-  "Normal Nighty",
-  "Full Sleeves",
-  "V Neck - Ankle",
-  "Feeding Friendly",
-  "Lace Detailed",
+  "Girls Collection",
+  "Boys Collection",
+  "Baby Collection",
+  "Footwear",
+  "Accessories",
+  "Toys",
 ]
 
 export function Header() {
@@ -61,7 +59,7 @@ export function Header() {
               <Link href="/" className="flex-shrink-0">
                 <Image
                   src="/images/logo.png"
-                  alt="JOOHAA LUXE"
+                  alt="Tiny Trends"
                   width={120}
                   height={48}
                   className="h-12 w-auto object-contain"
@@ -70,7 +68,7 @@ export function Header() {
               </Link>
 
               {/* Nav - Center */}
-              <nav className="flex items-center gap-7">
+              <nav className="flex items-center gap-16">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
@@ -113,7 +111,7 @@ export function Header() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Search for nightwear, kaftans, pajama sets..."
+                  placeholder="Search for frocks, boys suits, onesies, accessories..."
                   className="w-full pl-11 pr-4 py-3 bg-secondary border-none rounded-full text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
                   autoFocus
                 />
@@ -129,7 +127,7 @@ export function Header() {
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/images/logo.png"
-                alt="JOOHAA LUXE"
+                alt="Tiny Trends"
                 width={80}
                 height={32}
                 className="h-8 w-auto object-contain"

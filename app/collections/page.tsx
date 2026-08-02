@@ -7,68 +7,52 @@ import { ArrowRight } from "lucide-react"
 
 const collections = [
   {
-    title: "Round Neck Collection",
-    subtitle: "Classic comfort",
-    description: "Timeless round neck nighties in premium rayon. Soft, breathable, and effortlessly elegant for everyday comfort.",
-    image: "/images/product-5.png",
-    href: "/shop?category=round+neck",
-    count: "12 Styles",
+    title: "Girls Collection",
+    subtitle: "Boutique elegance",
+    description: "Beautiful hand-embroidered party frocks, festive lehenga cholis, tops, tunics, and daily wear dresses crafted with soft and graceful details.",
+    image: "/images/product-1.png",
+    href: "/shop?category=girls+collection",
+    count: "24 Styles",
   },
   {
-    title: "Pajama Sets",
-    subtitle: "Co-ord comfort",
-    description: "Button-down tops paired with matching pants. Our pajama sets combine classic tailoring with playful prints.",
-    image: "/images/product-1.png",
-    href: "/shop?category=pajama+set",
+    title: "Boys Collection",
+    subtitle: "Sharp & playful",
+    description: "Dapper suit sets, casual matching sets, comfortable jeans, and traditional kurta sets designed for active play and celebratory events.",
+    image: "/images/product-2.png",
+    href: "/shop?category=boys+collection",
+    count: "18 Styles",
+  },
+  {
+    title: "Baby Collection",
+    subtitle: "Pure & gentle comfort",
+    description: "100% organic cotton onesies, rompers, baby frocks, and daily sleepwear with flat seams and nickel-free snaps for delicate newborn skin.",
+    image: "/images/product-4.png",
+    href: "/shop?category=baby+collection",
+    count: "16 Styles",
+  },
+  {
+    title: "Baby Footwear",
+    subtitle: "Tiny steps",
+    description: "Soft-sole shoes, adorable booties, and lightweight sandals designed to protect tiny feet while supporting their first steps.",
+    image: "/images/product-2.png",
+    href: "/shop?category=footwear",
     count: "8 Styles",
   },
   {
-    title: "V Neck - Full Length",
-    subtitle: "Floor-length elegance",
-    description: "Graceful V neck full length nighties with stunning floral prints. Designed to drape beautifully.",
-    image: "/images/product-6.png",
-    href: "/shop?category=v+neck+-+full+length",
-    count: "15 Styles",
-  },
-  {
-    title: "Normal Nighty",
-    subtitle: "Everyday essentials",
-    description: "Simple, comfortable nighties for daily wear. Premium fabric with easy-care prints that stay vibrant.",
-    image: "/images/product-3.png",
-    href: "/shop?category=normal+nighty",
-    count: "10 Styles",
-  },
-  {
-    title: "Full Sleeves",
-    subtitle: "All-season warmth",
-    description: "Full sleeve nightwear in breathable rayon for cooler nights. Elegant prints with cozy coverage.",
-    image: "/images/product-4.png",
-    href: "/shop?category=full+sleeves",
-    count: "9 Styles",
-  },
-  {
-    title: "Feeding Friendly",
-    subtitle: "Designed for new moms",
-    description: "Thoughtfully designed nightwear with easy access for nursing mothers. Comfort meets functionality.",
-    image: "/images/product-2.png",
-    href: "/shop?category=feeding+friendly",
-    count: "14 Styles",
-  },
-  {
-    title: "V Neck - Ankle Length",
-    subtitle: "Modern cut",
-    description: "Ankle-length V neck nighties for a modern, flattering fit. Perfect for those who prefer a shorter hemline.",
+    title: "Baby Accessories",
+    subtitle: "Boutique details",
+    description: "From matching hairbows and headbands to organic bibs, socks, and cozy caps to complete your little one's boutique look.",
     image: "/images/product-5.png",
-    href: "/shop?category=v+neck+-+ankle",
-    count: "11 Styles",
+    href: "/shop?category=accessories",
+    count: "12 Styles",
   },
   {
-    title: "Lace Detailed",
-    subtitle: "Luxury accents",
-    description: "Nightwear adorned with delicate lace details. A touch of luxury for those special moments of rest.",
-    image: "/images/product-1.png",
-    href: "/shop?category=lace+detailed",
-    count: "7 Styles",
+    title: "Toys & Soft Play",
+    subtitle: "Safe play",
+    description: "Hypoallergenic plush toys, soft cotton playthings, and sensory items made with child-safe materials for comfort and early development.",
+    image: "/images/product-6.png",
+    href: "/shop?category=toys",
+    count: "10 Styles",
   },
 ]
 
@@ -83,8 +67,8 @@ export default function CollectionsPage() {
         <div className="md:hidden px-4 pt-3 pb-4">
           <div className="relative rounded-2xl overflow-hidden aspect-[16/9]">
             <Image
-              src="/images/product-5.png"
-              alt="JOOHAA LUXE Collections"
+              src="/images/product-1.png"
+              alt="Tiny Trends Collections"
               fill
               className="object-cover object-top"
               sizes="100vw"
@@ -105,8 +89,8 @@ export default function CollectionsPage() {
         {/* Desktop Hero */}
         <div className="hidden md:block relative h-[45vh] lg:h-[55vh]">
           <Image
-            src="/images/product-5.png"
-            alt="JOOHAA LUXE Collections"
+            src="/images/product-1.png"
+            alt="Tiny Trends Collections"
             fill
             className="object-cover object-top"
             sizes="100vw"
@@ -122,7 +106,7 @@ export default function CollectionsPage() {
                 Our Collections
               </h1>
               <p className="mt-4 text-primary-foreground/60 text-sm font-sans max-w-md mx-auto leading-relaxed">
-                Browse our thoughtfully curated collections, each designed around a distinct mood and style.
+                Browse our curated boutique ranges for girls, boys, and newborns, crafted with premium fabrics and delightful designs.
               </p>
             </div>
           </div>
@@ -217,17 +201,19 @@ export default function CollectionsPage() {
       <section className="py-10 md:py-16 lg:py-20 px-4 md:px-12 bg-primary">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-xl md:text-3xl lg:text-4xl text-primary-foreground tracking-tight italic">
-            Cannot decide? Start with our best sellers.
+            Need sizing advice? Reach out on WhatsApp.
           </h2>
           <p className="mt-2 md:mt-4 text-primary-foreground/50 text-xs md:text-sm font-sans leading-relaxed">
-            Our most-loved pieces chosen by thousands of happy customers.
+            Our team will guide you to select the perfect fit for your growing child.
           </p>
-          <Link
-            href="/shop?sort=popular"
+          <a
+            href="https://wa.me/918129780324?text=Hi%20Tiny%20Trends%2C%20I%20would%20like%20to%20get%20some%20help%20with%20sizing%20my%20child."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center mt-5 md:mt-8 px-6 md:px-8 py-2.5 md:py-3.5 bg-accent text-accent-foreground text-[11px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium font-sans rounded-full hover:bg-accent/90 transition-all duration-300"
           >
-            Shop Best Sellers
-          </Link>
+            Chat with Size Advisor
+          </a>
         </div>
       </section>
 

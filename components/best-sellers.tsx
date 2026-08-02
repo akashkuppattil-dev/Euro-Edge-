@@ -1,52 +1,11 @@
 import { ProductCard } from "./product-card"
+import { allProducts } from "@/lib/products"
 import Link from "next/link"
 
-const products = [
-  {
-    id: "5",
-    name: "Black Dahlia V Neck Full Length Nighty",
-    price: 1699,
-    originalPrice: 2499,
-    image: "/images/product-6.png",
-    hoverImage: "/images/product-5.png",
-    badge: "Best Seller",
-    slug: "black-dahlia-v-neck-full-length",
-    rating: 4.9,
-  },
-  {
-    id: "6",
-    name: "Blue Rose Full Sleeves Kaftan",
-    price: 1399,
-    originalPrice: 1999,
-    image: "/images/product-4.png",
-    hoverImage: "/images/product-3.png",
-    badge: "Best Seller",
-    slug: "blue-rose-full-sleeves-kaftan",
-    rating: 4.8,
-  },
-  {
-    id: "7",
-    name: "Teal Feeding Friendly Kaftan Maxi",
-    price: 1499,
-    originalPrice: 2199,
-    image: "/images/product-2.png",
-    badge: "Popular",
-    slug: "teal-feeding-friendly-kaftan",
-    rating: 4.7,
-  },
-  {
-    id: "8",
-    name: "Blue Gingham Pajama Set - Lace Detailed",
-    price: 1299,
-    originalPrice: 1899,
-    image: "/images/product-1.png",
-    badge: "Popular",
-    slug: "blue-gingham-pajama-lace",
-    rating: 4.6,
-  },
-]
-
 export function BestSellers() {
+  // Pull products marked as Best Seller, Premium, or Festive
+  const bestSellers = allProducts.filter((p) => p.badge === "Best Seller" || p.badge === "Premium" || p.badge === "Festive" || p.id === "1" || p.id === "2" || p.id === "8").slice(0, 5)
+
   return (
     <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -68,8 +27,8 @@ export function BestSellers() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6">
-          {products.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4">
+          {bestSellers.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
         </div>

@@ -4,32 +4,32 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* JOOHAA LUXE - Warm Off-White & Deep Navy Luxury Palette */
-  --background: #f8f6f3;
-  --foreground: #1a1a1a;
+  /* Tiny Trends - Soft Cream & Blush Pink Premium Palette */
+  --background: #faf8f5;
+  --foreground: #1c2b38;
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #1c2b38;
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: #0f1a2b;
-  --primary-foreground: #f8f6f3;
-  --secondary: #f0ece6;
-  --secondary-foreground: #0f1a2b;
-  --muted: #f0ece6;
-  --muted-foreground: #6b6560;
-  --accent: #c9a96e;
-  --accent-foreground: #0f1a2b;
+  --popover-foreground: #1c2b38;
+  --primary: #1c2b38;
+  --primary-foreground: #faf8f5;
+  --secondary: #f7edea;
+  --secondary-foreground: #1c2b38;
+  --muted: #f7edea;
+  --muted-foreground: #7c6f6c;
+  --accent: #f5d6d1;
+  --accent-foreground: #1c2b38;
   --destructive: #dc2626;
   --destructive-foreground: #fef2f2;
-  --border: #e5e0d8;
-  --input: #e5e0d8;
+  --border: #ebdcd9;
+  --input: #ebdcd9;
   --ring: #c9a96e;
-  --chart-1: #0f1a2b;
-  --chart-2: #c9a96e;
-  --chart-3: #6b6560;
-  --chart-4: #f0ece6;
-  --chart-5: #1a1a1a;
-  --radius: 0.5rem;
+  --chart-1: #1c2b38;
+  --chart-2: #f5d6d1;
+  --chart-3: #7c6f6c;
+  --chart-4: #f7edea;
+  --chart-5: #1c2b38;
+  --radius: 1rem;
   --sidebar: #0f1a2b;
   --sidebar-foreground: #f8f6f3;
   --sidebar-primary: #c9a96e;

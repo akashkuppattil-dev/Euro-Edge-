@@ -12,21 +12,21 @@ export default function AboutPage() {
       <section className="relative h-[50vh] lg:h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/product-4.png"
-            alt="About JOOHAA LUXE"
+            src="/images/product-1.png"
+            alt="About Tiny Trends"
             fill
             className="object-cover object-top"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-primary/50" />
+          <div className="absolute inset-0 bg-primary/40" />
         </div>
         <div className="relative z-10 w-full text-center px-4">
           <span className="text-xs tracking-[0.3em] uppercase text-primary-foreground/60 font-sans">
             Our Story
           </span>
           <h1 className="font-serif text-4xl lg:text-6xl text-primary-foreground mt-3 tracking-tight italic">
-            About JOOHAA LUXE
+            About Tiny Trends
           </h1>
         </div>
       </section>
@@ -35,19 +35,13 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 px-4 lg:px-12">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-2xl lg:text-4xl text-foreground tracking-tight leading-snug text-balance">
-            Where Comfort Meets Elegance
+            Dressing Childhood in Premium Comfort
           </h2>
           <p className="mt-6 text-muted-foreground text-base leading-relaxed font-sans">
-            JOOHAA LUXE was born from a simple belief: every woman deserves to feel 
-            beautiful, even in the quiet moments of her day. We create premium nightwear 
-            that blends luxurious imported rayon with timeless design, offering pieces that 
-            are as elegant as they are comfortable.
+            Tiny Trends was born out of a simple promise: to dress your children in premium apparel that combines boutique elegance with everyday comfort. We carefully craft children's garments that are gentle on skin, durable for playtime, and beautiful for making lifelong memories.
           </p>
           <p className="mt-4 text-muted-foreground text-base leading-relaxed font-sans">
-            Each piece in our collection is thoughtfully designed with attention to detail -- 
-            from the softness of the fabric to the beauty of every print. Our maxi nighties 
-            and kaftans are more than sleepwear; they are a statement of self-care and 
-            refined taste.
+            Each piece in our collection—from hand-embroidered girls frocks to sharp casual boy suits and organic baby onesies—is thoughtfully designed with parents and children in mind. We prioritize breathable fabrics, neat tailoring, and simple fits that grow comfortably with your child.
           </p>
         </div>
       </section>
@@ -63,19 +57,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {[
               {
-                title: "Premium Quality",
-                desc: "We use only the finest imported rayon, ensuring every piece feels luxurious against your skin.",
+                title: "Premium Fabrics",
+                desc: "We select only the finest organic cotton, premium linen, and soft fabrics that are hypoallergenic and gentle on young skin.",
               },
               {
-                title: "Thoughtful Design",
-                desc: "Every print, every cut, every stitch is carefully considered to create pieces you will love.",
+                title: "Playful Boutique Style",
+                desc: "Our apparel balances classic, elegant boutique aesthetics with comfortable, flexible fits that don't restrict your child's playtime.",
               },
               {
-                title: "Everyday Luxury",
-                desc: "We believe luxury should be accessible. Premium comfort for every day, not just special occasions.",
+                title: "Parent-Friendly Ordering",
+                desc: "Shopping for kids should be stress-free. Our easy WhatsApp enquiry and ordering flow saves you time and ensures personal service.",
               },
             ].map((item) => (
-              <div key={item.title} className="text-center">
+              <div key={item.title} className="text-center bg-card p-6 rounded-xl border border-border/30 shadow-sm">
                 <h3 className="font-serif text-xl text-foreground">{item.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-sans">
                   {item.desc}
@@ -89,13 +83,13 @@ export default function AboutPage() {
       {/* Image band */}
       <section className="grid grid-cols-3 h-[30vh] lg:h-[40vh]">
         <div className="relative overflow-hidden">
-          <Image src="/images/product-2.png" alt="JOOHAA LUXE collection" fill className="object-cover" sizes="33vw" />
+          <Image src="/images/product-2.png" alt="Tiny Trends kids collection" fill className="object-cover" sizes="33vw" />
         </div>
         <div className="relative overflow-hidden">
-          <Image src="/images/product-5.png" alt="JOOHAA LUXE collection" fill className="object-cover" sizes="33vw" />
+          <Image src="/images/product-5.png" alt="Tiny Trends kids collection" fill className="object-cover" sizes="33vw" />
         </div>
         <div className="relative overflow-hidden">
-          <Image src="/images/product-6.png" alt="JOOHAA LUXE collection" fill className="object-cover" sizes="33vw" />
+          <Image src="/images/product-6.png" alt="Tiny Trends kids collection" fill className="object-cover" sizes="33vw" />
         </div>
       </section>
 

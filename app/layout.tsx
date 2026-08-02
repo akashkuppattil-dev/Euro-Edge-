@@ -14,12 +14,12 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'JOOHAA LUXE | Premium Nightwear for Women',
-  description: 'Discover premium rayon maxi nighties, kaftans, and luxury sleepwear. Crafted for everyday elegance. Free shipping across India.',
-  keywords: ['nightwear', 'maxi nighty', 'kaftan', 'premium sleepwear', 'women nightwear', 'JOOHAA LUXE'],
+  title: "Tiny Trends | Premium Children's Apparel",
+  description: "Discover premium children's fashion, frocks, boy suits, and organic baby onesies. Elegant boutique apparel crafted with love. Shipping across India.",
+  keywords: ["children's apparel", "kids clothing", "baby onesie", "girls frock", "boys suit", "Tiny Trends"],
   openGraph: {
-    title: 'JOOHAA LUXE | Premium Nightwear for Women',
-    description: 'Discover premium rayon maxi nighties, kaftans, and luxury sleepwear.',
+    title: "Tiny Trends | Premium Children's Apparel",
+    description: "Discover premium children's fashion, frocks, boy suits, and organic baby onesies.",
     type: 'website',
   },
   icons: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0f1a2b',
+  themeColor: '#f8f6f3',
   width: 'device-width',
   initialScale: 1,
 }
