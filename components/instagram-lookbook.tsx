@@ -15,7 +15,7 @@ export function InstagramLookbook() {
   const handle = "tinytrends_apparel"
 
   return (
-    <section className="py-6 md:py-16 lg:py-24 md:px-12">
+    <section className="py-5 md:py-16 lg:py-24 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-4 md:mb-10 lg:mb-14">
           <a

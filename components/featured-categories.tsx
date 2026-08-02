@@ -36,10 +36,10 @@ const categories = [
 
 export function FeaturedCategories() {
   return (
-    <section className="py-12 md:py-20 px-4 md:px-12 bg-background border-b border-border/30">
+    <section className="py-6 md:py-24 px-4 md:px-16 bg-background border-b border-border/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-5 md:mb-12">
           <span className="text-xs tracking-[0.25em] uppercase text-accent-foreground/60 font-sans font-bold">
             Explore
           </span>
@@ -51,8 +51,8 @@ export function FeaturedCategories() {
           </p>
         </div>
 
-        {/* Circular Chips - Scrollable on mobile, grid of 6 on desktop */}
-        <div className="flex md:grid md:grid-cols-6 items-center md:justify-items-center gap-6 overflow-x-auto scrollbar-hide py-4 px-2 md:overflow-visible md:py-0 md:px-0">
+        {/* Circular Chips - Scrollable on mobile, flex-wrap centered on desktop */}
+        <div className="flex items-center gap-5 md:gap-12 lg:gap-16 overflow-x-auto scrollbar-hide py-2 md:py-6 md:flex-wrap md:justify-center px-2 md:px-0">
           {categories.map((cat) => (
             <Link
               key={cat.title}
@@ -60,7 +60,7 @@ export function FeaturedCategories() {
               className="group flex flex-col items-center flex-shrink-0 text-center cursor-pointer select-none"
             >
               {/* Circle Image Wrapper */}
-              <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/60 hover:border-accent shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="relative w-20 h-20 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-border/50 hover:border-[#d49b91] shadow-md hover:shadow-lg transition-all duration-300">
                 <Image
                   src={cat.image}
                   alt={cat.title}

@@ -37,7 +37,7 @@ export function ShopByAge() {
   const [activeTab, setActiveTab] = useState<TabType>("Girls")
 
   return (
-    <section className="py-6 md:py-16 lg:py-24 px-4 md:px-12 bg-secondary/30">
+    <section className="py-5 md:py-16 lg:py-24 px-4 md:px-12 bg-secondary/30">
       <div className="max-w-4xl mx-auto text-center">
         <span className="text-xs tracking-[0.25em] uppercase text-accent-foreground/60 font-sans font-bold">
           Quick Finder

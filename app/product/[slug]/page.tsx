@@ -53,46 +53,42 @@ export default function ProductDetailPage({ params }: { params: any }) {
       return
     }
 
-    const message = `Hello Tiny Trends,
+    const productUrl = typeof window !== "undefined" ? window.location.href : ""
+    const imageUrl = typeof window !== "undefined" ? `${window.location.origin}${product.image}` : product.image
 
-I'm interested in the following product:
+    const message = `Hello Tiny Trends! 👋
 
-• Product: ${product.name}
-• Category: ${product.category}
-• Size: ${selectedSize}
-• Colour: Standard
+I'd like to order the following:
 
-Please let me know its availability.`
+🛍️ *${product.name}*
+📏 Size: ${selectedSize}
+🔢 Quantity: ${quantity}
+💰 Price: Rs. ${product.price.toLocaleString("en-IN")}
 
-    // Attempt to share the actual image file using the Web Share API (supported on mobile browsers)
+🔗 Product Link: ${productUrl}
+🖼️ Image: ${imageUrl}
+
+Please confirm availability and payment details. Thank you!`
+
+    // Try Web Share API with image file (mobile browsers)
     if (typeof navigator !== "undefined" && navigator.share && navigator.canShare) {
       try {
         const response = await fetch(product.image)
         const blob = await response.blob()
-        const file = new File([blob], `${product.slug}.png`, { type: blob.type })
+        const file = new File([blob], `${product.slug}.${blob.type.split("/")[1] || "png"}`, { type: blob.type })
 
         if (navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: product.name,
-            text: message,
-          })
+          await navigator.share({ files: [file], title: product.name, text: message })
           return
         }
       } catch (err) {
-        console.error("Web Share failed, falling back to URL link:", err)
+        console.warn("Web Share with image failed, using WhatsApp URL:", err)
       }
     }
 
-    // Fallback for desktop or unsupported browsers (wa.me text link with rich preview URL fallback)
-    const fallbackMessage = `${message}
-
-• Product Image: ${window.location.origin}${product.image}
-• Product Link: ${window.location.href}`
-
-    const encoded = encodeURIComponent(fallbackMessage)
-    const url = `https://wa.me/918129780324?text=${encoded}`
-    window.open(url, "_blank")
+    // Fallback: open WhatsApp with full message (desktop + unsupported mobile)
+    const encoded = encodeURIComponent(message)
+    window.open(`https://wa.me/918129780324?text=${encoded}`, "_blank")
   }
 
   // Get related products from the same section, excluding current product

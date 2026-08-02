@@ -21,7 +21,7 @@ const features = [
 
 export function FabricStory() {
   return (
-    <section className="py-6 md:py-16 lg:py-24 px-3 md:px-12 bg-secondary">
+    <section className="py-5 md:py-16 lg:py-24 px-3 md:px-12 bg-secondary">
       <div className="max-w-7xl mx-auto">
         {/* Mobile - Compact stacked */}
         <div className="md:hidden">

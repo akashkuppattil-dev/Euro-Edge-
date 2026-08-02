@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Search, Heart, ShoppingBag, User, Menu, X, ChevronRight } from "lucide-react"
@@ -24,11 +24,23 @@ const categories = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [visible, setVisible] = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const lastScrollRef = useRef(0)
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20)
+    const handler = () => {
+      const currentY = window.scrollY
+      setScrolled(currentY > 20)
+      // Hide on scroll down, show on scroll up
+      if (currentY > lastScrollRef.current + 6 && currentY > 80) {
+        setVisible(false)
+      } else if (currentY < lastScrollRef.current - 4) {
+        setVisible(true)
+      }
+      lastScrollRef.current = currentY
+    }
     window.addEventListener("scroll", handler, { passive: true })
     return () => window.removeEventListener("scroll", handler)
   }, [])
@@ -49,7 +61,8 @@ export function Header() {
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-card/95 backdrop-blur-md shadow-sm" : "bg-card"
-        }`}
+        } ${visible ? "translate-y-0" : "-translate-y-full"}`}
+        style={{ transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s, box-shadow 0.3s" }}
       >
         {/* Desktop Header */}
         <div className="hidden md:block border-b border-border/30">
@@ -68,14 +81,15 @@ export function Header() {
               </Link>
 
               {/* Nav - Center */}
-              <nav className="flex items-center gap-16">
+              <nav className="flex items-center gap-12">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-xs tracking-[0.12em] uppercase text-foreground/70 hover:text-foreground font-sans transition-colors"
+                    className="font-script text-[17px] text-[#c4857b]/80 hover:text-[#c4857b] transition-colors duration-200 relative group leading-none"
                   >
                     {link.label}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#d49b91] group-hover:w-full transition-all duration-300" />
                   </Link>
                 ))}
               </nav>
@@ -120,32 +134,39 @@ export function Header() {
           )}
         </div>
 
-        {/* Mobile Header - Logo left, icons + menu right */}
+        {/* Mobile Header - Logo left, Brand name center (script), icons right */}
         <div className="md:hidden border-b border-border/30">
-          <div className="flex items-center justify-between px-4 py-2.5">
+          <div className="grid grid-cols-3 items-center px-3 py-2">
             {/* Logo - Left */}
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0 justify-self-start">
               <Image
                 src="/images/logo.png"
                 alt="Tiny Trends"
-                width={80}
-                height={32}
-                className="h-8 w-auto object-contain"
+                width={56}
+                height={28}
+                className="h-7 w-auto object-contain"
                 priority
               />
             </Link>
 
-            {/* Icons + Menu - Right */}
-            <div className="flex items-center gap-1">
+            {/* Brand name - Center in script font */}
+            <Link href="/" className="justify-self-center">
+              <span className="font-script text-[22px] leading-none text-[#c4857b] whitespace-nowrap">
+                Tiny Trends
+              </span>
+            </Link>
+
+            {/* Icons - Right */}
+            <div className="flex items-center gap-1 justify-self-end">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="text-foreground/70 p-1.5"
                 aria-label="Search"
               >
-                <Search className="w-[18px] h-[18px]" />
+                <Search className="w-[17px] h-[17px]" />
               </button>
               <Link href="/cart" className="relative text-foreground/70 p-1.5" aria-label="Cart">
-                <ShoppingBag className="w-[18px] h-[18px]" />
+                <ShoppingBag className="w-[17px] h-[17px]" />
                 <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-accent text-accent-foreground text-[8px] font-semibold rounded-full flex items-center justify-center font-sans">
                   0
                 </span>

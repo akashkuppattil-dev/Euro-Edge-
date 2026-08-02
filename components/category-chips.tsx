@@ -14,7 +14,7 @@ const categories = [
 
 export function CategoryChips() {
   return (
-    <section className="py-6 md:py-10 px-4 md:px-12 bg-background border-b border-border/20">
+    <section className="py-3 md:py-10 px-4 md:px-12 bg-background border-b border-border/20">
       <div className="max-w-7xl mx-auto">
         
         {/* Horizontal scroll on mobile, flex grid on desktop */}
