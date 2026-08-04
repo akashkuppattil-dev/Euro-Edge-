@@ -5,14 +5,15 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BottomNav } from "@/components/bottom-nav"
-import { Facebook, Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react"
+import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Globe, Building } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    service: "",
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
@@ -23,160 +24,157 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="pb-16 md:pb-0">
+    <main className="pb-16 md:pb-0 bg-background text-foreground font-sans min-h-screen">
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[40vh] lg:h-[50vh] flex items-center overflow-hidden">
+      <section className="relative h-[40vh] lg:h-[50vh] flex items-center overflow-hidden bg-background text-foreground border-b border-border">
         <div className="absolute inset-0">
           <Image
-            src="/images/product-3.png"
-            alt="Contact Tiny Trends"
+            src="/images/hero-dubai.png"
+            alt="Contact Euro Edge Technical Services L.L.C."
             fill
-            className="object-cover object-top"
-            sizes="100vw"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-primary/55" />
+          <div className="absolute inset-0 bg-background/70" />
         </div>
-        <div className="relative z-10 w-full text-center px-4">
-          <span className="text-xs tracking-[0.3em] uppercase text-primary-foreground/60 font-sans">
+        <div className="relative z-10 w-full text-center px-4 max-w-4xl mx-auto">
+          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans font-bold">
             Get In Touch
           </span>
-          <h1 className="font-serif text-4xl lg:text-6xl text-primary-foreground mt-3 tracking-tight italic">
-            Contact Us
+          <h1 className="font-serif text-4xl lg:text-6xl text-foreground mt-3 tracking-tight italic">
+            Contact Euro Edge
           </h1>
-          <p className="mt-4 text-primary-foreground/60 text-sm font-sans max-w-md mx-auto leading-relaxed">
-            We would love to hear from you. Reach out for sizing queries, custom styling, or order help.
+          <p className="mt-4 text-muted-foreground text-sm font-sans max-w-lg mx-auto leading-relaxed">
+            Reach out for project inquiries, technical evaluations, MEP consultations, or emergency facility support in Dubai.
           </p>
         </div>
       </section>
 
       {/* Contact Info + Form */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12">
+      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left - Contact Details */}
           <div>
-            <span className="text-xs tracking-[0.3em] uppercase text-accent font-sans">
-              Reach Out
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans font-bold">
+              Engineering Assistance
             </span>
             <h2 className="font-serif text-3xl lg:text-4xl text-foreground mt-3 tracking-tight">
-              We are here to help
+              We are ready to assist your projects
             </h2>
             <p className="mt-4 text-muted-foreground text-base leading-relaxed font-sans max-w-md">
-              Whether you need help selecting the perfect size for your child, need styling suggestions, or want to place a custom order, we are ready to assist.
+              Whether you need project estimations, technical consultations, or facility management support, our engineering team is ready to assist.
             </p>
 
             <div className="mt-10 flex flex-col gap-6">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-foreground font-sans">Phone / WhatsApp</h3>
-                  <a href="tel:+918129780324" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-foreground transition-colors">
-                    +91 81297 80324
+                  <h3 className="text-sm font-bold text-foreground font-sans">Phone / WhatsApp</h3>
+                  <a href="tel:+9710543909946" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors">
+                    +971 054 390 9946
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-full flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-foreground font-sans">Email</h3>
-                  <a href="mailto:tinytrends189@gmail.com" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-foreground transition-colors">
-                    tinytrends189@gmail.com
+                  <h3 className="text-sm font-bold text-foreground font-sans">General & Operations Email</h3>
+                  <a href="mailto:info@euroedgets.com" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors block">
+                    info@euroedgets.com
+                  </a>
+                  <a href="mailto:pranoy@euroedgets.com" className="text-sm text-muted-foreground font-sans hover:text-primary transition-colors block">
+                    pranoy@euroedgets.com (Operations)
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-full flex items-center justify-center">
-                  <Facebook className="w-5 h-5 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+                  <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-foreground font-sans">Facebook</h3>
-                  <a 
-                    href="https://www.facebook.com/share/1Epwasev5t/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-foreground transition-colors"
-                  >
-                    Tiny Trends Facebook
+                  <h3 className="text-sm font-bold text-foreground font-sans">Official Website</h3>
+                  <a href="https://www.euroedgets.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors">
+                    www.euroedgets.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-foreground font-sans">Location</h3>
+                  <h3 className="text-sm font-bold text-foreground font-sans">Location</h3>
                   <p className="text-sm text-muted-foreground mt-0.5 font-sans">
-                    Karuvankallu, Kondotty,<br />Malappuram, Kerala - 673638
+                    Dubai, United Arab Emirates
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-full flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+                  <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-foreground font-sans">Working Hours</h3>
-                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">Mon - Sat, 9:30 AM - 8:00 PM IST</p>
+                  <h3 className="text-sm font-bold text-foreground font-sans">Working Hours</h3>
+                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">Mon - Sat, 8:00 AM - 6:00 PM GST</p>
                 </div>
               </div>
             </div>
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/918129780324?text=Hi%20Tiny%20Trends%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products."
+              href="https://wa.me/9710543909946?text=Hi%20Euro%20Edge%2C%20I%20would%20like%20to%20inquire%20about%20your%20technical%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-[#25d366] text-white text-xs tracking-[0.15em] uppercase font-medium font-sans rounded-full hover:bg-[#1ebe5a] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg"
+              className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-[#25d366] text-white text-xs tracking-[0.15em] uppercase font-bold font-sans rounded-xl hover:bg-[#1ebe5a] transition-all duration-300 shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
+              Direct WhatsApp Inquiry
             </a>
           </div>
 
           {/* Right - Form */}
-          <div className="bg-card border border-border rounded-2xl p-6 lg:p-10">
+          <div className="bg-card border border-border rounded-2xl p-6 lg:p-10 shadow-sm">
             {submitted ? (
               <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                  <Send className="w-7 h-7 text-accent" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
+                  <Send className="w-7 h-7" />
                 </div>
-                <h3 className="font-serif text-2xl text-foreground">Thank You!</h3>
+                <h3 className="font-serif text-2xl text-foreground font-bold">Thank You!</h3>
                 <p className="mt-3 text-muted-foreground text-sm font-sans max-w-sm leading-relaxed">
-                  Your message has been received. We will get back to you within 24 hours.
+                  Your project inquiry has been received by Euro Edge Technical Services L.L.C. Our engineering team will contact you promptly.
                 </p>
                 <button
                   onClick={() => {
                     setSubmitted(false)
-                    setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
+                    setFormData({ name: "", email: "", phone: "", service: "", message: "" })
                   }}
-                  className="mt-6 text-xs tracking-[0.15em] uppercase text-accent hover:text-accent/80 font-sans font-medium transition-colors"
+                  className="mt-6 text-xs tracking-[0.15em] uppercase text-primary hover:underline font-sans font-semibold transition-colors"
                 >
-                  Send Another Message
+                  Send Another Inquiry
                 </button>
               </div>
             ) : (
               <>
-                <h3 className="font-serif text-2xl text-foreground">Send Us a Message</h3>
+                <h3 className="font-serif text-2xl text-foreground font-bold">Send Us a Technical Inquiry</h3>
                 <p className="mt-2 text-muted-foreground text-sm font-sans">
-                  Fill in the form below and we will respond as soon as possible.
+                  Fill in the details below and our technical team will respond with a quotation.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="text-xs tracking-[0.1em] uppercase text-foreground/70 font-sans mb-2 block">
-                        Full Name
+                      <label htmlFor="name" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
+                        Full Name / Company
                       </label>
                       <input
                         id="name"
@@ -184,13 +182,13 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/30 transition-all"
-                        placeholder="Your name"
+                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                        placeholder="Your name or company"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="text-xs tracking-[0.1em] uppercase text-foreground/70 font-sans mb-2 block">
-                        Email
+                      <label htmlFor="email" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
+                        Email Address
                       </label>
                       <input
                         id="email"
@@ -198,50 +196,60 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/30 transition-all"
-                        placeholder="you@email.com"
+                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                        placeholder="name@company.com"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="phone" className="text-xs tracking-[0.1em] uppercase text-foreground/70 font-sans mb-2 block">
-                        Phone
+                      <label htmlFor="phone" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
+                        Phone / WhatsApp
                       </label>
                       <input
                         id="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/30 transition-all"
-                        placeholder="+91 81297 80324"
+                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                        placeholder="+971 00 000 0000"
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="text-xs tracking-[0.1em] uppercase text-foreground/70 font-sans mb-2 block">
-                        Subject
+                      <label htmlFor="service" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
+                        Select Service Line
                       </label>
                       <select
-                        id="subject"
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        id="service"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/30 transition-all"
+                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
                       >
-                        <option value="">Select a topic</option>
-                        <option value="order">Order Enquiry</option>
-                        <option value="size">Size Selection Help</option>
-                        <option value="bulk">Bulk Order</option>
-                        <option value="exchange">Exchange Sizing</option>
-                        <option value="other">Other</option>
+                        <option value="">Choose a Service Line</option>
+                        <option value="electrical">Electrical Works</option>
+                        <option value="plumbing">Plumbing & Sanitary</option>
+                        <option value="hvac">HVAC & Air-Conditioning</option>
+                        <option value="ceiling">False Ceiling & Partitions</option>
+                        <option value="tiling">Floor & Wall Tiling</option>
+                        <option value="carpentry">Carpentry & Wood Flooring</option>
+                        <option value="pool">Swimming Pool Maintenance</option>
+                        <option value="kitchen">Kitchen Installation</option>
+                        <option value="glass">Aluminium & Glass</option>
+                        <option value="building">Building Maintenance</option>
+                        <option value="mep">MEP Contracting</option>
+                        <option value="civil">Civil Maintenance</option>
+                        <option value="facility">Facility Management</option>
+                        <option value="industrial">Industrial Maintenance</option>
+                        <option value="other">General Technical Inquiry</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="text-xs tracking-[0.1em] uppercase text-foreground/70 font-sans mb-2 block">
-                      Message
+                    <label htmlFor="message" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
+                      Project Details & Requirements
                     </label>
                     <textarea
                       id="message"
@@ -249,17 +257,17 @@ export default function ContactPage() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/30 transition-all resize-none"
-                      placeholder="Tell us how we can help..."
+                      className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+                      placeholder="Specify project scope, location, and technical requirements..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase font-medium font-sans rounded-lg hover:bg-primary/90 transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase font-bold font-sans rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-sm"
                   >
                     <Send className="w-4 h-4" />
-                    Send Message
+                    Submit Technical Inquiry
                   </button>
                 </form>
               </>
@@ -268,75 +276,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Store Location Map */}
-      <section className="py-12 md:py-16 px-4 lg:px-12 bg-background border-t border-border/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
-            <span className="text-xs tracking-[0.25em] uppercase text-accent-foreground/60 font-sans font-bold">
-              Visit Our Boutique
-            </span>
-            <h2 className="font-serif text-2xl lg:text-4xl text-foreground mt-3 tracking-tight">
-              Store Location
-            </h2>
-            <p className="mt-2 text-muted-foreground text-sm font-sans">
-              Come see our collections in person at Karuvankallu, Kondotty
-            </p>
-          </div>
-          <div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-md border border-border/50 bg-secondary/30 flex items-center justify-center group">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15664.120531779835!2d75.95551381395897!3d11.148154869818818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64e43e7401d51%3A0xe21f4de370e0f2f1!2sKondotty%2C%20Kerala%20673638!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-            />
-            <div className="absolute bottom-5 left-5 bg-card border border-border rounded-xl px-4 py-3 shadow-md pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
-              <p className="text-xs text-accent font-sans font-semibold tracking-wider uppercase">Tiny Trends Boutique</p>
-              <p className="text-sm text-foreground font-serif mt-0.5">Karuvankallu, Kondotty</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Quick Section */}
-      <section className="py-16 lg:py-20 px-4 lg:px-12 bg-secondary">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-2xl lg:text-4xl text-foreground tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <div className="mt-10 flex flex-col gap-6 text-left">
-            {[
-              {
-                q: "What is your exchange policy?",
-                a: "Since sizing can be tricky for growing kids, we offer simple exchanges for sizing. If a garment doesn't fit your child, simply contact us within 7 days of delivery and we will coordinate an exchange size for you.",
-              },
-              {
-                q: "Do you ship across India?",
-                a: "Yes! We offer shipping all across India, with extra fast local shipping in Kerala (especially Malappuram districts). Orders are dispatched within 24 hours.",
-              },
-              {
-                q: "What payment options do you support?",
-                a: "Since orders are confirmed directly on WhatsApp, you can pay easily using UPI (GPay, PhonePe, Paytm), direct bank transfers, or Cash on Delivery.",
-              },
-              {
-                q: "How do I choose the correct size?",
-                a: "Our items are sized by age groups (like 3-4 Years, 5-6 Years) or month groups for babies. If your child is in-between sizes, we recommend sizing up for a comfortable fit.",
-              },
-            ].map((faq) => (
-              <div key={faq.q} className="bg-card border border-border rounded-xl p-5 lg:p-6">
-                <h3 className="text-sm font-medium text-foreground font-sans">{faq.q}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-sans">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Footer />
       <BottomNav />
+      <StickyContactWidget />
     </main>
   )
 }

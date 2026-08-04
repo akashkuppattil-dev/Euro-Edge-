@@ -1,0 +1,37 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+  
+  <!-- High Voltage Circuit & Power Grid -->
+  <g opacity="0.15" stroke="#fbbf24" stroke-width="1.5">
+    <path d="M100 100 H300 V250 H500 V100 H700"/>
+    <path d="M100 350 H400 V200 H700"/>
+    <circle cx="300" cy="250" r="8" fill="#fbbf24"/>
+    <circle cx="500" cy="100" r="8" fill="#fbbf24"/>
+    <circle cx="400" cy="200" r="8" fill="#fbbf24"/>
+  </g>
+
+  <!-- Electrical Power Panel & Bolt Badge -->
+  <g transform="translate(400, 190)">
+    <rect x="-100" y="-85" width="200" height="170" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#fbbf24" stroke-width="3.5"/>
+    <circle cx="0" cy="-5" r="50" stroke="url(#accent)" stroke-width="4" fill="#0f172a"/>
+    <!-- Lightning Bolt -->
+    <path d="M-6 -30 L12 -5 L-2 3 L14 30 L-12 5 L0 -3 Z" fill="#fbbf24" stroke="none"/>
+  </g>
+
+  <!-- Title Badge -->
+  <rect x="50" y="380" width="700" height="80" rx="12" fill="#0f172a" fill-opacity="0.85" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="80" y="422" font-family="system-ui, sans-serif" font-weight="800" font-size="24" fill="#ffffff" letter-spacing="1">ELECTRICAL WORKS</text>
+  <text x="80" y="445" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#fde68a" letter-spacing="0.5">Power Wiring • Distribution Switchgears • Panel Testing &amp; Commissioning • Dubai, UAE</text>
+</svg>

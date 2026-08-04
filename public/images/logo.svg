@@ -1,0 +1,58 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Metallic Blue Gradients -->
+    <linearGradient id="blueMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="blueLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Metallic Silver Gradients -->
+    <linearGradient id="silverMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="35%" stop-color="#cbd5e1" />
+      <stop offset="70%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <linearGradient id="silverHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Metallic Circular Swoop Ring -->
+  <!-- Left Blue Swoop Arch -->
+  <path d="M250 35 C130 35 35 130 35 250 C35 370 130 465 250 465 C320 465 385 430 425 375 L380 345 C350 385 300 410 250 410 C160 410 90 340 90 250 C90 160 160 90 250 90 C300 90 345 112 375 148 L415 115 C375 65 315 35 250 35 Z" fill="url(#blueMain)" />
+  
+  <!-- Outer Chrome Edge Ring Accent -->
+  <path d="M250 20 C120 20 15 125 15 255 C15 385 120 480 250 480 C325 480 395 445 440 385 L420 370 C380 420 320 450 250 450 C135 450 45 360 45 245 C45 130 135 40 250 40 C310 40 365 65 405 105 L425 90 C380 45 320 20 250 20 Z" fill="url(#silverMain)" opacity="0.9"/>
+
+  <!-- Left Blue "E" Emblem -->
+  <g transform="translate(130, 150)">
+    <!-- Slanted Blue E Body -->
+    <path d="M20 0 H115 C125 0 130 8 125 18 L100 185 C95 195 85 200 75 200 H0 L20 0 Z" fill="url(#blueMain)" />
+    <!-- Blue E Cutouts -->
+    <path d="M50 35 H105 L95 80 H45 Z" fill="url(#blueLight)" opacity="0.9"/>
+    <path d="M40 115 H90 L80 165 H30 Z" fill="url(#blueLight)" opacity="0.9"/>
+  </g>
+
+  <!-- Right Silver Chrome "E" Wing Bars -->
+  <g transform="translate(260, 160)">
+    <!-- Top Silver Wing -->
+    <path d="M15 0 H140 C155 0 160 8 145 22 L115 48 H0 L15 0 Z" fill="url(#silverMain)" />
+    <path d="M15 0 H140 L135 8 H10 Z" fill="url(#silverHighlight)" />
+
+    <!-- Middle Silver Wing -->
+    <path d="M0 65 H125 C140 65 145 73 130 87 L100 113 H-15 L0 65 Z" fill="url(#silverMain)" />
+    <path d="M0 65 H125 L120 73 H-5 Z" fill="url(#silverHighlight)" />
+
+    <!-- Bottom Silver Wing -->
+    <path d="-M15 130 H110 C125 130 130 138 115 152 L85 178 H-30 L-15 130 Z" fill="url(#silverMain)" />
+    <path d="-M15 130 H110 L105 138 H-20 Z" fill="url(#silverHighlight)" />
+  </g>
+</svg>

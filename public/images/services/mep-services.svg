@@ -1,0 +1,52 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+  
+  <!-- Technical Blueprint Grid Lines -->
+  <g opacity="0.15" stroke="#38bdf8" stroke-width="1.5">
+    <circle cx="400" cy="200" r="140"/>
+    <circle cx="400" cy="200" r="90"/>
+    <line x1="100" y1="200" x2="700" y2="200"/>
+    <line x1="400" y1="50" x2="400" y2="350"/>
+  </g>
+
+  <!-- Triple MEP Badge Motif (Mechanical Gear + Electrical Bolt + Plumbing Drop) -->
+  <g transform="translate(400, 190)">
+    <!-- Mechanical Gear -->
+    <g transform="translate(-100, 0)" stroke="#38bdf8" stroke-width="5" fill="#0f172a" fill-opacity="0.8">
+      <circle cx="0" cy="0" r="45"/>
+      <path d="M-15 -15 L15 15 M-15 15 L15 -15" stroke="#38bdf8" stroke-width="6"/>
+      <text x="0" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="14" fill="#38bdf8" text-anchor="middle">MECHANICAL</text>
+    </g>
+
+    <!-- Electrical Lightning Bolt -->
+    <g transform="translate(0, 0)" stroke="#fbbf24" stroke-width="5" fill="#0f172a" fill-opacity="0.8">
+      <circle cx="0" cy="0" r="45"/>
+      <path d="M-5 -25 L10 -5 L-2 2 L12 25 L-10 5 L2 -2 Z" fill="#fbbf24" stroke="none"/>
+      <text x="0" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="14" fill="#fbbf24" text-anchor="middle">ELECTRICAL</text>
+    </g>
+
+    <!-- Plumbing Water Drop -->
+    <g transform="translate(100, 0)" stroke="#60a5fa" stroke-width="5" fill="#0f172a" fill-opacity="0.8">
+      <circle cx="0" cy="0" r="45"/>
+      <path d="M0 -22 C-15 5 -20 15 0 25 C20 15 15 5 0 -22 Z" fill="#60a5fa" stroke="none"/>
+      <text x="0" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="14" fill="#60a5fa" text-anchor="middle">PLUMBING</text>
+    </g>
+  </g>
+
+  <!-- Title Badge -->
+  <rect x="50" y="380" width="700" height="80" rx="12" fill="#0f172a" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80" y="422" font-family="system-ui, sans-serif" font-weight="800" font-size="24" fill="#ffffff" letter-spacing="1">MEP SERVICES (CONTRACTING &amp; MAINTENANCE)</text>
+  <text x="80" y="445" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#bae6fd" letter-spacing="0.5">Integrated Mechanical, Electrical &amp; Plumbing Engineering • Dubai, UAE</text>
+</svg>

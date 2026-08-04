@@ -1,0 +1,45 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.1" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- Industrial Plant / Gear Motif -->
+  <g transform="translate(400, 220)" stroke="url(#accent)" stroke-width="6" fill="none" opacity="0.85">
+    <!-- Factory Silhouette Background -->
+    <path d="M-220 120 L-220 -20 L-160 20 L-160 -40 L-100 0 L-100 -80 L-20 -40 L-20 120 Z" stroke="#38bdf8" stroke-width="3" fill="#0f172a" fill-opacity="0.5"/>
+    <path d="M20 120 L20 -60 L80 -20 L80 -80 L140 -40 L140 120 Z" stroke="#38bdf8" stroke-width="3" fill="#0f172a" fill-opacity="0.5"/>
+    
+    <!-- Central Heavy Gear -->
+    <circle cx="0" cy="0" r="75" stroke="url(#accent)" stroke-width="12" />
+    <circle cx="0" cy="0" r="35" fill="url(#accent)" fill-opacity="0.2" />
+    <path d="M-10 0 L10 0 M0 -10 L0 10" stroke="#ffffff" stroke-width="8"/>
+  </g>
+
+  <!-- Title & Subtitle Badge -->
+  <rect x="50" y="380" width="700" height="80" rx="12" fill="#0f172a" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80" y="422" font-family="system-ui, sans-serif" font-weight="800" font-size="24" fill="#ffffff" letter-spacing="1">INDUSTRIAL MAINTENANCE</text>
+  <text x="80" y="445" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#94a3b8" letter-spacing="0.5">Heavy Machinery • Plant Equipment • Warehouse Infrastructure • Dubai, UAE</text>
+</svg>

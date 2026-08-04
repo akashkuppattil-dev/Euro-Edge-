@@ -1,0 +1,37 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+  
+  <!-- Pipe Network Blueprint Lines -->
+  <g opacity="0.15" stroke="#38bdf8" stroke-width="2">
+    <path d="M100 150 H300 V300 H550 V100 H700"/>
+    <path d="M150 380 V200 H450 V380 H650"/>
+    <circle cx="300" cy="300" r="10" fill="#38bdf8"/>
+    <circle cx="550" cy="100" r="10" fill="#38bdf8"/>
+    <circle cx="450" cy="200" r="10" fill="#22d3ee"/>
+  </g>
+
+  <!-- Plumbing Water Drop & Pipe Valve Badge -->
+  <g transform="translate(400, 190)">
+    <rect x="-100" y="-85" width="200" height="170" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#38bdf8" stroke-width="3.5"/>
+    <circle cx="0" cy="-5" r="50" stroke="url(#accent)" stroke-width="4" fill="#0f172a"/>
+    <!-- Water Drop -->
+    <path d="M0 -30 C-22 5 -30 20 0 35 C30 20 22 5 0 -30 Z" fill="#38bdf8" stroke="none"/>
+  </g>
+
+  <!-- Title Badge -->
+  <rect x="50" y="380" width="700" height="80" rx="12" fill="#0f172a" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80" y="422" font-family="system-ui, sans-serif" font-weight="800" font-size="24" fill="#ffffff" letter-spacing="1">PLUMBING &amp; SANITARY</text>
+  <text x="80" y="445" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#bae6fd" letter-spacing="0.5">Water Supply Piping • Drainage Networks • Sanitaryware Fittings • Dubai, UAE</text>
+</svg>
