@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer"
 import { BottomNav } from "@/components/bottom-nav"
 import { FAQSection } from "@/components/faq-section"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { QuoteEstimator } from "@/components/quote-estimator"
 import { servicesData } from "@/lib/services-data"
 import {
   Wrench,
@@ -40,6 +41,7 @@ import {
   Mail,
   ChevronRight,
   ArrowRight,
+  ArrowUpRight,
   Sparkles,
   Check,
   Scale,
@@ -171,145 +173,195 @@ const servicesList = [
     desc: "Maintenance and technical support for industrial facilities and equipment.",
     icon: Factory,
   },
+  {
+    title: "Kitchen Equipment Maintenance",
+    desc: "Preventative and corrective servicing of commercial and heavy-duty kitchen equipment.",
+    icon: Utensils,
+  },
 ]
 
-export default function EuroEdgePage() {
+function EuroEdgePage() {
   return (
     <main className="pb-16 md:pb-0 bg-background text-foreground font-sans">
       <Header />
 
-      {/* HERO SECTION - Direct Text over Background Image */}
-      <section className="relative overflow-hidden bg-background py-12 sm:py-20 lg:py-28 border-b border-border min-h-[520px] flex items-center">
-        {/* Full-Width Technical Service Background Image */}
+      {/* =========================================
+          SIMPLE CLEAN HERO SECTION (No Color Shades / Overlays)
+      ========================================= */}
+      <section className="relative overflow-hidden bg-background py-16 sm:py-24 lg:py-32 border-b border-border flex items-center min-h-[480px] lg:min-h-[540px]">
+        {/* Full-Width Background Image Only */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/services/building-maintenance.jpg"
-            alt="Euro Edge Technical Services Background"
+            src="/images/hero-dubai-skyline.jpg"
+            alt="Dubai Skyline Euro Edge Technical Services"
             fill
-            className="object-cover opacity-85"
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full">
-          <div className="max-w-2xl space-y-5 sm:space-y-6 text-left">
-            {/* Company Title & Motto */}
-            <div className="space-y-2.5 sm:space-y-3">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-foreground leading-[1.15]">
-                Euro Edge <br />
-                <span className="italic text-primary">Technical Services L.L.C.</span>
-              </h1>
+          <div className="max-w-2xl space-y-5 text-left">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-black tracking-tight text-[#0a2540] leading-[1.06]">
+              Engineering That Keeps <br />
+              <span className="text-[#0a2540]">Buildings Moving.</span>
+            </h1>
 
-              <div className="inline-block px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/80 border border-border/80 text-foreground font-serif italic text-sm sm:text-lg shadow-sm">
-                "The Edge of Quality Built on Trust"
-              </div>
-            </div>
-
-            {/* Standard Corporate Company Message */}
-            <p className="text-sm sm:text-lg text-muted-foreground font-sans leading-relaxed">
-              We deliver reliable technical contracting, MEP installations, HVAC systems, civil maintenance, interior fit-outs, and facility management services across Dubai and the UAE.
+            <p className="text-lg sm:text-2xl font-display italic font-bold text-[#0a2540] tracking-wide">
+              "The Edge of Quality Built on Trust"
             </p>
 
-            {/* Primary Action CTA */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <p className="text-sm sm:text-base text-slate-900 font-sans font-medium leading-relaxed max-w-xl">
+              Reliable technical contracting, MEP installations, HVAC climate control, civil maintenance, interior fit-outs, and facility management solutions across Dubai and the UAE.
+            </p>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
               <Link
                 href="/services"
-                className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-display font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2.5 group"
               >
-                <span>Explore Services</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>EXPLORE SERVICES</span>
+                <ArrowRight className="w-4 h-4 text-[#fbb03b] group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-slate-50 text-[#0a2540] border border-slate-300 font-display font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2.5 group"
+              >
+                <span>CONTACT ENGINEERING TEAM</span>
+                <ArrowUpRight className="w-4 h-4 text-[#0a2540] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT US: MISSION & VISION - Premium Redesign */}
-      <section className="py-12 sm:py-20 lg:py-28 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Text & Mission/Vision Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-                  <Building2 className="w-3.5 h-3.5" />
-                  <span>Company Identity &amp; Excellence</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-                  ABOUT EURO EDGE
-                </h2>
-              </div>
+      {/* SIMPLE ABOUT US SECTION - Unboxed Clean Layout */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 lg:px-12 bg-background border-b border-border">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider">
+            <Building2 className="w-3.5 h-3.5" />
+            <span>About Euro Edge</span>
+          </div>
 
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed pl-4 border-l-2 border-primary/80 font-sans">
-                We are committed to delivering reliable, efficient, and professional technical services with a strong focus on quality, safety, and customer satisfaction. Our experienced engineering team and customer-centric approach enable us to build lasting relationships and create value for every project we undertake across Dubai and the UAE.
-              </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
+            Delivering Engineering Excellence Across Dubai
+          </h2>
 
-              {/* Mission & Vision Premium Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {/* Mission Card */}
-                <div className="p-6 rounded-2xl bg-card border border-border/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                  <div>
-                    <div className="flex items-center gap-2.5 mb-3">
-                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
-                        <Target className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-base font-serif font-bold text-foreground group-hover:text-primary transition-colors">
-                        OUR MISSION
-                      </h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      To deliver reliable, innovative, and high-quality technical services that fulfill our clients' needs through excellence, professionalism, safety, and long-term value.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-border/40 flex flex-wrap gap-1.5">
-                    <span className="px-2 py-0.5 rounded-md bg-secondary text-[10px] font-semibold text-muted-foreground">Safety First</span>
-                    <span className="px-2 py-0.5 rounded-md bg-secondary text-[10px] font-semibold text-muted-foreground">Quality Guarantee</span>
-                  </div>
-                </div>
+          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed font-sans max-w-3xl mx-auto">
+            Euro Edge Technical Services L.L.C. is a premier technical contracting company in Dubai, specialized in MEP installations, HVAC climate engineering, civil maintenance, interior fit-outs, and total facility upkeep. Built on a foundation of technical precision, safety compliance, and client trust, our experienced engineering team delivers seamless solutions tailored for private villas, commercial towers, hospitality venues, and industrial complexes.
+          </p>
 
-                {/* Vision Card */}
-                <div className="p-6 rounded-2xl bg-card border border-border/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                  <div>
-                    <div className="flex items-center gap-2.5 mb-3">
-                      <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
-                        <Sparkles className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-base font-serif font-bold text-foreground group-hover:text-primary transition-colors">
-                        OUR VISION
-                      </h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      To become one of the UAE's most trusted technical service providers by delivering next-generation solutions that drive customer satisfaction and asset longevity.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-border/40 flex flex-wrap gap-1.5">
-                    <span className="px-2 py-0.5 rounded-md bg-secondary text-[10px] font-semibold text-muted-foreground">UAE Industry Leader</span>
-                    <span className="px-2 py-0.5 rounded-md bg-secondary text-[10px] font-semibold text-muted-foreground">Next-Gen Contracting</span>
-                  </div>
-                </div>
+          <div className="pt-2">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest hover:underline"
+            >
+              <span>Learn More About Our Team &amp; Capabilities</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4 CORE SERVICE PILLARS SECTION (Elite Living Inspired Vertical Image Cards) */}
+      <section className="py-16 sm:py-24 px-4 lg:px-12 bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider">
+              <Boxes className="w-3.5 h-3.5" />
+              <span>Specialized Technical Pillars</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
+              CORE SERVICE PILLARS
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              Discover our four primary engineering divisions delivering complete end-to-end property care in Dubai.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Pillar 1 */}
+            <div className="relative h-[380px] rounded-3xl overflow-hidden border border-border group shadow-md hover:shadow-2xl transition-all duration-500">
+              <Image
+                src="/images/services/facility-management.jpg"
+                alt="Facility Management & Upkeep"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-3">
+                <h3 className="text-2xl font-serif font-bold text-white">Facility Management</h3>
+                <Link
+                  href="/services/facility-management"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#fbb03b] hover:underline pt-1"
+                >
+                  <span>Explore Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
 
-            {/* Right About Image Column */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl h-[300px] sm:h-[400px] w-full group">
-                <Image
-                  src="/images/about-team.png"
-                  alt="Euro Edge Technical Management Team"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 p-4 sm:p-5 rounded-2xl bg-card/90 backdrop-blur-md border border-border/80 shadow-lg">
-                  <p className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-primary" />
-                    <span>Professional Engineering &amp; Operations</span>
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1 leading-snug">
-                    Dedicated technical management team executing high-standard MEP, HVAC, and civil projects in Dubai.
-                  </p>
-                </div>
+            {/* Pillar 2 */}
+            <div className="relative h-[380px] rounded-3xl overflow-hidden border border-border group shadow-md hover:shadow-2xl transition-all duration-500">
+              <Image
+                src="/images/services/fit-out-renovation.jpg"
+                alt="Fit-Out & Renovation Works"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-3">
+                <h3 className="text-2xl font-serif font-bold text-white">Fit-Out &amp; Renovation</h3>
+                <Link
+                  href="/services/carpentry-flooring"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#fbb03b] hover:underline pt-1"
+                >
+                  <span>Explore Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="relative h-[380px] rounded-3xl overflow-hidden border border-border group shadow-md hover:shadow-2xl transition-all duration-500">
+              <Image
+                src="/images/services/mep-services.jpg"
+                alt="MEP & HVAC Climate Engineering"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-3">
+                <h3 className="text-2xl font-serif font-bold text-white">MEP &amp; HVAC Systems</h3>
+                <Link
+                  href="/services/mep-services"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#fbb03b] hover:underline pt-1"
+                >
+                  <span>Explore Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="relative h-[380px] rounded-3xl overflow-hidden border border-border group shadow-md hover:shadow-2xl transition-all duration-500">
+              <Image
+                src="/images/services/civil-maintenance.jpg"
+                alt="Technical Support & Civil Upkeep"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-3">
+                <h3 className="text-2xl font-serif font-bold text-white">Civil Maintenance</h3>
+                <Link
+                  href="/services/civil-maintenance"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#fbb03b] hover:underline pt-1"
+                >
+                  <span>Explore Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           </div>
@@ -345,9 +397,8 @@ export default function EuroEdgePage() {
                 >
                   {/* Image Column (Left if even, Right if odd) */}
                   <div
-                    className={`lg:col-span-5 relative h-[200px] sm:h-[300px] w-full rounded-2xl overflow-hidden border border-border shadow-sm ${
-                      isEven ? "lg:order-1" : "lg:order-2"
-                    }`}
+                    className={`lg:col-span-5 relative h-[200px] sm:h-[300px] w-full rounded-2xl overflow-hidden border border-border shadow-sm ${isEven ? "lg:order-1" : "lg:order-2"
+                      }`}
                   >
                     <Image
                       src={srv.imageUrl}
@@ -415,10 +466,12 @@ export default function EuroEdgePage() {
           <div className="text-center pt-2 sm:pt-4">
             <Link
               href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl bg-card border border-border text-foreground hover:text-primary font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-4 pl-6 pr-2 py-2 rounded-full bg-white hover:bg-gray-50 border border-gray-200/80 text-foreground font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md group"
             >
-              <span>View All 17 Specialized Services</span>
-              <ArrowRight className="w-4 h-4 text-primary" />
+              <span>View All Specialized Services</span>
+              <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              </div>
             </Link>
           </div>
         </div>
@@ -546,289 +599,166 @@ export default function EuroEdgePage() {
             </div>
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-sm flex-shrink-0"
+              className="w-full sm:w-auto pl-6 pr-2 py-2 rounded-full bg-white hover:bg-gray-50 border border-gray-200/80 text-foreground font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-4 flex-shrink-0 group"
             >
               <span>Partner With Euro Edge</span>
-              <ArrowRight className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              </div>
             </Link>
           </div>
         </div>
       </section>
 
 
-      {/* OUR WORK PROCESS SECTION (10 STEPS DUAL-PHASE PIPELINE) */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10 space-y-16">
+      {/* OUR WORK PROCESS — 5-STEP HORIZONTAL TIMELINE */}
+      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto space-y-14">
+
+          {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
               <ClipboardCheck className="w-3.5 h-3.5" />
-              <span>Step-by-Step Workflow</span>
+              <span>How We Work</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
               OUR WORK PROCESS
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              A streamlined 10-step process engineered for precision, total transparency, and guaranteed on-time delivery.
+              A simple, transparent 5-step process — from first contact to final handover.
             </p>
           </div>
 
-          {/* PHASE 01: EVALUATION & PLANNING */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 pb-3 border-b border-border/80">
-              <span className="text-xs font-bold font-mono tracking-widest text-primary bg-secondary px-3 py-1 rounded-full border border-border">
-                PHASE 01
-              </span>
-              <h3 className="text-lg font-serif font-bold text-foreground tracking-tight">
-                EVALUATION &amp; PROJECT PLANNING (STEPS 01 - 05)
-              </h3>
-            </div>
+          {/* 5-Step Horizontal Timeline */}
+          <div className="relative">
+            {/* Connector line — desktop only */}
+            <div className="hidden lg:block absolute top-10 left-[calc(10%+20px)] right-[calc(10%+20px)] h-0.5 bg-border z-0" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
               {[
-                { num: "01", title: "Enquiry", desc: "Understand client requirements & goals.", icon: HelpCircle },
-                { num: "02", title: "Site Visit", desc: "Site inspection and data collection.", icon: MapPin },
-                { num: "03", title: "Technical Assessment", desc: "Engineering evaluation & review.", icon: Search },
-                { num: "04", title: "Quotation", desc: "Detailed proposal & cost estimation.", icon: FileText },
-                { num: "05", title: "Project Planning", desc: "Resource, schedule & SLA planning.", icon: Settings },
+                {
+                  num: "01",
+                  icon: HelpCircle,
+                  title: "Enquiry",
+                  desc: "Reach out by phone, WhatsApp, or email. Tell us your property type and technical requirement.",
+                },
+                {
+                  num: "02",
+                  icon: Search,
+                  title: "Site Assessment",
+                  desc: "Our engineer visits your site for a detailed inspection and technical evaluation — free of charge.",
+                },
+                {
+                  num: "03",
+                  icon: FileText,
+                  title: "Quotation",
+                  desc: "We prepare a detailed, itemized quotation with timeline, scope, and transparent pricing.",
+                },
+                {
+                  num: "04",
+                  icon: Hammer,
+                  title: "Execution",
+                  desc: "Our certified crews carry out the work with precision, using quality materials and strict safety standards.",
+                },
+                {
+                  num: "05",
+                  icon: Handshake,
+                  title: "Handover",
+                  desc: "Final quality inspection, client walkthrough, documentation, and ongoing after-service support.",
+                },
               ].map((step, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-2xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-black font-mono text-primary group-hover:scale-110 transition-transform">
-                        {step.num}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
-                        <step.icon className="w-5 h-5" />
-                      </div>
+                <div key={i} className="flex flex-col items-center text-center group">
+                  {/* Number Icon Node */}
+                  <div className="relative mb-5">
+                    <div className="w-20 h-20 rounded-full bg-card border-2 border-border group-hover:border-primary transition-all duration-300 flex flex-col items-center justify-center shadow-sm group-hover:shadow-lg">
+                      <step.icon className="w-6 h-6 text-primary mb-0.5" />
+                      <span className="text-[10px] font-black font-mono text-primary/60 tracking-widest">{step.num}</span>
                     </div>
-
-                    <h4 className="font-bold text-foreground text-sm tracking-wide group-hover:text-primary transition-colors">
-                      {step.title}
-                    </h4>
-
-                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed font-sans">
-                      {step.desc}
-                    </p>
+                    {/* Active dot */}
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  <div className="mt-4 pt-2 border-t border-border/40 flex items-center text-[10px] font-bold text-primary uppercase tracking-wider">
-                    <span>Phase 01 Prep</span>
-                    <ChevronRight className="w-3 h-3 ml-1 opacity-70 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  {/* Content */}
+                  <h4 className="font-bold text-foreground text-base font-serif group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed max-w-[180px]">
+                    {step.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* PHASE 02: EXECUTION & QUALITY HANDOVER */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 pb-3 border-b border-border/80">
-              <span className="text-xs font-bold font-mono tracking-widest text-primary bg-secondary px-3 py-1 rounded-full border border-border">
-                PHASE 02
-              </span>
-              <h3 className="text-lg font-serif font-bold text-foreground tracking-tight">
-                PRECISION EXECUTION &amp; QUALITY HANDOVER (STEPS 06 - 10)
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {[
-                { num: "06", title: "Execution", desc: "Precision work using skilled crews.", icon: Hammer },
-                { num: "07", title: "Quality Inspection", desc: "Stage-by-stage quality checks.", icon: ClipboardCheck },
-                { num: "08", title: "Quality Verification", desc: "Testing & final verification.", icon: ShieldCheck },
-                { num: "09", title: "Handover", desc: "Client orientation & handover.", icon: Handshake },
-                { num: "10", title: "After-Sales Support", desc: "Continuous maintenance support.", icon: Headphones },
-              ].map((step, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-2xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-black font-mono text-primary group-hover:scale-110 transition-transform">
-                        {step.num}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
-                        <step.icon className="w-5 h-5" />
-                      </div>
-                    </div>
-
-                    <h4 className="font-bold text-foreground text-sm tracking-wide group-hover:text-primary transition-colors">
-                      {step.title}
-                    </h4>
-
-                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed font-sans">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-2 border-t border-border/40 flex items-center text-[10px] font-bold text-emerald-600 uppercase tracking-wider">
-                    <span>Phase 02 Delivery</span>
-                    <ChevronRight className="w-3 h-3 ml-1 opacity-70 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Workflow Guarantee Footer */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-secondary border border-border text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          {/* Bottom CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-secondary border border-border">
             <div className="flex items-center gap-3 text-left">
               <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
-                <h4 className="text-sm font-bold text-foreground">100% Quality Assurance &amp; Transparent Communication</h4>
-                <p className="text-xs text-muted-foreground">Every step is documented and verified according to Dubai engineering standards.</p>
+                <h4 className="text-sm font-bold text-foreground">Transparent Process, Guaranteed Quality</h4>
+                <p className="text-xs text-muted-foreground">Every project is fully documented and verified to Dubai engineering standards.</p>
               </div>
             </div>
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0"
+              className="w-full sm:w-auto pl-6 pr-2 py-2 rounded-full bg-white hover:bg-gray-50 border border-gray-200/80 text-foreground font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-4 flex-shrink-0 group"
             >
-              <span>Initiate Step 01 Enquiry</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Start Your Enquiry</span>
+              <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              </div>
             </Link>
           </div>
+
         </div>
       </section>
 
-      {/* INDUSTRIES WE SERVE SECTION - Premium Multi-Sector Showcase */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border relative overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10 space-y-10 sm:space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-              <Globe className="w-3.5 h-3.5" />
-              <span>Multi-Sector Expertise</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-              INDUSTRIES WE SERVE
+
+
+
+      {/* CLIENT LOGOS SECTION (Placeholder-Ready Grid) */}
+      <section className="py-12 sm:py-16 px-4 lg:px-12 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary bg-secondary px-3 py-1 rounded-full border border-border">
+              Commercial Partners
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
+              OUR CLIENTS &amp; TRUSTED PARTNERS
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed">
-              Providing comprehensive technical solutions tailored to diverse commercial, residential, and industrial environments across Dubai and the UAE.
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Delivering specialized technical engineering and facility contracts across commercial real estate, hospitality, and residential developments in Dubai.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-4">
+          {/* Logo Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { name: "Residential Villas", tag: "Villas & Homes", icon: Home },
-              { name: "Apartments", tag: "High-Rise Units", icon: Building },
-              { name: "Commercial Buildings", tag: "Towers & Hubs", icon: Building2 },
-              { name: "Offices", tag: "Corporate Suites", icon: Briefcase },
-              { name: "Hotels", tag: "Hospitality", icon: Hotel },
-              { name: "Restaurants", tag: "F&B Outlets", icon: Utensils },
-              { name: "Retail Shops", tag: "Malls & Stores", icon: ShoppingBag },
-              { name: "Warehouses", tag: "Logistics Hubs", icon: Warehouse },
-              { name: "Industrial Facilities", tag: "Plants & Factories", icon: Factory },
-              { name: "Property Management", tag: "Real Estate FM", icon: Boxes },
-              { name: "Swimming Pools", tag: "Leisure Assets", icon: Waves },
-              { name: "Prefab Institutions", tag: "Modular Units", icon: Building },
-              { name: "Healthcare Facilities", tag: "Clinics & Labs", icon: Hospital },
-              { name: "Fit-Out & Renovation", tag: "Turnkey Interiors", icon: Hammer },
-            ].map((ind, i) => (
+              { src: "/images/client-logo-1.png", alt: "Al Barsha Properties" },
+              { src: "/images/client-logo-2.png", alt: "Emirates Facility Group" },
+              { src: "/images/client-logo-3.png", alt: "Gulf Commercial Holdings" },
+              { src: "/images/client-logo-4.png", alt: "Palm Estate Management" },
+              { src: "/images/client-logo-5.png", alt: "Marina Bay Hospitality" },
+              { src: "/images/client-logo-6.png", alt: "Desert Logistics Hub" },
+            ].map((logo) => (
               <div
-                key={i}
-                className="p-3.5 sm:p-5 rounded-2xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-between text-center min-h-[110px] sm:min-h-[140px]"
+                key={logo.alt}
+                className="h-24 rounded-2xl bg-card border border-border flex items-center justify-center p-4 hover:border-primary/40 hover:shadow-md transition-all duration-300 group"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm mb-2 sm:mb-3">
-                  <ind.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <div>
-                  <h3 className="text-[10px] sm:text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-tight uppercase tracking-wider">
-                    {ind.name}
-                  </h3>
-                  <span className="text-[8px] sm:text-[9px] font-semibold text-muted-foreground block mt-0.5 sm:mt-1">
-                    {ind.tag}
-                  </span>
-                </div>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={160}
+                  height={64}
+                  className="object-contain max-h-14 w-auto grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                />
               </div>
             ))}
           </div>
-
-          {/* Sector Coverage Banner */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-card border border-border text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
-            <div className="flex items-center gap-3 text-left">
-              <Building2 className="w-6 h-6 text-primary flex-shrink-0" />
-              <div>
-                <h4 className="text-sm font-bold text-foreground">Custom Technical Scope for Any Property Type</h4>
-                <p className="text-xs text-muted-foreground">Operating across Dubai and all 7 Emirates with specialized technical teams.</p>
-              </div>
-            </div>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm"
-            >
-              <span>Consult Our Sector Team</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* TEAM SECTION */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Leadership & Professionals</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground">OUR TEAM</h2>
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Dedicated professionals committed to operational excellence and client satisfaction.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Pranoydas Mullasseri */}
-            <div className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 text-center group">
-              <div className="w-20 h-20 mx-auto rounded-full bg-secondary border-2 border-primary/20 flex items-center justify-center text-primary text-2xl font-bold mb-4 group-hover:scale-105 transition-transform">
-                PM
-              </div>
-              <h3 className="text-lg font-bold text-foreground">Pranoydas Mullasseri</h3>
-              <p className="text-xs font-semibold text-primary uppercase tracking-wider mt-1">Operations Manager</p>
-              <div className="mt-4 pt-4 border-t border-border space-y-2 text-xs text-muted-foreground">
-                <div className="flex items-center justify-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-primary" />
-                  <a href="tel:+9710543909946" className="hover:text-foreground transition-colors">+971 054 390 9946</a>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-primary" />
-                  <a href="mailto:pranoy@euroedgets.com" className="hover:text-foreground transition-colors">pranoy@euroedgets.com</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Sanal Ponnakkan */}
-            <div className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 text-center group">
-              <div className="w-20 h-20 mx-auto rounded-full bg-secondary border-2 border-border flex items-center justify-center text-primary text-2xl font-bold mb-4 group-hover:scale-105 transition-transform">
-                SP
-              </div>
-              <h3 className="text-lg font-bold text-foreground">Sanal Ponnakkan</h3>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Technical Team</p>
-              <div className="mt-4 pt-4 border-t border-border space-y-2 text-xs text-muted-foreground">
-                <div className="flex items-center justify-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-primary" />
-                  <a href="mailto:sanal@euroedgets.com" className="hover:text-foreground transition-colors">sanal@euroedgets.com</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Sreerag Neerepurath */}
-            <div className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 text-center group">
-              <div className="w-20 h-20 mx-auto rounded-full bg-secondary border-2 border-border flex items-center justify-center text-primary text-2xl font-bold mb-4 group-hover:scale-105 transition-transform">
-                SN
-              </div>
-              <h3 className="text-lg font-bold text-foreground">Sreerag Neerepurath</h3>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Technical Team</p>
-              <div className="mt-4 pt-4 border-t border-border space-y-2 text-xs text-muted-foreground">
-                <div className="flex items-center justify-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-primary" />
-                  <a href="mailto:sreerag@euroedgets.com" className="hover:text-foreground transition-colors">sreerag@euroedgets.com</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
@@ -839,5 +769,7 @@ export default function EuroEdgePage() {
       <BottomNav />
       <StickyContactWidget />
     </main>
-  )
+  );
 }
+export default EuroEdgePage;
+

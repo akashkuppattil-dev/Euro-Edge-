@@ -4,47 +4,47 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Tiny Trends - Soft Cream & Blush Pink Premium Palette */
-  --background: #faf8f5;
-  --foreground: #1c2b38;
+  /* Euro Edge Technical Services - Clean Light Theme Palette */
+  --background: #ffffff;
+  --foreground: #0a2540;
   --card: #ffffff;
-  --card-foreground: #1c2b38;
+  --card-foreground: #0a2540;
   --popover: #ffffff;
-  --popover-foreground: #1c2b38;
-  --primary: #1c2b38;
-  --primary-foreground: #faf8f5;
-  --secondary: #f7edea;
-  --secondary-foreground: #1c2b38;
-  --muted: #f7edea;
-  --muted-foreground: #7c6f6c;
-  --accent: #f5d6d1;
-  --accent-foreground: #1c2b38;
-  --destructive: #dc2626;
-  --destructive-foreground: #fef2f2;
-  --border: #ebdcd9;
-  --input: #ebdcd9;
-  --ring: #c9a96e;
-  --chart-1: #1c2b38;
-  --chart-2: #f5d6d1;
-  --chart-3: #7c6f6c;
-  --chart-4: #f7edea;
-  --chart-5: #1c2b38;
+  --popover-foreground: #0a2540;
+  --primary: #0a2540;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0a2540;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #e2e8f0;
+  --accent-foreground: #0a2540;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #fbb03b;
+  --chart-1: #0a2540;
+  --chart-2: #fbb03b;
+  --chart-3: #64748b;
+  --chart-4: #f1f5f9;
+  --chart-5: #0a2540;
   --radius: 1rem;
-  --sidebar: #0f1a2b;
-  --sidebar-foreground: #f8f6f3;
-  --sidebar-primary: #c9a96e;
-  --sidebar-primary-foreground: #0f1a2b;
-  --sidebar-accent: #1a2a40;
-  --sidebar-accent-foreground: #f8f6f3;
-  --sidebar-border: #1a2a40;
-  --sidebar-ring: #c9a96e;
+  --sidebar: #0a2540;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #fbb03b;
+  --sidebar-primary-foreground: #0a2540;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0a2540;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #fbb03b;
 }
 
 @theme inline {
   --font-sans: var(--font-inter), 'Inter', sans-serif;
-  --font-serif: var(--font-playfair), 'Playfair Display', 'Georgia', serif;
-  --font-script: var(--font-caveat), 'Caveat', cursive;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-serif: var(--font-outfit), 'Outfit', 'Georgia', serif;
+  --font-display: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

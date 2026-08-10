@@ -56,6 +56,32 @@ const iconMap: Record<string, any> = {
   Factory,
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const service = servicesData.find((s) => s.slug === slug)
+  if (!service) return { title: "Service Not Found | Euro Edge" }
+
+  return {
+    title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+    description: service.shortDesc,
+    openGraph: {
+      title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+      description: service.shortDesc,
+      type: "website",
+      url: `https://euro-edge.vercel.app/services/${service.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+      description: service.shortDesc,
+    },
+  }
+}
+
 export async function generateStaticParams() {
   return servicesData.map((s) => ({
     slug: s.slug,

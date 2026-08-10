@@ -32,9 +32,9 @@ import {
 } from "lucide-react"
 
 export const metadata = {
-  title: "17 Technical Services | Euro Edge Technical Services L.L.C. Dubai",
+  title: "Specialized Technical Services | Euro Edge Technical Services L.L.C. Dubai",
   description:
-    "Explore all 17 engineering, maintenance, installation, MEP, civil, and facility management services provided by Euro Edge in Dubai, UAE.",
+    "Explore all specialized engineering, maintenance, installation, MEP, civil, and facility management services provided by Euro Edge in Dubai, UAE.",
 }
 
 const iconMap: Record<string, any> = {
@@ -69,7 +69,7 @@ export default function ServicesPage() {
             Complete Engineering & Contracting Solutions
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground mt-3">
-            Our 17 Specialized Services
+            Our Specialized Services
           </h1>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
             Euro Edge Technical Services L.L.C. delivers comprehensive, high-precision technical services across Dubai and the UAE. Select any service below to explore detailed specifications and capabilities.
@@ -77,7 +77,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 17 Services Grid with Visual Images */}
+      {/* Services Grid with Visual Images */}
       <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -160,9 +160,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* AMC Packages Section */}
-      <AMCPackages />
 
       {/* Frequently Asked Questions */}
       <FAQSection />

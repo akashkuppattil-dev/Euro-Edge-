@@ -372,4 +372,26 @@ export const servicesData: ServiceItem[] = [
       "Commercial Cold Storage Facilities",
     ],
   },
+  {
+    slug: "kitchen-equipment-maintenance",
+    title: "Kitchen Equipment Maintenance",
+    shortDesc: "Preventative and corrective maintenance, repair, and servicing of commercial and residential kitchen equipment.",
+    fullDesc:
+      "Professional maintenance and repair services for commercial and heavy-duty residential kitchen equipment across Dubai. We service commercial ovens, ranges, deep fryers, exhaust hoods, refrigeration units, dishwashers, and food preparation machinery to ensure uninterrupted operation, hygiene compliance, and safety.",
+    iconName: "Utensils",
+    imageUrl: "/images/services/kitchen-equipment-maintenance.jpg",
+    keyFeatures: [
+      "Commercial Oven, Griddle & Range Maintenance",
+      "Refrigeration & Walk-In Chiller Servicing",
+      "Exhaust Hood & Degreasing Maintenance",
+      "Commercial Dishwasher & Plumbing Servicing",
+      "Emergency Equipment Breakdown Repair",
+    ],
+    applications: [
+      "Hotels, Restaurants & Catering Kitchens",
+      "Commercial Food Courts & Cloud Kitchens",
+      "Staff Pantries & Cafeterias",
+      "Luxury Residential Kitchens",
+    ],
+  },
 ]

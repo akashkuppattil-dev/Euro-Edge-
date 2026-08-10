@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display, Caveat } from 'next/font/google'
+import { Inter, Playfair_Display, Outfit, Plus_Jakarta_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { JsonLd } from '@/components/json-ld'
 import './globals.css'
 
 const inter = Inter({ 
@@ -13,19 +14,25 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
 })
 
-const caveat = Caveat({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: '--font-caveat',
+  variable: '--font-outfit',
+})
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: '--font-jakarta',
 })
 
 export const metadata: Metadata = {
-  title: "Tiny Trends | Premium Children's Apparel",
-  description: "Discover premium children's fashion, frocks, boy suits, and organic baby onesies. Elegant boutique apparel crafted with love. Shipping across India.",
-  keywords: ["children's apparel", "kids clothing", "baby onesie", "girls frock", "boys suit", "Tiny Trends"],
+  title: "Euro Edge Technical Services L.L.C. | MEP, HVAC & Contracting Dubai",
+  description: "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, interior fit-outs, and facility management services across Dubai and the UAE.",
+  keywords: ["MEP contracting Dubai", "HVAC maintenance UAE", "Euro Edge Technical Services", "electrical contractor Dubai", "plumbing services Dubai", "villa fit-out", "DEWA approved contractor"],
   openGraph: {
-    title: "Tiny Trends | Premium Children's Apparel",
-    description: "Discover premium children's fashion, frocks, boy suits, and organic baby onesies.",
+    title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
+    description: "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, and facility management across Dubai and the UAE.",
     type: 'website',
+    url: 'https://euro-edge.vercel.app/',
   },
   icons: {
     icon: '/images/logo.png',
@@ -34,7 +41,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#f8f6f3',
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
 }
@@ -45,8 +52,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${caveat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${jakarta.variable}`}>
       <body className="font-sans antialiased">
+        <JsonLd />
         {children}
         <Analytics />
       </body>

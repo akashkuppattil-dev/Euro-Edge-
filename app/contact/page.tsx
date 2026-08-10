@@ -1,277 +1,290 @@
-"use client"
-
-import { useState } from "react"
-import Image from "next/image"
+import React from "react"
+import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Globe, Building } from "lucide-react"
+import { ContactForm } from "@/components/contact-form"
+import {
+  User,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  ArrowRight,
+  ShieldCheck,
+  Award,
+  Users,
+  Headphones,
+} from "lucide-react"
+
+export const metadata = {
+  title: "Contact Us | Euro Edge Technical Services L.L.C.",
+  description:
+    "Contact Euro Edge Technical Services L.L.C. in Dubai, UAE for technical services, MEP, HVAC, electrical, plumbing, maintenance and facility management enquiries.",
+  alternates: {
+    canonical: "https://euroedgets.com/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Euro Edge Technical Services L.L.C.",
+    description:
+      "Contact Euro Edge Technical Services L.L.C. in Dubai, UAE for technical services, MEP, HVAC, electrical, plumbing, maintenance and facility management enquiries.",
+    type: "website",
+    url: "https://euroedgets.com/contact",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Euro Edge Technical Services L.L.C.",
+    description:
+      "Contact Euro Edge Technical Services L.L.C. in Dubai, UAE for technical services, MEP, HVAC, electrical, plumbing, maintenance and facility management enquiries.",
+  },
+}
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
   return (
     <main className="pb-16 md:pb-0 bg-background text-foreground font-sans min-h-screen">
       <Header />
 
-      {/* Hero */}
-      <section className="relative h-[40vh] lg:h-[50vh] flex items-center overflow-hidden bg-background text-foreground border-b border-border">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-dubai.png"
-            alt="Contact Euro Edge Technical Services L.L.C."
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-background/70" />
-        </div>
-        <div className="relative z-10 w-full text-center px-4 max-w-4xl mx-auto">
-          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans font-bold">
-            Get In Touch
-          </span>
-          <h1 className="font-serif text-4xl lg:text-6xl text-foreground mt-3 tracking-tight italic">
-            Contact Euro Edge
+      {/* =========================================
+          1. HERO SECTION (Clean Light Style - No Image)
+      ========================================= */}
+      <section className="py-14 sm:py-18 lg:py-20 bg-slate-50 border-b border-slate-200">
+        <div className="w-full px-4 lg:px-12 max-w-7xl mx-auto space-y-3">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-foreground font-bold tracking-tight">
+            Contact Us
           </h1>
-          <p className="mt-4 text-muted-foreground text-sm font-sans max-w-lg mx-auto leading-relaxed">
-            Reach out for project inquiries, technical evaluations, MEP consultations, or emergency facility support in Dubai.
+
+          <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-xl leading-relaxed font-medium">
+            Have a technical requirement, MEP project, maintenance request, or service enquiry? Our team is ready to discuss your requirements and provide professional technical support across Dubai and the UAE.
           </p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left - Contact Details */}
-          <div>
-            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans font-bold">
-              Engineering Assistance
-            </span>
-            <h2 className="font-serif text-3xl lg:text-4xl text-foreground mt-3 tracking-tight">
-              We are ready to assist your projects
-            </h2>
-            <p className="mt-4 text-muted-foreground text-base leading-relaxed font-sans max-w-md">
-              Whether you need project estimations, technical consultations, or facility management support, our engineering team is ready to assist.
-            </p>
+      {/* =========================================
+          2 & 3 & 4. CONTACT INFORMATION + FORM + WHATSAPP CTA
+      ========================================= */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 lg:px-12 bg-background">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-            <div className="mt-10 flex flex-col gap-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+          {/* LEFT COLUMN (Contact Info & WhatsApp CTA) */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">
+                REACH OUR TEAM
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+                Let's Talk About Your Project
+              </h2>
+              <p className="text-muted-foreground text-xs sm:text-sm font-sans leading-relaxed">
+                Whether you need technical contracting, MEP installation, HVAC maintenance, electrical works, plumbing, civil works, or facility support, Euro Edge is ready to assist.
+              </p>
+            </div>
+
+            {/* Contact Information Rows */}
+            <div className="space-y-5 pt-1 border-t border-border/80">
+
+              {/* Contact Person */}
+              <div className="flex items-start gap-4 pt-4">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
+                  <User className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    CONTACT PERSON
+                  </span>
+                  <span className="text-sm font-bold text-foreground block mt-0.5">
+                    Pranoydas Mullasseri
+                  </span>
+                  <span className="text-xs text-muted-foreground block mt-0.5">
+                    Operations Manager
+                  </span>
+                </div>
+              </div>
+
+              {/* Phone / WhatsApp */}
+              <div className="flex items-start gap-4 pt-1">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-foreground font-sans">Phone / WhatsApp</h3>
-                  <a href="tel:+9710543909946" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    PHONE / WHATSAPP
+                  </span>
+                  <a
+                    href="tel:+9710543909946"
+                    className="text-sm font-bold text-foreground hover:text-primary transition-colors block mt-0.5"
+                  >
                     +971 054 390 9946
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+              {/* Email */}
+              <div className="flex items-start gap-4 pt-1">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-foreground font-sans">General & Operations Email</h3>
-                  <a href="mailto:info@euroedgets.com" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors block">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    EMAIL
+                  </span>
+                  <a
+                    href="mailto:info@euroedgets.com"
+                    className="text-sm font-bold text-foreground hover:text-primary transition-colors block mt-0.5"
+                  >
                     info@euroedgets.com
                   </a>
-                  <a href="mailto:pranoy@euroedgets.com" className="text-sm text-muted-foreground font-sans hover:text-primary transition-colors block">
-                    pranoy@euroedgets.com (Operations)
-                  </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-foreground font-sans">Official Website</h3>
-                  <a href="https://www.euroedgets.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground mt-0.5 font-sans hover:text-primary transition-colors">
-                    www.euroedgets.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+              {/* Location */}
+              <div className="flex items-start gap-4 pt-1">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-foreground font-sans">Location</h3>
-                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    LOCATION
+                  </span>
+                  <span className="text-sm font-bold text-foreground block mt-0.5">
                     Dubai, United Arab Emirates
-                  </p>
+                  </span>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-primary">
+              {/* Working Hours */}
+              <div className="flex items-start gap-4 pt-1">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-foreground font-sans">Working Hours</h3>
-                  <p className="text-sm text-muted-foreground mt-0.5 font-sans">Mon - Sat, 8:00 AM - 6:00 PM GST</p>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    WORKING HOURS
+                  </span>
+                  <span className="text-sm font-bold text-foreground block mt-0.5">
+                    Mon – Sat, 8:00 AM – 6:00 PM GST
+                  </span>
+                  <span className="text-xs text-muted-foreground block mt-0.5">
+                    24/7 Emergency Dispatch Available
+                  </span>
                 </div>
+              </div>
+
+            </div>
+
+            {/* 3. FEATURED WHATSAPP CTA BLOCK */}
+            <div className="p-6 rounded-2xl bg-[#0a2540] text-white space-y-4 border border-white/10 shadow-md">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#25d366] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-serif font-bold text-white">
+                  Need a Quick Response?
+                </h3>
+              </div>
+              <p className="text-xs text-white/80 leading-relaxed font-sans">
+                For urgent enquiries and service requirements, contact Euro Edge directly on WhatsApp.
+              </p>
+              <a
+                href="https://wa.me/971543909946"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-5 rounded-xl bg-[#25d366] hover:bg-[#1ebe5a] text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2.5"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+
+          {/* RIGHT COLUMN (ENQUIRY FORM CARD) */}
+          <div className="lg:col-span-7">
+            <div className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-card border border-border shadow-sm">
+              <ContactForm />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          6. MAP / LOCATION SECTION
+      ========================================= */}
+      <section className="py-12 sm:py-16 px-4 lg:px-12 bg-secondary/50 border-t border-border">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">
+              OUR SERVICE AREA
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
+              Serving Dubai &amp; the UAE
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Euro Edge Technical Services L.L.C. proudly provides technical contracting, MEP installation, and facility maintenance throughout Dubai and all Emirates.
+            </p>
+          </div>
+
+          {/* Architectural Location Card */}
+          <div className="p-8 sm:p-10 rounded-2xl bg-card border border-border flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+            <div className="flex items-center gap-4 text-center md:text-left">
+              <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center text-primary flex-shrink-0">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  CORPORATE HEADQUARTERS
+                </span>
+                <h3 className="text-xl font-serif font-bold text-foreground mt-0.5">
+                  Dubai, United Arab Emirates
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Deploying certified technical crews across all major commercial and residential districts in Dubai.
+                </p>
               </div>
             </div>
 
-            {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/9710543909946?text=Hi%20Euro%20Edge%2C%20I%20would%20like%20to%20inquire%20about%20your%20technical%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-[#25d366] text-white text-xs tracking-[0.15em] uppercase font-bold font-sans rounded-xl hover:bg-[#1ebe5a] transition-all duration-300 shadow-md"
+              href="tel:+9710543909946"
+              className="w-full md:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm"
             >
-              <MessageCircle className="w-4 h-4" />
-              Direct WhatsApp Inquiry
+              <Phone className="w-4 h-4" />
+              <span>Call Operations (+971 054 390 9946)</span>
             </a>
           </div>
+        </div>
+      </section>
 
-          {/* Right - Form */}
-          <div className="bg-card border border-border rounded-2xl p-6 lg:p-10 shadow-sm">
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
-                  <Send className="w-7 h-7" />
-                </div>
-                <h3 className="font-serif text-2xl text-foreground font-bold">Thank You!</h3>
-                <p className="mt-3 text-muted-foreground text-sm font-sans max-w-sm leading-relaxed">
-                  Your project inquiry has been received by Euro Edge Technical Services L.L.C. Our engineering team will contact you promptly.
-                </p>
-                <button
-                  onClick={() => {
-                    setSubmitted(false)
-                    setFormData({ name: "", email: "", phone: "", service: "", message: "" })
-                  }}
-                  className="mt-6 text-xs tracking-[0.15em] uppercase text-primary hover:underline font-sans font-semibold transition-colors"
-                >
-                  Send Another Inquiry
-                </button>
-              </div>
-            ) : (
-              <>
-                <h3 className="font-serif text-2xl text-foreground font-bold">Send Us a Technical Inquiry</h3>
-                <p className="mt-2 text-muted-foreground text-sm font-sans">
-                  Fill in the details below and our technical team will respond with a quotation.
-                </p>
-
-                <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
-                        Full Name / Company
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                        placeholder="Your name or company"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
-                        Email Address
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                        placeholder="name@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="phone" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
-                        Phone / WhatsApp
-                      </label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                        placeholder="+971 00 000 0000"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="service" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
-                        Select Service Line
-                      </label>
-                      <select
-                        id="service"
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        required
-                        className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                      >
-                        <option value="">Choose a Service Line</option>
-                        <option value="electrical">Electrical Works</option>
-                        <option value="plumbing">Plumbing & Sanitary</option>
-                        <option value="hvac">HVAC & Air-Conditioning</option>
-                        <option value="ceiling">False Ceiling & Partitions</option>
-                        <option value="tiling">Floor & Wall Tiling</option>
-                        <option value="carpentry">Carpentry & Wood Flooring</option>
-                        <option value="pool">Swimming Pool Maintenance</option>
-                        <option value="kitchen">Kitchen Installation</option>
-                        <option value="glass">Aluminium & Glass</option>
-                        <option value="building">Building Maintenance</option>
-                        <option value="mep">MEP Contracting</option>
-                        <option value="civil">Civil Maintenance</option>
-                        <option value="facility">Facility Management</option>
-                        <option value="industrial">Industrial Maintenance</option>
-                        <option value="other">General Technical Inquiry</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="text-xs tracking-[0.1em] uppercase text-foreground/80 font-sans font-semibold mb-2 block">
-                      Project Details & Requirements
-                    </label>
-                    <textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-                      placeholder="Specify project scope, location, and technical requirements..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase font-bold font-sans rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-sm"
-                  >
-                    <Send className="w-4 h-4" />
-                    Submit Technical Inquiry
-                  </button>
-                </form>
-              </>
-            )}
+      {/* =========================================
+          7. TRUST / SERVICE CTA
+      ========================================= */}
+      <section className="py-14 sm:py-18 px-4 lg:px-12 bg-background border-t border-border text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
+            Ready to Build, Maintain &amp; Improve?
+          </h2>
+          <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-sans">
+            From technical installations to ongoing maintenance, Euro Edge delivers dependable solutions built around quality, safety and customer satisfaction.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a
+              href="#service"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all shadow-sm flex items-center justify-center gap-2"
+            >
+              <span>REQUEST A QUOTE</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              href="/services"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-card border border-border text-foreground hover:text-primary font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
+            >
+              <span>VIEW OUR SERVICES</span>
+            </Link>
           </div>
         </div>
       </section>
