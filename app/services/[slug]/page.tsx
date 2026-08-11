@@ -4,7 +4,6 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { ServiceQuoteForm } from "@/components/service-quote-form"
 import { ServiceShareButton } from "@/components/share-button"
@@ -150,7 +149,7 @@ export default async function ServiceDetailPage({
 
       {/* Breadcrumb & Navigation */}
       <div className="bg-secondary py-4 px-4 lg:px-12 border-b border-border">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between text-xs">
           <Link
             href="/services"
             className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-medium transition-colors"
@@ -164,26 +163,26 @@ export default async function ServiceDetailPage({
 
       {/* Service Header */}
       <section className="relative overflow-hidden bg-background text-foreground py-8 sm:py-12 lg:py-14 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="space-y-2">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-start justify-between gap-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
                 {service.title}
               </h1>
-              <p className="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed font-sans">
-                {service.shortDesc}
-              </p>
+              <div className="flex-shrink-0 mt-1">
+                <ServiceShareButton slug={service.slug} title={service.title} shortDesc={service.shortDesc} />
+              </div>
             </div>
-            <div className="flex-shrink-0 pt-1 sm:pt-0">
-              <ServiceShareButton slug={service.slug} title={service.title} shortDesc={service.shortDesc} />
-            </div>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-5xl leading-relaxed font-sans">
+              {service.shortDesc}
+            </p>
           </div>
         </div>
       </section>
 
       {/* Service Details Section */}
       <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Description & Capabilities */}
           <div className="lg:col-span-2 space-y-8">
             {/* Service Visual Image */}
@@ -265,8 +264,7 @@ export default async function ServiceDetailPage({
       <ServiceFaqAccordion faqs={service.faqs} />
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

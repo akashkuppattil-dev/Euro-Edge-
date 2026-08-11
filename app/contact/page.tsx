@@ -2,7 +2,6 @@ import React from "react"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { ContactForm } from "@/components/contact-form"
 import {
@@ -50,7 +49,7 @@ export default function ContactPage() {
           1. HERO SECTION (Clean Light Style - No Image)
       ========================================= */}
       <section className="py-14 sm:py-18 lg:py-20 bg-slate-50 border-b border-slate-200">
-        <div className="w-full px-4 lg:px-12 max-w-7xl mx-auto space-y-3">
+        <div className="w-full px-4 lg:px-12 max-w-[1600px] mx-auto space-y-3">
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-foreground font-bold tracking-tight">
             Contact Us
           </h1>
@@ -65,7 +64,7 @@ export default function ContactPage() {
           2 & 3 & 4. CONTACT INFORMATION + FORM + WHATSAPP CTA
       ========================================= */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
           {/* LEFT COLUMN (Contact Info & WhatsApp CTA) */}
           <div className="lg:col-span-5 space-y-8">
@@ -220,8 +219,8 @@ export default function ContactPage() {
           6. MAP / LOCATION SECTION
       ========================================= */}
       <section className="py-12 sm:py-16 px-4 lg:px-12 bg-secondary/50 border-t border-border">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
+        <div className="max-w-[1600px] mx-auto space-y-8">
+          <div className="text-center max-w-4xl mx-auto space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">
               OUR SERVICE AREA
             </span>
@@ -268,10 +267,10 @@ export default function ContactPage() {
 
             <a
               href="tel:+9710543909946"
-              className="w-full md:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm"
+              className="w-full md:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm whitespace-nowrap"
             >
               <Phone className="w-4 h-4" />
-              <span>Call Operations (+971 054 390 9946)</span>
+              <span>Call: +971 054 390 9946</span>
             </a>
           </div>
         </div>
@@ -281,7 +280,7 @@ export default function ContactPage() {
           7. TRUST / SERVICE CTA
       ========================================= */}
       <section className="py-14 sm:py-18 px-4 lg:px-12 bg-background border-t border-border text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6">
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
             Ready to Build, Maintain &amp; Improve?
           </h2>
@@ -307,8 +306,7 @@ export default function ContactPage() {
       </section>
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

@@ -46,7 +46,7 @@ export function FAQSection() {
 
   return (
     <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
-      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
         {/* Header */}
         <div className="text-center space-y-2.5 sm:space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
@@ -56,7 +56,7 @@ export function FAQSection() {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
             FREQUENTLY ASKED QUESTIONS
           </h2>
-          <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-4xl mx-auto">
             Find answers to common questions about our technical services, AMC maintenance packages, emergency callouts, and local UAE regulatory compliance.
           </p>
         </div>

@@ -22,9 +22,9 @@ export function Footer() {
     <footer className="bg-card text-foreground relative overflow-hidden border-t border-border font-sans">
       {/* Main 5-Column Standard Enterprise Footer Grid */}
       <div className="px-4 lg:px-12 py-14 lg:py-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Column 1: Brand & Identity */}
-          <div className="lg:col-span-1 space-y-4">
+          <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/logo.png"
@@ -43,95 +43,15 @@ export function Footer() {
               </div>
             </Link>
 
-            <p className="text-muted-foreground text-xs leading-relaxed font-sans">
+            <p className="text-muted-foreground text-xs leading-relaxed font-sans pr-4">
               "The Edge of Quality Built on Trust" — Delivering premier technical contracting, MEP engineering, civil maintenance, and facility management across Dubai and the UAE.
             </p>
-
           </div>
 
-          {/* Column 2: MEP & Mechanical Services */}
+          {/* Column 2: Quick Links */}
           <div>
             <h4 className="text-xs tracking-[0.2em] uppercase mb-5 text-foreground font-bold font-sans">
-              MEP &amp; HVAC Care
-            </h4>
-            <ul className="flex flex-col gap-2.5 text-xs text-muted-foreground font-sans">
-              <li>
-                <Link href="/services/hvac-systems" className="hover:text-primary transition-colors">
-                  Air-Conditioning &amp; Ventilation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/plumbing-sanitary" className="hover:text-primary transition-colors">
-                  Plumbing &amp; Sanitary Contracting
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/electrical-works" className="hover:text-primary transition-colors">
-                  Electrical Fittings &amp; Rewiring
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/mep-services" className="hover:text-primary transition-colors">
-                  Full MEP Services &amp; Maintenance
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/swimming-pool" className="hover:text-primary transition-colors">
-                  Swimming Pool Maintenance
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/kitchen-equipment-maintenance" className="hover:text-primary transition-colors">
-                  Kitchen Equipment Maintenance
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Civil & Fit-Out Services */}
-          <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase mb-5 text-foreground font-bold font-sans">
-              Civil &amp; Fit-Out Works
-            </h4>
-            <ul className="flex flex-col gap-2.5 text-xs text-muted-foreground font-sans">
-              <li>
-                <Link href="/services/building-maintenance" className="hover:text-primary transition-colors">
-                  Building Maintenance &amp; Upkeep
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/false-ceiling" className="hover:text-primary transition-colors">
-                  False Ceiling &amp; Light Partitions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/tiling-works" className="hover:text-primary transition-colors">
-                  Floor &amp; Wall Tiling Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/plaster-works" className="hover:text-primary transition-colors">
-                  Internal &amp; External Plastering
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/carpentry-flooring" className="hover:text-primary transition-colors">
-                  Carpentry &amp; Wood Flooring
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-primary font-bold hover:underline inline-flex items-center gap-1 mt-1">
-                  <span>View All Services</span>
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Quick Links & Governance */}
-          <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase mb-5 text-foreground font-bold font-sans">
-              Company Navigation
+              Quick Links
             </h4>
             <ul className="flex flex-col gap-2.5 text-xs text-muted-foreground font-sans">
               <li>
@@ -146,17 +66,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services" className="hover:text-primary transition-colors">
-                  Technical Services Directory
+                  Our Services
                 </Link>
               </li>
               <li>
                 <Link href="/projects" className="hover:text-primary transition-colors">
-                  Completed Projects &amp; Capabilities
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="hover:text-primary transition-colors">
-                  Careers &amp; Engineering Hiring
+                  Completed Projects
                 </Link>
               </li>
               <li>
@@ -167,7 +82,51 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Direct Office Details */}
+          {/* Column 3: Core Services */}
+          <div>
+            <h4 className="text-xs tracking-[0.2em] uppercase mb-5 text-foreground font-bold font-sans">
+              Our Services
+            </h4>
+            <ul className="flex flex-col gap-2.5 text-xs text-muted-foreground font-sans">
+              <li>
+                <Link href="/services/hvac-systems" className="hover:text-primary transition-colors">
+                  Air-Conditioning &amp; HVAC
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/plumbing-sanitary" className="hover:text-primary transition-colors">
+                  Plumbing &amp; Sanitary
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/electrical-works" className="hover:text-primary transition-colors">
+                  Electrical Works
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/building-maintenance" className="hover:text-primary transition-colors">
+                  Building Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/false-ceiling" className="hover:text-primary transition-colors">
+                  Fit-Out &amp; Renovation
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/swimming-pool" className="hover:text-primary transition-colors">
+                  Swimming Pool Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/test-service" className="hover:text-primary transition-colors">
+                  Test Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Direct Office Details */}
           <div className="space-y-4">
             <h4 className="text-xs tracking-[0.2em] uppercase text-foreground font-bold font-sans">
               Dubai Headquarters
@@ -217,11 +176,11 @@ export function Footer() {
       </div>
 
       {/* Standard Bottom Sub-Footer Bar */}
-      <div className="border-t border-border px-4 lg:px-12 py-6 pb-20 md:pb-6 text-xs text-muted-foreground font-sans bg-secondary/50">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="border-t border-border px-4 lg:px-12 py-6 text-xs text-muted-foreground font-sans bg-secondary/50">
+        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <p>© 2026 Euro Edge Technical Services L.L.C. All rights reserved.</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-3">
             <span className="text-muted-foreground/70">
               Privacy &amp; Terms available on request
             </span>

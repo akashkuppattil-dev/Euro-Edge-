@@ -1,7 +1,6 @@
 import React from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { ProjectsPortfolio } from "@/components/projects-portfolio"
 
@@ -36,7 +35,7 @@ export default function ProjectsPage() {
           HERO BANNER (Clean Light Style - No Image)
       ========================================= */}
       <section className="py-14 sm:py-18 lg:py-20 bg-slate-50 border-b border-slate-200">
-        <div className="w-full px-4 lg:px-12 max-w-7xl mx-auto space-y-3">
+        <div className="w-full px-4 lg:px-12 max-w-[1600px] mx-auto space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#0a2540]">
             EURO EDGE PROJECT EXPERIENCE
           </span>
@@ -45,7 +44,7 @@ export default function ProjectsPage() {
             Projects &amp; Technical Capabilities
           </h1>
 
-          <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-2xl leading-relaxed font-medium">
+          <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-4xl leading-relaxed font-medium">
             Supporting technical requirements across residential, commercial, hospitality, industrial, and facility environments in Dubai and the UAE.
           </p>
         </div>
@@ -57,8 +56,7 @@ export default function ProjectsPage() {
       <ProjectsPortfolio />
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

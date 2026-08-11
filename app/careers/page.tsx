@@ -3,7 +3,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { CareersForm } from "@/components/careers-form"
 import { Briefcase, MapPin, Users, Award, ShieldCheck } from "lucide-react"
@@ -70,7 +69,7 @@ export default function CareersPage() {
 
       {/* Hero Banner */}
       <section className="relative overflow-hidden bg-background text-foreground py-16 lg:py-24 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-3xl">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-5xl">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Join Euro Edge Team
           </span>
@@ -85,8 +84,8 @@ export default function CareersPage() {
 
       {/* Why Work With Us */}
       <section className="py-16 lg:py-20 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="text-center max-w-5xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Culture</span>
             <h2 className="text-3xl font-serif font-bold text-foreground">Why Build Your Career With Us?</h2>
           </div>
@@ -123,7 +122,7 @@ export default function CareersPage() {
 
       {/* Active Openings & Application Form */}
       <section className="py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Active Job Openings */}
           <div className="space-y-6">
             <div>
@@ -158,8 +157,7 @@ export default function CareersPage() {
       </section>
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

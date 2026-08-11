@@ -51,8 +51,8 @@ export function AMCPackages() {
 
   return (
     <section className="py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <div className="max-w-[1600px] mx-auto">
+        <div className="text-center max-w-5xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Hassle-Free Asset Care
           </span>

@@ -69,7 +69,7 @@ export function QuoteEstimator({ servicesData }: QuoteEstimatorProps) {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-card border border-border/80 shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-6xl mx-auto p-6 sm:p-8 rounded-3xl bg-card border border-border/80 shadow-2xl relative overflow-hidden">
       {/* Glow background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 

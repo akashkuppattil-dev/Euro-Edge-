@@ -2,8 +2,8 @@ import React from "react"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { WhyChooseUsAccordion } from "@/components/why-choose-us-accordion"
 import {
   ShieldCheck,
   Target,
@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-20 lg:py-24 flex items-center bg-background text-foreground border-b border-border overflow-hidden">
 
 
-        <div className="relative z-10 w-full px-4 lg:px-12 max-w-7xl mx-auto space-y-3">
+        <div className="relative z-10 w-full px-4 lg:px-12 max-w-[1600px] mx-auto space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-primary">
             COMPANY OVERVIEW
           </span>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             About Euro Edge
           </h1>
 
-          <p className="text-sm sm:text-base text-foreground/90 font-sans max-w-2xl leading-relaxed font-medium">
+          <p className="text-sm sm:text-base text-foreground/90 font-sans max-w-4xl leading-relaxed font-medium">
             "The Edge of Quality Built on Trust" — Premier MEP engineering, civil maintenance, and technical contracting across Dubai and the UAE.
           </p>
         </div>
@@ -76,12 +76,12 @@ export default function AboutPage() {
           EXCELLENCE & RELIABILITY (Overview + Mission & Vision)
       ========================================= */}
       <section className="py-14 sm:py-18 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto space-y-10">
-          <div className="max-w-4xl mx-auto text-center space-y-3">
+        <div className="max-w-[1600px] mx-auto space-y-10">
+          <div className="max-w-6xl mx-auto text-center space-y-3">
             <h2 className="font-serif text-2xl sm:text-4xl text-foreground tracking-tight leading-snug font-bold">
               Delivering Reliable &amp; Excellence-Driven Technical Solutions
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed font-sans max-w-3xl mx-auto pt-1">
+            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed font-sans max-w-5xl mx-auto pt-1">
               We are committed to delivering reliable, efficient, and professional services with a strong focus on quality, safety, and customer satisfaction. Our experienced team and customer-centric approach enable us to build lasting relationships and create value for every project we undertake in Dubai and the UAE.
             </p>
           </div>
@@ -113,8 +113,8 @@ export default function AboutPage() {
           CORE VALUES
       ========================================= */}
       <section className="py-14 sm:py-20 px-4 lg:px-12 bg-white border-t border-border">
-        <div className="max-w-4xl mx-auto space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-2.5">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <div className="text-center max-w-4xl mx-auto space-y-2.5">
             <h2 className="font-serif text-3xl sm:text-4xl text-foreground tracking-tight font-bold">
               Our Core Values
             </h2>
@@ -123,63 +123,64 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 num: "01",
+                icon: Award,
                 title: "Quality Excellence",
-                tagline: "Uncompromising standards on every technical scope",
-                desc: "We deliver superior engineering quality across every project. From selecting certified, high-grade materials to conducting multi-stage quality inspections, we ensure every installation and repair stands the test of time.",
+                desc: "We deliver superior engineering quality across every project. From selecting certified materials to multi-stage inspections, we ensure every installation stands the test of time.",
               },
               {
                 num: "02",
+                icon: Scale,
                 title: "Unwavering Integrity",
-                tagline: "Transparent contracting & honest communication",
-                desc: "Integrity is the cornerstone of Euro Edge. We operate with complete financial and technical transparency — offering clear, itemized quotations, honest site assessments, and fair rates with zero hidden charges.",
+                desc: "Integrity is the cornerstone of Euro Edge. We operate with complete financial and technical transparency — offering honest site assessments and fair rates with zero hidden charges.",
               },
               {
                 num: "03",
+                icon: Clock,
                 title: "Dependable Reliability",
-                tagline: "SLA compliance & rapid response",
-                desc: "We respect your time and property operations. Our 24/7 technical teams are committed to strict SLA turnarounds, on-time project completion, and dependable emergency callout response across Dubai.",
+                desc: "We respect your time. Our 24/7 technical teams are committed to strict SLA turnarounds, on-time project completion, and dependable emergency callout response across Dubai.",
               },
               {
                 num: "04",
+                icon: Shield,
                 title: "Strict Safety Compliance",
-                tagline: "Zero compromise on occupational & building safety",
-                desc: "Safety is our top priority. We strictly enforce UAE Civil Defense, DEWA, and Dubai Municipality safety protocols, equipping our field engineers with certified PPE and safety tools for every task.",
+                desc: "Safety is our top priority. We strictly enforce UAE Civil Defense, DEWA, and Dubai Municipality protocols, equipping our engineers with certified PPE for every task.",
               },
               {
                 num: "05",
+                icon: Users,
                 title: "Client-Centric Focus",
-                tagline: "Customized technical solutions tailored for you",
-                desc: "We listen, assess, and adapt to your specific property requirements. Whether managing a single villa or an entire commercial tower, our scopes are customized to maximize value, comfort, and asset longevity.",
+                desc: "We listen, assess, and adapt to your property requirements. Whether managing a single villa or a commercial tower, our scopes are customized to maximize value and asset longevity.",
               },
             ].map((item) => (
               <div
                 key={item.num}
-                className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 hover:border-[#0a2540]/40 hover:bg-white hover:shadow-xl transition-all duration-300 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-center group border-l-4 border-l-[#0a2540]"
+                className="relative p-8 rounded-3xl bg-card border border-border hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
               >
-                {/* Left Number Column */}
-                <div className="sm:col-span-2 flex items-center justify-start sm:justify-center border-b sm:border-b-0 sm:border-r border-slate-200/80 pb-3 sm:pb-0 sm:pr-4">
-                  <span className="text-3xl sm:text-4xl font-mono font-black text-[#0a2540] group-hover:scale-110 transition-transform">
-                    {item.num}
-                  </span>
-                </div>
-
-                {/* Right Content Column */}
-                <div className="sm:col-span-10 space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                {/* Decorative background element */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform duration-500 group-hover:scale-110" />
+                
+                <div className="relative z-10 space-y-5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-sm">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-4xl font-mono font-black text-muted-foreground/20 group-hover:text-primary/20 transition-colors">
+                      {item.num}
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-3">
                     <h3 className="font-serif font-bold text-xl text-foreground group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0a2540] bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 w-fit">
-                      {item.tagline}
-                    </span>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans pt-1">
-                    {item.desc}
-                  </p>
                 </div>
               </div>
             ))}
@@ -188,99 +189,9 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================
-          WHY CHOOSE EURO EDGE (Matching FAQSection Structure)
+          WHY CHOOSE EURO EDGE
       ========================================= */}
-      <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
-        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
-          {/* Header */}
-          <div className="text-center space-y-2.5 sm:space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>COMPETITIVE EXCELLENCE</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-              WHY CHOOSE EURO EDGE
-            </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
-              We stand out by delivering precision engineering, rapid response, and transparent contracting across Dubai and the UAE.
-            </p>
-          </div>
-
-          {/* Cards Vertical Stack (One After Another Down by Down) */}
-          <div className="grid grid-cols-1 gap-4 sm:gap-5">
-            {[
-              {
-                num: "01",
-                tag: "Certified Engineers",
-                title: "Skilled Professionals",
-                desc: "Our team consists of highly trained engineers and skilled technicians dedicated to top-quality execution.",
-              },
-              {
-                num: "02",
-                tag: "Premium Grade",
-                title: "Quality Materials",
-                desc: "We utilize premium grade materials and parts from trusted suppliers to ensure long-lasting operational results.",
-              },
-              {
-                num: "03",
-                tag: "Strict SLA",
-                title: "Timely Delivery",
-                desc: "We value client schedules and ensure every project is delivered on time without compromising on quality.",
-              },
-              {
-                num: "04",
-                tag: "Transparent Rates",
-                title: "Competitive Pricing",
-                desc: "Cost-effective technical solutions with completely transparent quotations to ensure maximum value.",
-              },
-              {
-                num: "05",
-                tag: "Safety Standard",
-                title: "Safety Compliance",
-                desc: "Safety is our top priority. We strictly adhere to industry safety guidelines and operational protocols.",
-              },
-              {
-                num: "06",
-                tag: "Client First",
-                title: "Customer Satisfaction",
-                desc: "Committed to exceeding expectations through reliable service, open communication, and careful attention to detail.",
-              },
-              {
-                num: "07",
-                tag: "State-of-the-Art",
-                title: "Modern Equipment",
-                desc: "Utilizing advanced diagnostic tools and modern technical equipment for high-precision workmanship.",
-              },
-              {
-                num: "08",
-                tag: "Tailored Scope",
-                title: "Customized Solutions",
-                desc: "Every property is unique; our engineering scopes are customized to match specific technical requirements.",
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="p-5 sm:p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-md transition-all duration-200 space-y-2 group"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
-                    {item.tag}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-muted-foreground/60">
-                    {item.num}
-                  </span>
-                </div>
-                <h3 className="font-serif font-bold text-lg text-foreground group-hover:text-primary transition-colors pt-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyChooseUsAccordion />
 
 
 
@@ -288,7 +199,7 @@ export default function AboutPage() {
           BOTTOM DARK BLUE FOOTER BANNER
       ========================================= */}
       <section className="py-8 px-4 lg:px-12 bg-[#071927] text-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
               Ready to Partner With Euro Edge?
@@ -311,8 +222,7 @@ export default function AboutPage() {
       </section>
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

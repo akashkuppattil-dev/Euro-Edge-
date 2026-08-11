@@ -3,7 +3,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { AMCPackages } from "@/components/amc-packages"
 import { FAQSection } from "@/components/faq-section"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
@@ -81,7 +80,7 @@ export default function ServicesPage() {
 
       {/* Hero Banner */}
       <section className="relative overflow-hidden bg-background text-foreground py-8 sm:py-12 lg:py-14 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-3xl">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-5xl">
           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Complete Engineering &amp; Contracting Solutions
           </span>
@@ -96,7 +95,7 @@ export default function ServicesPage() {
 
       {/* Services Grid with Visual Images */}
       <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {servicesData.map((srv, idx) => {
               const IconComponent = iconMap[srv.iconName] || Wrench
@@ -165,7 +164,7 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-secondary border-t border-border">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+        <div className="max-w-6xl mx-auto px-4 text-center space-y-6">
           <h2 className="text-3xl font-serif font-bold text-foreground">Need Custom Technical Solutions?</h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             Our engineering team is ready to evaluate your requirements, conduct site inspections, and provide detailed technical proposals for projects of any scale in Dubai.
@@ -186,8 +185,7 @@ export default function ServicesPage() {
       <FAQSection />
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

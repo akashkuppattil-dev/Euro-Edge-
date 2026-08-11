@@ -3,10 +3,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { BottomNav } from "@/components/bottom-nav"
 import { FAQSection } from "@/components/faq-section"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { QuoteEstimator } from "@/components/quote-estimator"
+import { ScrollReveal } from "@/components/scroll-reveal"
+import { FeaturedServicesCarousel } from "@/components/featured-services-carousel"
+import { CoreServicePillarsCarousel } from "@/components/core-service-pillars-carousel"
 import { servicesData } from "@/lib/services-data"
 import {
   Wrench,
@@ -204,45 +206,42 @@ export default function EuroEdgePage() {
       {/* =========================================
           HERO SECTION (Left-Aligned with Background Image)
       ========================================= */}
-      <section className="relative overflow-hidden pb-16 sm:pb-24 lg:pb-32 pt-[40vh] border-b border-border flex items-end min-h-screen">
+      <section className="relative overflow-hidden pb-8 sm:pb-24 lg:pb-32 pt-40 sm:pt-[40vh] border-b border-border flex items-end min-h-[90vh] sm:min-h-screen">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
+          {/* Desktop Image */}
           <Image
             src="/images/hero-bg.jpg"
-            alt="Euro Edge Technical Services Professional"
+            alt="Euro Edge Technical Services Professional - Desktop"
             fill
-            className="object-cover object-center"
+            className="hidden sm:block object-cover object-[center_top] sm:object-center"
             priority
           />
-          {/* Gradient Overlay for Text Readability (Bottom to Top) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/90 via-[#0a2540]/50 to-transparent" />
+          {/* Mobile Image */}
+          <Image
+            src="/images/hero-mobile.png"
+            alt="Euro Edge Technical Services Professional - Mobile"
+            fill
+            className="block sm:hidden object-cover object-center"
+            priority
+          />
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540] via-[#0a2540]/70 to-transparent sm:bg-gradient-to-r sm:from-[#0a2540]/90 sm:via-[#0a2540]/50" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full text-left flex flex-col items-start mt-auto">
-          <div className="max-w-2xl space-y-6 flex flex-col items-start">
-            <p className="text-lg sm:text-2xl font-display italic font-bold text-white/90 tracking-wide border-l-4 border-[#fbb03b] pl-4">
-              The Edge of Quality Built on Trust.
-            </p>
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full flex flex-col items-center sm:items-start text-center sm:text-left mt-auto pb-4 sm:pb-16">
+          <div className="max-w-4xl space-y-6 sm:space-y-8 flex flex-col items-center sm:items-start">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white tracking-tight leading-tight">
+              The Edge of Quality <br /> Built on Trust.
+            </h1>
 
-            <p className="text-sm sm:text-base text-white/80 font-sans font-medium leading-relaxed max-w-xl">
-              Euro Edge provides professional MEP, HVAC, electrical, plumbing, maintenance, fit-out, and facility services for residential, commercial, and industrial properties across Dubai and the UAE.
-            </p>
-
-            <div className="pt-6 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div className="pt-2 sm:pt-4 flex w-full sm:w-auto">
               <Link
                 href="/services"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fbb03b] hover:bg-[#fbb03b]/90 text-[#0a2540] font-display font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group"
+                className="w-full sm:w-auto px-8 py-4 sm:py-5 rounded-xl bg-[#fbb03b] hover:bg-[#fbb03b]/90 text-[#0a2540] font-display font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group"
               >
                 <span>EXPLORE SERVICES</span>
                 <ArrowRight className="w-5 h-5 text-[#0a2540] group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-transparent hover:bg-white/10 text-white border-2 border-white/30 hover:border-white font-display font-bold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-3 group backdrop-blur-sm"
-              >
-                <span>CONTACT US</span>
-                <ArrowUpRight className="w-5 h-5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -251,7 +250,7 @@ export default function EuroEdgePage() {
 
       {/* SIMPLE ABOUT US SECTION - Unboxed Clean Layout */}
       <section className="py-16 sm:py-20 lg:py-24 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="max-w-6xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider">
             <Building2 className="w-3.5 h-3.5" />
             <span>About Euro Edge</span>
@@ -261,7 +260,7 @@ export default function EuroEdgePage() {
             Delivering Engineering Excellence Across Dubai
           </h2>
 
-          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed font-sans max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed font-sans max-w-5xl mx-auto">
             Euro Edge Technical Services L.L.C. is a premier technical contracting company in Dubai, specialized in MEP installations, HVAC climate engineering, civil maintenance, interior fit-outs, and total facility upkeep. Built on a foundation of technical precision, safety compliance, and client trust, our experienced engineering team delivers seamless solutions tailored for private villas, commercial towers, hospitality venues, and industrial complexes.
           </p>
 
@@ -279,9 +278,9 @@ export default function EuroEdgePage() {
 
       {/* 4 CORE SERVICE PILLARS SECTION - Modern Premium Cards */}
       <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
+        <div className="max-w-[1600px] mx-auto space-y-8 sm:space-y-12">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
+          <div className="text-center max-w-5xl mx-auto space-y-2.5 sm:space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
               <Boxes className="w-3.5 h-3.5" />
               <span>Specialized Technical Pillars</span>
@@ -289,14 +288,14 @@ export default function EuroEdgePage() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
               CORE SERVICE PILLARS
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-4xl mx-auto">
               Discover our four primary engineering divisions delivering complete end-to-end property care in Dubai.
             </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
-            {[
+          {/* Core Service Pillars Carousel (Mobile) & Grid (Desktop) */}
+          <CoreServicePillarsCarousel
+            pillars={[
               {
                 num: "01",
                 tag: "End-to-End Care",
@@ -304,7 +303,7 @@ export default function EuroEdgePage() {
                 desc: "Comprehensive property upkeep, planned preventive maintenance (PPM), and building system management.",
                 href: "/services/facility-management",
                 img: "/images/services/facility-management.jpg",
-                icon: Building2,
+                iconName: "Building2",
               },
               {
                 num: "02",
@@ -313,7 +312,7 @@ export default function EuroEdgePage() {
                 desc: "Turnkey interior fit-out, partition installations, joinery, and architectural restoration.",
                 href: "/services/carpentry-flooring",
                 img: "/images/services/fit-out-renovation.jpg",
-                icon: Hammer,
+                iconName: "Hammer",
               },
               {
                 num: "03",
@@ -322,7 +321,7 @@ export default function EuroEdgePage() {
                 desc: "Electrical distribution, plumbing & sanitary works, AC ducting, chillers, and climate control.",
                 href: "/services/mep-services",
                 img: "/images/services/mep-services.jpg",
-                icon: Zap,
+                iconName: "Zap",
               },
               {
                 num: "04",
@@ -331,68 +330,17 @@ export default function EuroEdgePage() {
                 desc: "Masonry, tile fixing, painting, plastering, waterproofing, and structural upkeep.",
                 href: "/services/civil-maintenance",
                 img: "/images/services/civil-maintenance.jpg",
-                icon: ShieldCheck,
+                iconName: "ShieldCheck",
               },
-            ].map((pillar) => (
-              <div
-                key={pillar.num}
-                className="group rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-              >
-                {/* Card Top Image Header */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden">
-                  <Image
-                    src={pillar.img}
-                    alt={pillar.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/80 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-[#0a2540]/90 text-[#fbb03b] text-[10px] font-mono font-bold uppercase border border-white/10 shadow-sm">
-                      {pillar.tag}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
-                      <pillar.icon className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-mono font-bold text-white/80">
-                      {pillar.num}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <h3 className="font-serif font-bold text-xl text-foreground group-hover:text-primary transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                      {pillar.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-2">
-                    <Link
-                      href={pillar.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-primary/90 transition-colors"
-                    >
-                      <span>Explore Scope</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            ]}
+          />
         </div>
       </section>
 
       {/* FEATURED TOP 6 SERVICES SECTION (Alternating Zigzag Layout) */}
       <section id="services" className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border">
-        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
-          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
+        <div className="max-w-[1600px] mx-auto space-y-10 sm:space-y-16">
+          <div className="text-center max-w-5xl mx-auto space-y-2.5 sm:space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-border text-primary text-xs font-semibold uppercase tracking-wider">
               <Wrench className="w-3.5 h-3.5" />
               <span>Core Engineering Capabilities</span>
@@ -405,83 +353,8 @@ export default function EuroEdgePage() {
             </p>
           </div>
 
-          {/* Alternating Zigzag Stack Layout for 6 Top Services */}
-          <div className="space-y-8 sm:space-y-12">
-            {servicesData.slice(0, 6).map((srv, i) => {
-              const IconComponent = iconMap[srv.iconName] || Wrench
-              const isEven = i % 2 === 0
-
-              return (
-                <div
-                  key={srv.slug}
-                  className="rounded-3xl bg-card border border-border/80 p-4 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center group overflow-hidden"
-                >
-                  {/* Image Column (Left if even, Right if odd) */}
-                  <div
-                    className={`lg:col-span-5 relative h-[200px] sm:h-[300px] w-full rounded-2xl overflow-hidden border border-border shadow-sm ${isEven ? "lg:order-1" : "lg:order-2"
-                      }`}
-                  >
-                    <Image
-                      src={srv.imageUrl}
-                      alt={srv.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-card/90 backdrop-blur-md text-foreground text-[10px] sm:text-xs font-mono font-bold border border-border">
-                      FEATURED #{String(i + 1).padStart(2, "0")}
-                    </div>
-                  </div>
-
-                  {/* Text Description Column (Right if even, Left if odd) */}
-                  <div className={`lg:col-span-7 space-y-3.5 sm:space-y-4 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-secondary flex items-center justify-center text-primary border border-border flex-shrink-0">
-                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
-                      <h3 className="text-xl sm:text-3xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
-                        {srv.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-muted-foreground text-xs sm:text-base leading-relaxed font-sans">
-                      {srv.fullDesc || srv.shortDesc}
-                    </p>
-
-                    {/* Scope Bullets */}
-                    {srv.keyFeatures && srv.keyFeatures.length > 0 && (
-                      <div className="pt-1 sm:pt-2">
-                        <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-2">
-                          Key Service Highlights:
-                        </span>
-                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                          {srv.keyFeatures.slice(0, 3).map((feat, fIdx) => (
-                            <span
-                              key={fIdx}
-                              className="px-2.5 py-1 rounded-lg bg-secondary border border-border text-[11px] sm:text-xs font-medium text-foreground flex items-center gap-1.5"
-                            >
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-                              {feat}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="pt-2 sm:pt-3">
-                      <Link
-                        href={`/services/${srv.slug}`}
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all shadow-sm group/btn"
-                      >
-                        <span>View Service Details &amp; Scope</span>
-                        <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          {/* Alternating Zigzag Stack Layout & Mobile Carousel */}
+          <FeaturedServicesCarousel services={servicesData.slice(0, 6)} />
 
           {/* Bottom Button to View All 18 Services */}
           <div className="text-center pt-2 sm:pt-4">
@@ -506,9 +379,9 @@ export default function EuroEdgePage() {
           <div className="absolute top-[60%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[#fbb03b]/10 blur-[100px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
+        <div className="max-w-[1600px] mx-auto space-y-12 sm:space-y-16 relative z-10">
           {/* Header */}
-          <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+          <div className="text-center space-y-3 sm:space-y-4 max-w-5xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-[#0a2540] text-xs font-bold uppercase tracking-widest">
               <Award className="w-4 h-4 text-[#fbb03b]" />
               <span>Our Competitive Advantage</span>
@@ -516,14 +389,15 @@ export default function EuroEdgePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-[#0a2540] tracking-tight uppercase">
               Why Choose Euro Edge
             </h2>
-            <p className="text-slate-600 text-sm sm:text-lg leading-relaxed font-sans max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-lg leading-relaxed font-sans max-w-4xl mx-auto">
               We stand out by delivering excellence, reliability, and precision tailored to every client project across Dubai and the UAE.
             </p>
           </div>
 
-          {/* Premium Cards Grid Layout (2x4 on Desktop) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {[
+          {/* Premium Cards Grid Layout (2x4 on Desktop, Swipe on Mobile) */}
+          <div className="relative">
+            <div className="flex sm:grid gap-4 sm:gap-6 lg:gap-8 overflow-x-auto overflow-y-hidden touch-pan-x sm:overflow-visible snap-x snap-mandatory pb-4 sm:pb-0 hide-scrollbar sm:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+              {[
               {
                 num: "01",
                 tag: "Certified Engineers",
@@ -583,7 +457,7 @@ export default function EuroEdgePage() {
             ].map((item) => (
               <div
                 key={item.num}
-                className="group relative p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0a2540]/30 hover:shadow-2xl transition-all duration-300 flex flex-col space-y-6 overflow-hidden"
+                className="group relative p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0a2540]/30 hover:shadow-2xl transition-all duration-300 flex flex-col space-y-6 overflow-hidden w-[85vw] max-w-[340px] sm:w-auto shrink-0 snap-center sm:shrink-1 transform-gpu"
               >
                 {/* Hover Accent Line */}
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-[#fbb03b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
@@ -610,6 +484,13 @@ export default function EuroEdgePage() {
                 </div>
               </div>
             ))}
+            </div>
+            
+            {/* Swipe Indicator (Mobile Only) */}
+            <div className="flex sm:hidden items-center justify-end gap-2 text-xs font-semibold text-muted-foreground pt-1 pr-2">
+              <span>Swipe to explore</span>
+              <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
+            </div>
           </div>
 
           {/* Guarantee Banner - Premium Edition */}
@@ -617,7 +498,7 @@ export default function EuroEdgePage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbb03b]/20 blur-[80px] rounded-full pointer-events-none" />
             
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
-              <div className="space-y-3 max-w-2xl">
+              <div className="space-y-3 max-w-4xl">
                 <h4 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight">
                   Our Guarantee to Every Client in Dubai
                 </h4>
@@ -640,9 +521,9 @@ export default function EuroEdgePage() {
 
       {/* OUR WORK PROCESS — 5-STEP HORIZONTAL TIMELINE */}
       <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto space-y-14">
+        <div className="max-w-[1600px] mx-auto space-y-14">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <ScrollReveal animation="fade-up" delay={0} className="text-center max-w-5xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
               <ClipboardCheck className="w-3.5 h-3.5" />
               <span>How We Work</span>
@@ -653,7 +534,7 @@ export default function EuroEdgePage() {
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
               A simple, transparent 5-step process — from first contact to final handover.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* 5-Step Horizontal Timeline */}
           <div className="relative">
@@ -696,7 +577,7 @@ export default function EuroEdgePage() {
                   desc: "Final quality inspection, client walkthrough, documentation, and ongoing after-service support.",
                 },
               ].map((step, i) => (
-                <div key={i} className="flex flex-col items-center text-center group">
+                <ScrollReveal key={i} animation="fade-up" delay={i * 150} className="flex flex-col items-center text-center group">
                   {/* Number Icon Node */}
                   <div className="relative mb-5">
                     <div className="w-20 h-20 rounded-full bg-card border-2 border-border group-hover:border-primary transition-all duration-300 flex flex-col items-center justify-center shadow-sm group-hover:shadow-lg">
@@ -714,13 +595,13 @@ export default function EuroEdgePage() {
                   <p className="text-xs text-muted-foreground mt-2 leading-relaxed max-w-[180px]">
                     {step.desc}
                   </p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           {/* Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-secondary border border-border">
+          <ScrollReveal animation="fade-up" delay={800} className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-secondary border border-border">
             <div className="flex items-center gap-3 text-left">
               <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
@@ -737,7 +618,7 @@ export default function EuroEdgePage() {
                 <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </div>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -747,8 +628,7 @@ export default function EuroEdgePage() {
       <FAQSection />
 
       <Footer />
-      <BottomNav />
-      <StickyContactWidget />
+            <StickyContactWidget />
     </main>
   )
 }

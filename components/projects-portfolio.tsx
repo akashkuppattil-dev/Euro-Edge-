@@ -193,14 +193,14 @@ export function ProjectsPortfolio() {
           TECHNICAL SOLUTIONS INTRO & CATEGORY FILTER
       ========================================= */}
       <section className="pt-10 pb-4 px-4 lg:px-12 bg-background text-center">
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-6xl mx-auto space-y-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b]">
             OUR EXPERIENCE
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
             Technical Solutions Built Around Real Project Requirements
           </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans max-w-3xl mx-auto">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans max-w-5xl mx-auto">
             Every technical requirement is different. Euro Edge approaches each scope by understanding the site, identifying the technical requirements, coordinating the required trades and executing the work with attention to quality, safety and reliability.
           </p>
 
@@ -228,7 +228,7 @@ export function ProjectsPortfolio() {
       ========================================= */}
       {(activeFilter === "ALL" || activeFilter === "RESIDENTIAL") && (
         <section className="px-4 lg:px-12 bg-background">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-[1600px] mx-auto">
             <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
               {/* Left Image */}
               <div className="lg:col-span-6 relative h-[280px] sm:h-[360px] lg:h-[400px] w-full rounded-2xl overflow-hidden border border-slate-100">
@@ -326,7 +326,7 @@ export function ProjectsPortfolio() {
           PROJECT GRID (3 Columns Top, 2 Cards + Special CTA Card Bottom)
       ========================================= */}
       <section className="px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((item, idx) => (
               <div
@@ -449,7 +449,7 @@ export function ProjectsPortfolio() {
           6. WHY EURO EDGE (Matching FAQSection Structure)
       ========================================= */}
       <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
-        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+        <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
           {/* Header */}
           <div className="text-center space-y-2.5 sm:space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
@@ -459,7 +459,7 @@ export function ProjectsPortfolio() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
               WHY CHOOSE EURO EDGE
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-4xl mx-auto">
               We stand out by delivering excellence, reliability, and precision tailored to every client project across Dubai and the UAE.
             </p>
           </div>
@@ -532,7 +532,7 @@ export function ProjectsPortfolio() {
           9. FREQUENTLY ASKED QUESTIONS ACCORDION
       ========================================= */}
       <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
+        <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
           {/* Top Centered Header */}
           <div className="text-center space-y-3">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b] block">
@@ -541,7 +541,7 @@ export function ProjectsPortfolio() {
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-sans max-w-2xl mx-auto">
+            <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-sans max-w-4xl mx-auto">
               Find answers to common questions about technical scopes, maintenance requirements and project enquiries.
             </p>
           </div>
@@ -604,7 +604,7 @@ export function ProjectsPortfolio() {
           10. BOTTOM DARK BLUE FOOTER BANNER
       ========================================= */}
       <section className="py-8 px-4 lg:px-12 bg-[#071927] text-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">
               Ready to Build, Maintain &amp; Improve?

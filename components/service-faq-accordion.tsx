@@ -28,7 +28,7 @@ export function ServiceFaqAccordion({ faqs }: { faqs: FAQItem[] }) {
 
   return (
     <section className="py-12 sm:py-16 px-4 lg:px-12 bg-slate-50/80 border-t border-slate-200">
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-6xl mx-auto space-y-8">
         {/* Centered Header */}
         <div className="text-center space-y-2.5">
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
