@@ -80,6 +80,11 @@ export function Footer() {
                   Swimming Pool Maintenance
                 </Link>
               </li>
+              <li>
+                <Link href="/services/kitchen-equipment-maintenance" className="hover:text-primary transition-colors">
+                  Kitchen Equipment Maintenance
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -212,14 +217,14 @@ export function Footer() {
       </div>
 
       {/* Standard Bottom Sub-Footer Bar */}
-      <div className="border-t border-border px-4 lg:px-12 py-6 text-xs text-muted-foreground font-sans bg-secondary/50">
+      <div className="border-t border-border px-4 lg:px-12 py-6 pb-20 md:pb-6 text-xs text-muted-foreground font-sans bg-secondary/50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© 2026 Euro Edge Technical Services L.L.C. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link href="/about" className="hover:text-primary transition-colors">
-              Terms &amp; Governance
-            </Link>
+            <span className="text-muted-foreground/70">
+              Privacy &amp; Terms available on request
+            </span>
             <Link href="/services" className="hover:text-primary transition-colors">
               Services Scope
             </Link>

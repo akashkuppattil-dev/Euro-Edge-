@@ -23,25 +23,60 @@ export function ContactForm() {
     e.preventDefault()
     setErrorMsg("")
 
-    // Basic Validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.service || !formData.message.trim()) {
-      setErrorMsg("Please fill in all required fields marked with *.")
+    // Basic Validation — Only Name and Phone/WhatsApp (or Email) required
+    if (!formData.name.trim() || (!formData.phone.trim() && !formData.email.trim())) {
+      setErrorMsg("Please enter your name and phone/WhatsApp number or email.")
       return
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      setErrorMsg("Please enter a valid email address.")
-      return
+    if (formData.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(formData.email)) {
+        setErrorMsg("Please enter a valid email address.")
+        return
+      }
     }
 
     setIsSubmitting(true)
 
-    // Simulate backend submission to info@euroedgets.com
-    setTimeout(() => {
+    try {
+      // Submit to Formspree — replace the form ID below with your actual Formspree form ID
+      // Register at https://formspree.io to get a free form ID (e.g. https://formspree.io/f/xanwzowr)
+      const response = await fetch("https://formspree.io/f/xanwzowr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          location: formData.location,
+          contactMethod: formData.contactMethod,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setIsSubmitting(false)
+        setSubmitted(true)
+      } else {
+        const data = await response.json()
+        const serverError =
+          data?.errors?.map((e: { message: string }) => e.message).join(", ") ||
+          "Submission failed. Please try again or contact us directly."
+        setErrorMsg(serverError)
+        setIsSubmitting(false)
+      }
+    } catch {
+      setErrorMsg(
+        "Network error — please check your connection and try again, or contact us directly at info@euroedgets.com"
+      )
       setIsSubmitting(false)
-      setSubmitted(true)
-    }, 900)
+    }
   }
 
   if (submitted) {
@@ -131,14 +166,13 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="email" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Email Address <span className="text-red-500">*</span>
+              Email Address (Optional)
             </label>
             <input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
               className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
               placeholder="name@company.com"
             />
@@ -163,16 +197,15 @@ export function ContactForm() {
         {/* Service Required */}
         <div>
           <label htmlFor="service" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-            Service Required <span className="text-red-500">*</span>
+            Service Required (Optional)
           </label>
           <select
             id="service"
             value={formData.service}
             onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-            required
             className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
           >
-            <option value="">Select a Service</option>
+            <option value="general">General Technical Inquiry</option>
             <option value="electrical">Electrical Works</option>
             <option value="hvac">HVAC Installation &amp; Maintenance</option>
             <option value="plumbing">Plumbing &amp; Sanitary</option>
@@ -182,7 +215,6 @@ export function ContactForm() {
             <option value="kitchen">Kitchen Installation</option>
             <option value="tiling">Floor &amp; Wall Tiling</option>
             <option value="facility">Facility Management</option>
-            <option value="general">General Technical Services</option>
             <option value="other">Other</option>
           </select>
         </div>
@@ -223,13 +255,12 @@ export function ContactForm() {
         {/* Project Details / Requirements */}
         <div>
           <label htmlFor="message" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-            Project Details / Requirements <span className="text-red-500">*</span>
+            Project Details / Requirements (Optional)
           </label>
           <textarea
             id="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            required
             rows={4}
             className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
             placeholder="Describe your location, technical requirements, project timeline, or questions..."

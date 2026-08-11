@@ -6,55 +6,18 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BottomNav } from "@/components/bottom-nav"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { ServiceQuoteForm } from "@/components/service-quote-form"
+import { ServiceShareButton } from "@/components/share-button"
+import { ServiceFaqAccordion } from "@/components/service-faq-accordion"
 import { servicesData } from "@/lib/services-data"
 import {
   Wrench,
-  Zap,
-  Droplet,
-  Fan,
-  Grid,
-  Lightbulb,
-  Square,
-  Maximize,
-  Hammer,
-  Waves,
-  Utensils,
-  Building,
   Building2,
-  Cog,
-  Compass,
-  Boxes,
-  Headphones,
-  Factory,
   CheckCircle2,
   ArrowRight,
-  Phone,
-  Mail,
-  MapPin,
   ChevronLeft,
-  ShieldCheck,
-  Award,
+  HelpCircle,
 } from "lucide-react"
-
-const iconMap: Record<string, any> = {
-  Zap,
-  Droplet,
-  Fan,
-  Grid,
-  Lightbulb,
-  Square,
-  Maximize,
-  Hammer,
-  Waves,
-  Utensils,
-  Building,
-  Building2,
-  Cog,
-  Compass,
-  Boxes,
-  Headphones,
-  Factory,
-}
 
 export async function generateMetadata({
   params,
@@ -63,20 +26,32 @@ export async function generateMetadata({
 }) {
   const { slug } = await params
   const service = servicesData.find((s) => s.slug === slug)
-  if (!service) return { title: "Service Not Found | Euro Edge" }
+  if (!service) return { title: "Service Not Found | Euro Edge Technical Services" }
+
+  const pageTitle = service.titleTag || `${service.title} in Dubai | Euro Edge Technical Services`
 
   return {
-    title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+    title: pageTitle,
     description: service.shortDesc,
+    keywords: [
+      service.title,
+      `${service.title} Dubai`,
+      "Euro Edge Technical Services",
+      "MEP contracting Dubai",
+      "Dubai technical services",
+    ],
+    alternates: {
+      canonical: `https://euroedgets.com/services/${service.slug}`,
+    },
     openGraph: {
-      title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+      title: pageTitle,
       description: service.shortDesc,
       type: "website",
-      url: `https://euro-edge.vercel.app/services/${service.slug}`,
+      url: `https://euroedgets.com/services/${service.slug}`,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} | Euro Edge Technical Services L.L.C.`,
+      title: pageTitle,
       description: service.shortDesc,
     },
   }
@@ -100,10 +75,77 @@ export default async function ServiceDetailPage({
     notFound()
   }
 
-  const IconComponent = iconMap[service.iconName] || Wrench
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.shortDesc,
+    "url": `https://euroedgets.com/services/${service.slug}`,
+    "areaServed": {
+      "@type": "City",
+      "name": "Dubai",
+      "sameAs": "https://www.wikidata.org/wiki/Q612"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Euro Edge Technical Services L.L.C.",
+      "url": "https://euroedgets.com/",
+      "telephone": "+971543909946",
+      "email": "info@euroedgets.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Al Quoz Industrial Area",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
+      }
+    },
+    "serviceType": service.title,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "areaServed": "Dubai, UAE",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "Euro Edge Technical Services L.L.C."
+      }
+    }
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://euroedgets.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://euroedgets.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": service.title,
+        "item": `https://euroedgets.com/services/${service.slug}`
+      }
+    ]
+  }
 
   return (
     <main className="pb-16 md:pb-0 bg-background text-foreground font-sans min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       {/* Breadcrumb & Navigation */}
@@ -121,45 +163,38 @@ export default async function ServiceDetailPage({
       </div>
 
       {/* Service Header */}
-      <section className="relative overflow-hidden bg-background text-foreground py-16 lg:py-24 border-b border-border">
+      <section className="relative overflow-hidden bg-background text-foreground py-8 sm:py-12 lg:py-14 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-secondary border border-border flex items-center justify-center text-primary flex-shrink-0">
-              <IconComponent className="w-8 h-8" />
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                Technical Service Line
-              </span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
                 {service.title}
               </h1>
-              <p className="mt-3 text-base text-muted-foreground max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed font-sans">
                 {service.shortDesc}
               </p>
+            </div>
+            <div className="flex-shrink-0 pt-1 sm:pt-0">
+              <ServiceShareButton slug={service.slug} title={service.title} shortDesc={service.shortDesc} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Service Details Section */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Description & Capabilities */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 space-y-8">
             {/* Service Visual Image */}
             <div className="relative h-[320px] sm:h-[400px] w-full rounded-2xl overflow-hidden border border-border shadow-md">
               <Image
                 src={service.imageUrl}
-                alt={service.title}
+                alt={service.imageAlt || `${service.title} — Euro Edge Technical Services L.L.C. Dubai`}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-card/90 backdrop-blur-md border border-border text-foreground text-xs font-semibold">
-                {service.title} • Euro Edge Technical Services L.L.C. Dubai
-              </div>
             </div>
 
             <div className="space-y-4">
@@ -169,89 +204,65 @@ export default async function ServiceDetailPage({
               </p>
             </div>
 
-            {/* Key Deliverables & Features */}
+            {/* Key Deliverables & Capabilities */}
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-foreground flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                Key Deliverables & Capabilities
+                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                Key Deliverables &amp; Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.keyFeatures.map((feat, idx) => (
                   <div key={idx} className="p-4 rounded-xl bg-card border border-border flex items-start gap-3 shadow-sm">
-                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                    </div>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm font-medium text-foreground">{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Target Applications */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-serif font-bold text-foreground flex items-center gap-2">
-                <Building className="w-5 h-5 text-primary" />
-                Industry Applications
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {service.applications.map((app, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-secondary border border-border flex items-center gap-3">
-                    <Building2 className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground font-medium">{app}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Sidebar Contact & Service Inquiry */}
-          <div className="space-y-8">
-            <div className="p-8 rounded-2xl bg-card border border-border shadow-md space-y-6 sticky top-28">
-              <h3 className="text-xl font-serif font-bold text-foreground">Inquire About {service.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Contact Euro Edge Technical Services L.L.C. for site visits, technical assessments, and cost estimates in Dubai.
-              </p>
-
-              <div className="space-y-4 pt-2 text-xs">
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-primary" />
-                  <a href="tel:+9710543909946" className="text-foreground font-semibold hover:underline">
-                    +971 054 390 9946
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <a href="mailto:info@euroedgets.com" className="text-foreground font-semibold hover:underline">
-                    info@euroedgets.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">Dubai, United Arab Emirates</span>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-border space-y-3">
-                <a
-                  href={`https://wa.me/9710543909946?text=Hi%20Euro%20Edge%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#25d366] text-white font-semibold text-xs uppercase tracking-wider text-center block hover:bg-[#1ebe5a] transition-colors"
-                >
-                  WhatsApp Inquiry
-                </a>
-
-                <Link
-                  href="/contact"
-                  className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-xs uppercase tracking-wider text-center block hover:bg-primary/90 transition-colors"
-                >
-                  Request Detailed Quotation
-                </Link>
-              </div>
-            </div>
+          {/* Sidebar Interactive Fast Quote Form */}
+          <div>
+            <ServiceQuoteForm serviceTitle={service.title} />
           </div>
         </div>
       </section>
+
+      {/* Centered Industry Applications Section */}
+      {service.applications && service.applications.length > 0 && (
+        <section className="py-10 sm:py-14 px-4 lg:px-12 bg-secondary/40 border-t border-border">
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
+                Industry Applications
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
+                Proven technical delivery across diverse property sectors in Dubai and the UAE.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              {service.applications.map((app, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-xs hover:shadow-md transition-all flex flex-col items-center text-center space-y-3 group w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] max-w-xs flex-1 min-w-[220px]"
+                >
+                  <div className="w-11 h-11 rounded-2xl bg-[#0a2540] text-[#fbb03b] flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs sm:text-sm font-semibold text-foreground leading-snug">
+                    {app}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Centered Interactive FAQs Accordion */}
+      <ServiceFaqAccordion faqs={service.faqs} />
 
       <Footer />
       <BottomNav />

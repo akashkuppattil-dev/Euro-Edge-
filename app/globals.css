@@ -115,3 +115,15 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Custom Animation for Timeline */
+@keyframes moveLight {
+  0% { left: -10%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+.animate-timeline-light {
+  animation: moveLight 4s infinite linear;
+}

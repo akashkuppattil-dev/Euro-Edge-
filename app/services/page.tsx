@@ -7,6 +7,7 @@ import { BottomNav } from "@/components/bottom-nav"
 import { AMCPackages } from "@/components/amc-packages"
 import { FAQSection } from "@/components/faq-section"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { ServiceShareButton } from "@/components/share-button"
 import { servicesData } from "@/lib/services-data"
 import {
   Wrench,
@@ -35,6 +36,22 @@ export const metadata = {
   title: "Specialized Technical Services | Euro Edge Technical Services L.L.C. Dubai",
   description:
     "Explore all specialized engineering, maintenance, installation, MEP, civil, and facility management services provided by Euro Edge in Dubai, UAE.",
+  alternates: {
+    canonical: "https://euroedgets.com/services",
+  },
+  openGraph: {
+    title: "Specialized Technical Services | Euro Edge Technical Services L.L.C.",
+    description:
+      "Explore all specialized engineering, maintenance, installation, MEP, HVAC, civil, and facility management services by Euro Edge in Dubai, UAE.",
+    type: "website",
+    url: "https://euroedgets.com/services",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Specialized Technical Services | Euro Edge Technical Services L.L.C.",
+    description:
+      "Explore all specialized engineering, maintenance, installation, MEP, HVAC, civil, and facility management services by Euro Edge in Dubai, UAE.",
+  },
 }
 
 const iconMap: Record<string, any> = {
@@ -63,24 +80,24 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-background text-foreground py-16 lg:py-24 border-b border-border">
+      <section className="relative overflow-hidden bg-background text-foreground py-8 sm:py-12 lg:py-14 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            Complete Engineering & Contracting Solutions
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            Complete Engineering &amp; Contracting Solutions
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground mt-3">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground mt-2 sm:mt-3 tracking-tight">
             Our Specialized Services
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-lg text-muted-foreground leading-relaxed font-sans">
             Euro Edge Technical Services L.L.C. delivers comprehensive, high-precision technical services across Dubai and the UAE. Select any service below to explore detailed specifications and capabilities.
           </p>
         </div>
       </section>
 
       {/* Services Grid with Visual Images */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background">
+      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {servicesData.map((srv, idx) => {
               const IconComponent = iconMap[srv.iconName] || Wrench
               return (
@@ -89,49 +106,53 @@ export default function ServicesPage() {
                   className="rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
                 >
                   <div>
-                    {/* Service Image Banner */}
-                    <div className="relative h-48 w-full overflow-hidden bg-secondary">
-                      <Image
-                        src={srv.imageUrl}
-                        alt={srv.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-md text-foreground text-xs font-mono font-bold border border-border">
-                        #{String(idx + 1).padStart(2, "0")}
-                      </div>
-                      <div className="absolute bottom-3 left-4 w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shadow-md">
-                        <IconComponent className="w-5 h-5" />
+                    {/* Framed Service Image Showcase with Inset Side Padding */}
+                    <div className="p-3 sm:p-4 pb-0">
+                      <div className="relative h-44 sm:h-52 w-full overflow-hidden rounded-xl bg-secondary shadow-xs">
+                        <Image
+                          src={srv.imageUrl}
+                          alt={srv.imageAlt || srv.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-xs font-mono font-bold border border-white/20">
+                          #{String(idx + 1).padStart(2, "0")}
+                        </div>
+                        <div className="absolute bottom-3 left-3 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0a2540] text-[#fbb03b] flex items-center justify-center shadow-md border border-white/10">
+                          <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
                       </div>
                     </div>
 
-                    <div className="p-6">
-                      <h2 className="text-xl font-bold font-serif text-foreground group-hover:text-primary transition-colors">
+                    <div className="p-4 sm:p-6">
+                      <h2 className="text-lg sm:text-xl font-bold font-serif text-foreground group-hover:text-primary transition-colors">
                         {srv.title}
                       </h2>
 
-                      <p className="mt-2.5 text-muted-foreground text-xs leading-relaxed">
+                      <p className="mt-2 text-muted-foreground text-xs leading-relaxed line-clamp-3 font-sans">
                         {srv.shortDesc}
                       </p>
 
                       <div className="mt-4 pt-4 border-t border-border/60 space-y-2">
                         {srv.keyFeatures.slice(0, 3).map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-center gap-2 text-xs text-foreground/80">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-                            <span className="line-clamp-1">{feat}</span>
+                          <div key={fIdx} className="flex items-center gap-2 text-xs text-foreground/90">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 stroke-[2.2]" />
+                            <span className="line-clamp-1 font-medium">{feat}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="px-6 pb-6">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 flex items-center gap-2.5">
+                    <ServiceShareButton slug={srv.slug} title={srv.title} shortDesc={srv.shortDesc} />
+
                     <Link
                       href={`/services/${srv.slug}`}
-                      className="w-full py-3 rounded-xl bg-secondary hover:bg-primary hover:text-primary-foreground text-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200"
+                      className="flex-1 py-2.5 sm:py-3 rounded-xl bg-secondary hover:bg-primary hover:text-primary-foreground text-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200"
                     >
-                      <span>Explore Service Details</span>
+                      <span>Explore Details</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>

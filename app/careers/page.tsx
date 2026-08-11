@@ -12,12 +12,15 @@ export const metadata = {
   title: "Careers & Engineering Opportunities | Euro Edge Technical Services L.L.C.",
   description:
     "Join Euro Edge Technical Services L.L.C. Career opportunities for MEP engineers, HVAC technicians, electricians, plumbers, and masons in Dubai, UAE.",
+  alternates: {
+    canonical: "https://euroedgets.com/careers",
+  },
   openGraph: {
     title: "Careers & Engineering Opportunities | Euro Edge Technical Services L.L.C.",
     description:
       "Join Euro Edge Technical Services L.L.C. Career opportunities for MEP engineers, HVAC technicians, electricians, plumbers, and masons in Dubai, UAE.",
     type: "website",
-    url: "https://euro-edge.vercel.app/careers",
+    url: "https://euroedgets.com/careers",
   },
   twitter: {
     card: "summary_large_image",

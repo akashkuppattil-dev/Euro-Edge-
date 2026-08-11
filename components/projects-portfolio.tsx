@@ -17,12 +17,10 @@ import {
   Building2,
   Hammer,
   Cog,
-  Home as HomeIcon,
   Building,
   Factory,
   Utensils,
   Layers,
-  MessageSquare,
   Sparkles,
   Plus,
   Minus,
@@ -397,29 +395,45 @@ export function ProjectsPortfolio() {
               </div>
             ))}
 
-            {/* SPECIAL DARK BLUE CTA CARD (6th Card in Grid) */}
+            {/* LIGHT STYLED CTA CARD (6th Card in Grid) */}
             {activeFilter === "ALL" && (
-              <div className="rounded-2xl bg-[#0a2540] text-white p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-md border border-white/10">
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-serif font-bold text-white tracking-tight">
+              <div className="rounded-2xl bg-slate-50 text-foreground p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm border border-slate-200/90 hover:shadow-md transition-all">
+                <div className="space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b] block">
+                    TAILORED TECHNICAL CONTRACTING
+                  </span>
+                  <h3 className="text-2xl font-serif font-bold text-foreground tracking-tight">
                     Have a Similar Project Requirement?
                   </h3>
-                  <p className="text-xs text-white/80 leading-relaxed font-sans">
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
                     Our team can help identify the right technical scope and service approach for your project.
                   </p>
+                </div>
+
+                {/* Centered Euro Edge Company Logo (Large Size) */}
+                <div className="py-2 flex items-center justify-center">
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-white p-4 shadow-lg border border-slate-200/90 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <Image
+                      src="/images/logo.png"
+                      alt="Euro Edge Technical Services L.L.C."
+                      width={180}
+                      height={180}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-3">
                   <Link
                     href="/contact"
-                    className="w-full py-3.5 px-5 rounded-xl bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-5 rounded-xl bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
                   >
                     <span>REQUEST A QUOTE</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-[#fbb03b]" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="w-full py-3 px-5 rounded-xl bg-transparent border border-white/30 hover:border-white text-white font-mono font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 px-5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-foreground font-mono font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                   >
                     <span>CONTACT EURO EDGE</span>
                     <ChevronRight className="w-4 h-4" />
@@ -432,295 +446,84 @@ export function ProjectsPortfolio() {
       </section>
 
       {/* =========================================
-          6. WHY EURO EDGE (Single Row 6 Features)
+          6. WHY EURO EDGE (Matching FAQSection Structure)
       ========================================= */}
-      <section className="py-14 px-4 lg:px-12 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-1.5">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b]">
-              WHY EURO EDGE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
-              From Technical Scope to Reliable Execution
+      <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
+        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+          {/* Header */}
+          <div className="text-center space-y-2.5 sm:space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>COMPETITIVE EXCELLENCE</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
+              WHY CHOOSE EURO EDGE
             </h2>
+            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+              We stand out by delivering excellence, reliability, and precision tailored to every client project across Dubai and the UAE.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-            <div className="p-4 space-y-2 border-r last:border-r-0 border-slate-200/80">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <Award className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Quality Workmanship
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                Attention to quality in every technical detail.
-              </p>
-            </div>
-
-            <div className="p-4 space-y-2 border-r last:border-r-0 border-slate-200/80">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Safety First
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                Safety is integrated into our process and execution.
-              </p>
-            </div>
-
-            <div className="p-4 space-y-2 border-r last:border-r-0 border-slate-200/80">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <Wrench className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Technical Expertise
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                Skilled team with strong technical capabilities.
-              </p>
-            </div>
-
-            <div className="p-4 space-y-2 border-r last:border-r-0 border-slate-200/80">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <Layers className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Coordinated Execution
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                Well-planned, coordinated and on-time delivery.
-              </p>
-            </div>
-
-            <div className="p-4 space-y-2 border-r last:border-r-0 border-slate-200/80">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <Headphones className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Responsive Support
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                We are available when you need us.
-              </p>
-            </div>
-
-            <div className="p-4 space-y-2">
-              <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0a2540] mx-auto flex items-center justify-center border border-slate-200">
-                <Users className="w-5 h-5" />
-              </div>
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
-                Customer-Focused Service
-              </h3>
-              <p className="text-[10px] text-muted-foreground leading-tight">
-                We focus on long-term relationships.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
-          7. CLIENT EXPERIENCE (Elevated Corporate Standard Cards)
-      ========================================= */}
-      <section className="py-16 px-4 lg:px-12 bg-slate-50/70 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b]">
-              CLIENT EXPERIENCE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
-              Built Around Quality &amp; Customer Confidence
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#0a2540]/30 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0a2540] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <MessageSquare className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#fbb03b] uppercase tracking-widest block">
-                    STANDARD 01
+          {/* Cards Vertical Stack (One After Another Down by Down) */}
+          <div className="grid grid-cols-1 gap-4 sm:gap-5">
+            {[
+              {
+                num: "01",
+                tag: "Certified Engineers",
+                title: "Quality Workmanship",
+                desc: "Attention to quality in every technical detail and engineering execution.",
+              },
+              {
+                num: "02",
+                tag: "Safety Standard",
+                title: "Safety First",
+                desc: "Safety is integrated into our site planning, tools, and project execution.",
+              },
+              {
+                num: "03",
+                tag: "Skilled Teams",
+                title: "Technical Expertise",
+                desc: "Skilled certified engineers and technicians with strong capabilities.",
+              },
+              {
+                num: "04",
+                tag: "Multi-Trade",
+                title: "Coordinated Execution",
+                desc: "Well-planned, multi-trade coordination and on-time project delivery.",
+              },
+              {
+                num: "05",
+                tag: "24/7 Response",
+                title: "Responsive Support",
+                desc: "Available 24/7 when you need urgent site technical support in Dubai.",
+              },
+              {
+                num: "06",
+                tag: "Client First",
+                title: "Customer-Focused Service",
+                desc: "Dedicated to building long-term, trusted client relationships.",
+              },
+            ].map((item) => (
+              <div
+                key={item.num}
+                className="p-5 sm:p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-md transition-all duration-200 space-y-2 group"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
+                    {item.tag}
                   </span>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                    Responsive Communication
-                  </h3>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Clear communication throughout the service process.
-                </p>
-              </div>
-              <div className="w-full h-1 bg-[#0a2540]/10 group-hover:bg-[#0a2540] transition-colors mt-6 rounded-full" />
-            </div>
-
-            {/* Card 2 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#0a2540]/30 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0a2540] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#fbb03b] uppercase tracking-widest block">
-                    STANDARD 02
+                  <span className="text-xs font-mono font-bold text-muted-foreground/60">
+                    {item.num}
                   </span>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                    Quality-Focused Execution
-                  </h3>
                 </div>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Attention to workmanship and technical requirements.
-                </p>
-              </div>
-              <div className="w-full h-1 bg-[#0a2540]/10 group-hover:bg-[#0a2540] transition-colors mt-6 rounded-full" />
-            </div>
-
-            {/* Card 3 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#0a2540]/30 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0a2540] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#fbb03b] uppercase tracking-widest block">
-                    STANDARD 03
-                  </span>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                    Safety Consciousness
-                  </h3>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Safety considered throughout planning and execution.
-                </p>
-              </div>
-              <div className="w-full h-1 bg-[#0a2540]/10 group-hover:bg-[#0a2540] transition-colors mt-6 rounded-full" />
-            </div>
-
-            {/* Card 4 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#0a2540]/30 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0a2540] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <Headphones className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#fbb03b] uppercase tracking-widest block">
-                    STANDARD 04
-                  </span>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                    Long-Term Support
-                  </h3>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Maintenance and technical support beyond the initial requirement.
-                </p>
-              </div>
-              <div className="w-full h-1 bg-[#0a2540]/10 group-hover:bg-[#0a2540] transition-colors mt-6 rounded-full" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
-          8. OUR PROJECT CAPABILITY (Structured Sector Matrix)
-      ========================================= */}
-      <section className="py-16 px-4 lg:px-12 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b]">
-              OUR PROJECT CAPABILITY
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
-              Multidisciplinary Engineering Coverage Across UAE
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <HomeIcon className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Residential
+                <h3 className="font-serif font-bold text-lg text-foreground group-hover:text-primary transition-colors pt-1">
+                  {item.title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Villa MEP, HVAC, electrical, plumbing and fit-out requirements.
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
+                  {item.desc}
                 </p>
               </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <Building className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Commercial
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Office fit-outs, MEP integration and technical maintenance.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <Utensils className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Hospitality
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Resort, pool, kitchen and guest-facility technical requirements.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <Factory className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Industrial
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Industrial maintenance, electrical systems and facility upgrades.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Facility Management
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Preventive maintenance, technical support and building services.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-l-4 hover:border-l-[#0a2540] hover:shadow-md transition-all duration-300 flex items-start gap-4 shadow-2xs">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center flex-shrink-0">
-                <Hammer className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                  Fit-Out &amp; Renovation
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                  Interior technical coordination and installation services.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -728,58 +531,71 @@ export function ProjectsPortfolio() {
       {/* =========================================
           9. FREQUENTLY ASKED QUESTIONS ACCORDION
       ========================================= */}
-      <section className="py-14 px-4 lg:px-12 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#fbb03b] block">
+      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
+          {/* Top Centered Header */}
+          <div className="text-center space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#fbb03b] block">
               PROJECT &amp; SERVICE FAQ
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-foreground tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
+            <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-sans max-w-2xl mx-auto">
               Find answers to common questions about technical scopes, maintenance requirements and project enquiries.
             </p>
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                className="px-5 py-2.5 rounded-xl bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2"
-              >
-                <span>VIEW ALL FAQS</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-3">
+          {/* Full-Width Stacked Accordions */}
+          <div className="space-y-3 sm:space-y-4">
             {faqsList.map((faq, idx) => {
               const isOpen = openFaq === idx
               return (
                 <div
                   key={idx}
-                  className="rounded-xl bg-white border border-slate-200 overflow-hidden shadow-2xs transition-all"
+                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                    isOpen
+                      ? "bg-white border-[#0a2540]/40 shadow-md ring-1 ring-[#0a2540]/10"
+                      : "bg-white border-slate-200 hover:border-slate-300 shadow-2xs"
+                  }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none"
+                    className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                   >
-                    <span className="text-xs sm:text-sm font-sans font-bold text-foreground">
+                    <span className="font-serif font-bold text-sm sm:text-base text-foreground pr-2 leading-snug">
                       {faq.q}
                     </span>
-                    {isOpen ? (
-                      <Minus className="w-4 h-4 text-primary flex-shrink-0" />
-                    ) : (
-                      <Plus className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                    )}
+                    <div
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                        isOpen
+                          ? "bg-[#0a2540] text-white rotate-180"
+                          : "bg-slate-100 text-foreground"
+                      }`}
+                    >
+                      {isOpen ? <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+                    </div>
                   </button>
                   {isOpen && (
-                    <div className="px-4 sm:px-5 pb-5 text-xs text-muted-foreground font-sans leading-relaxed border-t border-slate-100 pt-3">
-                      {faq.a}
+                    <div className="px-4 pb-4 sm:px-6 sm:pb-6 pt-0 border-t border-slate-100 animate-in fade-in slide-in-from-top-1 duration-200">
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans pt-3 sm:pt-4">
+                        {faq.a}
+                      </p>
                     </div>
                   )}
                 </div>
               )
             })}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              href="/contact"
+              className="px-6 py-3 rounded-xl bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-sm"
+            >
+              <span>VIEW ALL FAQS &amp; INQUIRE</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
     description: "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, and facility management across Dubai and the UAE.",
     type: 'website',
-    url: 'https://euro-edge.vercel.app/',
+    url: 'https://euroedgets.com/',
   },
   icons: {
     icon: '/images/logo.png',

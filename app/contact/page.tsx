@@ -148,7 +148,10 @@ export default function ContactPage() {
                     LOCATION
                   </span>
                   <span className="text-sm font-bold text-foreground block mt-0.5">
-                    Dubai, United Arab Emirates
+                    Al Quoz Industrial Area, Dubai, UAE
+                  </span>
+                  <span className="text-xs text-muted-foreground block mt-0.5">
+                    Deploying crews across all Dubai districts &amp; Emirates
                   </span>
                 </div>
               </div>
@@ -223,15 +226,29 @@ export default function ContactPage() {
               OUR SERVICE AREA
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
-              Serving Dubai &amp; the UAE
+              Based in Dubai — Serving All Emirates
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Euro Edge Technical Services L.L.C. proudly provides technical contracting, MEP installation, and facility maintenance throughout Dubai and all Emirates.
+              Euro Edge Technical Services L.L.C. is based in Al Quoz Industrial Area, Dubai. We deploy certified technical crews across all major residential and commercial districts throughout Dubai and the UAE.
             </p>
           </div>
 
-          {/* Architectural Location Card */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-card border border-border flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          {/* Google Maps Embed */}
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57754.53168989799!2d55.22048994999999!3d25.163399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69e5b7fc7bdf%3A0x45d05b43af72b6f8!2sAl%20Quoz%20Industrial%20Area%2C%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+              width="100%"
+              height="360"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Euro Edge Technical Services – Al Quoz Industrial Area, Dubai"
+            />
+          </div>
+
+          {/* Location Info Card */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
             <div className="flex items-center gap-4 text-center md:text-left">
               <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center text-primary flex-shrink-0">
                 <MapPin className="w-6 h-6" />
@@ -240,11 +257,11 @@ export default function ContactPage() {
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
                   CORPORATE HEADQUARTERS
                 </span>
-                <h3 className="text-xl font-serif font-bold text-foreground mt-0.5">
-                  Dubai, United Arab Emirates
+                <h3 className="text-lg font-serif font-bold text-foreground mt-0.5">
+                  Al Quoz Industrial Area, Dubai, UAE
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Deploying certified technical crews across all major commercial and residential districts in Dubai.
+                  Site visits and technical assessments available across all Dubai districts — free of charge.
                 </p>
               </div>
             </div>
