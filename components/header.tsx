@@ -33,6 +33,7 @@ import {
   Boxes,
   Headphones,
   Factory,
+  Instagram,
 } from "lucide-react"
 import { servicesData } from "@/lib/services-data"
 
@@ -148,56 +149,30 @@ export function Header() {
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-primary" : ""}`} />
                   </Link>
 
-                  {/* Mega Dropdown Menu */}
+                  {/* Simple Vertical Dropdown Menu */}
                   {servicesDropdownOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[1150px] max-h-[85vh] overflow-y-auto bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-8 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="pb-4 mb-6 border-b border-slate-100 flex items-center justify-end">
+                    <div className="absolute top-full left-0 w-[300px] max-h-[80vh] overflow-y-auto bg-white border-t-2 border-t-[#fbb03b] rounded-b-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="flex flex-col">
+                        {servicesData.map((s) => (
+                          <Link
+                            key={s.slug}
+                            href={`/services/${s.slug}`}
+                            onClick={() => setServicesDropdownOpen(false)}
+                            className="px-6 py-3 text-[14px] font-medium text-slate-700 hover:text-[#0a2540] hover:bg-slate-50 hover:pl-7 transition-all duration-200 border-b border-slate-50 last:border-0"
+                          >
+                            {s.title}
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="px-4 mt-2 mb-2">
                         <Link
                           href="/services"
                           onClick={() => setServicesDropdownOpen(false)}
-                          className="text-sm font-bold text-primary hover:underline flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 transition-colors"
+                          className="flex items-center justify-between w-full px-4 py-2.5 text-[13px] font-bold text-[#0a2540] bg-[#fbb03b]/10 hover:bg-[#fbb03b]/20 rounded-lg transition-colors group"
                         >
                           <span>Explore All Services</span>
-                          <ArrowRight className="w-4 h-4" />
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                      </div>
-
-                      <div className="grid grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-5">
-                        {servicesData.map((s, i) => {
-                          const IconComponent = iconMap[s.iconName] || Wrench
-                          const colors = [
-                            "text-blue-500 bg-blue-50",
-                            "text-emerald-500 bg-emerald-50",
-                            "text-violet-500 bg-violet-50",
-                            "text-amber-500 bg-amber-50",
-                            "text-rose-500 bg-rose-50",
-                            "text-cyan-500 bg-cyan-50",
-                            "text-fuchsia-500 bg-fuchsia-50",
-                            "text-orange-500 bg-orange-50",
-                            "text-teal-500 bg-teal-50",
-                            "text-indigo-500 bg-indigo-50",
-                            "text-pink-500 bg-pink-50",
-                            "text-lime-600 bg-lime-50"
-                          ]
-                          const colorClasses = colors[i % colors.length]
-                          const [textColor, bgColor] = colorClasses.split(' ')
-
-                          return (
-                            <Link
-                              key={s.slug}
-                              href={`/services/${s.slug}`}
-                              onClick={() => setServicesDropdownOpen(false)}
-                              className="flex items-center gap-3.5 py-2.5 px-3.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group"
-                            >
-                              <div className={`p-2 rounded-lg ${bgColor} group-hover:scale-110 transition-transform`}>
-                                <IconComponent className={`w-5 h-5 ${textColor} flex-shrink-0`} />
-                              </div>
-                              <span className="text-sm font-medium text-slate-700 group-hover:text-primary group-hover:font-semibold transition-colors truncate">
-                                {s.title}
-                              </span>
-                            </Link>
-                          )
-                        })}
                       </div>
                     </div>
                   )}
@@ -207,7 +182,7 @@ export function Header() {
                   href="/projects"
                   className="text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors relative py-2"
                 >
-                  Projects
+                  Industries
                 </Link>
 
                 <Link
@@ -231,10 +206,10 @@ export function Header() {
                 </Link>
 
                 <a
-                  href="tel:+9710543909946"
+                  href="tel:+971543909946"
                   className="pl-4 pr-1.5 py-1.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200/90 text-[#0a2540] font-semibold text-xs transition-all duration-200 shadow-2xs hover:shadow-xs flex items-center gap-2.5 group"
                 >
-                  <span>+971 054 390 9946</span>
+                  <span>+971 54 390 9946</span>
                   <div className="w-6.5 h-6.5 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                     <Phone className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
@@ -322,7 +297,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="block py-2 text-base font-semibold text-foreground border-b border-border/40"
             >
-              Projects
+              Industries
             </Link>
 
             <Link
@@ -346,12 +321,24 @@ export function Header() {
               </Link>
 
               <a
-                href="tel:+9710543909946"
+                href="tel:+971543909946"
                 className="w-full pl-6 pr-3 py-3 rounded-xl bg-[#0a2540] text-white font-semibold text-sm flex items-center justify-between shadow-sm active:scale-[0.99] transition-transform"
               >
-                <span>Call Now: +971 054 390 9946</span>
+                <span>Call Now: +971 54 390 9946</span>
                 <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-[#0a2540] flex items-center justify-center shadow-sm">
                   <Phone className="w-4 h-4 stroke-[2.5]" />
+                </div>
+              </a>
+
+              <a
+                href="https://www.instagram.com/euro_edge?stkn=Zno1OGRpZjVpdGMw&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full pl-6 pr-3 py-3 rounded-xl bg-white border border-gray-200 text-slate-800 font-semibold text-sm flex items-center justify-between shadow-sm active:scale-[0.99] transition-transform"
+              >
+                <span>Follow on Instagram</span>
+                <div className="w-8 h-8 rounded-full bg-[#E1306C] text-white flex items-center justify-center shadow-sm">
+                  <Instagram className="w-4 h-4" />
                 </div>
               </a>
             </div>

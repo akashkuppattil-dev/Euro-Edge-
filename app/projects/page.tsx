@@ -56,7 +56,7 @@ export default function ProjectsPage() {
       <ProjectsPortfolio />
 
       <Footer />
-            <StickyContactWidget />
+      <StickyContactWidget />
     </main>
   )
 }

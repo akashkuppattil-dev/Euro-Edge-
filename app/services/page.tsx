@@ -185,7 +185,7 @@ export default function ServicesPage() {
       <FAQSection />
 
       <Footer />
-            <StickyContactWidget />
+      <StickyContactWidget />
     </main>
   )
 }

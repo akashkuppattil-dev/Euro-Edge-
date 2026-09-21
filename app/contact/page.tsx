@@ -16,6 +16,7 @@ import {
   Award,
   Users,
   Headphones,
+  Instagram,
 } from "lucide-react"
 
 export const metadata = {
@@ -111,10 +112,10 @@ export default function ContactPage() {
                     PHONE / WHATSAPP
                   </span>
                   <a
-                    href="tel:+9710543909946"
+                    href="tel:+971543909946"
                     className="text-sm font-bold text-foreground hover:text-primary transition-colors block mt-0.5"
                   >
-                    +971 054 390 9946
+                    +971 54 390 9946
                   </a>
                 </div>
               </div>
@@ -133,6 +134,26 @@ export default function ContactPage() {
                     className="text-sm font-bold text-foreground hover:text-primary transition-colors block mt-0.5"
                   >
                     info@euroedgets.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Instagram */}
+              <div className="flex items-start gap-4 pt-1">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                    INSTAGRAM
+                  </span>
+                  <a
+                    href="https://www.instagram.com/euro_edge?stkn=Zno1OGRpZjVpdGMw&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-foreground hover:text-primary transition-colors block mt-0.5"
+                  >
+                    @euro_edge
                   </a>
                 </div>
               </div>
@@ -266,11 +287,11 @@ export default function ContactPage() {
             </div>
 
             <a
-              href="tel:+9710543909946"
+              href="tel:+971543909946"
               className="w-full md:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm whitespace-nowrap"
             >
               <Phone className="w-4 h-4" />
-              <span>Call: +971 054 390 9946</span>
+              <span>Call: +971 54 390 9946</span>
             </a>
           </div>
         </div>

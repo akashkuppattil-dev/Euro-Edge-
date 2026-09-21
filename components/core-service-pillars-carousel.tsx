@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Building2, Hammer, Zap, ShieldCheck } from "lucide-react"
+import { ArrowRight, Building2, Hammer, Zap, ShieldCheck, House, Brush } from "lucide-react"
 
 const iconMap: Record<string, any> = {
-  Building2, Hammer, Zap, ShieldCheck
+  Building2, Hammer, Zap, ShieldCheck, House, Brush
 }
 export function CoreServicePillarsCarousel({ pillars }: { pillars: any[] }) {
   return (
@@ -18,50 +18,39 @@ export function CoreServicePillarsCarousel({ pillars }: { pillars: any[] }) {
             return (
               <div 
                 key={pillar.num}
-                className="group rounded-2xl bg-card border border-border overflow-hidden shadow-sm flex flex-col justify-between transition-all duration-300 w-[85vw] max-w-[340px] shrink-0 snap-center transform-gpu"
+                className="group relative rounded-3xl overflow-hidden h-[400px] w-[85vw] max-w-[320px] shrink-0 snap-center flex flex-col justify-end p-6 shadow-md transition-all duration-300"
               >
-                {/* Card Top Image Header */}
-                <div className="relative h-48 w-full overflow-hidden shrink-0">
-                  <Image
-                    src={pillar.img}
-                    alt={pillar.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/90 via-[#0a2540]/40 to-transparent" />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-[#0a2540]/90 text-[#fbb03b] text-[10px] font-mono font-bold uppercase border border-white/10 shadow-sm">
-                      {pillar.tag}
-                    </span>
+                {/* Background Image */}
+                <Image
+                  src={pillar.img}
+                  alt={pillar.title}
+                  fill
+                  className="object-cover z-0"
+                />
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a1a1a]/50 to-[#1a1a1a]/95 z-10" />
+                
+                {/* Content */}
+                <div className="relative z-20 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-start text-white mb-1">
+                    <IconComponent className="w-8 h-8" />
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shrink-0">
-                      <IconComponent className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-mono font-bold text-white/80 shrink-0">
-                      {pillar.num}
-                    </span>
-                  </div>
-                </div>
+                  
+                  <h3 className="font-serif font-bold text-2xl text-white leading-tight">
+                    {pillar.title}
+                  </h3>
+                  
+                  <p className="text-xs text-white/80 leading-relaxed font-sans line-clamp-4 font-medium">
+                    {pillar.desc}
+                  </p>
 
-                {/* Card Body */}
-                <div className="p-5 space-y-3 flex-1 flex flex-col justify-between overflow-hidden">
-                  <div className="space-y-2">
-                    <h3 className="font-serif font-bold text-xl text-foreground truncate whitespace-normal line-clamp-2">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed font-sans line-clamp-3 whitespace-normal">
-                      {pillar.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-3">
+                  <div className="pt-2">
                     <Link
                       href={pillar.href}
-                      className="inline-flex items-center justify-center w-full gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 py-3 rounded-xl border border-primary/10 transition-colors"
+                      className="inline-flex items-center justify-center gap-2 text-[13px] font-bold text-white bg-[#1a1a1a]/80 backdrop-blur-sm px-6 py-2.5 rounded-full border border-white/30 transition-colors w-max"
                     >
-                      <span>Explore Scope</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Explore</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -84,50 +73,39 @@ export function CoreServicePillarsCarousel({ pillars }: { pillars: any[] }) {
           return (
             <div
               key={pillar.num}
-              className="group rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group relative rounded-[2rem] overflow-hidden h-[480px] flex flex-col justify-end p-7 transition-all duration-300 shadow-md hover:shadow-2xl hover:-translate-y-1"
             >
-              {/* Card Top Image Header */}
-              <div className="relative h-52 w-full overflow-hidden">
-                <Image
-                  src={pillar.img}
-                  alt={pillar.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/80 via-transparent to-transparent" />
-                <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-full bg-[#0a2540]/90 text-[#fbb03b] text-[10px] font-mono font-bold uppercase border border-white/10 shadow-sm">
-                    {pillar.tag}
-                  </span>
+              {/* Background Image */}
+              <Image
+                src={pillar.img}
+                alt={pillar.title}
+                fill
+                className="object-cover z-0 group-hover:scale-110 transition-transform duration-700"
+              />
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-[#1a1a1a]/50 to-[#1a1a1a]/95 z-10 transition-opacity duration-300 group-hover:opacity-90" />
+              
+              {/* Content */}
+              <div className="relative z-20 flex flex-col gap-3 transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="flex items-center justify-start text-white mb-2">
+                  <IconComponent className="w-9 h-9 drop-shadow-md" />
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
-                    <IconComponent className="w-4 h-4" />
-                  </div>
-                  <span className="text-xs font-mono font-bold text-white/80">
-                    {pillar.num}
-                  </span>
-                </div>
-              </div>
+                
+                <h3 className="font-serif font-bold text-[22px] text-white leading-tight drop-shadow-md">
+                  {pillar.title}
+                </h3>
+                
+                <p className="text-[13px] text-white/80 leading-relaxed font-sans line-clamp-4 font-medium mb-1 drop-shadow-sm">
+                  {pillar.desc}
+                </p>
 
-              {/* Card Body */}
-              <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
-                <div className="space-y-1.5">
-                  <h3 className="font-serif font-bold text-xl text-foreground group-hover:text-primary transition-colors">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                    {pillar.desc}
-                  </p>
-                </div>
-
-                <div className="pt-2">
+                <div className="pt-3">
                   <Link
                     href={pillar.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-primary/90 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-[#1a1a1a]/80 backdrop-blur-sm px-6 py-2.5 rounded-full border border-white/30 hover:bg-white hover:text-[#1a1a1a] transition-all duration-300 w-max"
                   >
-                    <span>Explore Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <span>Explore</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>

@@ -144,7 +144,7 @@ export function ServiceQuoteForm({ serviceTitle }: { serviceTitle: string }) {
       {/* Direct WhatsApp Link & Trust Badges */}
       <div className="pt-4 border-t border-slate-200/80 space-y-3 text-xs">
         <a
-          href={`https://wa.me/9710543909946?text=Hi%20Euro%20Edge%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(serviceTitle)}%20services.`}
+          href={`https://wa.me/971543909946?text=Hi%20Euro%20Edge%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(serviceTitle)}%20services.`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full py-3 rounded-xl bg-[#25d366] hover:bg-[#1ebe5a] text-white font-mono font-bold text-xs uppercase tracking-wider text-center block transition-colors shadow-xs"

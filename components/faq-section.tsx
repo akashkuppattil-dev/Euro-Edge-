@@ -33,7 +33,7 @@ const faqs = [
     id: 5,
     question: "How do I request a technical site inspection or get a customized quotation?",
     answer:
-      "You can request a free technical consultation by filling out our online contact form, calling us directly at +971 054 390 9946, or sending us a message on WhatsApp. Our engineering team conducts initial site evaluations across Dubai to provide transparent, detailed proposals.",
+      "You can request a free technical consultation by filling out our online contact form, calling us directly at +971 54 390 9946, or sending us a message on WhatsApp. Our engineering team conducts initial site evaluations across Dubai to provide transparent, detailed proposals.",
   },
 ]
 

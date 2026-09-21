@@ -10,7 +10,7 @@ export function StickyContactWidget() {
   const [selectedService, setSelectedService] = useState<string>("")
 
   const handleWhatsAppSend = () => {
-    const phoneNumber = "9710543909946"
+    const phoneNumber = "971543909946"
     let message = "Hi Euro Edge, "
 
     if (enquiryType === "service") {
@@ -115,13 +115,13 @@ export function StickyContactWidget() {
       <div className="flex flex-col gap-3">
         {/* 24/7 Emergency Call Button - Hidden on Mobile */}
         <a
-          href="tel:+9710543909946"
+          href="tel:+971543909946"
           className="group relative items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-105 transition-all duration-200 hidden sm:flex"
           aria-label="24/7 Emergency Technical Support Dubai"
         >
           <Phone className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
           <span className="absolute right-[4.5rem] whitespace-nowrap bg-primary text-primary-foreground text-xs font-semibold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-            24/7 Support: +971 054 390 9946
+            24/7 Support: +971 54 390 9946
           </span>
         </a>
 

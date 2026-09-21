@@ -14,7 +14,7 @@ export function ServiceFaqAccordion({ faqs }: { faqs: FAQItem[] }) {
   const additionalFaqs: FAQItem[] = [
     {
       q: "How do I request a technical site inspection & formal quotation for Euro Edge services in Dubai?",
-      a: "You can request a free technical consultation by submitting our fast quote form, calling +971 054 390 9946 directly, or messaging us on WhatsApp. Our engineers conduct initial site evaluations across Dubai to provide transparent, itemized proposals with zero hidden fees.",
+      a: "You can request a free technical consultation by submitting our fast quote form, calling +971 54 390 9946 directly, or messaging us on WhatsApp. Our engineers conduct initial site evaluations across Dubai to provide transparent, itemized proposals with zero hidden fees.",
     },
     {
       q: "Does Euro Edge provide Annual Maintenance Contracts (AMC) with 24/7 emergency response?",

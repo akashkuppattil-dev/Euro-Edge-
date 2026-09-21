@@ -189,7 +189,7 @@ export function ContactForm() {
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               required
               className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              placeholder="+971 054 390 9946"
+              placeholder="+971 54 390 9946"
             />
           </div>
         </div>

@@ -65,7 +65,7 @@ export function QuoteEstimator({ servicesData }: QuoteEstimatorProps) {
     const text = encodeURIComponent(
       `Hello Euro Edge Technical Services!\n\nI would like an instant technical quote:\n- *Property:* ${activePropertyObj?.name}\n- *Service:* ${activeServiceObj?.name}\n- *Urgency:* ${selectedUrgency}\n- *Name:* ${name}\n- *Phone:* ${phone}\n- *Location:* ${location}`
     )
-    window.open(`https://wa.me/9710543909946?text=${text}`, "_blank")
+    window.open(`https://wa.me/971543909946?text=${text}`, "_blank")
   }
 
   return (

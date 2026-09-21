@@ -398,94 +398,94 @@ export default function EuroEdgePage() {
           <div className="relative">
             <div className="flex sm:grid gap-4 sm:gap-6 lg:gap-8 overflow-x-auto overflow-y-hidden touch-pan-x sm:overflow-visible snap-x snap-mandatory pb-4 sm:pb-0 hide-scrollbar sm:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 sm:mx-0 sm:px-0">
               {[
-              {
-                num: "01",
-                tag: "Certified Engineers",
-                title: "Skilled Professionals",
-                desc: "Our team consists of highly trained and experienced professionals dedicated to delivering top-quality services.",
-                icon: Users,
-              },
-              {
-                num: "02",
-                tag: "Premium Grade",
-                title: "Quality Materials",
-                desc: "We use premium quality materials from trusted suppliers to ensure durability, reliability, and long-lasting results.",
-                icon: ShieldCheck,
-              },
-              {
-                num: "03",
-                tag: "Strict SLA",
-                title: "Timely Delivery",
-                desc: "We value your time and ensure every project is completed on schedule without compromising on quality.",
-                icon: Clock,
-              },
-              {
-                num: "04",
-                tag: "Transparent Rates",
-                title: "Competitive Pricing",
-                desc: "We offer cost-effective solutions with transparent pricing to ensure maximum value for your investment.",
-                icon: Scale,
-              },
-              {
-                num: "05",
-                tag: "Zero Violations",
-                title: "Safety Compliance",
-                desc: "Safety is our top priority. We strictly adhere to industry standards and regulations.",
-                icon: Award,
-              },
-              {
-                num: "06",
-                tag: "Client First",
-                title: "Customer Satisfaction",
-                desc: "We are committed to exceeding client expectations through reliable service, open communication, and attention to detail.",
-                icon: Handshake,
-              },
-              {
-                num: "07",
-                tag: "State-of-the-Art",
-                title: "Modern Equipment",
-                desc: "We utilize advanced tools and modern equipment to deliver efficient, precise, and high-quality workmanship.",
-                icon: Settings,
-              },
-              {
-                num: "08",
-                tag: "Tailored Scope",
-                title: "Customized Solutions",
-                desc: "Every project is unique; our solutions are tailored to meet specific needs and requirements.",
-                icon: Target,
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="group relative p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0a2540]/30 hover:shadow-2xl transition-all duration-300 flex flex-col space-y-6 overflow-hidden w-[85vw] max-w-[340px] sm:w-auto shrink-0 snap-center sm:shrink-1 transform-gpu"
-              >
-                {/* Hover Accent Line */}
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#fbb03b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-                
-                <div className="flex items-start justify-between relative z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-[#0a2540] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm text-[#0a2540]">
-                    <item.icon className="w-6 h-6 transition-colors" />
-                  </div>
-                  <span className="text-5xl font-display font-black text-slate-100 group-hover:text-slate-200 transition-colors select-none -mr-2 -mt-2">
-                    {item.num}
-                  </span>
-                </div>
+                {
+                  num: "01",
+                  tag: "Certified Engineers",
+                  title: "Skilled Professionals",
+                  desc: "Our team consists of highly trained and experienced professionals dedicated to delivering top-quality services.",
+                  icon: Users,
+                },
+                {
+                  num: "02",
+                  tag: "Premium Grade",
+                  title: "Quality Materials",
+                  desc: "We use premium quality materials from trusted suppliers to ensure durability, reliability, and long-lasting results.",
+                  icon: ShieldCheck,
+                },
+                {
+                  num: "03",
+                  tag: "Strict SLA",
+                  title: "Timely Delivery",
+                  desc: "We value your time and ensure every project is completed on schedule without compromising on quality.",
+                  icon: Clock,
+                },
+                {
+                  num: "04",
+                  tag: "Transparent Rates",
+                  title: "Competitive Pricing",
+                  desc: "We offer cost-effective solutions with transparent pricing to ensure maximum value for your investment.",
+                  icon: Scale,
+                },
+                {
+                  num: "05",
+                  tag: "Zero Violations",
+                  title: "Safety Compliance",
+                  desc: "Safety is our top priority. We strictly adhere to industry standards and regulations.",
+                  icon: Award,
+                },
+                {
+                  num: "06",
+                  tag: "Client First",
+                  title: "Customer Satisfaction",
+                  desc: "We are committed to exceeding client expectations through reliable service, open communication, and attention to detail.",
+                  icon: Handshake,
+                },
+                {
+                  num: "07",
+                  tag: "State-of-the-Art",
+                  title: "Modern Equipment",
+                  desc: "We utilize advanced tools and modern equipment to deliver efficient, precise, and high-quality workmanship.",
+                  icon: Settings,
+                },
+                {
+                  num: "08",
+                  tag: "Tailored Scope",
+                  title: "Customized Solutions",
+                  desc: "Every project is unique; our solutions are tailored to meet specific needs and requirements.",
+                  icon: Target,
+                },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="group relative p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0a2540]/30 hover:shadow-2xl transition-all duration-300 flex flex-col space-y-6 overflow-hidden w-[85vw] max-w-[340px] sm:w-auto shrink-0 snap-center sm:shrink-1 transform-gpu"
+                >
+                  {/* Hover Accent Line */}
+                  <div className="absolute top-0 left-0 w-full h-1.5 bg-[#fbb03b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
 
-                <div className="space-y-3 relative z-10">
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#fbb03b]">
-                    {item.tag}
-                  </span>
-                  <h3 className="font-display font-bold text-xl text-[#0a2540] group-hover:text-blue-700 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed font-sans">
-                    {item.desc}
-                  </p>
+                  <div className="flex items-start justify-between relative z-10">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-[#0a2540] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm text-[#0a2540]">
+                      <item.icon className="w-6 h-6 transition-colors" />
+                    </div>
+                    <span className="text-5xl font-display font-black text-slate-100 group-hover:text-slate-200 transition-colors select-none -mr-2 -mt-2">
+                      {item.num}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 relative z-10">
+                    <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#fbb03b]">
+                      {item.tag}
+                    </span>
+                    <h3 className="font-display font-bold text-xl text-[#0a2540] group-hover:text-blue-700 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
-            
+
             {/* Swipe Indicator (Mobile Only) */}
             <div className="flex sm:hidden items-center justify-end gap-2 text-xs font-semibold text-muted-foreground pt-1 pr-2">
               <span>Swipe to explore</span>
@@ -496,17 +496,17 @@ export default function EuroEdgePage() {
           {/* Guarantee Banner - Premium Edition */}
           <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-[#0a2540] relative overflow-hidden shadow-2xl border border-[#0a2540]">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbb03b]/20 blur-[80px] rounded-full pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
               <div className="space-y-3 max-w-4xl">
                 <h4 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight">
-                  Our Guarantee to Every Client in Dubai
+                  Our Guarantee to Every Client
                 </h4>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
                   Guaranteed Precision, Uncompromising Safety, and Complete Peace of Mind on Every Technical Project. Partner with a company that delivers on its promises.
                 </p>
               </div>
-              
+
               <Link
                 href="/contact"
                 className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fbb03b] hover:bg-[#fbb03b]/90 text-[#0a2540] font-display font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group shrink-0"
@@ -628,7 +628,7 @@ export default function EuroEdgePage() {
       <FAQSection />
 
       <Footer />
-            <StickyContactWidget />
+      <StickyContactWidget />
     </main>
-  )
+    )
 }

@@ -60,7 +60,8 @@ export function JsonLd() {
       }))
     },
     "sameAs": [
-      "https://wa.me/9710543909946"
+      "https://wa.me/971543909946",
+      "https://www.instagram.com/euro_edge?stkn=Zno1OGRpZjVpdGMw&utm_source=qr"
     ]
   }
 

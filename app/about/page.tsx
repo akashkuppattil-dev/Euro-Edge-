@@ -22,6 +22,7 @@ import {
   Wrench,
   UserCog,
   ArrowRight,
+  Leaf,
 } from "lucide-react"
 
 export const metadata = {
@@ -154,6 +155,12 @@ export default function AboutPage() {
                 icon: Users,
                 title: "Client-Centric Focus",
                 desc: "We listen, assess, and adapt to your property requirements. Whether managing a single villa or a commercial tower, our scopes are customized to maximize value and asset longevity.",
+              },
+              {
+                num: "06",
+                icon: Leaf,
+                title: "Sustainable Solutions",
+                desc: "We are committed to environmentally responsible practices, energy-efficient systems, and sustainable building solutions that support a cleaner, greener, and smarter future.",
               },
             ].map((item) => (
               <div
