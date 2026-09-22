@@ -206,7 +206,7 @@ export default function EuroEdgePage() {
       {/* =========================================
           HERO SECTION (Left-Aligned with Background Image)
       ========================================= */}
-      <section className="relative overflow-hidden pb-8 sm:pb-24 lg:pb-32 pt-40 sm:pt-[40vh] border-b border-border flex items-end min-h-[90vh] sm:min-h-screen">
+      <section className="relative overflow-hidden pb-8 sm:pb-16 lg:pb-24 pt-32 sm:pt-40 lg:pt-48 border-b border-border flex items-end min-h-[560px] sm:min-h-[72vh] lg:min-h-[78vh] xl:min-h-[82vh] max-h-[860px] bg-[#0a2540]">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           {/* Desktop Image */}
@@ -214,19 +214,19 @@ export default function EuroEdgePage() {
             src="/images/hero-bg.png"
             alt="Euro Edge Technical Services Professional - Desktop"
             fill
-            className="hidden sm:block object-cover object-[center_top] sm:object-center"
+            className="hidden sm:block object-cover object-[center_22%] lg:object-center"
             priority
           />
           {/* Mobile Image */}
           <Image
-            src="/images/hero-mobile.png"
+            src="/images/hero-bg.png"
             alt="Euro Edge Technical Services Professional - Mobile"
             fill
-            className="block sm:hidden object-cover object-center"
+            className="block sm:hidden object-cover object-[72%_center]"
             priority
           />
           {/* Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540] via-[#0a2540]/70 to-transparent sm:bg-gradient-to-r sm:from-[#0a2540]/90 sm:via-[#0a2540]/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/95 via-[#0a2540]/60 to-transparent sm:bg-gradient-to-r sm:from-[#0a2540]/90 sm:via-[#0a2540]/40 sm:to-transparent" />
         </div>
 
         <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full flex flex-col items-center sm:items-start text-center sm:text-left mt-auto pb-4 sm:pb-16">
