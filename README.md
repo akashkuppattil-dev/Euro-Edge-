@@ -56,7 +56,6 @@ Euro Edge Technical Services L.L.C. specializes in MEP contracting, HVAC systems
 │   ├── service-faq-accordion.tsx       # Service-specific technical FAQs
 │   ├── why-choose-us-accordion.tsx     # Value propositions and quality guarantees
 │   ├── sticky-contact-widget.tsx       # Floating WhatsApp and call action buttons
-│   ├── logo-intro.tsx                  # Cinematic brand splash intro
 │   └── json-ld.tsx                     # Structured data for Google Search SEO
 ├── hooks/
 │   ├── use-mobile.ts                   # Viewport breakpoint detection hook
