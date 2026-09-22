@@ -211,7 +211,7 @@ export default function EuroEdgePage() {
         <div className="absolute inset-0 z-0">
           {/* Desktop Image */}
           <Image
-            src="/images/hero-bg.jpg"
+            src="/images/hero-bg.png"
             alt="Euro Edge Technical Services Professional - Desktop"
             fill
             className="hidden sm:block object-cover object-[center_top] sm:object-center"
