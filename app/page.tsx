@@ -9,6 +9,7 @@ import { QuoteEstimator } from "@/components/quote-estimator"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { FeaturedServicesCarousel } from "@/components/featured-services-carousel"
 import { CoreServicePillarsCarousel } from "@/components/core-service-pillars-carousel"
+import { LogoIntro } from "@/components/logo-intro"
 import { servicesData } from "@/lib/services-data"
 import {
   Wrench,
@@ -201,6 +202,7 @@ const servicesList = [
 export default function EuroEdgePage() {
   return (
     <main className="pb-16 md:pb-0 bg-background text-foreground font-sans">
+      <LogoIntro />
       <Header />
 
       {/* =========================================
