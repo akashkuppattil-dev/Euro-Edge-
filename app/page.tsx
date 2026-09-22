@@ -630,5 +630,5 @@ export default function EuroEdgePage() {
       <Footer />
       <StickyContactWidget />
     </main>
-    )
+  )
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import {
   Search,
   Menu,
@@ -92,29 +93,43 @@ export function Header() {
     }
   }, [mobileOpen])
 
+  const pathname = usePathname()
+  const isHome = pathname === "/"
+
   return (
     <>
-      {/* Spacer to prevent content from jumping when header is fixed */}
-      <div className="h-[77px] w-full" />
+      {/* Spacer only on non-home pages so homepage hero sits seamlessly behind header */}
+      {!isHome && <div className="h-[77px] w-full bg-[#0a2540]" />}
       <header
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-transform duration-300 ${scrolled ? "bg-card/95 backdrop-blur-md shadow-md" : "bg-card"} ${visible ? "translate-y-0" : "-translate-y-full"}`}
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#0a2540]/95 backdrop-blur-md shadow-xl border-b border-white/10"
+            : isHome
+              ? "bg-gradient-to-b from-[#0a2540]/90 via-[#0a2540]/40 to-transparent border-b border-white/10"
+              : "bg-[#0a2540] border-b border-white/10"
+        } ${visible ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="border-b border-border/40">
-          <div className="px-4 lg:px-12 py-3.5">
+        <div>
+          <div className="px-4 lg:px-12 py-3.5 sm:py-4">
             <div className="max-w-[1600px] mx-auto flex items-center justify-between">
               {/* Brand Logo */}
               <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-                <Image
-                  src="/images/logo.png"
-                  alt="Euro Edge"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
-                  priority
-                />
-                <div>
-                  <span className="font-serif font-bold text-xl leading-tight text-[#0a2540] dark:text-[#38bdf8] block tracking-tight group-hover:opacity-90 transition-opacity">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-xs flex items-center justify-center p-1.5 group-hover:border-white transition-colors">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Euro Edge"
+                    width={38}
+                    height={38}
+                    className="h-full w-full object-contain group-hover:scale-105 transition-transform"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display font-bold text-xl sm:text-2xl leading-none text-white tracking-tight group-hover:opacity-95 transition-opacity">
                     Euro Edge
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] tracking-[0.2em] font-bold text-slate-300 uppercase block mt-1">
+                    TECHNICAL SERVICES L.L.C.
                   </span>
                 </div>
               </Link>
@@ -123,16 +138,22 @@ export function Header() {
               <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-10 flex-1">
                 <Link
                   href="/"
-                  className="text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors relative py-2"
+                  className={`text-sm font-medium transition-colors relative py-2 ${pathname === "/" ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
                 >
-                  Home
+                  <span>Home</span>
+                  {pathname === "/" && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38bdf8] rounded-full" />
+                  )}
                 </Link>
 
                 <Link
                   href="/about"
-                  className="text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors relative py-2"
+                  className={`text-sm font-medium transition-colors relative py-2 ${pathname === "/about" ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
                 >
-                  About Us
+                  <span>About Us</span>
+                  {pathname === "/about" && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38bdf8] rounded-full" />
+                  )}
                 </Link>
 
                 {/* Services Dropdown Trigger */}
@@ -143,22 +164,25 @@ export function Header() {
                 >
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors"
+                    className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${pathname.startsWith("/services") ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
                   >
                     <span>Services</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-primary" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-[#38bdf8]" : ""}`} />
                   </Link>
+                  {pathname.startsWith("/services") && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38bdf8] rounded-full" />
+                  )}
 
-                  {/* Simple Vertical Dropdown Menu */}
+                  {/* Dropdown Menu */}
                   {servicesDropdownOpen && (
-                    <div className="absolute top-full left-0 w-[300px] max-h-[80vh] overflow-y-auto bg-white border-t-2 border-t-[#fbb03b] rounded-b-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute top-full left-0 w-[300px] max-h-[80vh] overflow-y-auto bg-[#0a2540] border border-white/10 rounded-xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="flex flex-col">
                         {servicesData.map((s) => (
                           <Link
                             key={s.slug}
                             href={`/services/${s.slug}`}
                             onClick={() => setServicesDropdownOpen(false)}
-                            className="px-6 py-3 text-[14px] font-medium text-slate-700 hover:text-[#0a2540] hover:bg-slate-50 hover:pl-7 transition-all duration-200 border-b border-slate-50 last:border-0"
+                            className="px-6 py-3 text-[14px] font-medium text-slate-200 hover:text-white hover:bg-white/10 hover:pl-7 transition-all duration-200 border-b border-white/5 last:border-0"
                           >
                             {s.title}
                           </Link>
@@ -168,7 +192,7 @@ export function Header() {
                         <Link
                           href="/services"
                           onClick={() => setServicesDropdownOpen(false)}
-                          className="flex items-center justify-between w-full px-4 py-2.5 text-[13px] font-bold text-[#0a2540] bg-[#fbb03b]/10 hover:bg-[#fbb03b]/20 rounded-lg transition-colors group"
+                          className="flex items-center justify-between w-full px-4 py-2.5 text-[13px] font-bold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-lg transition-colors group"
                         >
                           <span>Explore All Services</span>
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -180,39 +204,45 @@ export function Header() {
 
                 <Link
                   href="/projects"
-                  className="text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors relative py-2"
+                  className={`text-sm font-medium transition-colors relative py-2 ${pathname === "/projects" ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
                 >
-                  Industries
+                  <span>Projects</span>
+                  {pathname === "/projects" && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38bdf8] rounded-full" />
+                  )}
                 </Link>
 
                 <Link
                   href="/contact"
-                  className="text-sm font-medium text-slate-700 hover:text-[#0a2540] transition-colors relative py-2"
+                  className={`text-sm font-medium transition-colors relative py-2 ${pathname === "/contact" ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
                 >
-                  Contact
+                  <span>Contact</span>
+                  {pathname === "/contact" && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38bdf8] rounded-full" />
+                  )}
                 </Link>
               </nav>
 
               {/* Right CTA Buttons (Far Right) */}
-              <div className="hidden sm:flex lg:flex items-center gap-3 flex-shrink-0">
+              <div className="hidden sm:flex lg:flex items-center gap-3.5 flex-shrink-0">
                 <Link
                   href="/contact"
-                  className="pl-4 pr-1.5 py-1.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200/90 text-[#0a2540] font-semibold text-xs transition-all duration-200 shadow-2xs hover:shadow-xs flex items-center gap-2.5 group"
+                  className="pl-5 pr-2 py-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-medium text-xs sm:text-sm transition-all duration-200 flex items-center gap-3 group shadow-sm"
                 >
                   <span>Make an Enquiry</span>
-                  <div className="w-6.5 h-6.5 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <div className="w-7 h-7 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-sm group-hover:translate-x-0.5 transition-transform">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
                 </Link>
 
                 <a
                   href="tel:+971543909946"
-                  className="pl-4 pr-1.5 py-1.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200/90 text-[#0a2540] font-semibold text-xs transition-all duration-200 shadow-2xs hover:shadow-xs flex items-center gap-2.5 group"
+                  className="pl-2.5 pr-5 py-2 rounded-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs sm:text-sm transition-all duration-200 flex items-center gap-2.5 shadow-md group"
                 >
-                  <span>+971 54 390 9946</span>
-                  <div className="w-6.5 h-6.5 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                    <Phone className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <div className="w-7 h-7 rounded-full bg-white/20 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <Phone className="w-3.5 h-3.5 fill-white stroke-none" />
                   </div>
+                  <span>+971 54 390 9946</span>
                 </a>
               </div>
 
@@ -220,18 +250,18 @@ export function Header() {
               <div className="flex lg:hidden items-center gap-2 sm:gap-3">
                 <Link
                   href="/contact"
-                  className="p-1 sm:p-1.5 pl-3 sm:pl-4 rounded-full border border-border text-foreground hover:bg-secondary transition-colors flex items-center gap-2 shrink-0 group"
+                  className="pl-3 pr-1.5 py-1.5 rounded-full border border-white/30 bg-white/10 text-white flex items-center gap-2 shrink-0 group"
                   aria-label="Make an Enquiry"
                 >
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#0a2540] dark:text-white" />
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                    <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
+                  <span className="text-xs font-medium">Enquiry</span>
+                  <div className="w-6 h-6 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-sm">
+                    <ArrowRight className="w-3 h-3 stroke-[2.5]" />
                   </div>
                 </Link>
 
                 <button
                   onClick={() => setMobileOpen(!mobileOpen)}
-                  className="p-2 sm:p-2.5 rounded-xl border border-border text-foreground hover:bg-secondary transition-colors shrink-0"
+                  className="p-2 sm:p-2.5 rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white/20 transition-colors shrink-0"
                   aria-label="Toggle Navigation Menu"
                 >
                   {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
