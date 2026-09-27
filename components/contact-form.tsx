@@ -6,12 +6,10 @@ import { Send, CheckCircle2, Loader2, Lock } from "lucide-react"
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
-    company: "",
     email: "",
     phone: "",
-    service: "",
+    service: "general",
     location: "",
-    contactMethod: "Phone / WhatsApp",
     message: "",
   })
 
@@ -40,8 +38,6 @@ export function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      // Submit to Formspree — replace the form ID below with your actual Formspree form ID
-      // Register at https://formspree.io to get a free form ID (e.g. https://formspree.io/f/xanwzowr)
       const response = await fetch("https://formspree.io/f/xanwzowr", {
         method: "POST",
         headers: {
@@ -50,12 +46,10 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           name: formData.name,
-          company: formData.company,
           email: formData.email,
           phone: formData.phone,
           service: formData.service,
           location: formData.location,
-          contactMethod: formData.contactMethod,
           message: formData.message,
         }),
       })
@@ -95,12 +89,10 @@ export function ContactForm() {
             setSubmitted(false)
             setFormData({
               name: "",
-              company: "",
               email: "",
               phone: "",
-              service: "",
+              service: "general",
               location: "",
-              contactMethod: "Phone / WhatsApp",
               message: "",
             })
           }}
@@ -130,36 +122,20 @@ export function ContactForm() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name & Company */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="name" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              placeholder="Your full name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="company" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Company Name
-            </label>
-            <input
-              id="company"
-              type="text"
-              value={formData.company}
-              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              placeholder="Company or organization (optional)"
-            />
-          </div>
+        {/* Full Name */}
+        <div>
+          <label htmlFor="name" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
+            Full Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            id="name"
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required
+            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+            placeholder="Your full name"
+          />
         </div>
 
         {/* Email & Phone */}
@@ -206,50 +182,53 @@ export function ContactForm() {
             className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
           >
             <option value="general">General Technical Inquiry</option>
-            <option value="electrical">Electrical Works</option>
-            <option value="hvac">HVAC Installation &amp; Maintenance</option>
-            <option value="plumbing">Plumbing &amp; Sanitary</option>
-            <option value="glass">Glass &amp; Aluminum Works</option>
-            <option value="ceiling">False Ceiling &amp; Light Partitions</option>
-            <option value="painting">Painting Works</option>
-            <option value="kitchen">Kitchen Installation</option>
-            <option value="tiling">Floor &amp; Wall Tiling</option>
-            <option value="facility">Facility Management</option>
-            <option value="other">Other</option>
+
+            <optgroup label="Our Main Services">
+              <option value="Painting – Interior & Exterior">Painting – Interior & Exterior</option>
+              <option value="Wall & Floor Tiling">Wall & Floor Tiling</option>
+              <option value="Plastering">Plastering</option>
+              <option value="False Ceiling & Gypsum Partitions">False Ceiling & Gypsum Partitions</option>
+              <option value="Carpentry & Wood Flooring">Carpentry & Wood Flooring</option>
+
+              <option value="Electrical Works">Electrical Works</option>
+              <option value="Plumbing & Sanitary Works">Plumbing & Sanitary Works</option>
+              <option value="AC & HVAC Works">AC & HVAC Works</option>
+              <option value="Ventilation & Air Filtration">Ventilation & Air Filtration</option>
+              <option value="Electromechanical Works">Electromechanical Works</option>
+
+              <option value="Pool Construction">Pool Construction</option>
+              <option value="Waterproofing">Waterproofing</option>
+              <option value="Pool Tiling & Finishing">Pool Tiling & Finishing</option>
+              <option value="Pool Equipment Installation">Pool Equipment Installation</option>
+              <option value="Pool Maintenance">Pool Maintenance</option>
+
+              <option value="Soft & Hard Landscaping">Soft & Hard Landscaping</option>
+              <option value="Paving & Interlock">Paving & Interlock</option>
+              <option value="Irrigation">Irrigation</option>
+              <option value="Garden & Outdoor Works">Garden & Outdoor Works</option>
+              <option value="Landscape Maintenance">Landscape Maintenance</option>
+
+              <option value="Building & Villa Maintenance">Building & Villa Maintenance</option>
+              <option value="Renovation & Repair Works">Renovation & Repair Works</option>
+            </optgroup>
+
+            <option value="other">Other / Custom Technical Solution</option>
           </select>
         </div>
 
-        {/* Location & Preferred Contact Method */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="location" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Project Location
-            </label>
-            <input
-              id="location"
-              type="text"
-              value={formData.location}
-              onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              placeholder="e.g., Dubai Marina, Business Bay..."
-            />
-          </div>
-
-          <div>
-            <label htmlFor="contactMethod" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Preferred Contact Method
-            </label>
-            <select
-              id="contactMethod"
-              value={formData.contactMethod}
-              onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-            >
-              <option value="Phone / WhatsApp">Phone / WhatsApp</option>
-              <option value="Email">Email</option>
-              <option value="Any">Any Method</option>
-            </select>
-          </div>
+        {/* Project Location */}
+        <div>
+          <label htmlFor="location" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
+            Project Location (Optional)
+          </label>
+          <input
+            id="location"
+            type="text"
+            value={formData.location}
+            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+            placeholder="e.g., Dubai Marina, Business Bay, Al Quoz..."
+          />
         </div>
 
         {/* Project Details / Requirements */}
@@ -270,7 +249,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-3.5 px-6 rounded-lg bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 mt-3 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full py-3.5 px-6 rounded-lg bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
         >
           {isSubmitting ? (
             <>

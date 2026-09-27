@@ -8,9 +8,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/services/swimming-pool-maintenance', destination: '/services/swimming-pool', permanent: true },
-      { source: '/services/floor-wall-tiling', destination: '/services/tiling-works', permanent: true },
-      { source: '/services/carpentry-wood-flooring', destination: '/services/carpentry-flooring', permanent: true },
+      { source: '/projects', destination: '/industries', permanent: true },
+      { source: '/services/:slug', destination: '/services', permanent: true },
     ]
   },
 }

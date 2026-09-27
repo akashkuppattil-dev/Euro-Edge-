@@ -22,7 +22,7 @@ export function ServiceFaqAccordion({ faqs }: { faqs: FAQItem[] }) {
     },
   ]
 
-  const displayFaqs = faqs ? [...faqs, ...additionalFaqs.slice(0, Math.max(0, 5 - faqs.length))] : additionalFaqs
+  const displayFaqs = faqs && faqs.length > 0 ? faqs : additionalFaqs
 
   if (!displayFaqs || displayFaqs.length === 0) return null
 

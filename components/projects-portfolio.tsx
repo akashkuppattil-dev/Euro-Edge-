@@ -236,7 +236,7 @@ export function ProjectsPortfolio() {
                   src={featuredProject.image}
                   alt={featuredProject.title}
                   fill
-                  className="object-cover group-hover:scale-103 transition-transform duration-700"
+                  className="object-cover"
                   priority
                 />
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#0a2540] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
@@ -340,7 +340,7 @@ export function ProjectsPortfolio() {
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover group-hover:scale-103 transition-transform duration-500"
+                      className="object-cover"
                     />
                   </div>
 
@@ -412,7 +412,7 @@ export function ProjectsPortfolio() {
 
                 {/* Centered Euro Edge Company Logo (Large Size) */}
                 <div className="py-2 flex items-center justify-center">
-                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-white p-4 shadow-lg border border-slate-200/90 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-white p-4 shadow-lg border border-slate-200/90 flex items-center justify-center">
                     <Image
                       src="/images/logo.png"
                       alt="Euro Edge Technical Services L.L.C."

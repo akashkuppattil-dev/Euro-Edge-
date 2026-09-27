@@ -21,6 +21,8 @@ import {
   Sparkles,
   Calculator,
   ShieldCheck,
+  Waves,
+  Compass,
 } from "lucide-react"
 
 const propertyTypes = [
@@ -31,11 +33,11 @@ const propertyTypes = [
 ]
 
 const serviceCategories = [
-  { id: "hvac", name: "HVAC & AC Maintenance", icon: Fan, estRange: "AED 350 - 1,500" },
-  { id: "electrical", name: "Electrical Contracting & DEWA", icon: Zap, estRange: "AED 450 - 2,200" },
-  { id: "plumbing", name: "Plumbing & Sanitary Works", icon: Droplet, estRange: "AED 300 - 1,200" },
-  { id: "fitout", name: "Civil & Interior Fit-Out", icon: Hammer, estRange: "Custom Scope" },
-  { id: "amc", name: "Annual Maintenance (AMC)", icon: Boxes, estRange: "From AED 2,400/yr" },
+  { id: "civil", name: "Civil & Finishing Works", icon: Hammer, estRange: "Custom Scope" },
+  { id: "mep", name: "MEP & Technical Works", icon: Zap, estRange: "AED 350 - 2,500" },
+  { id: "pool", name: "Swimming Pool Works", icon: Waves, estRange: "Custom Scope" },
+  { id: "landscaping", name: "Landscaping Works", icon: Compass, estRange: "Custom Scope" },
+  { id: "maintenance", name: "General Maintenance & AMC", icon: ShieldCheck, estRange: "From AED 2,400/yr" },
 ]
 
 const urgencyOptions = [
@@ -49,7 +51,7 @@ interface QuoteEstimatorProps { servicesData: ServiceItem[] }
 export function QuoteEstimator({ servicesData }: QuoteEstimatorProps) {
   const [step, setStep] = useState(1)
   const [selectedProperty, setSelectedProperty] = useState("villa")
-  const [selectedService, setSelectedService] = useState("hvac")
+  const [selectedService, setSelectedService] = useState("mep")
   const [selectedUrgency, setSelectedUrgency] = useState("emergency")
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")

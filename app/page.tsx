@@ -3,97 +3,44 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FAQSection } from "@/components/faq-section"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
-import { QuoteEstimator } from "@/components/quote-estimator"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { FeaturedServicesCarousel } from "@/components/featured-services-carousel"
-import { CoreServicePillarsCarousel } from "@/components/core-service-pillars-carousel"
-import { servicesData } from "@/lib/services-data"
 import {
-  Wrench,
   ShieldCheck,
-  Award,
-  Cog,
-  ClipboardCheck,
-  Users,
-  PenTool,
-  Handshake,
   CheckCircle2,
-  Clock,
-  Target,
-  TrendingUp,
-  Building,
-  Building2,
-  Home,
-  Hotel,
-  Utensils,
-  ShoppingBag,
-  Warehouse,
-  Factory,
-  Briefcase,
-  Waves,
-  Boxes,
-  Hospital,
-  Hammer,
-  Shield,
-  FileText,
-  MapPin,
-  Phone,
-  Mail,
-  ChevronRight,
   ArrowRight,
-  ArrowUpRight,
-  Sparkles,
-  Check,
-  Scale,
-  Search,
-  Eye,
-  Settings,
-  HelpCircle,
-  Headphones,
-  Zap,
-  Droplet,
-  Fan,
-  Grid,
-  Lightbulb,
-  Maximize,
-  Compass,
-  Square,
-  Globe,
-} from "lucide-react"
-
-const iconMap: Record<string, any> = {
-  Zap,
-  Droplet,
-  Fan,
-  Grid,
-  Lightbulb,
-  Square,
-  Maximize,
+  Play,
   Hammer,
+  Zap,
   Waves,
-  Utensils,
-  Building,
+  Sprout,
+  Settings,
   Building2,
-  Cog,
+  Award,
+  Users,
+  MapPin,
+  Clock,
+  Briefcase,
   Compass,
-  Boxes,
+  MessageSquare,
+  FileSpreadsheet,
+  Cog,
   Headphones,
-  Factory,
-}
+  Phone,
+  Layers,
+  HeartHandshake,
+} from "lucide-react"
 
 export const metadata = {
   title: "Euro Edge Technical Services L.L.C. | MEP, HVAC & Contracting Dubai",
   description:
-    "The Edge of Quality Built on Trust. Professional MEP engineering, HVAC maintenance, civil contracting, fit-out, and facility management services in Dubai, UAE.",
+    "The Edge of Quality Built on Trust. Euro Edge Technical Services L.L.C. delivers certified civil, MEP, swimming pool, landscaping, and turnkey technical contracting in Dubai and across the UAE.",
   alternates: {
     canonical: "https://euroedgets.com",
   },
   openGraph: {
     title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
     description:
-      "The Edge of Quality Built on Trust. Professional MEP engineering, HVAC maintenance, civil contracting, and facility management services in Dubai, UAE.",
+      "The Edge of Quality Built on Trust. Professional civil, MEP, swimming pool, landscaping, and facilities maintenance in Dubai, UAE.",
     type: "website",
     url: "https://euroedgets.com",
   },
@@ -101,531 +48,663 @@ export const metadata = {
     card: "summary_large_image",
     title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
     description:
-      "The Edge of Quality Built on Trust. Professional MEP engineering, HVAC maintenance, civil contracting, and facility management services in Dubai, UAE.",
+      "The Edge of Quality Built on Trust. Professional civil, MEP, swimming pool, landscaping, and facilities maintenance in Dubai, UAE.",
   },
 }
 
-const servicesList = [
-  {
-    title: "Electrical Works",
-    desc: "Installation, testing, commissioning, and maintenance of electrical systems and equipment.",
-    icon: Zap,
-  },
-  {
-    title: "Plumbing & Sanitary",
-    desc: "Complete plumbing and sanitary installation, maintenance, and repair solutions.",
-    icon: Droplet,
-  },
-  {
-    title: "HVAC Systems",
-    desc: "Supply, installation, maintenance, and repair of all types of AC, ventilation & air filtration systems.",
-    icon: Fan,
-  },
-  {
-    title: "False Ceiling & Light Partitions",
-    desc: "Design and installation of false ceilings and light partitions.",
-    icon: Grid,
-  },
-  {
-    title: "Electrical Fittings & Fixtures",
-    desc: "Repairing and maintenance of all types of electrical fittings and fixtures.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Floor & Wall Tiling Works",
-    desc: "Professional floor and wall tiling with a high-quality finish.",
-    icon: Square,
-  },
-  {
-    title: "Plaster Works",
-    desc: "Internal and external plastering with a smooth, durable finish.",
-    icon: Maximize,
-  },
-  {
-    title: "Carpentry & Wood Flooring",
-    desc: "Custom carpentry and wood flooring solutions.",
-    icon: Hammer,
-  },
-  {
-    title: "Swimming Pool Maintenance",
-    desc: "Cleaning, maintenance, and repair of swimming pools and related systems.",
-    icon: Waves,
-  },
-  {
-    title: "Kitchen Installation",
-    desc: "Complete kitchen installation with modern, functional designs.",
-    icon: Utensils,
-  },
-  {
-    title: "Aluminium & Glass Installation",
-    desc: "Installation of aluminium doors, windows, and glass partitions.",
-    icon: Building,
-  },
-  {
-    title: "Building Maintenance",
-    desc: "General upkeep and structural maintenance to keep buildings running smoothly.",
-    icon: Building2,
-  },
-  {
-    title: "MEP Services",
-    desc: "Integrated mechanical, electrical and plumbing systems for new builds and retrofits.",
-    icon: Cog,
-  },
-  {
-    title: "Civil Maintenance",
-    desc: "Structural and civil upkeep for lasting, safe buildings.",
-    icon: Compass,
-  },
-  {
-    title: "Facility Management",
-    desc: "End-to-end operational support to keep properties running efficiently.",
-    icon: Boxes,
-  },
-  {
-    title: "Technical Support",
-    desc: "On-demand technical assistance across all service lines.",
-    icon: Headphones,
-  },
-  {
-    title: "Industrial Maintenance",
-    desc: "Maintenance and technical support for industrial facilities and equipment.",
-    icon: Factory,
-  },
-  {
-    title: "Kitchen Equipment Maintenance",
-    desc: "Preventative and corrective servicing of commercial and heavy-duty kitchen equipment.",
-    icon: Utensils,
-  },
-]
-
-export default function EuroEdgePage() {
+export default function HomePage() {
   return (
-    <main className="pb-16 md:pb-0 bg-background text-foreground font-sans">
+    <main className="bg-[#fafbfc] text-[#0a2540] font-sans min-h-screen">
       <Header />
 
-      {/* =========================================
-          HERO SECTION (Left-Aligned with Background Image)
-      ========================================= */}
-      <section className="relative overflow-hidden pb-8 sm:pb-16 lg:pb-24 pt-32 sm:pt-40 lg:pt-48 border-b border-border flex items-end min-h-[560px] sm:min-h-[72vh] lg:min-h-[78vh] xl:min-h-[82vh] max-h-[860px] bg-[#0a2540]">
-        {/* Background Image & Overlay */}
+      {/* =========================================================================
+          SECTION 1: HERO SECTION (Wallpaper Background with Smiling Engineer)
+      ========================================================================= */}
+      <section className="relative min-h-[540px] sm:min-h-[640px] lg:min-h-[720px] flex items-center overflow-hidden text-white bg-[#071a2e]">
+        {/* Full-width Hero Background Wallpaper */}
         <div className="absolute inset-0 z-0">
-          {/* Desktop Image */}
           <Image
-            src="/images/hero-bg.png"
-            alt="Euro Edge Technical Services Professional - Desktop"
+            src="/images/euro-edge-hero-wallpaper.jpg"
+            alt="Euro Edge Technical Services Engineer Overlooking Dubai Skyline"
             fill
-            className="hidden sm:block object-cover object-[center_22%] lg:object-center"
             priority
+            className="object-cover object-[78%_center] sm:object-right"
+            sizes="100vw"
           />
-          {/* Mobile Image */}
-          <Image
-            src="/images/hero-bg.png"
-            alt="Euro Edge Technical Services Professional - Mobile"
-            fill
-            className="block sm:hidden object-cover object-[72%_center]"
-            priority
-          />
-          {/* Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/95 via-[#0a2540]/60 to-transparent sm:bg-gradient-to-r sm:from-[#0a2540]/90 sm:via-[#0a2540]/40 sm:to-transparent" />
+          {/* Deep Navy/Black Gradient Overlay on left for crisp readability while preserving the engineer */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04101e]/98 via-[#04101e]/85 to-transparent sm:from-[#04101e]/90 sm:via-[#04101e]/50 sm:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-black/30" />
         </div>
 
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full flex flex-col items-center sm:items-start text-center sm:text-left mt-auto pb-4 sm:pb-16">
-          <div className="max-w-4xl space-y-6 sm:space-y-8 flex flex-col items-center sm:items-start">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white tracking-tight leading-tight">
-              The Edge of Quality <br /> Built on Trust.
+        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-16 sm:py-20 lg:py-24 w-full">
+          <div className="max-w-2xl space-y-6 sm:space-y-8">
+            {/* Main Headline */}
+            <h1 className="font-editorial-h1 text-3xl sm:text-5xl lg:text-6xl text-white font-medium leading-[1.12] sm:leading-[1.08] tracking-tight">
+              The Edge of Quality <br />
+              Built on <span className="text-[#fbb03b]">Trust.</span>
             </h1>
 
-            <div className="pt-2 sm:pt-4 flex w-full sm:w-auto">
+            {/* Action Buttons: Stacks neatly on mobile, side-by-side on tablet/desktop */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none">
+              <Link
+                href="/contact"
+                className="font-editorial-nav inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#fbb03b]/20 hover:shadow-[#fbb03b]/30 hover:-translate-y-0.5 group text-center"
+              >
+                <span>Make an Enquiry</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+
               <Link
                 href="/services"
-                className="w-full sm:w-auto px-8 py-4 sm:py-5 rounded-xl bg-[#fbb03b] hover:bg-[#fbb03b]/90 text-[#0a2540] font-display font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group"
+                className="font-editorial-nav inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs uppercase tracking-wider font-bold transition-all backdrop-blur-sm hover:-translate-y-0.5 text-center"
               >
-                <span>EXPLORE SERVICES</span>
-                <ArrowRight className="w-5 h-5 text-[#0a2540] group-hover:translate-x-1 transition-transform" />
+                <span>Our Services</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SIMPLE ABOUT US SECTION - Unboxed Clean Layout */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-6xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-mono font-semibold uppercase tracking-wider">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>About Euro Edge</span>
-          </div>
+      {/* =========================================================================
+          SECTION 2: ABOUT EURO EDGE (Delivering Engineering Excellence Across Dubai)
+      ========================================================================= */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Text */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+              ABOUT EURO EDGE
+            </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-            Delivering Engineering Excellence Across Dubai
-          </h2>
-
-          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed font-sans max-w-5xl mx-auto">
-            Euro Edge Technical Services L.L.C. is a premier technical contracting company in Dubai, specialized in MEP installations, HVAC climate engineering, civil maintenance, interior fit-outs, and total facility upkeep. Built on a foundation of technical precision, safety compliance, and client trust, our experienced engineering team delivers seamless solutions tailored for private villas, commercial towers, hospitality venues, and industrial complexes.
-          </p>
-
-          <div className="pt-2">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest hover:underline"
-            >
-              <span>Learn More About Our Team &amp; Capabilities</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 4 CORE SERVICE PILLARS SECTION - Modern Premium Cards */}
-      <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-b border-border">
-        <div className="max-w-[1600px] mx-auto space-y-8 sm:space-y-12">
-          {/* Header */}
-          <div className="text-center max-w-5xl mx-auto space-y-2.5 sm:space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-              <Boxes className="w-3.5 h-3.5" />
-              <span>Specialized Technical Pillars</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-              CORE SERVICE PILLARS
+            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+              Delivering Engineering Excellence Across Dubai
             </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed max-w-4xl mx-auto">
-              Discover our four primary engineering divisions delivering complete end-to-end property care in Dubai.
+
+            <p className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
+              Euro Edge Technical Services L.L.C. is a Dubai-based technical
+              services company delivering reliable and high-quality solutions
+              for civil, MEP, maintenance and specialist works. We combine
+              technical expertise, skilled teams and a commitment to quality to
+              create spaces that are functional, safe and built for the future.
             </p>
-          </div>
 
-          {/* Core Service Pillars Carousel (Mobile) & Grid (Desktop) */}
-          <CoreServicePillarsCarousel
-            pillars={[
-              {
-                num: "01",
-                tag: "End-to-End Care",
-                title: "Facility Management",
-                desc: "Comprehensive property upkeep, planned preventive maintenance (PPM), and building system management.",
-                href: "/services/facility-management",
-                img: "/images/services/facility-management.jpg",
-                iconName: "Building2",
-              },
-              {
-                num: "02",
-                tag: "Interior Excellence",
-                title: "Fit-Out & Renovation",
-                desc: "Turnkey interior fit-out, partition installations, joinery, and architectural restoration.",
-                href: "/services/carpentry-flooring",
-                img: "/images/services/fit-out-renovation.jpg",
-                iconName: "Hammer",
-              },
-              {
-                num: "03",
-                tag: "Core Engineering",
-                title: "MEP & HVAC Systems",
-                desc: "Electrical distribution, plumbing & sanitary works, AC ducting, chillers, and climate control.",
-                href: "/services/mep-services",
-                img: "/images/services/mep-services.jpg",
-                iconName: "Zap",
-              },
-              {
-                num: "04",
-                tag: "Structural Care",
-                title: "Civil Maintenance",
-                desc: "Masonry, tile fixing, painting, plastering, waterproofing, and structural upkeep.",
-                href: "/services/civil-maintenance",
-                img: "/images/services/civil-maintenance.jpg",
-                iconName: "ShieldCheck",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* FEATURED TOP 6 SERVICES SECTION (Alternating Zigzag Layout) */}
-      <section id="services" className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border">
-        <div className="max-w-[1600px] mx-auto space-y-10 sm:space-y-16">
-          <div className="text-center max-w-5xl mx-auto space-y-2.5 sm:space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-              <Wrench className="w-3.5 h-3.5" />
-              <span>Core Engineering Capabilities</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-              FEATURED TECHNICAL SERVICES
-            </h2>
-            <p className="text-muted-foreground text-xs sm:text-base leading-relaxed">
-              Explore our 6 most requested engineering, MEP, civil maintenance, and facility service lines in Dubai.
-            </p>
-          </div>
-
-          {/* Alternating Zigzag Stack Layout & Mobile Carousel */}
-          <FeaturedServicesCarousel services={servicesData.slice(0, 6)} />
-
-          {/* Bottom Button to View All 18 Services */}
-          <div className="text-center pt-2 sm:pt-4">
-            <Link
-              href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-4 pl-6 pr-2 py-2 rounded-full bg-white hover:bg-gray-50 border border-gray-200/80 text-foreground font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md group"
-            >
-              <span>View All Specialized Services</span>
-              <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US SECTION - Premium Grid Layout */}
-      <section className="py-16 sm:py-24 lg:py-32 px-4 lg:px-12 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-        {/* Subtle decorative background blur */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-blue-100/50 blur-[120px]" />
-          <div className="absolute top-[60%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[#fbb03b]/10 blur-[100px]" />
-        </div>
-
-        <div className="max-w-[1600px] mx-auto space-y-12 sm:space-y-16 relative z-10">
-          {/* Header */}
-          <div className="text-center space-y-3 sm:space-y-4 max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-[#0a2540] text-xs font-bold uppercase tracking-widest">
-              <Award className="w-4 h-4 text-[#fbb03b]" />
-              <span>Our Competitive Advantage</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-[#0a2540] tracking-tight uppercase">
-              Why Choose Euro Edge
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-lg leading-relaxed font-sans max-w-4xl mx-auto">
-              We stand out by delivering excellence, reliability, and precision tailored to every client project across Dubai and the UAE.
-            </p>
-          </div>
-
-          {/* Premium Cards Grid Layout (2x4 on Desktop, Swipe on Mobile) */}
-          <div className="relative">
-            <div className="flex sm:grid gap-4 sm:gap-6 lg:gap-8 overflow-x-auto overflow-y-hidden touch-pan-x sm:overflow-visible snap-x snap-mandatory pb-4 sm:pb-0 hide-scrollbar sm:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {/* Checklist with Golden Checks */}
+            <div className="space-y-3 pt-1">
               {[
-                {
-                  num: "01",
-                  tag: "Certified Engineers",
-                  title: "Skilled Professionals",
-                  desc: "Our team consists of highly trained and experienced professionals dedicated to delivering top-quality services.",
-                  icon: Users,
-                },
-                {
-                  num: "02",
-                  tag: "Premium Grade",
-                  title: "Quality Materials",
-                  desc: "We use premium quality materials from trusted suppliers to ensure durability, reliability, and long-lasting results.",
-                  icon: ShieldCheck,
-                },
-                {
-                  num: "03",
-                  tag: "Strict SLA",
-                  title: "Timely Delivery",
-                  desc: "We value your time and ensure every project is completed on schedule without compromising on quality.",
-                  icon: Clock,
-                },
-                {
-                  num: "04",
-                  tag: "Transparent Rates",
-                  title: "Competitive Pricing",
-                  desc: "We offer cost-effective solutions with transparent pricing to ensure maximum value for your investment.",
-                  icon: Scale,
-                },
-                {
-                  num: "05",
-                  tag: "Zero Violations",
-                  title: "Safety Compliance",
-                  desc: "Safety is our top priority. We strictly adhere to industry standards and regulations.",
-                  icon: Award,
-                },
-                {
-                  num: "06",
-                  tag: "Client First",
-                  title: "Customer Satisfaction",
-                  desc: "We are committed to exceeding client expectations through reliable service, open communication, and attention to detail.",
-                  icon: Handshake,
-                },
-                {
-                  num: "07",
-                  tag: "State-of-the-Art",
-                  title: "Modern Equipment",
-                  desc: "We utilize advanced tools and modern equipment to deliver efficient, precise, and high-quality workmanship.",
-                  icon: Settings,
-                },
-                {
-                  num: "08",
-                  tag: "Tailored Scope",
-                  title: "Customized Solutions",
-                  desc: "Every project is unique; our solutions are tailored to meet specific needs and requirements.",
-                  icon: Target,
-                },
-              ].map((item) => (
-                <div
-                  key={item.num}
-                  className="group relative p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0a2540]/30 hover:shadow-2xl transition-all duration-300 flex flex-col space-y-6 overflow-hidden w-[85vw] max-w-[340px] sm:w-auto shrink-0 snap-center sm:shrink-1 transform-gpu"
-                >
-                  {/* Hover Accent Line */}
-                  <div className="absolute top-0 left-0 w-full h-1.5 bg-[#fbb03b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-
-                  <div className="flex items-start justify-between relative z-10">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-[#0a2540] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm text-[#0a2540]">
-                      <item.icon className="w-6 h-6 transition-colors" />
-                    </div>
-                    <span className="text-5xl font-display font-black text-slate-100 group-hover:text-slate-200 transition-colors select-none -mr-2 -mt-2">
-                      {item.num}
-                    </span>
+                "Experienced and skilled technical team",
+                "Quality materials and proven methods",
+                "On-time project delivery",
+                "Solutions tailored to your requirements",
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0 border border-[#c8924b]/30">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
-
-                  <div className="space-y-3 relative z-10">
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#fbb03b]">
-                      {item.tag}
-                    </span>
-                    <h3 className="font-display font-bold text-xl text-[#0a2540] group-hover:text-blue-700 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
+                  <span className="font-editorial-body text-xs sm:text-sm font-medium text-slate-700">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
 
-            {/* Swipe Indicator (Mobile Only) */}
-            <div className="flex sm:hidden items-center justify-end gap-2 text-xs font-semibold text-muted-foreground pt-1 pr-2">
-              <span>Swipe to explore</span>
-              <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
-            </div>
-          </div>
-
-          {/* Guarantee Banner - Premium Edition */}
-          <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-[#0a2540] relative overflow-hidden shadow-2xl border border-[#0a2540]">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbb03b]/20 blur-[80px] rounded-full pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
-              <div className="space-y-3 max-w-4xl">
-                <h4 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight">
-                  Our Guarantee to Every Client
-                </h4>
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                  Guaranteed Precision, Uncompromising Safety, and Complete Peace of Mind on Every Technical Project. Partner with a company that delivers on its promises.
-                </p>
-              </div>
+            {/* Buttons */}
+            <div className="pt-3 flex flex-wrap items-center gap-4">
+              <Link
+                href="/about"
+                className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-md group"
+              >
+                <span>Learn More About Our Company</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
 
               <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#fbb03b] hover:bg-[#fbb03b]/90 text-[#0a2540] font-display font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group shrink-0"
+                href="/about"
+                className="font-editorial-nav inline-flex items-center gap-2.5 text-xs uppercase tracking-wider font-semibold text-[#0a2540] hover:text-[#0066cc] transition-colors"
               >
-                <span>Partner With Euro Edge</span>
-                <ArrowRight className="w-5 h-5 text-[#0a2540] group-hover:translate-x-1 transition-transform" />
+                <div className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center">
+                  <Play className="w-3 h-3 fill-current ml-0.5 text-[#c8924b]" />
+                </div>
+                <span>Watch Company Profile</span>
               </Link>
             </div>
           </div>
+
+          {/* Right Collage Layout */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative">
+              {/* Top-right floating stat badge */}
+              <div className="absolute -top-6 right-4 sm:right-8 z-20 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-editorial-h1 text-2xl font-bold text-[#0a2540] leading-none">
+                    100%
+                  </div>
+                  <div className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Certified Technical Team
+                  </div>
+                </div>
+              </div>
+
+              {/* Background Arched Burj Sunset Photo */}
+              <div className="relative h-80 sm:h-96 w-4/5 rounded-3xl overflow-hidden shadow-xl border border-slate-200">
+                <Image
+                  src="/images/about-burj-sunset.jpg"
+                  alt="Burj Khalifa Dubai Sunset Architecture"
+                  fill
+                  className="object-cover object-center"
+                  sizes="40vw"
+                />
+              </div>
+
+              {/* Overlapping Bottom Team Inspection Photo */}
+              <div className="relative -mt-28 ml-auto w-3/4 h-56 sm:h-64 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10">
+                <Image
+                  src="/images/about-team-inspection.jpg"
+                  alt="Euro Edge Engineering Team Site Review Dubai"
+                  fill
+                  className="object-cover object-center"
+                  sizes="35vw"
+                />
+
+                {/* Floating "From Concept to Completion" pill */}
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-2.5 sm:p-3 rounded-xl shadow-md border border-slate-100 flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-full bg-[#0a2540] text-white flex items-center justify-center shrink-0">
+                    <Play className="w-3 h-3 fill-current ml-0.5 text-[#fbb03b]" />
+                  </div>
+                  <span className="font-editorial-nav text-[11px] font-bold text-[#0a2540] uppercase tracking-wider">
+                    From Concept to Completion
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* OUR WORK PROCESS — 5-STEP HORIZONTAL TIMELINE */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border">
-        <div className="max-w-[1600px] mx-auto space-y-14">
+      {/* =========================================================================
+          SECTION 3: OUR EXPERTISE - FIVE SPECIALIZED DIVISIONS
+      ========================================================================= */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-[#f8fafc] border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto space-y-12">
           {/* Header */}
-          <ScrollReveal animation="fade-up" delay={0} className="text-center max-w-5xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs font-semibold uppercase tracking-wider">
-              <ClipboardCheck className="w-3.5 h-3.5" />
-              <span>How We Work</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
-              OUR WORK PROCESS
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+              OUR EXPERTISE
+            </span>
+            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-bold tracking-tight">
+              Five Specialized Divisions
             </h2>
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              A simple, transparent 5-step process — from first contact to final handover.
+            <p className="font-editorial-body text-sm sm:text-base text-slate-600 leading-relaxed">
+              We offer a complete range of technical services, allowing us to
+              support your project from initial works to ongoing maintenance —
+              all under one team.
             </p>
-          </ScrollReveal>
+          </div>
 
-          {/* 5-Step Horizontal Timeline */}
-          <div className="relative">
-            {/* Connector line — desktop only */}
-            <div className="hidden lg:block absolute top-10 left-[calc(10%+20px)] right-[calc(10%+20px)] h-0.5 bg-border z-0 overflow-hidden rounded-full">
-              {/* Animated Light Pass Through */}
-              <div className="absolute top-1/2 -translate-y-1/2 w-24 h-4 bg-gradient-to-r from-transparent via-[#fbb03b] to-transparent animate-timeline-light blur-[2px]" />
-            </div>
+          {/* 5 Cards Grid matching reference design */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
+            {[
+              {
+                id: "facility",
+                title: "Facility Management",
+                desc: "Comprehensive property upkeep, planned preventive maintenance (PPM), and building system management.",
+                image: "/images/services/facility-management.jpg",
+                icon: Building2,
+                slug: "general-maintenance-amc",
+              },
+              {
+                id: "fitout",
+                title: "Fit-Out & Renovation",
+                desc: "Turnkey interior fit-out, partition installations, joinery, and architectural restoration.",
+                image: "/images/services/fit-out-renovation.jpg",
+                icon: Hammer,
+                slug: "civil-finishing-works",
+              },
+              {
+                id: "mep",
+                title: "MEP & HVAC Systems",
+                desc: "Electrical distribution, plumbing & sanitary works, AC ducting, chillers, and climate control.",
+                image: "/images/services/mep-technical.jpg",
+                icon: Zap,
+                slug: "mep-technical-works",
+              },
+              {
+                id: "civil",
+                title: "Civil Maintenance",
+                desc: "Masonry, tile fixing, painting, plastering, waterproofing, and structural upkeep.",
+                image: "/images/services/civil-maintenance.jpg",
+                icon: ShieldCheck,
+                slug: "civil-finishing-works",
+              },
+              {
+                id: "pool-landscaping",
+                title: "Pool & Landscaping",
+                desc: "Custom swimming pools, filtration, hardscaping, softscaping, and automated irrigation.",
+                image: "/images/services/swimming-pool.jpg",
+                icon: Waves,
+                slug: "swimming-pool-works",
+              },
+            ].map((division) => (
+              <Link
+                key={division.id}
+                href={`/services/${division.slug}`}
+                className="group relative h-[380px] sm:h-[420px] lg:h-[460px] rounded-2xl sm:rounded-[26px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-5 sm:p-6 border border-slate-200/60 block"
+              >
+                {/* Full Card Background Image */}
+                <Image
+                  src={division.image}
+                  alt={division.title}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                />
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
-              {[
-                {
-                  num: "01",
-                  icon: HelpCircle,
-                  title: "Enquiry",
-                  desc: "Reach out by phone, WhatsApp, or email. Tell us your property type and technical requirement.",
-                },
-                {
-                  num: "02",
-                  icon: Search,
-                  title: "Site Assessment",
-                  desc: "Our engineer visits your site for a detailed inspection and technical evaluation — free of charge.",
-                },
-                {
-                  num: "03",
-                  icon: FileText,
-                  title: "Quotation",
-                  desc: "We prepare a detailed, itemized quotation with timeline, scope, and transparent pricing.",
-                },
-                {
-                  num: "04",
-                  icon: Hammer,
-                  title: "Execution",
-                  desc: "Our certified crews carry out the work with precision, using quality materials and strict safety standards.",
-                },
-                {
-                  num: "05",
-                  icon: Handshake,
-                  title: "Handover",
-                  desc: "Final quality inspection, client walkthrough, documentation, and ongoing after-service support.",
-                },
-              ].map((step, i) => (
-                <ScrollReveal key={i} animation="fade-up" delay={i * 150} className="flex flex-col items-center text-center group">
-                  {/* Number Icon Node */}
-                  <div className="relative mb-5">
-                    <div className="w-20 h-20 rounded-full bg-card border-2 border-border group-hover:border-primary transition-all duration-300 flex flex-col items-center justify-center shadow-sm group-hover:shadow-lg">
-                      <step.icon className="w-6 h-6 text-primary mb-0.5" />
-                      <span className="text-[10px] font-black font-mono text-primary/60 tracking-widest">{step.num}</span>
-                    </div>
-                    {/* Active dot */}
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Dark Gradient Overlay for optimal readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 group-hover:via-black/60 transition-colors" />
+
+                {/* Card Content at bottom */}
+                <div className="relative z-10 space-y-2.5">
+                  {/* Translucent Icon Box */}
+                  <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white mb-2 shadow-sm group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] group-hover:border-[#fbb03b] transition-all">
+                    <division.icon className="w-5 h-5 transition-colors" />
                   </div>
 
-                  {/* Content */}
-                  <h4 className="font-bold text-foreground text-base font-serif group-hover:text-primary transition-colors">
-                    {step.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed max-w-[180px]">
-                    {step.desc}
+                  {/* Title */}
+                  <h3 className="font-editorial-h2 text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
+                    {division.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="font-editorial-body text-xs text-slate-200/90 leading-relaxed line-clamp-3">
+                    {division.desc}
                   </p>
-                </ScrollReveal>
-              ))}
+
+                  {/* Explore Pill Button */}
+                  <div className="pt-2">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 group-hover:bg-black/70 border border-white/25 text-white text-xs font-semibold backdrop-blur-sm transition-all group-hover:border-white/50">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom Action Button */}
+          <div className="text-center pt-4">
+            <Link
+              href="/services"
+              className="font-editorial-nav inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-md group"
+            >
+              <span>Explore All Capabilities &amp; Divisions</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: WHY CHOOSE EURO EDGE - BUILT FOR EVERY ENVIRONMENT
+      ========================================================================= */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Modern Architecture Photo with Floating Card */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative h-[360px] sm:h-[440px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+              <Image
+                src="/images/home-quality-spaces.jpg"
+                alt="Quality Modern Architectural Spaces by Euro Edge Dubai"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+              {/* Floating Bottom Card */}
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-editorial-h2 text-sm sm:text-base font-medium text-[#0a2540] leading-snug">
+                    Quality Spaces for a Better Tomorrow
+                  </h4>
+                  <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Residential | Commercial | Industrial
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Bottom CTA */}
-          <ScrollReveal animation="fade-up" delay={800} className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-secondary border border-border">
-            <div className="flex items-center gap-3 text-left">
-              <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-              <div>
-                <h4 className="text-sm font-bold text-foreground">Transparent Process, Guaranteed Quality</h4>
-                <p className="text-xs text-muted-foreground">Every project is fully documented and verified to Dubai engineering standards.</p>
+          {/* Right Column: Built for Every Environment */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+              WHY CHOOSE EURO EDGE
+            </span>
+
+            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+              Built for Every Environment.
+            </h2>
+
+            <p className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
+              From residential communities to commercial developments and
+              industrial facilities, we deliver reliable technical solutions
+              that meet the highest standards of quality, safety and performance.
+            </p>
+
+            {/* 2x2 Feature Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
+                  <Award className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-editorial-nav text-xs font-bold text-[#0a2540] uppercase tracking-wide">
+                    Quality Workmanship
+                  </h4>
+                  <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Built to Last
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-editorial-nav text-xs font-bold text-[#0a2540] uppercase tracking-wide">
+                    Reliable &amp; Professional
+                  </h4>
+                  <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Technical Team
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-editorial-nav text-xs font-bold text-[#0a2540] uppercase tracking-wide">
+                    Safety &amp; Compliance
+                  </h4>
+                  <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Industry Standards
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
+                  <HeartHandshake className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-editorial-nav text-xs font-bold text-[#0a2540] uppercase tracking-wide">
+                    Client-Focused Approach
+                  </h4>
+                  <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Your Goals, Our Priority
+                  </p>
+                </div>
               </div>
             </div>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto pl-6 pr-2 py-2 rounded-full bg-white hover:bg-gray-50 border border-gray-200/80 text-foreground font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-4 flex-shrink-0 group"
-            >
-              <span>Start Your Enquiry</span>
-              <div className="w-8 h-8 rounded-full bg-[#fbb03b] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-              </div>
-            </Link>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
+      {/* =========================================================================
+          SECTION 5: OUR WORK PROCESS - A SIMPLE & RELIABLE PROCESS
+      ========================================================================= */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-[#f8fafc] border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto space-y-12">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4">
+            <div className="space-y-2 max-w-xl">
+              <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+                OUR WORK PROCESS
+              </span>
+              <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight">
+                A Simple &amp; Reliable Process
+              </h2>
+            </div>
+            <p className="font-editorial-body text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
+              We follow a clear and structured process to ensure every project is
+              delivered smoothly, on time and to the highest standards.
+            </p>
+          </div>
 
+          {/* 4 Process Step Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                icon: MessageSquare,
+                title: "Understand",
+                desc: "We discuss your requirements and site conditions.",
+              },
+              {
+                step: "02",
+                icon: FileSpreadsheet,
+                title: "Plan",
+                desc: "We propose the best solution with clear scope and timeline.",
+              },
+              {
+                step: "03",
+                icon: Cog,
+                title: "Execute",
+                desc: "Our team delivers with quality, safety and precision.",
+              },
+              {
+                step: "04",
+                icon: Headphones,
+                title: "Support",
+                desc: "We provide ongoing support and maintenance.",
+              },
+            ].map((p) => (
+              <div
+                key={p.step}
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-4 hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-editorial-h1 text-2xl font-bold text-[#0a2540]">
+                    {p.step}
+                  </span>
+                  <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0066cc] flex items-center justify-center shadow-2xs">
+                    <p.icon className="w-5 h-5" />
+                  </div>
+                </div>
 
-      {/* Frequently Asked Questions (FAQ) Accordion */}
-      <FAQSection />
+                <div className="space-y-1.5">
+                  <h4 className="font-editorial-h2 text-base sm:text-lg font-medium text-[#0a2540]">
+                    {p.title}
+                  </h4>
+                  <p className="font-editorial-body text-xs text-slate-500 leading-relaxed">
+                    {p.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 6: READY TO BUILD TOGETHER? (Full-width Sunset Skyline Banner)
+      ========================================================================= */}
+      <section className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 lg:px-10 text-white">
+        {/* Background Dubai Sunset Skyline Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/about-bottom-banner.jpg"
+            alt="Dubai Skyline Sunset Burj Khalifa Silhouette"
+            fill
+            className="object-cover object-bottom"
+            sizes="100vw"
+          />
+          {/* Deep Navy/Black Gradient Overlay for high text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071a2e]/95 via-[#071a2e]/85 to-[#071a2e]/70" />
+        </div>
+
+        <div className="relative z-10 max-w-[1440px] mx-auto space-y-8">
+          <div className="space-y-3 max-w-2xl">
+            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#fbb03b] tracking-[0.2em] uppercase block">
+              READY TO BUILD TOGETHER?
+            </span>
+
+            <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
+              Let&apos;s Build Something Great Together.
+            </h2>
+
+            <p className="font-editorial-body text-sm sm:text-base text-slate-300 leading-relaxed">
+              Talk to our team today and get the right technical solution for your
+              project.
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/contact"
+              className="font-editorial-nav inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs font-semibold uppercase tracking-wider transition-colors shadow-lg group"
+            >
+              <span>Make an Enquiry</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+
+            <a
+              href="tel:+971543909946"
+              className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider transition-colors backdrop-blur-sm"
+            >
+              <Phone className="w-4 h-4 text-[#fbb03b]" />
+              <span>+971 54 390 9946</span>
+            </a>
+          </div>
+
+          {/* 3 Trust Badges at bottom of banner */}
+          <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <Clock className="w-4 h-4 text-[#fbb03b]" />
+              </div>
+              <div>
+                <h5 className="font-editorial-nav text-xs font-bold text-white uppercase tracking-wider">
+                  Quick Response
+                </h5>
+                <p className="font-editorial-body text-[11px] text-slate-300">
+                  We&apos;ll get back to you soon
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <Users className="w-4 h-4 text-[#fbb03b]" />
+              </div>
+              <div>
+                <h5 className="font-editorial-nav text-xs font-bold text-white uppercase tracking-wider">
+                  Technical Experts
+                </h5>
+                <p className="font-editorial-body text-[11px] text-slate-300">
+                  Dedicated project support
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-4 h-4 text-[#fbb03b]" />
+              </div>
+              <div>
+                <h5 className="font-editorial-nav text-xs font-bold text-white uppercase tracking-wider">
+                  Trusted Partner
+                </h5>
+                <p className="font-editorial-body text-[11px] text-slate-300">
+                  Across all 7 Emirates
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 7: OUR IMPACT - NUMBERS THAT REFLECT OUR COMMITMENT (Light Version)
+      ========================================================================= */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Headline */}
+            <div className="lg:col-span-5 space-y-2">
+              <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+                OUR IMPACT
+              </span>
+              <h2 className="font-editorial-h2 text-3xl sm:text-4xl text-[#0a2540] font-medium leading-tight tracking-tight">
+                Numbers That <br className="hidden sm:inline" />
+                Reflect Our Commitment
+              </h2>
+              <div className="w-16 h-0.5 bg-[#c8924b] mt-2" />
+            </div>
+
+            {/* Right 4 Metric Columns */}
+            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+              <div className="space-y-1.5 text-center sm:text-left">
+                <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div className="font-editorial-h1 text-3xl sm:text-4xl font-bold text-[#0a2540]">
+                  100%
+                </div>
+                <div className="font-editorial-body text-xs text-slate-500">
+                  Certified In-House Team
+                </div>
+              </div>
+
+              <div className="space-y-1.5 text-center sm:text-left">
+                <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <div className="font-editorial-h1 text-3xl sm:text-4xl font-bold text-[#0a2540]">
+                  5
+                </div>
+                <div className="font-editorial-body text-xs text-slate-500">
+                  Specialized Divisions
+                </div>
+              </div>
+
+              <div className="space-y-1.5 text-center sm:text-left">
+                <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div className="font-editorial-h1 text-3xl sm:text-4xl font-bold text-[#0a2540]">
+                  24/7
+                </div>
+                <div className="font-editorial-body text-xs text-slate-500">
+                  Rapid Response Hotline
+                </div>
+              </div>
+
+              <div className="space-y-1.5 text-center sm:text-left">
+                <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div className="font-editorial-h1 text-3xl sm:text-4xl font-bold text-[#0a2540]">
+                  7
+                </div>
+                <div className="font-editorial-body text-xs text-slate-500">
+                  Emirates Covered
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
       <StickyContactWidget />

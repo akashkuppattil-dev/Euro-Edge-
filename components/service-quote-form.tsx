@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Send, CheckCircle2, Clock, ShieldCheck } from "lucide-react"
+import { Send, CheckCircle2 } from "lucide-react"
 
 export function ServiceQuoteForm({ serviceTitle }: { serviceTitle: string }) {
   const [submitted, setSubmitted] = useState(false)
@@ -140,29 +140,6 @@ export function ServiceQuoteForm({ serviceTitle }: { serviceTitle: string }) {
           </button>
         </form>
       )}
-
-      {/* Direct WhatsApp Link & Trust Badges */}
-      <div className="pt-4 border-t border-slate-200/80 space-y-3 text-xs">
-        <a
-          href={`https://wa.me/971543909946?text=Hi%20Euro%20Edge%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(serviceTitle)}%20services.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-3 rounded-xl bg-[#25d366] hover:bg-[#1ebe5a] text-white font-mono font-bold text-xs uppercase tracking-wider text-center block transition-colors shadow-xs"
-        >
-          WhatsApp Rapid Inquiry
-        </a>
-
-        <div className="space-y-2 pt-2 text-[11px] text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Clock className="w-3.5 h-3.5 text-[#0a2540]" />
-            <span>30-Minute Turnaround Response</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>DEWA &amp; Dubai Municipality Compliant</span>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

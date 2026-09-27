@@ -8,15 +8,8 @@ import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { ServiceQuoteForm } from "@/components/service-quote-form"
 import { ServiceShareButton } from "@/components/share-button"
 import { ServiceFaqAccordion } from "@/components/service-faq-accordion"
-import { servicesData } from "@/lib/services-data"
-import {
-  Wrench,
-  Building2,
-  CheckCircle2,
-  ArrowRight,
-  ChevronLeft,
-  HelpCircle,
-} from "lucide-react"
+import { servicesData, legacySlugMap } from "@/lib/services-data"
+import { CheckCircle2, ChevronLeft } from "lucide-react"
 
 export async function generateMetadata({
   params,
@@ -24,7 +17,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const service = servicesData.find((s) => s.slug === slug)
+  const resolvedSlug = legacySlugMap[slug] || slug
+  const service = servicesData.find((s) => s.slug === resolvedSlug)
   if (!service) return { title: "Service Not Found | Euro Edge Technical Services" }
 
   const pageTitle = service.titleTag || `${service.title} in Dubai | Euro Edge Technical Services`
@@ -57,8 +51,12 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return servicesData.map((s) => ({
-    slug: s.slug,
+  const allSlugs = [
+    ...servicesData.map((s) => s.slug),
+    ...Object.keys(legacySlugMap),
+  ]
+  return allSlugs.map((slug) => ({
+    slug,
   }))
 }
 
@@ -68,7 +66,8 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const service = servicesData.find((s) => s.slug === slug)
+  const resolvedSlug = legacySlugMap[slug] || slug
+  const service = servicesData.find((s) => s.slug === resolvedSlug)
 
   if (!service) {
     notFound()
@@ -182,11 +181,12 @@ export default async function ServiceDetailPage({
 
       {/* Service Details Section */}
       <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Description & Capabilities */}
+        {/* Top Section: Overview & Interactive Fast Quote Form */}
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Main Description */}
           <div className="lg:col-span-2 space-y-8">
             {/* Service Visual Image */}
-            <div className="relative h-[320px] sm:h-[400px] w-full rounded-2xl overflow-hidden border border-border shadow-md">
+            <div className="relative h-[320px] sm:h-[420px] w-full rounded-2xl overflow-hidden border border-border shadow-md">
               <Image
                 src={service.imageUrl}
                 alt={service.imageAlt || `${service.title} — Euro Edge Technical Services L.L.C. Dubai`}
@@ -197,74 +197,99 @@ export default async function ServiceDetailPage({
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-serif font-bold text-foreground">Service Overview</h2>
-              <p className="text-muted-foreground text-base leading-relaxed whitespace-pre-line">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">Service Overview</h2>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed whitespace-pre-line">
                 {service.fullDesc}
               </p>
             </div>
-
-            {/* Key Deliverables & Capabilities */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-serif font-bold text-foreground flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                Key Deliverables &amp; Capabilities
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {service.keyFeatures.map((feat, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-card border border-border flex items-start gap-3 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-foreground">{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
 
           {/* Sidebar Interactive Fast Quote Form */}
-          <div>
+          <div className="lg:sticky lg:top-24">
             <ServiceQuoteForm serviceTitle={service.title} />
           </div>
         </div>
-      </section>
 
-      {/* Centered Industry Applications Section */}
-      {service.applications && service.applications.length > 0 && (
-        <section className="py-10 sm:py-14 px-4 lg:px-12 bg-secondary/40 border-t border-border">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">
-                Industry Applications
+        {/* Full-Width Specialized Sub-Services & Capabilities Section */}
+        {service.subServices && service.subServices.length > 0 ? (
+          <div className="max-w-[1600px] mx-auto space-y-8 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-border">
+            <div className="space-y-2 border-b border-border pb-5">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground flex items-center gap-3">
+                <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600 flex-shrink-0" />
+                Specialized Services &amp; Capabilities
               </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
-                Proven technical delivery across diverse property sectors in Dubai and the UAE.
+              <p className="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+                Certified craftsmanship and specialized technical delivery across all division scopes in Dubai.
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              {service.applications.map((app, idx) => (
+            <div className="space-y-8 sm:space-y-10">
+              {service.subServices.map((sub, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-card border border-border shadow-xs hover:shadow-md transition-all flex flex-col items-center text-center space-y-3 group w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] max-w-xs flex-1 min-w-[220px]"
+                  className="group rounded-3xl bg-card border border-border/80 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row items-stretch"
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-[#0a2540] text-[#fbb03b] flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                    <Building2 className="w-5 h-5" />
+                  {/* Left Side: Generously Sized Photo */}
+                  <div className="relative w-full md:w-[420px] lg:w-[480px] xl:w-[520px] min-h-[260px] md:min-h-[320px] flex-shrink-0 overflow-hidden bg-muted">
+                    <Image
+                      src={sub.imageUrl}
+                      alt={sub.imageAlt || `${sub.title} — Euro Edge Technical Services L.L.C. Dubai`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-4 left-4 md:hidden">
+                      <span className="w-8 h-8 rounded-xl bg-[#0a2540] text-white text-xs font-bold flex items-center justify-center shadow-lg">
+                        0{idx + 1}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-foreground leading-snug">
-                    {app}
-                  </span>
+
+                  {/* Right Side: Stretches all the way across to the right */}
+                  <div className="p-6 sm:p-8 lg:p-10 flex-1 flex flex-col justify-center space-y-4">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <span className="hidden md:flex w-10 h-10 rounded-xl bg-[#0a2540] text-white text-sm font-bold items-center justify-center flex-shrink-0 shadow-sm">
+                          0{idx + 1}
+                        </span>
+                        <h4 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-foreground group-hover:text-[#0a2540] transition-colors leading-snug">
+                          {sub.title}
+                        </h4>
+                      </div>
+                      <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0" />
+                    </div>
+                    <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-5xl">
+                      {sub.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-      )}
+        ) : (
+          <div className="max-w-[1600px] mx-auto space-y-6 pt-12 mt-12 border-t border-border">
+            <h3 className="text-xl font-serif font-bold text-foreground flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+              Key Deliverables &amp; Capabilities
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {service.keyFeatures.map((feat, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-card border border-border flex items-start gap-3 shadow-sm">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm font-medium text-foreground">{feat}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+
 
       {/* Centered Interactive FAQs Accordion */}
       <ServiceFaqAccordion faqs={service.faqs} />
 
       <Footer />
-            <StickyContactWidget />
+      <StickyContactWidget />
     </main>
   )
 }

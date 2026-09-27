@@ -1,26 +1,40 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display, Outfit, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Cormorant_Garamond, Playfair_Display, Outfit, Plus_Jakarta_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { JsonLd } from '@/components/json-ld'
 import './globals.css'
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: '--font-inter',
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: '--font-cormorant',
 })
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
   variable: '--font-playfair',
 })
 
 const outfit = Outfit({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
   variable: '--font-outfit',
 })
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
   variable: '--font-jakarta',
 })
 
@@ -52,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${jakarta.variable}`}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="font-sans antialiased">
         <JsonLd />
         {children}
