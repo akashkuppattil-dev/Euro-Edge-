@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
+import { HomeScrollAnimations } from "@/components/home-scroll-animations"
 import {
   ShieldCheck,
   CheckCircle2,
@@ -28,6 +29,15 @@ import {
   Phone,
   Layers,
   HeartHandshake,
+  Home,
+  Hotel,
+  ShoppingBag,
+  Factory,
+  Building,
+  ChevronRight,
+  ChevronLeft,
+  HardHat,
+  FileText,
 } from "lucide-react"
 
 export const metadata = {
@@ -54,38 +64,42 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="bg-[#fafbfc] text-[#0a2540] font-sans min-h-screen">
+    <main className="overflow-x-clip bg-[#fafbfc] text-[#0a2540] font-sans min-h-screen">
+      <HomeScrollAnimations />
       <Header />
 
       {/* =========================================================================
           SECTION 1: HERO SECTION (Wallpaper Background with Smiling Engineer)
       ========================================================================= */}
-      <section className="relative min-h-[540px] sm:min-h-[640px] lg:min-h-[720px] flex items-center overflow-hidden text-white bg-[#071a2e]">
+      <section data-section="hero" className="relative min-h-[540px] sm:min-h-[640px] lg:min-h-[720px] flex items-center overflow-hidden text-white bg-[#071a2e]">
         {/* Full-width Hero Background Wallpaper */}
-        <div className="absolute inset-0 z-0">
+        <div data-anim="hero-bg" className="absolute inset-0 z-0">
           <Image
             src="/images/euro-edge-hero-wallpaper.jpg"
             alt="Euro Edge Technical Services Engineer Overlooking Dubai Skyline"
             fill
             priority
-            className="object-cover object-[78%_center] sm:object-right"
+            quality={95}
+            className="object-cover object-[82%_top] sm:object-[right_top]"
             sizes="100vw"
           />
-          {/* Deep Navy/Black Gradient Overlay on left for crisp readability while preserving the engineer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04101e]/98 via-[#04101e]/85 to-transparent sm:from-[#04101e]/90 sm:via-[#04101e]/50 sm:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04101e] via-transparent to-black/30" />
         </div>
 
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-16 sm:py-20 lg:py-24 w-full">
-          <div className="max-w-2xl space-y-6 sm:space-y-8">
+        <div className="relative z-10 container-wide max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-28 pb-16 sm:py-20 lg:py-24 w-full">
+          <div className="max-w-2xl xl:max-w-3xl space-y-5 sm:space-y-6">
             {/* Main Headline */}
-            <h1 className="font-editorial-h1 text-3xl sm:text-5xl lg:text-6xl text-white font-medium leading-[1.12] sm:leading-[1.08] tracking-tight">
+            <h1 data-anim="hero-heading" className="font-editorial-h1 text-3xl sm:text-5xl lg:text-6xl text-white font-medium leading-[1.12] sm:leading-[1.08] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
               The Edge of Quality <br />
               Built on <span className="text-[#fbb03b]">Trust.</span>
             </h1>
 
+            {/* Short Supporting Description */}
+            <p data-anim="hero-desc" className="font-sans text-sm sm:text-base text-white/95 leading-relaxed max-w-[560px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)] font-normal">
+              Euro Edge delivers reliable technical, MEP, and maintenance solutions across Dubai, with a professional approach focused on quality, safety, and client needs.
+            </p>
+
             {/* Action Buttons: Stacks neatly on mobile, side-by-side on tablet/desktop */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none">
+            <div data-anim="hero-cta" className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-xs sm:max-w-none">
               <Link
                 href="/contact"
                 className="font-editorial-nav inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#fbb03b]/20 hover:shadow-[#fbb03b]/30 hover:-translate-y-0.5 group text-center"
@@ -109,19 +123,19 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 2: ABOUT EURO EDGE (Delivering Engineering Excellence Across Dubai)
       ========================================================================= */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section data-section="about" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white border-b border-slate-200">
+        <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Text */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+            <span data-anim="about-label" className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
               ABOUT EURO EDGE
             </span>
 
-            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+            <h2 data-anim="about-heading" className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
               Delivering Engineering Excellence Across Dubai
             </h2>
 
-            <p className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p data-anim="about-desc" className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
               Euro Edge Technical Services L.L.C. is a Dubai-based technical
               services company delivering reliable and high-quality solutions
               for civil, MEP, maintenance and specialist works. We combine
@@ -137,7 +151,7 @@ export default function HomePage() {
                 "On-time project delivery",
                 "Solutions tailored to your requirements",
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
+                <div key={idx} data-anim="about-list-item" className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0 border border-[#c8924b]/30">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
@@ -149,7 +163,7 @@ export default function HomePage() {
             </div>
 
             {/* Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div data-anim="about-cta" className="pt-3 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
                 className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-md group"
@@ -171,10 +185,10 @@ export default function HomePage() {
           </div>
 
           {/* Right Collage Layout */}
-          <div className="lg:col-span-6 relative">
+          <div data-anim="about-image" className="lg:col-span-6 relative">
             <div className="relative">
               {/* Top-right floating stat badge */}
-              <div className="absolute -top-6 right-4 sm:right-8 z-20 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+              <div data-anim="about-badge" className="absolute -top-6 right-4 sm:right-8 z-20 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -227,17 +241,17 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 3: OUR EXPERTISE - FIVE SPECIALIZED DIVISIONS
       ========================================================================= */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-[#f8fafc] border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto space-y-12">
+      <section data-section="divisions" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#f8fafc] border-b border-slate-200">
+        <div className="container-wide max-w-[1800px] mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+          <div className="text-center max-w-3xl lg:max-w-4xl mx-auto space-y-3">
+            <span data-anim="divisions-label" className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
               OUR EXPERTISE
             </span>
-            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-bold tracking-tight">
+            <h2 data-anim="divisions-heading" className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-bold tracking-tight">
               Five Specialized Divisions
             </h2>
-            <p className="font-editorial-body text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p data-anim="divisions-desc" className="font-editorial-body text-sm sm:text-base text-slate-600 leading-relaxed">
               We offer a complete range of technical services, allowing us to
               support your project from initial works to ongoing maintenance —
               all under one team.
@@ -245,53 +259,44 @@ export default function HomePage() {
           </div>
 
           {/* 5 Cards Grid matching reference design */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 xl:gap-6">
             {[
               {
                 id: "facility",
                 title: "Facility Management",
-                desc: "Comprehensive property upkeep, planned preventive maintenance (PPM), and building system management.",
                 image: "/images/services/facility-management.jpg",
-                icon: Building2,
                 slug: "general-maintenance-amc",
               },
               {
                 id: "fitout",
                 title: "Fit-Out & Renovation",
-                desc: "Turnkey interior fit-out, partition installations, joinery, and architectural restoration.",
                 image: "/images/services/fit-out-renovation.jpg",
-                icon: Hammer,
                 slug: "civil-finishing-works",
               },
               {
                 id: "mep",
                 title: "MEP & HVAC Systems",
-                desc: "Electrical distribution, plumbing & sanitary works, AC ducting, chillers, and climate control.",
                 image: "/images/services/mep-technical.jpg",
-                icon: Zap,
                 slug: "mep-technical-works",
               },
               {
                 id: "civil",
                 title: "Civil Maintenance",
-                desc: "Masonry, tile fixing, painting, plastering, waterproofing, and structural upkeep.",
                 image: "/images/services/civil-maintenance.jpg",
-                icon: ShieldCheck,
                 slug: "civil-finishing-works",
               },
               {
                 id: "pool-landscaping",
                 title: "Pool & Landscaping",
-                desc: "Custom swimming pools, filtration, hardscaping, softscaping, and automated irrigation.",
                 image: "/images/services/swimming-pool.jpg",
-                icon: Waves,
                 slug: "swimming-pool-works",
               },
             ].map((division) => (
               <Link
                 key={division.id}
+                data-anim="divisions-card"
                 href={`/services/${division.slug}`}
-                className="group relative h-[380px] sm:h-[420px] lg:h-[460px] rounded-2xl sm:rounded-[26px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-5 sm:p-6 border border-slate-200/60 block"
+                className="group relative h-[340px] sm:h-[380px] lg:h-[440px] xl:h-[470px] rounded-2xl sm:rounded-[26px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-5 sm:p-6 border border-slate-200/60 block hover:-translate-y-1"
               >
                 {/* Full Card Background Image */}
                 <Image
@@ -303,30 +308,20 @@ export default function HomePage() {
                 />
 
                 {/* Dark Gradient Overlay for optimal readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 group-hover:via-black/60 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-black/50 transition-colors" />
 
-                {/* Card Content at bottom */}
-                <div className="relative z-10 space-y-2.5">
-                  {/* Translucent Icon Box */}
-                  <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white mb-2 shadow-sm group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] group-hover:border-[#fbb03b] transition-all">
-                    <division.icon className="w-5 h-5 transition-colors" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-editorial-h2 text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
+                {/* Card Content at bottom: Service Name and Button Only */}
+                <div className="relative z-10 space-y-3">
+                  {/* Service Name */}
+                  <h3 className="font-editorial-h2 text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-[#fbb03b] transition-colors">
                     {division.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="font-editorial-body text-xs text-slate-200/90 leading-relaxed line-clamp-3">
-                    {division.desc}
-                  </p>
-
-                  {/* Explore Pill Button */}
-                  <div className="pt-2">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 group-hover:bg-black/70 border border-white/25 text-white text-xs font-semibold backdrop-blur-sm transition-all group-hover:border-white/50">
+                  {/* Button */}
+                  <div>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 group-hover:bg-[#0a2540] border border-white/25 group-hover:border-[#fbb03b] text-white text-xs font-semibold backdrop-blur-sm transition-all">
                       <span>Explore</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#fbb03b]" />
                     </span>
                   </div>
                 </div>
@@ -335,7 +330,7 @@ export default function HomePage() {
           </div>
 
           {/* Bottom Action Button */}
-          <div className="text-center pt-4">
+          <div data-anim="divisions-cta" className="text-center pt-4">
             <Link
               href="/services"
               className="font-editorial-nav inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-md group"
@@ -350,11 +345,11 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 4: WHY CHOOSE EURO EDGE - BUILT FOR EVERY ENVIRONMENT
       ========================================================================= */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section data-section="why-choose" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white border-b border-slate-200">
+        <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
           {/* Left Column: Modern Architecture Photo with Floating Card */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative h-[360px] sm:h-[440px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+          <div data-anim="why-image" className="lg:col-span-6 relative">
+            <div className="relative h-[360px] sm:h-[460px] lg:h-[520px] xl:h-[580px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
               <Image
                 src="/images/home-quality-spaces.jpg"
                 alt="Quality Modern Architectural Spaces by Euro Edge Dubai"
@@ -365,7 +360,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
               {/* Floating Bottom Card */}
-              <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
+              <div data-anim="why-image-card" className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
                 <div className="w-11 h-11 rounded-xl bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
                   <Building2 className="w-6 h-6" />
                 </div>
@@ -383,15 +378,15 @@ export default function HomePage() {
 
           {/* Right Column: Built for Every Environment */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
+            <span data-anim="why-label" className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
               WHY CHOOSE EURO EDGE
             </span>
 
-            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+            <h2 data-anim="why-heading" className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight leading-[1.12]">
               Built for Every Environment.
             </h2>
 
-            <p className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p data-anim="why-desc" className="font-editorial-body text-slate-600 text-sm sm:text-base leading-relaxed">
               From residential communities to commercial developments and
               industrial facilities, we deliver reliable technical solutions
               that meet the highest standards of quality, safety and performance.
@@ -399,7 +394,7 @@ export default function HomePage() {
 
             {/* 2x2 Feature Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+              <div data-anim="why-card" className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
                   <Award className="w-5 h-5" />
                 </div>
@@ -413,7 +408,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+              <div data-anim="why-card" className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
                   <Users className="w-5 h-5" />
                 </div>
@@ -427,7 +422,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+              <div data-anim="why-card" className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -441,7 +436,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+              <div data-anim="why-card" className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0">
                   <HeartHandshake className="w-5 h-5" />
                 </div>
@@ -460,77 +455,536 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 5: OUR WORK PROCESS - A SIMPLE & RELIABLE PROCESS
+          SECTION: INDUSTRIES WE SERVE - SOLUTIONS FOR EVERY INDUSTRY (BENTO LAYOUT)
       ========================================================================= */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-10 bg-[#f8fafc] border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto space-y-12">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4">
-            <div className="space-y-2 max-w-xl">
-              <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
-                OUR WORK PROCESS
-              </span>
-              <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight">
-                A Simple &amp; Reliable Process
-              </h2>
-            </div>
-            <p className="font-editorial-body text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
-              We follow a clear and structured process to ensure every project is
-              delivered smoothly, on time and to the highest standards.
-            </p>
-          </div>
+      <section data-section="industries" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#fbfcfe] border-b border-slate-200/80">
+        {/* Subtle Dubai Skyline Watermark in the Top-Right */}
+        <div className="absolute right-0 top-0 w-80 sm:w-96 md:w-[500px] h-64 pointer-events-none opacity-40 z-0">
+          <Image
+            src="/images/industries/industries-skyline-feathered.png"
+            alt=""
+            fill
+            className="object-contain object-right-top"
+          />
+        </div>
 
-          {/* 4 Process Step Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                step: "01",
-                icon: MessageSquare,
-                title: "Understand",
-                desc: "We discuss your requirements and site conditions.",
-              },
-              {
-                step: "02",
-                icon: FileSpreadsheet,
-                title: "Plan",
-                desc: "We propose the best solution with clear scope and timeline.",
-              },
-              {
-                step: "03",
-                icon: Cog,
-                title: "Execute",
-                desc: "Our team delivers with quality, safety and precision.",
-              },
-              {
-                step: "04",
-                icon: Headphones,
-                title: "Support",
-                desc: "We provide ongoing support and maintenance.",
-              },
-            ].map((p) => (
-              <div
-                key={p.step}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-4 hover:shadow-md transition-all duration-300"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-editorial-h1 text-2xl font-bold text-[#0a2540]">
-                    {p.step}
-                  </span>
-                  <div className="w-10 h-10 rounded-full bg-slate-100 text-[#0066cc] flex items-center justify-center shadow-2xs">
-                    <p.icon className="w-5 h-5" />
+        <div className="container-wide max-w-[1800px] mx-auto relative z-10">
+          {/* Asymmetric 3-Column Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6 items-stretch">
+
+            {/* ================= COLUMN 1 (LEFT) ================= */}
+            <div className="flex flex-col gap-5 xl:gap-6">
+              {/* Top: Header Introduction Card */}
+              <div data-anim="industries-header" className="flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white/90 backdrop-blur-xs border border-slate-200/80 shadow-2xs h-full min-h-[340px] lg:min-h-[380px]">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase">
+                      INDUSTRIES WE SERVE
+                    </span>
+                    <span className="w-8 h-[2px] bg-[#fbb03b] inline-block" />
+                  </div>
+
+                  <h2 className="font-editorial-h1 font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+                    Solutions for <br className="hidden sm:inline" />
+                    Every Industry<span className="text-[#fbb03b]">.</span>
+                  </h2>
+
+                  <p className="font-editorial-body text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
+                    We provide technical services for a wide range of sectors, including residential, commercial and industrial properties across the UAE.
+                  </p>
+
+                  <div className="pt-2">
+                    <Link
+                      href="/industries"
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#0a2540] hover:bg-[#071a2e] text-white text-xs font-semibold tracking-wide transition-all shadow-md group"
+                    >
+                      <span>Explore All Industries</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                   </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <h4 className="font-editorial-h2 text-base sm:text-lg font-medium text-[#0a2540]">
-                    {p.title}
+                {/* 3 Quick Highlights in a Row */}
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-5 border-t border-slate-200/80">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-[#0a2540] shrink-0 shadow-2xs">
+                      <Building2 className="w-4 h-4" />
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-700 leading-tight">
+                      Wide Range <br />of Sectors
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-[#0a2540] shrink-0 shadow-2xs">
+                      <Settings className="w-4 h-4" />
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-700 leading-tight">
+                      Tailored <br />Solutions
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center text-[#0a2540] shrink-0 shadow-2xs">
+                      <Headphones className="w-4 h-4" />
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-700 leading-tight">
+                      Reliable <br />Support
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom: Card 03 - Hospitality */}
+              <Link
+                href="/industries#hospitality"
+                data-anim="industry-card"
+                className="group relative h-[320px] lg:h-[360px] rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+              >
+                <Image
+                  src="/images/industries/sector-03-hospitality.jpg"
+                  alt="Hospitality Technical Services"
+                  fill
+                  quality={90}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                {/* Text Scrim Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/60 pointer-events-none" />
+
+                {/* Card Header Text */}
+                <div className="absolute top-0 inset-x-0 p-6 z-10 space-y-1">
+                  <div className="w-6 h-[2px] bg-[#fbb03b] mb-1.5" />
+                  <span className="text-xs font-bold text-white/90 tracking-widest uppercase block">
+                    03
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-white drop-shadow-xs">
+                    Hospitality
+                  </h3>
+                  <p className="font-sans text-xs text-white/90 leading-relaxed max-w-[240px]">
+                    Hotels, resorts and hospitality facilities with high-quality technical services.
+                  </p>
+                </div>
+
+                {/* Bottom Left Button */}
+                <div className="absolute bottom-5 left-6 z-10">
+                  <div className="w-10 h-10 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-lg group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+
+                {/* Bottom Right Category Badge */}
+                <div className="absolute bottom-5 right-6 z-10">
+                  <div className="w-10 h-10 rounded-2xl bg-white/95 backdrop-blur-xs text-[#0a2540] flex items-center justify-center shadow-md border border-slate-100">
+                    <Hotel className="w-5 h-5" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* ================= COLUMN 2 (MIDDLE) ================= */}
+            <div className="flex flex-col gap-5 xl:gap-6">
+              {/* Top: Card 01 - Residential */}
+              <Link
+                href="/industries#residential"
+                data-anim="industry-card"
+                className="group relative h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+              >
+                <Image
+                  src="/images/industries/sector-01-residential.jpg"
+                  alt="Residential Technical Services"
+                  fill
+                  quality={90}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                {/* Text Scrim Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/60 pointer-events-none" />
+
+                {/* Card Header Text */}
+                <div className="absolute top-0 inset-x-0 p-6 z-10 space-y-1">
+                  <div className="w-6 h-[2px] bg-[#fbb03b] mb-1.5" />
+                  <span className="text-xs font-bold text-white/90 tracking-widest uppercase block">
+                    01
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-white drop-shadow-xs">
+                    Residential
+                  </h3>
+                  <p className="font-sans text-xs text-white/90 leading-relaxed max-w-[240px]">
+                    Villas, apartments and residential communities with complete technical solutions.
+                  </p>
+                </div>
+
+                {/* Bottom Left Button */}
+                <div className="absolute bottom-5 left-6 z-10">
+                  <div className="w-10 h-10 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-lg group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Bottom: Card 04 - Retail */}
+              <Link
+                href="/industries#retail"
+                data-anim="industry-card"
+                className="group relative h-[320px] lg:h-[360px] rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+              >
+                <Image
+                  src="/images/industries/sector-05-retail.jpg"
+                  alt="Retail Technical Services"
+                  fill
+                  quality={90}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                {/* Text Scrim Gradient (Mid-layer emphasis) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50 pointer-events-none" />
+
+                {/* Card Header Text */}
+                <div className="absolute top-1/4 inset-x-0 p-6 z-10 space-y-1">
+                  <div className="w-6 h-[2px] bg-[#fbb03b] mb-1.5" />
+                  <span className="text-xs font-bold text-white/90 tracking-widest uppercase block">
+                    04
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-white drop-shadow-xs">
+                    Retail
+                  </h3>
+                  <p className="font-sans text-xs text-white/90 leading-relaxed max-w-[240px]">
+                    Retail outlets, showrooms and commercial spaces with tailored solutions.
+                  </p>
+                </div>
+
+                {/* Bottom Left Button */}
+                <div className="absolute bottom-5 left-6 z-10">
+                  <div className="w-10 h-10 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-lg group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+
+                {/* Bottom Right Category Badge */}
+                <div className="absolute bottom-5 right-6 z-10">
+                  <div className="w-10 h-10 rounded-2xl bg-white/95 backdrop-blur-xs text-[#0a2540] flex items-center justify-center shadow-md border border-slate-100">
+                    <ShoppingBag className="w-5 h-5" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* ================= COLUMN 3 (RIGHT) ================= */}
+            <div className="flex flex-col gap-5 xl:gap-6 md:col-span-2 lg:col-span-1">
+              {/* Top: Card 02 - Commercial */}
+              <Link
+                href="/industries#commercial"
+                data-anim="industry-card"
+                className="group relative h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+              >
+                <Image
+                  src="/images/industries/sector-02-commercial.jpg"
+                  alt="Commercial Technical Services"
+                  fill
+                  quality={90}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                {/* Text Scrim Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/60 pointer-events-none" />
+
+                {/* Card Header Text */}
+                <div className="absolute top-0 inset-x-0 p-6 z-10 space-y-1">
+                  <div className="w-6 h-[2px] bg-[#fbb03b] mb-1.5" />
+                  <span className="text-xs font-bold text-white/90 tracking-widest uppercase block">
+                    02
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-white drop-shadow-xs">
+                    Commercial
+                  </h3>
+                  <p className="font-sans text-xs text-white/90 leading-relaxed max-w-[240px]">
+                    Office buildings, retail spaces and commercial developments.
+                  </p>
+                </div>
+
+                {/* Bottom Left Button */}
+                <div className="absolute bottom-5 left-6 z-10">
+                  <div className="w-10 h-10 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-lg group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+
+                {/* Top Right Category Badge */}
+                <div className="absolute top-6 right-6 z-10">
+                  <div className="w-10 h-10 rounded-2xl bg-white/95 backdrop-blur-xs text-[#0a2540] flex items-center justify-center shadow-md border border-slate-100">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Bottom: Stacked Cards (Card 05 Industrial + Card 06 Property Management) */}
+              <div className="flex flex-col gap-4 h-[320px] lg:h-[360px]">
+                {/* Card 05 - Industrial */}
+                <Link
+                  href="/industries#industrial"
+                  data-anim="industry-card"
+                  className="group relative flex-1 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+                >
+                  <Image
+                    src="/images/industries/sector-06-industrial.jpg"
+                    alt="Industrial Technical Services"
+                    fill
+                    quality={90}
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  {/* Scrim Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent pointer-events-none" />
+
+                  {/* Text Overlay */}
+                  <div className="absolute top-0 inset-x-0 p-4 sm:p-5 z-10 space-y-0.5">
+                    <div className="w-5 h-[2px] bg-[#fbb03b] mb-1" />
+                    <span className="text-[10px] font-bold text-white/90 tracking-widest uppercase block">
+                      05
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
+                      Industrial
+                    </h3>
+                    <p className="font-sans text-[11px] text-white/85 leading-tight max-w-[210px]">
+                      Industrial facilities and specialized spaces with reliable technical support.
+                    </p>
+                  </div>
+
+                  {/* Bottom Left Button */}
+                  <div className="absolute bottom-3 left-4 sm:left-5 z-10">
+                    <div className="w-8 h-8 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-md group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
+
+                  {/* Top Right Category Badge */}
+                  <div className="absolute top-3.5 right-4 z-10">
+                    <div className="w-8 h-8 rounded-xl bg-white/95 backdrop-blur-xs text-[#0a2540] flex items-center justify-center shadow-sm border border-slate-100">
+                      <Factory className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Card 06 - Property Management */}
+                <Link
+                  href="/industries#property-management"
+                  data-anim="industry-card"
+                  className="group relative flex-1 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-500 block"
+                >
+                  <Image
+                    src="/images/industries/sector-07-property.jpg"
+                    alt="Property Management Technical Services"
+                    fill
+                    quality={90}
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  {/* Scrim Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent pointer-events-none" />
+
+                  {/* Text Overlay */}
+                  <div className="absolute top-0 inset-x-0 p-4 sm:p-5 z-10 space-y-0.5">
+                    <div className="w-5 h-[2px] bg-[#fbb03b] mb-1" />
+                    <span className="text-[10px] font-bold text-white/90 tracking-widest uppercase block">
+                      06
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-white drop-shadow-xs">
+                      Property Management
+                    </h3>
+                    <p className="font-sans text-[11px] text-white/85 leading-tight max-w-[210px]">
+                      Ongoing maintenance and technical support for properties.
+                    </p>
+                  </div>
+
+                  {/* Bottom Left Button */}
+                  <div className="absolute bottom-3 left-4 sm:left-5 z-10">
+                    <div className="w-8 h-8 rounded-full bg-white text-[#0a2540] flex items-center justify-center shadow-md group-hover:bg-[#fbb03b] group-hover:text-[#0a2540] transition-all duration-300">
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Right Category Badge */}
+                  <div className="absolute bottom-3 right-4 z-10">
+                    <div className="w-8 h-8 rounded-xl bg-white/95 backdrop-blur-xs text-[#0a2540] flex items-center justify-center shadow-sm border border-slate-100">
+                      <Users className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 5: OUR WORK PROCESS - A SIMPLE & RELIABLE PROCESS (TIMELINE FLOW)
+      ========================================================================= */}
+      <section data-section="work-process" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#fbfcfe] border-b border-slate-200/80">
+        <div className="relative z-10 container-wide max-w-[1800px] mx-auto space-y-12 sm:space-y-16">
+          {/* Header Row */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+            <div className="space-y-2 max-w-xl">
+              <div data-anim="process-label" className="flex items-center gap-3">
+                <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase">
+                  OUR WORK PROCESS
+                </span>
+                <span className="w-8 h-[2px] bg-[#fbb03b] inline-block" />
+              </div>
+              <h2 data-anim="process-heading" className="font-editorial-h2 font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-medium tracking-tight">
+                A Simple &amp; Reliable Process
+              </h2>
+              <p data-anim="process-desc" className="font-editorial-body text-xs sm:text-sm text-slate-600 max-w-lg leading-relaxed pt-1">
+                We follow a clear and structured process to ensure every project is
+                delivered smoothly, on time and to the highest standards.
+              </p>
+            </div>
+
+            {/* Top-Right Commitment Badge */}
+            <div data-anim="process-commitment" className="flex items-center gap-4">
+              <div className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs">
+                <div className="w-10 h-10 rounded-full bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-600 flex-shrink-0">
+                  <HardHat className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-xs sm:text-sm text-[#0a2540] leading-snug">
+                    Our Commitment
                   </h4>
-                  <p className="font-editorial-body text-xs text-slate-500 leading-relaxed">
-                    {p.desc}
+                  <p className="font-editorial-body text-[11px] text-slate-500 leading-tight max-w-[220px]">
+                    Clear communication, professional execution and reliable support at every stage.
                   </p>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Process Timeline Flow */}
+          <div className="relative">
+            {/* Smooth Connecting Line SVG (Visible on lg+ desktop view) */}
+            <div className="hidden lg:block absolute top-[88px] xl:top-[96px] left-0 right-0 w-full h-[60px] pointer-events-none z-0">
+              <svg
+                viewBox="0 0 1000 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+                preserveAspectRatio="none"
+              >
+                {/* Curve 1 -> 2 (Blue) */}
+                <path
+                  d="M 195 24 C 235 44, 265 44, 305 24"
+                  stroke="#2563eb"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                {/* Curve 2 -> 3 (Amber/Gold with central node) */}
+                <path
+                  d="M 445 24 C 475 42, 490 42, 500 42 C 510 42, 525 42, 555 24"
+                  stroke="#fbb03b"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                <circle cx="500" cy="42" r="4.5" fill="#fbb03b" />
+                {/* Curve 3 -> 4 (Amber/Gold) */}
+                <path
+                  d="M 695 24 C 735 44, 765 44, 805 24"
+                  stroke="#fbb03b"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+
+            {/* 4 Process Step Circular Nodes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 lg:gap-6 relative z-10">
+              {[
+                {
+                  step: "01",
+                  title: "Understand",
+                  desc: "We discuss your requirements and site conditions to understand your goals clearly.",
+                  image: "/images/process/process-01-square.jpg",
+                  icon: MessageSquare,
+                  accentColor: "blue",
+                },
+                {
+                  step: "02",
+                  title: "Plan",
+                  desc: "We evaluate the scope and site details, then propose the best solution with a clear timeline.",
+                  image: "/images/process/process-02-square.jpg",
+                  icon: FileText,
+                  accentColor: "blue",
+                },
+                {
+                  step: "03",
+                  title: "Execute",
+                  desc: "Our team carries out the work with quality materials, safety and attention to detail.",
+                  image: "/images/process/process-03-square.jpg",
+                  icon: Cog,
+                  accentColor: "gold",
+                },
+                {
+                  step: "04",
+                  title: "Support",
+                  desc: "We remain available for ongoing support, maintenance and future requirements.",
+                  image: "/images/process/process-04-square.jpg",
+                  icon: Headphones,
+                  accentColor: "blue",
+                },
+              ].map((p) => (
+                <div
+                  key={p.step}
+                  data-anim="process-step"
+                  className="flex flex-col items-center text-center group"
+                >
+                  {/* Circular Image Node with Floating Badges */}
+                  <div className="relative w-44 h-44 sm:w-48 sm:h-48 lg:w-48 lg:h-48 xl:w-52 xl:h-52">
+                    {/* Ring Halo Container */}
+                    <div className="w-full h-full rounded-full p-1.5 bg-gradient-to-br from-white via-slate-100 to-slate-200/90 shadow-[0_10px_25px_rgba(0,0,0,0.08)] border border-slate-200/70 transition-transform duration-500 group-hover:scale-105">
+                      <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner bg-slate-100">
+                        <Image
+                          src={p.image}
+                          alt={`${p.step} - ${p.title}`}
+                          fill
+                          sizes="(max-width: 640px) 180px, (max-width: 1024px) 200px, 220px"
+                          className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Step Number Badge (Bottom-Left) */}
+                    <div className="absolute -bottom-1 left-2 sm:bottom-0 sm:left-2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-[#0a2540] font-serif font-bold text-sm sm:text-base flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.12)] border border-slate-100 transition-transform group-hover:scale-110">
+                      {p.step}
+                    </div>
+
+                    {/* Category Icon Badge (Top-Right) */}
+                    <div className="absolute -top-1 right-2 sm:top-0 sm:right-2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-[#0066cc] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.12)] border border-slate-100 transition-transform group-hover:scale-110">
+                      <p.icon className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Content Below Circle */}
+                  <div className="space-y-2 mt-5 sm:mt-6">
+                    <h3 className="font-editorial-h2 font-serif text-xl sm:text-2xl font-bold text-[#0a2540] tracking-tight group-hover:text-[#0066cc] transition-colors">
+                      {p.title}
+                    </h3>
+                    <p className="font-editorial-body text-xs sm:text-[13px] text-slate-500 leading-relaxed max-w-[240px] mx-auto">
+                      {p.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom Circular Chevron Indicator */}
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center mt-4 transition-all duration-300 shadow-2xs ${
+                      p.accentColor === "gold"
+                        ? "bg-amber-50 text-amber-600 border border-amber-200/80 group-hover:bg-[#fbb03b] group-hover:text-[#0a2540]"
+                        : "bg-blue-50 text-[#0066cc] border border-blue-200/70 group-hover:bg-[#0066cc] group-hover:text-white"
+                    }`}
+                  >
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -538,9 +992,9 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 6: READY TO BUILD TOGETHER? (Full-width Sunset Skyline Banner)
       ========================================================================= */}
-      <section className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 lg:px-10 text-white">
+      <section data-section="final-cta" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 text-white">
         {/* Background Dubai Sunset Skyline Image */}
-        <div className="absolute inset-0 z-0">
+        <div data-anim="cta-bg" className="absolute inset-0 z-0">
           <Image
             src="/images/about-bottom-banner.jpg"
             alt="Dubai Skyline Sunset Burj Khalifa Silhouette"
@@ -552,43 +1006,45 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#071a2e]/95 via-[#071a2e]/85 to-[#071a2e]/70" />
         </div>
 
-        <div className="relative z-10 max-w-[1440px] mx-auto space-y-8">
-          <div className="space-y-3 max-w-2xl">
-            <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#fbb03b] tracking-[0.2em] uppercase block">
-              READY TO BUILD TOGETHER?
-            </span>
+        <div className="relative z-10 container-wide max-w-[1800px] mx-auto space-y-8">
+          <div data-anim="cta-content" className="space-y-8">
+            <div className="space-y-3 max-w-2xl">
+              <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#fbb03b] tracking-[0.2em] uppercase block">
+                READY TO BUILD TOGETHER?
+              </span>
 
-            <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
-              Let&apos;s Build Something Great Together.
-            </h2>
+              <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
+                Let&apos;s Build Something Great Together.
+              </h2>
 
-            <p className="font-editorial-body text-sm sm:text-base text-slate-300 leading-relaxed">
-              Talk to our team today and get the right technical solution for your
-              project.
-            </p>
-          </div>
+              <p className="font-editorial-body text-sm sm:text-base text-slate-300 leading-relaxed">
+                Talk to our team today and get the right technical solution for your
+                project.
+              </p>
+            </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="/contact"
-              className="font-editorial-nav inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs font-semibold uppercase tracking-wider transition-colors shadow-lg group"
-            >
-              <span>Make an Enquiry</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="font-editorial-nav inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs font-semibold uppercase tracking-wider transition-colors shadow-lg group"
+              >
+                <span>Make an Enquiry</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
 
-            <a
-              href="tel:+971543909946"
-              className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider transition-colors backdrop-blur-sm"
-            >
-              <Phone className="w-4 h-4 text-[#fbb03b]" />
-              <span>+971 54 390 9946</span>
-            </a>
+              <a
+                href="tel:+971543909946"
+                className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider transition-colors backdrop-blur-sm"
+              >
+                <Phone className="w-4 h-4 text-[#fbb03b]" />
+                <span>+971 54 390 9946</span>
+              </a>
+            </div>
           </div>
 
           {/* 3 Trust Badges at bottom of banner */}
-          <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+          <div data-anim="cta-badges" className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                 <Clock className="w-4 h-4 text-[#fbb03b]" />
@@ -637,11 +1093,11 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 7: OUR IMPACT - NUMBERS THAT REFLECT OUR COMMITMENT (Light Version)
       ========================================================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto">
+      <section data-section="impact" className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white border-b border-slate-200">
+        <div className="container-wide max-w-[1800px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Headline */}
-            <div className="lg:col-span-5 space-y-2">
+            <div data-anim="impact-heading" className="lg:col-span-5 space-y-2">
               <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#0066cc] tracking-[0.2em] uppercase block">
                 OUR IMPACT
               </span>
@@ -654,7 +1110,7 @@ export default function HomePage() {
 
             {/* Right 4 Metric Columns */}
             <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              <div className="space-y-1.5 text-center sm:text-left">
+              <div data-anim="impact-metric" className="space-y-1.5 text-center sm:text-left">
                 <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -666,7 +1122,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-1.5 text-center sm:text-left">
+              <div data-anim="impact-metric" className="space-y-1.5 text-center sm:text-left">
                 <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
                   <Building2 className="w-5 h-5" />
                 </div>
@@ -678,7 +1134,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-1.5 text-center sm:text-left">
+              <div data-anim="impact-metric" className="space-y-1.5 text-center sm:text-left">
                 <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -690,7 +1146,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-1.5 text-center sm:text-left">
+              <div data-anim="impact-metric" className="space-y-1.5 text-center sm:text-left">
                 <div className="w-10 h-10 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center mx-auto sm:mx-0">
                   <MapPin className="w-5 h-5" />
                 </div>

@@ -273,7 +273,7 @@ export function IndustriesPortfolio() {
       {/* =========================================
           SECTION 1 — HERO (Panoramic Wallpaper Background)
       ========================================= */}
-      <section className="relative overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] flex items-center py-12 sm:py-16 lg:py-20 border-b border-slate-200">
+      <section className="relative overflow-hidden min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] flex items-center pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 border-b border-slate-200">
         {/* Background Wallpaper Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -281,6 +281,7 @@ export function IndustriesPortfolio() {
             alt="Euro Edge Industries We Serve Wallpaper - Dubai Skyline & Engineering"
             fill
             priority
+            quality={95}
             className="object-cover object-right sm:object-[center_right] lg:object-center"
             sizes="100vw"
           />
@@ -288,7 +289,7 @@ export function IndustriesPortfolio() {
           <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent sm:max-w-2xl lg:max-w-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container-wide max-w-[1800px] w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           <div className="max-w-2xl space-y-2.5 sm:space-y-3">
             <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#0066cc] block">
               INDUSTRIES WE SERVE
@@ -309,8 +310,8 @@ export function IndustriesPortfolio() {
           SECTION 2 — 8 INDUSTRY SECTIONS
           Clean technical layout (Images removed as requested)
       ========================================= */}
-      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-[1400px] mx-auto space-y-6 sm:space-y-7">
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-background">
+        <div className="container-wide max-w-[1800px] mx-auto space-y-6 sm:space-y-7">
           {primaryIndustries.map((sector, index) => {
             const hasImage = Boolean(sector.image)
             const isImageLeft = index % 2 === 0
@@ -500,7 +501,7 @@ export function IndustriesPortfolio() {
         {/* =========================================
             SECTION 3 — OUTDOOR & LANDSCAPE APPLICATIONS
         ========================================= */}
-        <div className="max-w-[1400px] mx-auto mt-12 sm:mt-16">
+        <div className="container-wide max-w-[1800px] mx-auto mt-12 sm:mt-16">
           <div className="rounded-2xl bg-[#071d33] text-white p-5 sm:p-7 lg:p-8 border border-white/10 shadow-md relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
               {/* Left Content */}
@@ -559,41 +560,6 @@ export function IndustriesPortfolio() {
           </div>
         </div>
 
-        {/* =========================================
-            SECTION 4 — FINAL CTA (CONVERSION SECTION)
-        ========================================= */}
-        <div className="max-w-[1400px] mx-auto mt-12 sm:mt-14">
-          <div className="rounded-2xl bg-slate-50 border border-slate-200/90 p-8 sm:p-10 lg:p-12 text-center space-y-5 relative overflow-hidden">
-            <div className="max-w-2xl mx-auto space-y-2.5 relative z-10">
-              <span className="text-[11px] font-mono font-bold tracking-widest text-[#fbb03b] uppercase block">
-                READY TO DISCUSS?
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0a2540] tracking-tight">
-                Have a Project in Mind?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
-                Tell us about your property, technical requirements or maintenance needs. Our team is ready to discuss the right solution for your project.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 relative z-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#fbb03b] hover:bg-[#e59e2f] text-[#0a2540] font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-100 text-[#0a2540] border border-slate-300 font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-2xs"
-              >
-                <span>View Our Services</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   )

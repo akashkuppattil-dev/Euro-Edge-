@@ -53,16 +53,19 @@ export default function ContactPage() {
             alt="Euro Edge Partnership Handshake Wallpaper"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[70%_center] sm:object-[68%_center]"
             sizes="100vw"
           />
           {/* Directional and bottom gradient for optimal text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent sm:bg-gradient-to-r sm:from-black/90 sm:via-black/50 sm:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent sm:bg-gradient-to-r sm:from-black/95 sm:via-black/60 sm:to-transparent" />
+          {/* Subtle top vignette for crystal-clear navbar separation */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        <div className="relative z-10 w-full px-4 lg:px-12 max-w-[1600px] mx-auto space-y-2 sm:space-y-3 mt-auto">
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-bold tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-            Let&apos;s Talk About Your <span className="text-[#fbb03b]">Project</span>
+        <div className="relative z-10 w-full container-wide max-w-[1800px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto space-y-2 sm:space-y-3 mt-auto">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-bold tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] leading-[1.12] sm:leading-[1.08]">
+            <span className="block">Let&apos;s Talk About</span>
+            <span className="text-[#fbb03b] block mt-1 sm:mt-2">Your Project</span>
           </h1>
           <p className="text-sm sm:text-base text-white/90 font-sans max-w-xl leading-relaxed">
             Tell us about your technical requirements and our engineering team will help identify the right solution across Dubai and the UAE.
@@ -73,17 +76,17 @@ export default function ContactPage() {
       {/* =========================================
           2. CONTACT INFORMATION + ENQUIRY FORM
       ========================================= */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 lg:px-12 bg-background">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-background">
+        <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
           {/* LEFT COLUMN: Official Euro Edge Contact Information */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">
+              <span className="text-xs font-bold uppercase tracking-widest text-primary">
                 REACH OUR TEAM
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
-                Let's Talk About Your Project
+                Let&apos;s Talk About Your Project
               </h2>
             </div>
 
@@ -96,7 +99,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     PHONE / WHATSAPP
                   </span>
                   <a
@@ -114,7 +117,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     EMAIL
                   </span>
                   <a
@@ -127,20 +130,20 @@ export default function ContactPage() {
               </div>
 
 
-              {/* 4. Contact Person & Position */}
+              {/* 3. Contact Person & Position */}
               <div className="flex items-start gap-4 pt-1">
                 <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <User className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     CONTACT PERSON
                   </span>
                   <span className="text-sm font-bold text-foreground block mt-0.5">
                     Pranoydas Mullasser
                   </span>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <Briefcase className="w-3 h-3 text-muted-foreground" />
+                    <Briefcase className="w-3.5 h-3.5 text-muted-foreground" />
                     <span className="text-xs text-muted-foreground">
                       Operations Manager
                     </span>
@@ -148,13 +151,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* 5. Location */}
+              {/* 4. Location */}
               <div className="flex items-start gap-4 pt-1">
                 <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     CURRENT WEBSITE LOCATION
                   </span>
                   <span className="text-sm font-bold text-foreground block mt-0.5">
@@ -163,13 +166,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* 6. Current Service Area */}
+              {/* 5. Current Service Area */}
               <div className="flex items-start gap-4 pt-1">
                 <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     CURRENT SERVICE AREA
                   </span>
                   <span className="text-sm font-bold text-foreground block mt-0.5">
@@ -178,13 +181,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* 7. Current Working Hours */}
+              {/* 6. Current Working Hours */}
               <div className="flex items-start gap-4 pt-1">
                 <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-primary flex-shrink-0 border border-border">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted-foreground block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
                     CURRENT WORKING HOURS
                   </span>
                   <span className="text-sm font-bold text-foreground block mt-0.5">
@@ -209,10 +212,10 @@ export default function ContactPage() {
       {/* =========================================
           3. MAP / LOCATION SECTION
       ========================================= */}
-      <section className="py-12 sm:py-16 px-4 lg:px-12 bg-secondary/50 border-t border-border">
-        <div className="max-w-[1600px] mx-auto space-y-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-secondary/50 border-t border-border">
+        <div className="container-wide max-w-[1800px] mx-auto space-y-6">
           <div className="text-center max-w-4xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               OUR SERVICE AREA
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground tracking-tight">

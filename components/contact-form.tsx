@@ -3,7 +3,11 @@
 import React, { useState } from "react"
 import { Send, CheckCircle2, Loader2, Lock } from "lucide-react"
 
-export function ContactForm() {
+interface ContactFormProps {
+  showHeading?: boolean
+}
+
+export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -106,14 +110,16 @@ export function ContactForm() {
 
   return (
     <>
-      <div className="mb-6">
-        <h3 className="font-serif text-2xl font-bold text-foreground tracking-tight">
-          Send Us a Technical Inquiry
-        </h3>
-        <p className="text-muted-foreground text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
-          Tell us about your requirement and our team will get back to you.
-        </p>
-      </div>
+      {showHeading && (
+        <div className="mb-6">
+          <h3 className="font-serif text-2xl font-bold text-foreground tracking-tight">
+            Send Us a Technical Inquiry
+          </h3>
+          <p className="text-muted-foreground text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
+            Tell us about your requirement and our team will get back to you.
+          </p>
+        </div>
+      )}
 
       {errorMsg && (
         <div className="mb-5 p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-xs font-medium">

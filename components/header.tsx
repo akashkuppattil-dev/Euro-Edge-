@@ -84,7 +84,13 @@ export function Header() {
   return (
     <>
       {/* Spacer for non-home pages so content starts with a comfortable gap below the floating navbar */}
-      {pathname !== "/" && <div className="h-20 sm:h-24 lg:h-28 w-full" />}
+      {pathname !== "/" &&
+        pathname !== "/about" &&
+        pathname !== "/contact" &&
+        pathname !== "/industries" &&
+        pathname !== "/services" && (
+          <div className="h-20 sm:h-24 lg:h-28 w-full" />
+        )}
 
       {/* Floating Pill Navbar Positioned at Top of the Hero Section */}
       <header
@@ -101,23 +107,25 @@ export function Header() {
         >
           {/* Left: Brand Logo & Title */}
           <div className="flex items-center flex-shrink-0">
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-              <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 select-none">
+              <div
+                className="relative w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 select-none"
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <Image
                   src="/images/logo-footer.png"
                   alt="Euro Edge Technical Services"
                   fill
-                  className="object-contain"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="object-contain pointer-events-none select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
                   priority
                 />
               </div>
-              <span className="font-sans font-bold text-sm sm:text-base text-[#0a2540] tracking-tight group-hover:text-primary transition-colors">
+              <span className="font-editorial-h1 font-serif text-lg sm:text-xl text-[#0a2540] font-medium tracking-tight group-hover:text-primary transition-colors">
                 Euro Edge
               </span>
             </Link>
-
-            {/* Vertical Divider */}
-            <div className="h-5 w-px bg-slate-200 mx-4 sm:mx-6 hidden lg:block" />
           </div>
 
           {/* Center: Desktop Navigation Links with Generous Gaps & Spacing */}

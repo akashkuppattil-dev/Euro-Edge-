@@ -28,7 +28,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-b from-[#1d6fa5] via-[#165a88] to-[#0e446d] text-white relative font-sans pt-12 md:pt-14 pb-8 overflow-hidden border-t border-sky-300/30">
+    <footer className="bg-gradient-to-b from-[#103d63] via-[#0b2d49] to-[#071f33] text-white relative font-sans pt-12 md:pt-14 pb-8 overflow-hidden border-t border-sky-400/20">
       {/* Background Architectural Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* Soft Radial Ambient Glow */}
@@ -63,20 +63,25 @@ export function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container-wide max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative z-10">
         {/* Top Section: Refined 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-8">
           
           {/* Column 1: Reduced Brand Logo & White Name (Span 4) */}
           <div className="lg:col-span-4 flex flex-col justify-start">
-            <Link href="/" className="inline-flex items-center gap-3 w-fit">
-              {/* Reduced & Refined Logo */}
-              <div className="relative w-10 h-10 md:w-11 md:h-11 flex-shrink-0 drop-shadow-md">
+            <Link href="/" className="inline-flex items-center gap-3 w-fit select-none">
+              {/* Reduced & Refined Logo with anti-copy protection */}
+              <div
+                className="relative w-10 h-10 md:w-11 md:h-11 flex-shrink-0 drop-shadow-md select-none"
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <Image
                   src="/images/logo-footer.png"
                   alt="Euro Edge Technical Services Logo"
                   fill
-                  className="object-contain"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="object-contain pointer-events-none select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
                   priority
                 />
               </div>
@@ -309,7 +314,7 @@ export function Footer() {
               {/* Back to Top Button */}
               <button
                 onClick={scrollToTop}
-                className="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#1d6fa5] border border-white/30 flex items-center justify-center transition-all duration-200 ml-1.5 group shadow-sm hover:scale-105"
+                className="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#103d63] border border-white/30 flex items-center justify-center transition-all duration-200 ml-1.5 group shadow-sm hover:scale-105"
                 aria-label="Back to Top"
                 title="Back to Top"
               >

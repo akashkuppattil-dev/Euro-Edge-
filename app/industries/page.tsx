@@ -31,6 +31,7 @@ export default function IndustriesPage() {
     <main className="bg-background text-foreground font-sans min-h-screen">
       <Header />
       <IndustriesPortfolio />
+
       <Footer />
       <StickyContactWidget />
     </main>

@@ -452,15 +452,7 @@ const disciplinesList: DisciplineCard[] = [
 
 
 export function ServicesPortfolio() {
-  const [activeCategory, setActiveCategory] = useState<
-    "all" | "civil" | "mep" | "pool" | "landscaping" | "maintenance"
-  >("all")
   const [flippedCardId, setFlippedCardId] = useState<string | null>(null)
-
-  const filteredDisciplines =
-    activeCategory === "all"
-      ? disciplinesList
-      : disciplinesList.filter((item) => item.category === activeCategory)
 
   const handleCardClick = (id: string) => {
     // Allows tap-to-flip on mobile devices
@@ -473,8 +465,8 @@ export function ServicesPortfolio() {
           1. ARCHITECTURAL HERO (Exact Warm Parchment Style from User Image)
           Font: Cormorant Garamond (500, -0.02em) + Inter (400 / 600)
       ========================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-100/80 via-slate-50 to-white pt-12 sm:pt-16 pb-12 lg:pb-16 border-b border-slate-200">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-100/90 via-slate-50 to-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 border-b border-slate-200">
+        <div className="container-wide max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             {/* Left Column: Clean Brand Typography */}
             <div className="lg:col-span-7 space-y-6">
@@ -510,54 +502,30 @@ export function ServicesPortfolio() {
               </div>
             </div>
 
-            {/* Right Column: Architectural Hero Showcase */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative h-64 sm:h-80 lg:h-[23rem] rounded-[1.75rem] lg:rounded-tl-[8rem] lg:rounded-br-[5rem] overflow-hidden border border-slate-200 shadow-xl bg-slate-100">
+            {/* Right Column: Architectural Hero Showcase (Prominent & Clean, No Badge) */}
+            <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-lg lg:max-w-none h-80 sm:h-96 lg:h-[26rem] xl:h-[28rem] rounded-[2rem] lg:rounded-tl-[6rem] lg:rounded-br-[4rem] overflow-hidden border border-slate-200/90 shadow-xl bg-slate-100">
                 <Image
                   src="/images/services/civil-finishing.jpg"
-                  alt="Euro Edge Technical Services Engineers Reviewing Modern Interior Finishes Dubai"
+                  alt="Euro Edge Technical Services Engineer Reviewing Modern Construction Plans Dubai"
                   fill
                   priority
+                  quality={95}
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
-
-                {/* Floating Verified Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-slate-200/80 shadow-lg flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0a2540] text-[#fbb03b]">
-                      <FileCheck className="w-5 h-5" />
-                    </span>
-                    <div>
-                      <div className="font-editorial-eyebrow text-[11px] font-bold text-[#0a2540] uppercase tracking-wide">
-                        100% Dubai Compliant
-                      </div>
-                      <div className="font-editorial-body text-[11px] text-slate-600">
-                        DEWA, Dubai Municipality &amp; Civil Defense
-                      </div>
-                    </div>
-                  </div>
-                  <span className="font-editorial-eyebrow text-[10px] font-semibold text-[#0066cc] bg-[#0066cc]/10 px-2 py-0.5 rounded">
-                    Verified
-                  </span>
-                </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </section>
 
-
-
       {/* =========================================
-          3. MAIN CAPABILITIES SECTION WITH 3D FLIP CARDS
+          2. MAIN CAPABILITIES SECTION WITH 3D FLIP CARDS
           Font: Cormorant Garamond H2 (500) + Inter
       ========================================= */}
-      <section id="capabilities" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-background scroll-mt-20">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="capabilities" className="py-14 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-background scroll-mt-20">
+        <div className="container-wide max-w-[1800px] mx-auto">
           {/* Header & Subtitle */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="font-editorial-eyebrow text-xs sm:text-[11px] tracking-[0.18em] text-[#0066cc] uppercase block font-semibold">
@@ -571,43 +539,9 @@ export function ServicesPortfolio() {
             </p>
           </div>
 
-          {/* Filter Pills (All + 5 Core Categories) */}
-          <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {[
-              { id: "all", label: "All Disciplines", count: 22 },
-              { id: "civil", label: "Civil & Finishing", count: 5 },
-              { id: "mep", label: "MEP & Technical", count: 5 },
-              { id: "pool", label: "Swimming Pools", count: 5 },
-              { id: "landscaping", label: "Landscaping Works", count: 5 },
-              { id: "maintenance", label: "Maintenance & AMC", count: 2 },
-            ].map((tab) => {
-              const isActive = activeCategory === tab.id
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveCategory(tab.id as any)}
-                  className={`font-editorial-nav inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs transition-all cursor-pointer ${
-                    isActive
-                      ? "bg-[#0a2540] text-white shadow-sm font-semibold"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium"
-                  }`}
-                >
-                  <span>{tab.label}</span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      isActive ? "bg-white/20 text-white" : "bg-white text-slate-600"
-                    }`}
-                  >
-                    {tab.count}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-
-          {/* Interactive 3D Flip Card Grid */}
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
-            {filteredDisciplines.map((item) => {
+          {/* Interactive 3D Flip Card Grid (Directly under description, without filter pills) */}
+          <div className="mt-10 sm:mt-12 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+            {disciplinesList.map((item) => {
               const IconComponent = item.icon
               const isManuallyFlipped = flippedCardId === item.id
 
@@ -624,20 +558,21 @@ export function ServicesPortfolio() {
                     }`}
                   >
                     {/* =========================================
-                        FRONT FACE (Image + Dark Vignette + Title)
+                        FRONT FACE (Clean Bright Image + Localized Bottom Gradient + Title)
                         Strictly NO image zoom/scale distortion
                     ========================================= */}
-                    <div className="absolute inset-0 overflow-hidden rounded-2xl border border-slate-200 shadow-md backface-hidden bg-slate-900">
+                    <div className="absolute inset-0 overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm backface-hidden bg-slate-100">
                       <Image
                         src={item.image}
                         alt={`${item.title} - Euro Edge Technical Services Dubai`}
                         fill
+                        quality={95}
                         className="object-cover object-center"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
 
-                      {/* Gradient Vignette for strong text contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/95 via-[#0a2540]/30 to-black/35" />
+                      {/* Minimal localized bottom gradient ONLY behind the text at the bottom */}
+                      <div className="absolute bottom-0 inset-x-0 h-28 sm:h-32 bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
 
                       {/* Bottom: ONLY Service Title */}
                       <div className="absolute bottom-5 left-5 right-5">
