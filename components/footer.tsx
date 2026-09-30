@@ -28,7 +28,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-b from-[#103d63] via-[#0b2d49] to-[#071f33] text-white relative font-sans pt-12 md:pt-14 pb-8 overflow-hidden border-t border-sky-400/20">
+    <footer className="bg-[#071f33] bg-gradient-to-b from-[#103d63] via-[#0b2d49] to-[#071f33] text-white relative font-sans pt-10 sm:pt-12 md:pt-14 overflow-hidden border-t border-sky-400/20" style={{ paddingBottom: 'max(40px, env(safe-area-inset-bottom, 40px))' }}>
       {/* Background Architectural Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* Soft Radial Ambient Glow */}
@@ -96,8 +96,8 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* Column 2: Official Services (Span 3) */}
-          <div className="lg:col-span-3">
+          {/* Column 2: Official Services (Span 3) — hidden on mobile */}
+          <div className="hidden sm:block lg:col-span-3">
             <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-4">
               Our Main Services
             </h4>
@@ -136,8 +136,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Company Navigation - Removed Careers & Projects (Span 2) */}
-          <div className="lg:col-span-2">
+          {/* Column 3: Company Navigation — hidden on mobile, visible sm+ */}
+          <div className="hidden sm:block lg:col-span-2">
             <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-4">
               Company
             </h4>
@@ -227,9 +227,9 @@ export function Footer() {
         </div>
 
         {/* Prominent Architectural "EURO EDGE" Statement Typography */}
-        <div className="pt-8 pb-4 text-center relative select-none border-t border-white/15">
+        <div className="pt-6 sm:pt-8 pb-3 sm:pb-4 text-center relative select-none border-t border-white/15 overflow-hidden">
           <div className="inline-block relative">
-            <h2 className="font-sans font-black tracking-tight sm:tracking-wider text-[12vw] sm:text-[13vw] md:text-[115px] lg:text-[140px] leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/95 via-sky-100/70 to-white/15 uppercase block filter drop-shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+            <h2 className="footer-brand-text font-sans font-black tracking-tight sm:tracking-wider leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/95 via-sky-100/70 to-white/15 uppercase block filter drop-shadow-[0_4px_24px_rgba(0,0,0,0.3)]" style={{ fontSize: 'clamp(42px, 13vw, 140px)' }}>
               EURO EDGE
             </h2>
             <div className="flex items-center justify-center gap-2.5 sm:gap-4 mt-2 sm:mt-3 text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] text-white uppercase font-semibold">
@@ -240,16 +240,16 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Most Down Place Below the EURO EDGE Text: Official Company Details & Copyright */}
-        <div className="border-t border-white/15 mt-6 pt-6 pb-6 md:pb-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left lg:pr-24">
+        {/* Official Company Details & Copyright */}
+        <div className="border-t border-white/15 mt-4 sm:mt-6 pt-4 sm:pt-6 pb-4 sm:pb-6 md:pb-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-center lg:text-left lg:pr-24">
             {/* Primary Required Text: Company Name, Dubai UAE, and Copyright */}
             <div className="space-y-1.5 max-w-xl">
               <p className="text-xs sm:text-sm text-white font-semibold tracking-normal sm:tracking-wide">
                 Euro Edge Technical Services L.L.C • Dubai, United Arab Emirates
               </p>
               <p className="text-[11px] sm:text-xs text-sky-100/80 font-normal">
-                © 2026 Euro Edge Technical Services L.L.C. All rights reserved. Established 2012.
+                © 2026 Euro Edge Technical Services L.L.C. All rights reserved.
               </p>
             </div>
 
@@ -291,7 +291,7 @@ export function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/euro-edge-technical-services-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-white/15 hover:bg-[#0077b5] text-white flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"

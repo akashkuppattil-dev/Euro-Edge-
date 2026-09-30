@@ -258,7 +258,7 @@ export function HomeScrollAnimations() {
           defaults: { ease: easeCurve, duration: 0.8 },
         })
 
-        // Large Image: Enters from LEFT or RIGHT (opposite from content)
+        // Large Image: Enters from LEFT or RIGHT
         const whyImage = whySection.querySelector("[data-anim='why-image']")
         if (whyImage) {
           whyTL.fromTo(
@@ -408,7 +408,41 @@ export function HomeScrollAnimations() {
       }
 
       // -------------------------------------------------------------
-      // 7. READY TO BUILD TOGETHER (FINAL CTA BANNER)
+      // 7. OUR IMPACT SECTION
+      // -------------------------------------------------------------
+      const impactSection = document.querySelector("[data-section='impact']")
+      if (impactSection) {
+        const impactTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: impactSection,
+            start: "top 82%",
+            once: true,
+          },
+          defaults: { ease: easeCurve, duration: 0.8 },
+        })
+
+        const impactHeading = impactSection.querySelector("[data-anim='impact-heading']")
+        if (impactHeading) {
+          impactTL.fromTo(
+            impactHeading,
+            { x: dist.headingX * 0.7, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.7 }
+          )
+        }
+
+        const impactMetrics = impactSection.querySelectorAll("[data-anim='impact-metric']")
+        if (impactMetrics.length > 0) {
+          impactTL.fromTo(
+            impactMetrics,
+            { y: dist.cardY * 0.7, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 },
+            "-=0.4"
+          )
+        }
+      }
+
+      // -------------------------------------------------------------
+      // 8. READY TO BUILD TOGETHER (FINAL CTA BANNER)
       // -------------------------------------------------------------
       const ctaSection = document.querySelector("[data-section='final-cta']")
       if (ctaSection) {
@@ -440,52 +474,14 @@ export function HomeScrollAnimations() {
           )
         }
 
-        // Extremely subtle background parallax
+        // Subtle background scale reveal on sunset banner
         const ctaBg = ctaSection.querySelector("[data-anim='cta-bg']")
         if (ctaBg) {
-          gsap.to(ctaBg, {
-            y: isMobile ? 12 : 25,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ctaSection,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1,
-            },
-          })
-        }
-      }
-
-      // -------------------------------------------------------------
-      // 8. OUR IMPACT SECTION
-      // -------------------------------------------------------------
-      const impactSection = document.querySelector("[data-section='impact']")
-      if (impactSection) {
-        const impactTL = gsap.timeline({
-          scrollTrigger: {
-            trigger: impactSection,
-            start: "top 82%",
-            once: true,
-          },
-          defaults: { ease: easeCurve, duration: 0.8 },
-        })
-
-        const impactHeading = impactSection.querySelector("[data-anim='impact-heading']")
-        if (impactHeading) {
-          impactTL.fromTo(
-            impactHeading,
-            { x: dist.headingX * 0.7, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.7 }
-          )
-        }
-
-        const impactMetrics = impactSection.querySelectorAll("[data-anim='impact-metric']")
-        if (impactMetrics.length > 0) {
-          impactTL.fromTo(
-            impactMetrics,
-            { y: dist.cardY * 0.7, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 },
-            "-=0.4"
+          ctaTL.fromTo(
+            ctaBg,
+            { scale: 1.04 },
+            { scale: 1, duration: 1.2, ease: "power1.out" },
+            0
           )
         }
       }

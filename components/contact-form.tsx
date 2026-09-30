@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { Send, CheckCircle2, Loader2, Lock } from "lucide-react"
+import { Send, CheckCircle2, Loader2, Lock, Mail, Copy, Check } from "lucide-react"
 
 interface ContactFormProps {
   showHeading?: boolean
@@ -12,7 +12,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
     name: "",
     email: "",
     phone: "",
-    service: "general",
+    service: "General Technical Inquiry",
     location: "",
     message: "",
   })
@@ -20,73 +20,136 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
+  const [copied, setCopied] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const subject = `Technical Inquiry: ${formData.service || "General"} - ${formData.name}`
+  const emailBody = `Dear Euro Edge Technical Services Team,
+
+I would like to submit a technical inquiry with the following details:
+
+• Full Name: ${formData.name}
+• Email Address: ${formData.email}
+• Phone / WhatsApp: ${formData.phone}
+• Service Required: ${formData.service}
+• Project Location: ${formData.location || "Dubai / UAE"}
+
+Project Details / Scope:
+${formData.message || "Please contact me regarding this technical requirement."}
+
+Sent via Euro Edge Technical Services Website (https://euroedgets.com)`
+
+  const mailtoUrl = `mailto:info@euroedgets.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`
+
+  const whatsappMsg = `Hi Euro Edge Technical Services,
+
+I would like to enquire about:
+• Name: ${formData.name}
+• Email: ${formData.email}
+• Phone: ${formData.phone}
+• Service: ${formData.service}
+• Location: ${formData.location || "Dubai, UAE"}
+• Details: ${formData.message || "Please contact me regarding this technical requirement."}`
+
+  const whatsappUrl = `https://wa.me/971543909946?text=${encodeURIComponent(whatsappMsg)}`
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setErrorMsg("")
 
-    // Basic Validation — Only Name and Phone/WhatsApp (or Email) required
-    if (!formData.name.trim() || (!formData.phone.trim() && !formData.email.trim())) {
-      setErrorMsg("Please enter your name and phone/WhatsApp number or email.")
+    // Validation — Name, Email, and Phone/WhatsApp are strictly required
+    if (!formData.name.trim()) {
+      setErrorMsg("Please enter your full name.")
       return
     }
 
-    if (formData.email.trim()) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(formData.email)) {
-        setErrorMsg("Please enter a valid email address.")
-        return
-      }
+    if (!formData.email.trim()) {
+      setErrorMsg("Please enter your email address.")
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email.trim())) {
+      setErrorMsg("Please enter a valid email address.")
+      return
+    }
+
+    if (!formData.phone.trim()) {
+      setErrorMsg("Please enter your phone / WhatsApp number.")
+      return
     }
 
     setIsSubmitting(true)
 
-    try {
-      const response = await fetch("https://formspree.io/f/xanwzowr", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          location: formData.location,
-          message: formData.message,
-        }),
-      })
-
-      if (response.ok) {
-        setIsSubmitting(false)
-        setSubmitted(true)
-      } else {
-        const data = await response.json()
-        const serverError =
-          data?.errors?.map((e: { message: string }) => e.message).join(", ") ||
-          "Submission failed. Please try again or contact us directly."
-        setErrorMsg(serverError)
-        setIsSubmitting(false)
+    // Trigger direct mail client submission to info@euroedgets.com
+    setTimeout(() => {
+      try {
+        window.location.href = mailtoUrl
+      } catch {
+        // ignore navigation pop-up blocks
       }
-    } catch {
-      setErrorMsg(
-        "Network error — please check your connection and try again, or contact us directly at info@euroedgets.com"
-      )
       setIsSubmitting(false)
+      setSubmitted(true)
+    }, 400)
+  }
+
+  const handleCopy = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(`To: info@euroedgets.com\nSubject: ${subject}\n\n${emailBody}`)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
     }
   }
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
+      <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
         <div className="w-16 h-16 bg-[#0a2540] text-[#fbb03b] rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-white/10">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="font-serif text-2xl text-foreground font-bold">Inquiry Received</h3>
-        <p className="mt-3 text-muted-foreground text-sm font-sans max-w-md leading-relaxed">
-          Thank you for reaching out to Euro Edge Technical Services L.L.C. Your project enquiry has been logged and sent to <span className="font-bold text-foreground">info@euroedgets.com</span>. Our Operations team will get back to you shortly.
+        <h3 className="font-serif text-2xl text-foreground font-bold">Inquiry Directed to Info Mail</h3>
+        <p className="mt-3 text-muted-foreground text-xs sm:text-sm font-sans max-w-md leading-relaxed">
+          Your inquiry has been formatted and addressed to <span className="font-bold text-foreground">info@euroedgets.com</span>. If your mail client did not open automatically, you can send it directly or chat with us on WhatsApp:
         </p>
+
+        {/* Primary Action Buttons */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
+          <a
+            href={mailtoUrl}
+            className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
+          >
+            <Mail className="w-4 h-4 text-[#fbb03b]" />
+            <span>Open Email</span>
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1fa851] text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
+          >
+            <Send className="w-4 h-4" />
+            <span>Send on WhatsApp</span>
+          </a>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 transition-colors"
+        >
+          {copied ? (
+            <>
+              <Check className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="text-emerald-600 font-medium">Inquiry Copied to Clipboard!</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-3.5 h-3.5" />
+              <span>Copy Inquiry Details</span>
+            </>
+          )}
+        </button>
+
         <button
           type="button"
           onClick={() => {
@@ -95,7 +158,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
               name: "",
               email: "",
               phone: "",
-              service: "general",
+              service: "General Technical Inquiry",
               location: "",
               message: "",
             })
@@ -116,7 +179,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
             Send Us a Technical Inquiry
           </h3>
           <p className="text-muted-foreground text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
-            Tell us about your requirement and our team will get back to you.
+            Tell us about your requirement and our technical team will get back to you promptly.
           </p>
         </div>
       )}
@@ -127,10 +190,10 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5">
         {/* Full Name */}
         <div>
-          <label htmlFor="name" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
+          <label htmlFor="name" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -139,7 +202,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
-            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+            className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
             placeholder="Your full name"
           />
         </div>
@@ -147,21 +210,22 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
         {/* Email & Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="email" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-              Email Address (Optional)
+            <label htmlFor="email" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
+              Email Address <span className="text-red-500">*</span>
             </label>
             <input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+              required
+              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
               placeholder="name@company.com"
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
+            <label htmlFor="phone" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
               Phone / WhatsApp <span className="text-red-500">*</span>
             </label>
             <input
@@ -170,7 +234,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               required
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
               placeholder="+971 54 390 9946"
             />
           </div>
@@ -178,76 +242,78 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
 
         {/* Service Required */}
         <div>
-          <label htmlFor="service" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-            Service Required (Optional)
+          <label htmlFor="service" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
+            Service Required
           </label>
-          <select
-            id="service"
-            value={formData.service}
-            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-          >
-            <option value="general">General Technical Inquiry</option>
+          <div className="relative">
+            <select
+              id="service"
+              value={formData.service}
+              onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs cursor-pointer"
+            >
+              <option value="General Technical Inquiry">General Technical Inquiry</option>
 
-            <optgroup label="Our Main Services">
-              <option value="Painting – Interior & Exterior">Painting – Interior & Exterior</option>
-              <option value="Wall & Floor Tiling">Wall & Floor Tiling</option>
-              <option value="Plastering">Plastering</option>
-              <option value="False Ceiling & Gypsum Partitions">False Ceiling & Gypsum Partitions</option>
-              <option value="Carpentry & Wood Flooring">Carpentry & Wood Flooring</option>
+              <optgroup label="Our Main Services">
+                <option value="Painting – Interior & Exterior">Painting – Interior & Exterior</option>
+                <option value="Wall & Floor Tiling">Wall & Floor Tiling</option>
+                <option value="Plastering">Plastering</option>
+                <option value="False Ceiling & Gypsum Partitions">False Ceiling & Gypsum Partitions</option>
+                <option value="Carpentry & Wood Flooring">Carpentry & Wood Flooring</option>
 
-              <option value="Electrical Works">Electrical Works</option>
-              <option value="Plumbing & Sanitary Works">Plumbing & Sanitary Works</option>
-              <option value="AC & HVAC Works">AC & HVAC Works</option>
-              <option value="Ventilation & Air Filtration">Ventilation & Air Filtration</option>
-              <option value="Electromechanical Works">Electromechanical Works</option>
+                <option value="Electrical Works">Electrical Works</option>
+                <option value="Plumbing & Sanitary Works">Plumbing & Sanitary Works</option>
+                <option value="AC & HVAC Works">AC & HVAC Works</option>
+                <option value="Ventilation & Air Filtration">Ventilation & Air Filtration</option>
+                <option value="Electromechanical Works">Electromechanical Works</option>
 
-              <option value="Pool Construction">Pool Construction</option>
-              <option value="Waterproofing">Waterproofing</option>
-              <option value="Pool Tiling & Finishing">Pool Tiling & Finishing</option>
-              <option value="Pool Equipment Installation">Pool Equipment Installation</option>
-              <option value="Pool Maintenance">Pool Maintenance</option>
+                <option value="Pool Construction">Pool Construction</option>
+                <option value="Waterproofing">Waterproofing</option>
+                <option value="Pool Tiling & Finishing">Pool Tiling & Finishing</option>
+                <option value="Pool Equipment Installation">Pool Equipment Installation</option>
+                <option value="Pool Maintenance">Pool Maintenance</option>
 
-              <option value="Soft & Hard Landscaping">Soft & Hard Landscaping</option>
-              <option value="Paving & Interlock">Paving & Interlock</option>
-              <option value="Irrigation">Irrigation</option>
-              <option value="Garden & Outdoor Works">Garden & Outdoor Works</option>
-              <option value="Landscape Maintenance">Landscape Maintenance</option>
+                <option value="Soft & Hard Landscaping">Soft & Hard Landscaping</option>
+                <option value="Paving & Interlock">Paving & Interlock</option>
+                <option value="Irrigation">Irrigation</option>
+                <option value="Garden & Outdoor Works">Garden & Outdoor Works</option>
+                <option value="Landscape Maintenance">Landscape Maintenance</option>
 
-              <option value="Building & Villa Maintenance">Building & Villa Maintenance</option>
-              <option value="Renovation & Repair Works">Renovation & Repair Works</option>
-            </optgroup>
+                <option value="Building & Villa Maintenance">Building & Villa Maintenance</option>
+                <option value="Renovation & Repair Works">Renovation & Repair Works</option>
+              </optgroup>
 
-            <option value="other">Other / Custom Technical Solution</option>
-          </select>
+              <option value="Other / Custom Technical Solution">Other / Custom Technical Solution</option>
+            </select>
+          </div>
         </div>
 
         {/* Project Location */}
         <div>
-          <label htmlFor="location" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-            Project Location (Optional)
+          <label htmlFor="location" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
+            Project Location
           </label>
           <input
             id="location"
             type="text"
             value={formData.location}
             onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+            className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
             placeholder="e.g., Dubai Marina, Business Bay, Al Quoz..."
           />
         </div>
 
         {/* Project Details / Requirements */}
         <div>
-          <label htmlFor="message" className="text-[11px] font-bold text-foreground font-sans block mb-1.5">
-            Project Details / Requirements (Optional)
+          <label htmlFor="message" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
+            Project Details / Requirements
           </label>
           <textarea
             id="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             rows={4}
-            className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-xs font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+            className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[110px] resize-none shadow-2xs"
             placeholder="Describe your location, technical requirements, project timeline, or questions..."
           />
         </div>
@@ -255,12 +321,12 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-3.5 px-6 rounded-lg bg-[#0a2540] hover:bg-[#0a2540]/90 text-white font-mono font-bold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+          className="w-full py-4 px-6 rounded-xl bg-[#0a2540] hover:bg-[#0066cc] active:bg-[#071a2e] text-white font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 mt-4 min-h-[50px] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer active:scale-[0.99]"
         >
           {isSubmitting ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>SUBMITTING INQUIRY...</span>
+              <span>PREPARING INQUIRY...</span>
             </>
           ) : (
             <>
@@ -272,7 +338,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
 
         <div className="pt-2 flex items-center justify-center gap-2 text-[11px] text-muted-foreground font-sans">
           <Lock className="w-3.5 h-3.5 text-muted-foreground/70" />
-          <span>Your information will only be used to respond to your enquiry.</span>
+          <span>Your information is delivered directly to info@euroedgets.com</span>
         </div>
       </form>
     </>

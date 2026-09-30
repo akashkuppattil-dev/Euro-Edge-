@@ -3,20 +3,53 @@ import { servicesData } from '@/lib/services-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://euroedgets.com'
+  const now = new Date()
 
-  const routes = ['', '/about', '/services', '/projects', '/careers', '/contact'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
-  }))
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/industries`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/careers`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+  ]
 
-  const serviceRoutes = servicesData.map((service) => ({
+  const serviceRoutes: MetadataRoute.Sitemap = servicesData.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: 'weekly' as const,
-    priority: 0.9,
+    priority: 0.95,
   }))
 
-  return [...routes, ...serviceRoutes]
+  return [...staticRoutes, ...serviceRoutes]
 }

@@ -448,7 +448,7 @@ export function ProjectsPortfolio() {
       {/* =========================================
           6. WHY EURO EDGE (Matching FAQSection Structure)
       ========================================= */}
-      <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
+      <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background relative">
         <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
           {/* Header */}
           <div className="text-center space-y-2.5 sm:space-y-3">
@@ -531,7 +531,7 @@ export function ProjectsPortfolio() {
       {/* =========================================
           9. FREQUENTLY ASKED QUESTIONS ACCORDION
       ========================================= */}
-      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-slate-50 border-t border-slate-200">
+      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-slate-50">
         <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
           {/* Top Centered Header */}
           <div className="text-center space-y-3">

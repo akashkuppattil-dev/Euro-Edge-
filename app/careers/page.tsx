@@ -64,11 +64,11 @@ export default function CareersPage() {
   ]
 
   return (
-    <main className="pb-16 md:pb-0 bg-background text-foreground font-sans min-h-screen">
+    <main className="bg-background text-foreground font-sans min-h-screen">
       <Header />
 
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-background text-foreground py-16 lg:py-24 border-b border-border">
+      <section className="relative overflow-hidden bg-background text-foreground py-16 lg:py-24">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center max-w-5xl">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Join Euro Edge Team
@@ -121,7 +121,7 @@ export default function CareersPage() {
       </section>
 
       {/* Active Openings & Application Form */}
-      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-secondary border-t border-border">
+      <section className="py-16 lg:py-24 px-4 lg:px-12 bg-secondary">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Active Job Openings */}
           <div className="space-y-6">

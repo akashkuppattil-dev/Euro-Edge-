@@ -23,6 +23,11 @@ import {
   ArrowRight,
   FileCheck,
   Phone,
+  FileText,
+  Search,
+  ClipboardCheck,
+  Settings,
+  Headphones,
 } from "lucide-react"
 
 // Types
@@ -195,7 +200,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Ventilation & Air Filtration",
     division: "MEP & Technical",
     category: "mep",
-    image: "/images/services/mep-services.jpg",
+    image: "/images/services/ventilation-filtration.jpg",
     icon: Wind,
     badge: "Clean Air IAQ",
     description:
@@ -251,7 +256,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Waterproofing",
     division: "Swimming Pools",
     category: "pool",
-    image: "/images/services/civil-finishing.jpg",
+    image: "/images/services/waterproofing.jpg",
     icon: ShieldCheck,
     badge: "72-Hr Flood Test",
     description:
@@ -269,7 +274,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Pool Tiling & Finishing",
     division: "Swimming Pools",
     category: "pool",
-    image: "/images/services/swimming-pool-clean.jpg",
+    image: "/images/services/pool-tiling.jpg",
     icon: Grid,
     badge: "Designer Glass",
     description:
@@ -287,7 +292,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Pool Equipment Installation",
     division: "Swimming Pools",
     category: "pool",
-    image: "/images/services/kitchen-equipment-maintenance.jpg",
+    image: "/images/services/pool-equipment.jpg",
     icon: Wrench,
     badge: "Smart Automation",
     description:
@@ -325,7 +330,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Soft & Hard Landscaping",
     division: "Landscaping Works",
     category: "landscaping",
-    image: "/images/services/landscaping.jpg",
+    image: "/images/services/soft-hard-landscaping.jpg",
     icon: Compass,
     badge: "Architectural Living",
     description:
@@ -361,7 +366,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Irrigation",
     division: "Landscaping Works",
     category: "landscaping",
-    image: "/images/services/landscaping-hedge.jpg",
+    image: "/images/services/irrigation.jpg",
     icon: Sprout,
     badge: "Smart Water Saver",
     description:
@@ -435,7 +440,7 @@ const disciplinesList: DisciplineCard[] = [
     title: "Renovation & Repair Works",
     division: "General Maintenance",
     category: "maintenance",
-    image: "/images/services/technical-support.jpg",
+    image: "/images/services/renovation-repair.jpg",
     icon: Clock,
     badge: "Rapid Turnkey",
     description:
@@ -465,7 +470,7 @@ export function ServicesPortfolio() {
           1. ARCHITECTURAL HERO (Exact Warm Parchment Style from User Image)
           Font: Cormorant Garamond (500, -0.02em) + Inter (400 / 600)
       ========================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-100/90 via-slate-50 to-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 border-b border-slate-200">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-100/90 via-slate-50 to-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20">
         <div className="container-wide max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             {/* Left Column: Clean Brand Typography */}
@@ -527,15 +532,12 @@ export function ServicesPortfolio() {
       <section id="capabilities" className="py-14 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-background scroll-mt-20">
         <div className="container-wide max-w-[1800px] mx-auto">
           {/* Header & Subtitle */}
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="font-editorial-eyebrow text-xs sm:text-[11px] tracking-[0.18em] text-[#0066cc] uppercase block font-semibold">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a2540] tracking-tight">
               WHAT WE DELIVER
-            </span>
-            <h2 className="font-editorial-h2 text-3xl sm:text-4xl lg:text-5xl font-medium text-[#0a2540] tracking-tight">
-              Capabilities, end to end.
             </h2>
-            <p className="font-editorial-body text-sm sm:text-base text-slate-600 leading-relaxed">
-              A comprehensive range of MEP, maintenance, fabrication, HVAC, swimming pool, and fit-out services for residential, commercial, and industrial clients across the UAE.
+            <p className="font-serif text-xl sm:text-2xl text-[#0066cc] font-medium tracking-tight">
+              Capabilities, end to end.
             </p>
           </div>
 
@@ -639,136 +641,152 @@ export function ServicesPortfolio() {
       </section>
 
       {/* =========================================
-          4. DUBAI ENGINEERING DESK — TURNKEY PROPOSAL
-          Font: Cormorant Garamond H1 (500) + Inter
+          4. OUR PROCESS — FROM REQUIREMENT TO COMPLETION
       ========================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="relative overflow-hidden rounded-3xl bg-[#0a2540] text-white shadow-2xl border border-[#fbb03b]/30">
-            {/* Ambient luxury lighting effects */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(251,176,59,0.18)_0%,transparent_70%)] pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[radial-gradient(circle,rgba(0,102,204,0.25)_0%,transparent_70%)] pointer-events-none" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 pointer-events-none" />
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white">
+        <div className="container-wide max-w-[1800px] mx-auto space-y-12 sm:space-y-16">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#0066cc] block">
+              OUR PROCESS
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0a2540] font-bold tracking-tight">
+              From Requirement to Completion.
+            </h2>
+          </div>
 
-            <div className="relative z-10 p-8 sm:p-12 lg:p-16">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                {/* Left Column: Headline, Copy, Action Buttons */}
-                <div className="lg:col-span-7 space-y-6">
-                  {/* Eyebrow Badge */}
-                  <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#fbb03b]/40">
-                    <span className="w-2 h-2 rounded-full bg-[#fbb03b] animate-pulse" />
-                    <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#fbb03b] tracking-[0.18em] uppercase">
-                      Dubai Engineering Desk
+          {/* 5-Step Process Timeline Flow */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-6 lg:gap-4 items-start">
+            {[
+              {
+                number: "01",
+                title: "Understand",
+                desc: "We understand your space, goals and technical requirements.",
+                icon: FileText,
+                lineStyle: "dotted",
+              },
+              {
+                number: "02",
+                title: "Assess",
+                desc: "We assess the scope and provide the right technical approach.",
+                icon: Search,
+                lineStyle: "solid",
+              },
+              {
+                number: "03",
+                title: "Propose",
+                desc: "We propose a clear plan tailored to your requirements.",
+                icon: ClipboardCheck,
+                lineStyle: "solid",
+              },
+              {
+                number: "04",
+                title: "Execute",
+                desc: "We deliver quality work with coordination and care.",
+                icon: Settings,
+                lineStyle: "dotted",
+              },
+              {
+                number: "05",
+                title: "Support",
+                desc: "We remain available for ongoing support and maintenance.",
+                icon: Headphones,
+                lineStyle: "none",
+              },
+            ].map((step, idx) => (
+              <div key={idx} className="flex flex-col space-y-3">
+                {/* Top Row: Circle with gold notch + Number & Title + Desktop Connecting Line */}
+                <div className="flex items-center gap-3.5 relative">
+                  {/* Circle with gold notch */}
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-amber-300 bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                    {/* Gold top notch tab */}
+                    <div className="w-3.5 h-1.5 bg-[#fbb03b] rounded-full absolute -top-1 left-1/2 -translate-x-1/2" />
+                    <step.icon className="w-6 h-6 text-[#fbb03b]" />
+                  </div>
+
+                  {/* Step Number & Title */}
+                  <div className="flex-shrink-0">
+                    <span className="text-sm font-bold text-[#0066cc] block leading-none font-sans">
+                      {step.number}
                     </span>
+                    <h3 className="font-serif text-lg font-bold text-[#0a2540] leading-tight mt-1">
+                      {step.title}
+                    </h3>
                   </div>
 
-                  {/* Main Editorial Headline */}
-                  <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-[1.15]">
-                    Need a Customized <br className="hidden sm:inline" />
-                    <span className="text-[#fbb03b] italic">Turnkey Proposal?</span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="font-editorial-body text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-                    Our chartered engineering team conducts complimentary site visits across Dubai to assess MEP capacity, civil specifications, and prepare itemized bills of quantities (BOQ).
-                  </p>
-
-                  {/* Trust Highlights */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#fbb03b] shrink-0" />
-                      <span>Complimentary Dubai-Wide Site Survey</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#fbb03b] shrink-0" />
-                      <span>DEWA, DM & DCD Code Compliance</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#fbb03b] shrink-0" />
-                      <span>Itemized BOQ & Transparent Pricing</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#fbb03b] shrink-0" />
-                      <span>Guaranteed 48-Hour SLA Response</span>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                    <Link
-                      href="/contact"
-                      className="font-editorial-eyebrow inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-[#fbb03b] text-[#0a2540] font-semibold text-xs uppercase tracking-[0.14em] hover:bg-white hover:text-[#0a2540] transition-all duration-300 shadow-lg shadow-[#fbb03b]/20 group"
-                    >
-                      <span>Schedule Site Visit</span>
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-
-                    <a
-                      href="tel:+971543909946"
-                      className="font-editorial-eyebrow inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors text-xs font-semibold uppercase tracking-[0.14em]"
-                    >
-                      <Phone className="w-4 h-4 text-[#fbb03b]" />
-                      <span>Direct: +971 54 390 9946</span>
-                    </a>
-                  </div>
+                  {/* Connecting Line to next step (Desktop) */}
+                  {step.lineStyle !== "none" && (
+                    <div
+                      className="hidden lg:block flex-1 h-[2px] mx-2"
+                      style={{
+                        borderTop: step.lineStyle === "dotted" ? "2px dotted #cbd5e1" : "2px solid #cbd5e1",
+                      }}
+                    />
+                  )}
                 </div>
 
-                {/* Right Column: Architectural Engineering Card */}
-                <div className="lg:col-span-5">
-                  <div className="relative rounded-2xl bg-white/[0.04] backdrop-blur-md p-6 sm:p-8 border border-white/15 space-y-6 shadow-xl">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                      <div>
-                        <span className="font-editorial-eyebrow text-[10px] text-[#fbb03b] uppercase tracking-wider block">
-                          Technical Assessment Protocol
-                        </span>
-                        <h4 className="font-editorial-h2 text-lg text-white font-medium">
-                          Turnkey Site Audit
-                        </h4>
-                      </div>
-                      <div className="w-10 h-10 rounded-xl bg-[#fbb03b]/10 border border-[#fbb03b]/30 flex items-center justify-center text-[#fbb03b]">
-                        <FileCheck className="w-5 h-5" />
-                      </div>
-                    </div>
+                {/* Description Text */}
+                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed font-sans max-w-[220px]">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
 
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#fbb03b]/20 text-[#fbb03b] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                          1
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-white">Physical Site Inspection</p>
-                          <p className="text-xs text-slate-400">Civil scope, dimensions, structural integrity, and MEP load analysis.</p>
-                        </div>
-                      </div>
+          {/* =========================================
+              5. HAVE A TECHNICAL REQUIREMENT? (Contained Banner)
+          ========================================= */}
+          <div className="pt-4 sm:pt-6">
+            <div className="relative overflow-hidden rounded-3xl bg-[#06182a] text-white shadow-2xl min-h-[300px] sm:min-h-[340px] flex items-center p-8 sm:p-12 lg:p-16 border border-slate-800">
+              {/* Modern Commercial Building Background Image */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/services-technical-requirement-banner.jpg"
+                  alt="Modern illuminated commercial architectural facade at twilight"
+                  fill
+                  className="object-cover object-right"
+                  sizes="(max-width: 1200px) 100vw, 1600px"
+                />
+                {/* Left gradient for high-contrast text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/90 to-transparent sm:max-w-2xl lg:max-w-3xl pointer-events-none" />
+              </div>
 
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#fbb03b]/20 text-[#fbb03b] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                          2
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-white">Regulatory & Authority Review</p>
-                          <p className="text-xs text-slate-400">DEWA, Civil Defense, and Dubai Municipality feasibility checks.</p>
-                        </div>
-                      </div>
+              {/* Banner Content */}
+              <div className="relative z-10 max-w-xl space-y-5">
+                {/* Eyebrow with vertical gold line */}
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-6 sm:h-7 bg-[#fbb03b] rounded-full" />
+                  <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#fbb03b] uppercase">
+                    LET&apos;S WORK TOGETHER
+                  </span>
+                </div>
 
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#fbb03b]/20 text-[#fbb03b] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                          3
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-white">Itemized BOQ Submission</p>
-                          <p className="text-xs text-slate-400">Transparent line-item material specs, labor rates, and milestone timelines.</p>
-                        </div>
-                      </div>
-                    </div>
+                {/* Main Heading */}
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight drop-shadow-md leading-[1.12]">
+                  Have a Technical Requirement?
+                </h2>
 
-                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-                      <span className="font-editorial-eyebrow uppercase tracking-wider text-[10px]">
-                        Coverage: Dubai & Northern Emirates
-                      </span>
-                      <span className="text-[#fbb03b] font-medium">Zero Obligation</span>
-                    </div>
-                  </div>
+                {/* Description */}
+                <p className="text-xs sm:text-sm md:text-base text-slate-200/90 font-sans leading-relaxed drop-shadow-sm max-w-lg">
+                  Tell us about your project, space or maintenance requirement and our team can help you with the right technical solutions.
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-[#fbb03b] hover:bg-[#e59e2f] text-[#0a2540] font-bold text-xs tracking-wider transition-all duration-300 shadow-md group"
+                  >
+                    <span>Discuss Your Project</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full border border-white/40 hover:bg-white/10 text-white font-semibold text-xs tracking-wider transition-all duration-300"
+                  >
+                    <span>Contact Euro Edge</span>
+                  </Link>
                 </div>
               </div>
             </div>

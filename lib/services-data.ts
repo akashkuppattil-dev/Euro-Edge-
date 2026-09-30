@@ -38,7 +38,7 @@ export const servicesData: ServiceItem[] = [
     slug: "civil-finishing-works",
     title: "Civil & Finishing Works",
     shortDesc:
-      "Comprehensive civil contracting, interior & exterior painting, precision floor and wall tiling, plastering, false ceiling gypsum partitions, and bespoke carpentry in Dubai.",
+      "Professional civil and interior finishing works in Dubai — interior & exterior painting, precision floor and wall tiling, plastering, gypsum partitions, false ceilings, and bespoke carpentry by Euro Edge Technical Services L.L.C.",
     fullDesc:
       "Euro Edge Technical Services L.L.C. delivers premium turnkey civil and interior finishing solutions for luxury residential villas, commercial offices, retail outlets, and hospitality venues across Dubai and the UAE. From structural blockwork and flawless plastering to high-end decorative coatings, Italian porcelain tiling, acoustic gypsum partitions, and bespoke wood carpentry, our experienced civil engineers and master artisans ensure architectural excellence, durability, and seamless handover.",
     iconName: "Hammer",
@@ -95,7 +95,7 @@ export const servicesData: ServiceItem[] = [
       "Hotels, Resorts & Hospitality Venues",
       "Residential Towers & Master Developments",
     ],
-    titleTag: "Civil & Finishing Works in Dubai | Euro Edge Technical Services L.L.C.",
+    titleTag: "Civil & Interior Finishing Works Dubai | Painting, Tiling & Carpentry — Euro Edge",
     whyChooseEuroEdge: [
       "Dubai Municipality code compliance and certified engineering oversight",
       "High-durability Jotun & Caparol weather-resistant paints and coatings",
@@ -138,7 +138,7 @@ export const servicesData: ServiceItem[] = [
     slug: "mep-technical-works",
     title: "MEP & Technical Works",
     shortDesc:
-      "DEWA-compliant electrical engineering, precision plumbing and sanitary installations, HVAC climate control, ventilation ducting, and electromechanical contracting in Dubai.",
+      "Licensed MEP contractor in Dubai offering DEWA-compliant electrical works, precision plumbing, HVAC and AC system installations, ventilation, and electromechanical contracting for villas and commercial buildings across Dubai.",
     fullDesc:
       "Euro Edge Technical Services L.L.C. is a licensed engineering contractor providing end-to-end Mechanical, Electrical, and Plumbing (MEP) solutions throughout Dubai. From load-balanced electrical distribution boards, DEWA-certified wiring, and emergency backup power to high-precision sanitary drainage, water booster pumps, central chilled-water HVAC systems, air filtration, and industrial electromechanical works, we ensure peak operational efficiency, life-safety compliance, and reduced energy consumption.",
     iconName: "Zap",
@@ -175,7 +175,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Ventilation & Air Filtration",
-        imageUrl: "/images/services/mep-technical.jpg",
+        imageUrl: "/images/services/ventilation-filtration.jpg",
         imageAlt: "Ventilation ducting and FAHU air filtration installation in Dubai — Euro Edge Technical Services",
         description:
           "Commercial kitchen exhaust hoods, fresh air handling units (FAHU), heat recovery wheels, HEPA/UV air purification systems, and acoustic duct lagging for villas, restaurants, and commercial facilities.",
@@ -195,7 +195,7 @@ export const servicesData: ServiceItem[] = [
       "Warehouses, Data Centers & Light Industrial Plants",
       "Restaurants, Commercial Kitchens & Supermarkets",
     ],
-    titleTag: "MEP & Technical Works in Dubai | Euro Edge Technical Services L.L.C.",
+    titleTag: "MEP Contractor Dubai | Electrical, HVAC & Plumbing Works — Euro Edge Technical Services",
     whyChooseEuroEdge: [
       "DEWA-licensed electrical engineers and certified HVAC technicians",
       "Eco-friendly, energy-efficient inverter systems and R410A/R32 refrigerants",
@@ -234,7 +234,7 @@ export const servicesData: ServiceItem[] = [
     slug: "swimming-pool-works",
     title: "Swimming Pool Works",
     shortDesc:
-      "Turnkey private and commercial swimming pool construction, multi-layer waterproofing, designer glass mosaic tiling, filtration pump systems, and ongoing pool maintenance.",
+      "Complete swimming pool services in Dubai — turnkey pool construction, multi-layer waterproofing, glass mosaic pool tiling, filtration and equipment installation, and scheduled pool maintenance by Euro Edge Technical Services.",
     fullDesc:
       "A swimming pool is the crown jewel of any UAE property. Euro Edge Technical Services L.L.C. specializes in complete swimming pool lifecycle solutions, from architectural design and reinforced concrete pool construction to polyurethane waterproofing membranes, custom glass mosaic tiling, skimmer and overflow systems, energy-efficient filtration pumps, salt chlorinators, underwater LED mood lighting, and periodic chemical water balancing maintenance.",
     iconName: "Waves",
@@ -257,21 +257,21 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Multi-Layer Waterproofing",
-        imageUrl: "/images/services/civil-maintenance.jpg",
+        imageUrl: "/images/services/waterproofing.jpg",
         imageAlt: "Swimming pool waterproofing membrane testing in Dubai — Euro Edge Technical Services",
         description:
           "Multi-coat elastomeric cementitious and polyurethane waterproofing membranes with mandatory 72-hour hydrostatic flood testing to ensure 100% leak-proof structural integrity in Dubai soils.",
       },
       {
         title: "Pool Tiling & Finishing",
-        imageUrl: "/images/services/swimming-pool-clean.jpg",
+        imageUrl: "/images/services/pool-tiling.jpg",
         imageAlt: "Luxury glass mosaic pool tiling in Dubai villa — Euro Edge Technical Services",
         description:
           "High-end Spanish and Italian glass mosaic pool finishes, custom waterline tiles, natural stone coping, zero-edge overflow gutters, and durable anti-slip deck surfaces.",
       },
       {
         title: "Pool Equipment Installation",
-        imageUrl: "/images/services/facility-management.jpg",
+        imageUrl: "/images/services/pool-equipment.jpg",
         imageAlt: "Pool filtration pumps and sanitization equipment in Dubai — Euro Edge Technical Services",
         description:
           "Energy-efficient variable-speed circulation pumps, high-rate glass media filters, automated saltwater chlorinators, underwater LED lighting, and inverter heat/cool pumps.",
@@ -291,7 +291,7 @@ export const servicesData: ServiceItem[] = [
       "Commercial Fitness Centers & Spas",
       "School & Institutional Aquatic Facilities",
     ],
-    titleTag: "Swimming Pool Construction & Maintenance in Dubai | Euro Edge Technical Services",
+    titleTag: "Swimming Pool Contractor Dubai | Construction, Tiling & Maintenance — Euro Edge",
     whyChooseEuroEdge: [
       "Turnkey design-to-handover pool engineering and civil excavation",
       "Guaranteed multi-coat elastomeric and polyurethane waterproofing",
@@ -330,7 +330,7 @@ export const servicesData: ServiceItem[] = [
     slug: "landscaping-works",
     title: "Landscaping Works",
     shortDesc:
-      "Luxury soft and hard landscaping in Dubai: precision interlock paving, automated smart irrigation, outdoor garden architecture, pergolas, and landscape maintenance.",
+      "Professional landscaping services in Dubai — soft and hard landscaping, heavy-duty interlock paving, automated smart irrigation, pergolas, outdoor garden architecture, and ongoing garden maintenance by Euro Edge Technical Services.",
     fullDesc:
       "Transforming outdoor spaces into lush, functional desert sanctuaries, Euro Edge Technical Services L.L.C. offers premier hardscaping and softscaping contracting in Dubai. Our specialists design and construct durable stone and interlock paving, decorative garden pathways, natural and artificial turf lawns, desert-adapted flora planting, automated smart drip and sprinkler irrigation networks, outdoor ambient LED lighting, and ongoing garden health maintenance.",
     iconName: "Compass",
@@ -346,7 +346,7 @@ export const servicesData: ServiceItem[] = [
     subServices: [
       {
         title: "Soft & Hard Landscaping",
-        imageUrl: "/images/services/landscaping.jpg",
+        imageUrl: "/images/services/soft-hard-landscaping.jpg",
         imageAlt: "Luxury soft and hard landscaping in Dubai — Euro Edge Technical Services",
         description:
           "Complete outdoor architectural design combining native drought-tolerant palms, ornamental shrubs, and luxury lawns with natural stone retaining walls, garden steps, and custom timber pergolas.",
@@ -360,7 +360,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Automated Smart Irrigation",
-        imageUrl: "/images/services/general-maintenance-plumbing.jpg",
+        imageUrl: "/images/services/irrigation.jpg",
         imageAlt: "Smart automated drip irrigation systems in Dubai — Euro Edge Technical Services",
         description:
           "Water-conserving drip and micro-sprinkler networks equipped with weather-sensing smart WiFi controllers that reduce water consumption by up to 40% in UAE climate conditions.",
@@ -387,7 +387,7 @@ export const servicesData: ServiceItem[] = [
       "Hospitality Outdoor Dining & Lounges",
       "School Campuses & Sports Grounds",
     ],
-    titleTag: "Landscaping & Interlock Paving in Dubai | Euro Edge Technical Services L.L.C.",
+    titleTag: "Landscaping Company Dubai | Interlock Paving & Irrigation — Euro Edge Technical Services",
     whyChooseEuroEdge: [
       "Smart weather-sensing drip irrigation reducing water consumption by up to 40%",
       "Heavy-duty, heat-resistant interlock pavers installed on compacted sub-base",
@@ -426,7 +426,7 @@ export const servicesData: ServiceItem[] = [
     slug: "general-maintenance",
     title: "General Maintenance",
     shortDesc:
-      "Reliable building & villa maintenance contracts (AMC), rapid emergency repairs, planned preventive maintenance (PPM), and turnkey renovation across Dubai.",
+      "Comprehensive building and villa maintenance in Dubai — Annual Maintenance Contracts (AMC), 24/7 emergency repairs, planned preventive maintenance (PPM), and full property renovation across Dubai and the UAE.",
     fullDesc:
       "Euro Edge Technical Services L.L.C. delivers comprehensive, reliable general maintenance services designed to preserve asset value, ensure tenant satisfaction, and prevent costly structural or mechanical breakdowns. Our dedicated mobile technician crews handle scheduled quarterly building and villa preventive maintenance (PPM), corrective repairs, round-the-clock emergency callouts, and turnkey interior/exterior renovation and restoration works for landlords, property management companies, and individual villa owners across Dubai.",
     iconName: "ShieldCheck",
@@ -454,7 +454,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Turnkey Renovation & Restoration",
-        imageUrl: "/images/services/fit-out-renovation.jpg",
+        imageUrl: "/images/services/renovation-repair.jpg",
         imageAlt: "Turnkey villa renovation and refurbishment in Dubai — Euro Edge Technical Services",
         description:
           "Complete property refurbishments, bathroom remodeling, ceiling and wall restoration, water damage repair, and move-in tenancy preparation for landlords and villa owners.",
@@ -467,7 +467,7 @@ export const servicesData: ServiceItem[] = [
       "Retail Centers & Shopping Outlets",
       "Educational & Healthcare Facilities",
     ],
-    titleTag: "General Building & Villa Maintenance in Dubai | Euro Edge Technical Services",
+    titleTag: "Building & Villa Maintenance Dubai | AMC & Emergency Repairs — Euro Edge",
     whyChooseEuroEdge: [
       "Tailored Annual Maintenance Contracts (AMC) with clear SLAs and guaranteed response times",
       "Multi-skilled technical teams covering civil, electrical, plumbing, and AC repairs",

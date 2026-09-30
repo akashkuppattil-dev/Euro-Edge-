@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { AboutScrollAnimations } from "@/components/about-scroll-animations"
+import { DivisionsMobileRow } from "@/components/divisions-mobile-row"
 import {
   ShieldCheck,
   Users,
@@ -34,37 +35,46 @@ import {
 } from "lucide-react"
 
 export const metadata = {
-  title: "About Us | Euro Edge Technical Services L.L.C. Dubai",
+  title: "About Us | Euro Edge Technical Services L.L.C. — Dubai Contractor",
   description:
-    "Building better spaces for a brighter tomorrow. Euro Edge Technical Services L.L.C. delivers certified civil, MEP, swimming pool, landscaping, and maintenance contracting in Dubai and across the UAE.",
+    "Euro Edge Technical Services L.L.C. is a Dubai-based certified contractor delivering civil finishing, MEP, swimming pool, landscaping, and building maintenance services across Dubai and the UAE with quality-first craftsmanship.",
+  keywords: [
+    "technical contracting company Dubai",
+    "Euro Edge Technical Services",
+    "MEP company Dubai",
+    "certified contractor UAE",
+    "civil engineering company Dubai",
+  ],
   alternates: {
     canonical: "https://euroedgets.com/about",
   },
   openGraph: {
-    title: "About Us | Euro Edge Technical Services L.L.C.",
+    title: "About Us | Euro Edge Technical Services L.L.C. — Dubai Contractor",
     description:
-      "Building better spaces for a brighter tomorrow. Certified civil, MEP, swimming pool, landscaping, and maintenance contracting across Dubai and the UAE.",
+      "Dubai-based certified contractor delivering civil, MEP, pool, landscaping, and maintenance services across the UAE with quality-first craftsmanship.",
     type: "website",
     url: "https://euroedgets.com/about",
+    siteName: "Euro Edge Technical Services L.L.C.",
+    locale: "en_AE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | Euro Edge Technical Services L.L.C.",
+    title: "About Us | Euro Edge Technical Services L.L.C. — Dubai Contractor",
     description:
-      "Building better spaces for a brighter tomorrow. Certified civil, MEP, swimming pool, landscaping, and maintenance contracting across Dubai and the UAE.",
+      "Dubai-based certified contractor delivering civil, MEP, pool, landscaping, and maintenance services across the UAE.",
   },
 }
 
 export default function AboutPage() {
   return (
     <main className="bg-[#fafbfc] text-[#0a2540] font-sans min-h-screen overflow-x-clip">
-      <Header />
       <AboutScrollAnimations />
+      <Header />
 
       {/* =========================================================================
           SECTION 1: HERO SECTION (Exact Match to User Reference Mockup)
       ========================================================================= */}
-      <section data-section="about-hero" className="relative overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 pt-28 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 border-b border-slate-200/80">
+      <section data-section="about-hero" className="relative overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 pt-24 sm:pt-36 lg:pt-40 pb-12 lg:pb-24">
         <div className="container-wide max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Content */}
@@ -73,7 +83,7 @@ export default function AboutPage() {
                 ABOUT EURO EDGE
               </span>
 
-              <h1 data-anim="about-hero-heading" className="font-editorial-h1 text-4xl sm:text-5xl lg:text-[3.8rem] text-[#0a2540] font-medium leading-[1.06] tracking-tight">
+              <h1 data-anim="about-hero-heading" className="font-editorial-h1 text-[2rem] sm:text-5xl lg:text-[3.8rem] text-[#0a2540] font-medium leading-[1.06] tracking-tight">
                 Building Better Spaces for a{" "}
                 <span className="text-[#c8924b] block sm:inline font-normal">
                   Brighter Tomorrow.
@@ -87,9 +97,9 @@ export default function AboutPage() {
                 industrial spaces across the UAE.
               </p>
 
-              {/* 3 Core Highlight Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div data-anim="about-hero-badge" className="flex items-center gap-3">
+              {/* 3 Core Highlight Badges - single row on mobile */}
+              <div className="flex flex-row gap-4 sm:grid sm:grid-cols-3 pt-2 overflow-x-auto pb-1 scrollbar-hide">
+                <div data-anim="about-hero-badge" className="flex items-center gap-3 min-w-max sm:min-w-0">
                   <div className="w-10 h-10 rounded-full bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0 border border-blue-200/60 shadow-2xs">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
@@ -103,7 +113,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div data-anim="about-hero-badge" className="flex items-center gap-3">
+                <div data-anim="about-hero-badge" className="flex items-center gap-3 min-w-max sm:min-w-0">
                   <div className="w-10 h-10 rounded-full bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0 border border-blue-200/60 shadow-2xs">
                     <Users className="w-5 h-5" />
                   </div>
@@ -117,7 +127,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div data-anim="about-hero-badge" className="flex items-center gap-3">
+                <div data-anim="about-hero-badge" className="flex items-center gap-3 min-w-max sm:min-w-0">
                   <div className="w-10 h-10 rounded-full bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0 border border-blue-200/60 shadow-2xs">
                     <Compass className="w-5 h-5" />
                   </div>
@@ -133,31 +143,17 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Hero Image with Floating Quality Badge */}
+            {/* Right Hero Image - compact on mobile */}
             <div className="lg:col-span-6 relative">
-              <div data-anim="about-hero-image" className="relative h-[420px] sm:h-[500px] lg:h-[560px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+              <div data-anim="about-hero-image" className="relative h-[280px] sm:h-[500px] lg:h-[560px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
                 <Image
-                  src="/images/about-hero-engineer.jpg"
-                  alt="Euro Edge Technical Engineer Reviewing Construction Blueprint Dubai"
+                  src="/images/about-hero-technician-official.jpg"
+                  alt="Euro Edge Certified Technical Services Specialist with Safety Helmet and Toolbelt Dubai"
                   fill
                   priority
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                {/* Floating Quality Card */}
-                <div data-anim="about-hero-float" className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-[#0a2540]/95 backdrop-blur-md text-white p-5 sm:p-6 rounded-2xl shadow-2xl border border-white/10 max-w-[210px] text-left">
-                  <span className="font-editorial-eyebrow text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-300 block leading-tight">
-                    Licensed Technical Contractor
-                  </span>
-                  <div className="font-editorial-h1 text-4xl sm:text-5xl font-medium text-[#fbb03b] my-1">
-                    100%
-                  </div>
-                  <span className="font-editorial-body text-xs text-slate-300 block">
-                    Certified In-House Team
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -167,53 +163,67 @@ export default function AboutPage() {
       {/* =========================================================================
           SECTION 2: WHO WE ARE (Engineering Excellence with a People-First Approach)
       ========================================================================= */}
-      <section data-section="who-we-are" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white border-b border-slate-200">
+      <section data-section="who-we-are" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white">
         <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
-          {/* Left Collage Layout */}
+          {/* Left Collage Layout — desktop only, mobile gets simple image */}
           <div data-anim="who-images" className="lg:col-span-6 relative">
-            <div className="grid grid-cols-12 gap-4 items-center">
-              {/* Main Top/Left Team Photo */}
-              <div className="col-span-8 relative">
-                <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
-                  <Image
-                    src="/images/about-team-inspection.jpg"
-                    alt="Euro Edge Engineering Team Site Review Dubai"
-                    fill
-                    className="object-cover object-center"
-                    sizes="40vw"
-                  />
+            {/* Mobile: simple single image */}
+            <div className="block lg:hidden relative h-[260px] sm:h-[340px] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+              <Image
+                src="/images/about-burj-sunset.jpg"
+                alt="Dubai Skyline — Euro Edge Technical Services"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-xl shadow border border-slate-100 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
+                <div>
+                  <div className="font-bold text-sm text-[#0a2540] leading-none">100%</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Certified Technical Team</div>
+                </div>
+              </div>
+            </div>
 
-                {/* Floating "From Concept to Completion" Card */}
-                <div className="absolute -bottom-8 left-4 right-4 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center justify-between gap-3">
-                  <div>
-                    <h4 className="font-editorial-h2 text-sm sm:text-base font-medium text-[#0a2540] leading-tight">
-                      From Concept to Completion
-                    </h4>
-                    <p className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
-                      Reliable technical solutions for every space.
-                    </p>
+            {/* Desktop: overlapping collage */}
+            <div className="hidden lg:block relative">
+              {/* Top-right floating stat badge */}
+              <div className="absolute -top-6 right-4 sm:right-8 z-20 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-editorial-h1 text-2xl font-bold text-[#0a2540] leading-none">
+                    100%
                   </div>
-                  <Link
-                    href="/contact"
-                    className="w-9 h-9 rounded-full bg-[#c8924b] text-white flex items-center justify-center shrink-0 hover:bg-[#0a2540] transition-colors shadow-sm"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="font-editorial-body text-[11px] text-slate-500 mt-0.5">
+                    Certified Technical Team
+                  </div>
                 </div>
               </div>
 
-              {/* Vertical Burj Sunset Image on Right */}
-              <div className="col-span-4 relative mt-12 sm:mt-16">
-                <div className="relative h-64 sm:h-84 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
-                  <Image
-                    src="/images/about-burj-sunset.jpg"
-                    alt="Burj Khalifa Dubai Sunset Architecture"
-                    fill
-                    className="object-cover object-center"
-                    sizes="25vw"
-                  />
-                </div>
+              {/* Background Arched Burj Sunset Photo */}
+              <div className="relative h-80 sm:h-96 w-4/5 rounded-3xl overflow-hidden shadow-xl border border-slate-200">
+                <Image
+                  src="/images/about-burj-sunset.jpg"
+                  alt="Burj Khalifa Dubai Sunset Architecture"
+                  fill
+                  className="object-cover object-center"
+                  sizes="40vw"
+                />
+              </div>
+
+              {/* Overlapping Bottom Luxury Villa & Landscaping Photo */}
+              <div className="relative -mt-28 ml-auto w-3/4 h-56 sm:h-64 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10">
+                <Image
+                  src="/images/about-luxury-villa.jpg"
+                  alt="Euro Edge Luxury Villa Contracting & Landscaping Dubai"
+                  fill
+                  className="object-cover object-center"
+                  sizes="35vw"
+                />
               </div>
             </div>
           </div>
@@ -240,13 +250,13 @@ export default function AboutPage() {
             {/* Checklist with Golden Checks */}
             <div className="space-y-3 pt-1">
               {[
-                "Experienced and skilled technical team",
+                "Professional and skilled technical team",
                 "Quality materials and proven methods",
                 "On-time project delivery",
                 "Solutions tailored to your requirements",
               ].map((item, idx) => (
                 <div key={idx} data-anim="who-list-item" className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0 border border-blue-200/60 shadow-2xs">
+                  <div className="w-5 h-5 rounded-full bg-[#f6ebdc] text-[#c8924b] flex items-center justify-center shrink-0 border border-[#c8924b]/30">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
                   <span className="font-editorial-body text-xs sm:text-sm font-medium text-slate-700">
@@ -271,52 +281,140 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: MISSION & VISION (Side-by-side Horizontal Cards)
+          SECTION 3: MISSION & VISION (Architectural Split Cards with Slanted Skyline Images)
       ========================================================================= */}
-      <section data-section="mission-vision" className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#f8fafc] border-b border-slate-200">
-        <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {/* Mission Card */}
-          <div data-anim="mv-card" className="p-7 sm:p-9 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-5 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center shrink-0">
-              <Target className="w-6 h-6 text-[#0066cc]" />
+      <section data-section="mission-vision" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#f8fafc]">
+        <div className="container-wide max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
+          
+          {/* Card 1: OUR MISSION */}
+          <div
+            data-anim="mv-card"
+            className="group relative rounded-3xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col md:flex-row hover:-translate-y-1"
+          >
+            {/* Left Content Area */}
+            <div className="flex-1 p-7 sm:p-9 lg:p-10 flex flex-col justify-between space-y-6 relative z-10">
+              {/* Background Watermark 01 */}
+              <span className="font-serif text-7xl sm:text-8xl font-bold text-slate-100 select-none pointer-events-none absolute top-4 right-6 md:right-8 -z-10 leading-none">
+                01
+              </span>
+
+              {/* Top Row: Icon + Label */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#fdf6ec] border border-[#fbb03b]/40 flex items-center justify-center shrink-0 text-[#c8924b] shadow-2xs">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+                <span className="w-6 h-[2px] bg-[#fbb03b] inline-block" />
+                <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#0066cc]">
+                  OUR MISSION
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <div className="space-y-3">
+                <h3 className="font-editorial-h2 font-serif text-2xl sm:text-3xl lg:text-[2.1rem] text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+                  Delivering Lasting Value<span className="text-[#fbb03b]">.</span>
+                </h3>
+                <p className="font-editorial-body text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md">
+                  To deliver reliable, high-quality technical services that enhance the value, safety and functionality of every space we work on, while building long-term relationships with our clients across the UAE.
+                </p>
+              </div>
+
+              {/* Bottom Action Link */}
+              <div className="pt-2">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-[#0a2540] hover:text-[#0066cc] transition-colors group/link"
+                >
+                  <span>OUR APPROACH</span>
+                  <ArrowRight className="w-4 h-4 text-[#fbb03b] transition-transform group-hover/link:translate-x-1" />
+                </Link>
+              </div>
             </div>
-            <div className="space-y-2">
-              <h3 className="font-editorial-eyebrow text-xs sm:text-sm font-bold tracking-wider uppercase text-[#0a2540]">
-                OUR MISSION
-              </h3>
-              <p className="font-editorial-body text-xs sm:text-sm text-slate-600 leading-relaxed">
-                To deliver reliable, high-quality technical services that enhance
-                the value, safety and functionality of every space we work on,
-                while building long-term relationships with our clients across the
-                UAE.
-              </p>
+
+            {/* Right Slanted Image Container */}
+            <div className="relative w-full md:w-[48%] min-h-[240px] md:min-h-[360px] overflow-hidden shrink-0">
+              <div className="absolute inset-0 w-full h-full md:[clip-path:polygon(18%_0%,100%_0%,100%_100%,0%_100%)]">
+                <Image
+                  src="/images/about-luxury-villa.jpg"
+                  alt="Euro Edge Mission - Delivering Lasting Value Across Dubai"
+                  fill
+                  className="object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Vision Card */}
-          <div data-anim="mv-card" className="p-7 sm:p-9 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-5 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 text-[#0a2540] flex items-center justify-center shrink-0">
-              <Eye className="w-6 h-6 text-[#c8924b]" />
+          {/* Card 2: OUR VISION */}
+          <div
+            data-anim="mv-card"
+            className="group relative rounded-3xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col md:flex-row hover:-translate-y-1"
+          >
+            {/* Left Content Area */}
+            <div className="flex-1 p-7 sm:p-9 lg:p-10 flex flex-col justify-between space-y-6 relative z-10">
+              {/* Background Watermark 02 */}
+              <span className="font-serif text-7xl sm:text-8xl font-bold text-slate-100 select-none pointer-events-none absolute top-4 right-6 md:right-8 -z-10 leading-none">
+                02
+              </span>
+
+              {/* Top Row: Icon + Label */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#f0f7ff] border border-[#0066cc]/30 flex items-center justify-center shrink-0 text-[#0066cc] shadow-2xs">
+                  <Eye className="w-5 h-5" />
+                </div>
+                <span className="w-6 h-[2px] bg-[#fbb03b] inline-block" />
+                <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#0066cc]">
+                  OUR VISION
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <div className="space-y-3">
+                <h3 className="font-editorial-h2 font-serif text-2xl sm:text-3xl lg:text-[2.1rem] text-[#0a2540] font-medium tracking-tight leading-[1.12]">
+                  A Trusted Partner for Better Spaces<span className="text-[#fbb03b]">.</span>
+                </h3>
+                <p className="font-editorial-body text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md">
+                  To be a trusted and preferred technical services partner in the UAE, recognized for our quality, integrity, innovation and commitment to creating better spaces for communities and businesses.
+                </p>
+              </div>
+
+              {/* Bottom Action Link */}
+              <div className="pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-[#0a2540] hover:text-[#0066cc] transition-colors group/link"
+                >
+                  <span>OUR COMMITMENT</span>
+                  <ArrowRight className="w-4 h-4 text-[#fbb03b] transition-transform group-hover/link:translate-x-1" />
+                </Link>
+              </div>
             </div>
-            <div className="space-y-2">
-              <h3 className="font-editorial-eyebrow text-xs sm:text-sm font-bold tracking-wider uppercase text-[#0a2540]">
-                OUR VISION
-              </h3>
-              <p className="font-editorial-body text-xs sm:text-sm text-slate-600 leading-relaxed">
-                To be a trusted and preferred technical services partner in the
-                UAE, recognized for our quality, integrity, innovation and
-                commitment to creating better spaces for communities and
-                businesses.
-              </p>
+
+            {/* Right Slanted Image Container */}
+            <div className="relative w-full md:w-[48%] min-h-[240px] md:min-h-[360px] overflow-hidden shrink-0">
+              <div className="absolute inset-0 w-full h-full md:[clip-path:polygon(18%_0%,100%_0%,100%_100%,0%_100%)]">
+                <Image
+                  src="/images/about-vision-burj.jpg"
+                  alt="Euro Edge Vision - A Trusted Partner for Better Spaces Dubai"
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                />
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* =========================================================================
           SECTION 4: FIVE SPECIALIZED DIVISIONS (5 Cards in a Row)
       ========================================================================= */}
-      <section data-section="divisions" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-white border-b border-slate-200">
+      <section data-section="divisions" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#f8fafc]">
         <div className="container-wide max-w-[1800px] mx-auto space-y-12">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -333,68 +431,75 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* 5 Cards Grid matching reference design */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
+          {/* Mobile View: Single Row auto-swiping peek carousel (100% first card, ~20% right peek, 3s auto-swipe, no buttons) */}
+          <DivisionsMobileRow />
+
+          {/* Desktop View: 5-column grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 xl:gap-6">
             {[
               {
                 id: "facility",
                 title: "Facility Management",
-                image: "/images/services/facility-management.jpg",
+                image: "/images/services/facility-management-official.jpg",
                 slug: "general-maintenance-amc",
+                objectPosition: "center 18%",
               },
               {
                 id: "fitout",
                 title: "Fit-Out & Renovation",
-                image: "/images/services/fit-out-renovation.jpg",
+                image: "/images/services/fit-out-renovation-official.jpg",
                 slug: "civil-finishing-works",
+                objectPosition: "68% 25%",
               },
               {
                 id: "mep",
                 title: "MEP & HVAC Systems",
                 image: "/images/services/mep-technical.jpg",
                 slug: "mep-technical-works",
+                objectPosition: "center 20%",
               },
               {
                 id: "civil",
                 title: "Civil Maintenance",
-                image: "/images/services/civil-maintenance.jpg",
+                image: "/images/services/civil-maintenance-official.jpg",
                 slug: "civil-finishing-works",
+                objectPosition: "45% 25%",
               },
               {
                 id: "pool-landscaping",
                 title: "Pool & Landscaping",
                 image: "/images/services/swimming-pool.jpg",
                 slug: "swimming-pool-works",
+                objectPosition: "center 30%",
               },
             ].map((division) => (
               <Link
                 key={division.id}
-                href={`/services/${division.slug}`}
                 data-anim="divisions-card"
-                className="group relative h-[340px] sm:h-[380px] lg:h-[420px] rounded-2xl sm:rounded-[26px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-5 sm:p-6 border border-slate-200/60 block hover:-translate-y-1"
+                href={`/services/${division.slug}`}
+                className="group relative h-[220px] sm:h-[360px] lg:h-[380px] xl:h-[395px] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-3 sm:p-5 border border-slate-200/60 hover:-translate-y-1"
               >
-                {/* Full Card Background Image */}
+                {/* Full Card Background Image with Zoomed-Out Maximum View */}
                 <Image
                   src={division.image}
                   alt={division.title}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  style={{ objectPosition: division.objectPosition }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                 />
 
-                {/* Dark Gradient Overlay for optimal readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-black/50 transition-colors" />
+                {/* Soft Gradient Scrim for optimal image clarity & readable text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent group-hover:via-black/35 transition-colors pointer-events-none" />
 
-                {/* Card Content at bottom: Service Name and Button Only */}
-                <div className="relative z-10 space-y-3">
-                  {/* Service Name */}
-                  <h3 className="font-editorial-h2 text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-[#fbb03b] transition-colors">
+                {/* Card Content at bottom: Service Name and Explore Button */}
+                <div className="relative z-10 space-y-2.5">
+                  <h3 className="font-editorial-h2 text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-[#fbb03b] transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     {division.title}
                   </h3>
 
-                  {/* Button */}
                   <div>
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 group-hover:bg-[#0a2540] border border-white/25 group-hover:border-[#fbb03b] text-white text-xs font-semibold backdrop-blur-sm transition-all">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/45 group-hover:bg-[#0a2540] border border-white/25 group-hover:border-[#fbb03b] text-white text-[11px] font-semibold backdrop-blur-sm transition-all shadow-md">
                       <span>Explore</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#fbb03b]" />
                     </span>
@@ -410,7 +515,7 @@ export default function AboutPage() {
               href="/services"
               className="font-editorial-nav inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs uppercase tracking-wider font-semibold transition-all shadow-md group"
             >
-              <span>Explore All Capabilities</span>
+              <span>Explore All Capabilities &amp; Divisions</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -491,7 +596,7 @@ export default function AboutPage() {
       {/* =========================================================================
           SECTION 6: OUR WORK PROCESS - A SIMPLE & RELIABLE PROCESS (TIMELINE FLOW)
       ========================================================================= */}
-      <section data-section="work-process" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#fbfcfe] border-b border-slate-200/80">
+      <section data-section="work-process" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#fbfcfe]">
         <div className="relative z-10 container-wide max-w-[1800px] mx-auto space-y-12 sm:space-y-16">
           {/* Header Row */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
@@ -641,17 +746,6 @@ export default function AboutPage() {
                       {p.desc}
                     </p>
                   </div>
-
-                  {/* Bottom Circular Chevron Indicator */}
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center mt-4 transition-all duration-300 shadow-2xs ${
-                      p.accentColor === "gold"
-                        ? "bg-amber-50 text-amber-600 border border-amber-200/80 group-hover:bg-[#fbb03b] group-hover:text-[#0a2540]"
-                        : "bg-blue-50 text-[#0066cc] border border-blue-200/70 group-hover:bg-[#0066cc] group-hover:text-white"
-                    }`}
-                  >
-                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                  </div>
                 </div>
               ))}
             </div>
@@ -660,52 +754,61 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 7: READY TO GET STARTED? (Sunset Skyline Banner)
+          SECTION 6: READY TO BUILD TOGETHER? (Contained Sunset Skyline Banner)
       ========================================================================= */}
-      <section data-section="about-cta" className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 text-white">
-        {/* Background Dubai Sunset Skyline Image */}
-        <div data-anim="about-cta-bg" className="absolute inset-0 z-0">
-          <Image
-            src="/images/about-bottom-banner.jpg"
-            alt="Dubai Skyline Sunset Burj Khalifa Silhouette"
-            fill
-            className="object-cover object-bottom"
-            sizes="100vw"
-          />
-          {/* Deep Navy/Black Gradient Overlay for text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071a2e]/95 via-[#071a2e]/85 to-[#071a2e]/70" />
-        </div>
+      <section data-section="about-cta" className="py-14 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#f8fafc]">
+        <div className="max-w-6xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 lg:p-16 text-white shadow-2xl border border-slate-200 min-h-[360px] sm:min-h-[400px] flex items-center">
+            {/* Background Dubai Sunset Skyline Image */}
+            <div data-anim="about-cta-bg" className="absolute inset-0 z-0">
+              <Image
+                src="/images/about-bottom-banner.jpg"
+                alt="Dubai Skyline Sunset Burj Khalifa Silhouette"
+                fill
+                className="object-cover object-bottom"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+            </div>
 
-        <div data-anim="about-cta-content" className="relative z-10 container-wide max-w-[1800px] mx-auto space-y-6">
-          <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-semibold text-[#fbb03b] tracking-[0.2em] uppercase block">
-            READY TO GET STARTED?
-          </span>
+            {/* Light shade on the left side text displayed background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-[1] pointer-events-none" />
 
-          <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight max-w-2xl">
-            Let&apos;s Build Something Great Together
-          </h2>
+            <div className="relative z-10 space-y-6 max-w-2xl">
+              <div data-anim="about-cta-content" className="space-y-6">
+                <div className="space-y-3">
+                  <span className="font-editorial-eyebrow text-xs sm:text-[11px] font-bold text-[#fbb03b] tracking-[0.2em] uppercase block drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
+                    READY TO BUILD TOGETHER?
+                  </span>
 
-          <p className="font-editorial-body text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-            Talk to our team today and get the right technical solution for your
-            project.
-          </p>
+                  <h2 className="font-editorial-h1 text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                    Let&apos;s Build Something Great Together.
+                  </h2>
 
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              href="/contact"
-              className="font-editorial-nav inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs font-semibold uppercase tracking-wider transition-colors shadow-lg group"
-            >
-              <span>Make an Enquiry</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+                  <p className="font-editorial-body text-sm sm:text-base text-white/95 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    Talk to our team today and get the right technical solution for your project.
+                  </p>
+                </div>
 
-            <a
-              href="tel:+971543909946"
-              className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider transition-colors backdrop-blur-sm"
-            >
-              <Phone className="w-4 h-4 text-[#fbb03b]" />
-              <span>+971 54 390 9946</span>
-            </a>
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/contact"
+                    className="font-editorial-nav inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs font-semibold uppercase tracking-wider transition-colors shadow-xl group"
+                  >
+                    <span>Make an Enquiry</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+
+                  <a
+                    href="tel:+971543909946"
+                    className="font-editorial-nav inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-black/40 hover:bg-black/60 text-white border border-white/30 text-xs font-semibold uppercase tracking-wider transition-colors backdrop-blur-md shadow-lg"
+                  >
+                    <Phone className="w-4 h-4 text-[#fbb03b]" />
+                    <span>+971 54 390 9946</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

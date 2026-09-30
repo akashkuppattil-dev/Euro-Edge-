@@ -3,19 +3,23 @@ import { servicesData } from "@/lib/services-data"
 export function JsonLd() {
   const jsonLdData = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "Organization"],
+    "@type": ["LocalBusiness", "Organization", "GeneralContractor"],
     "name": "Euro Edge Technical Services L.L.C.",
     "url": "https://euroedgets.com/",
     "logo": "https://euroedgets.com/images/logo.png",
     "image": "https://euroedgets.com/images/hero-dubai-skyline.jpg",
-    "description": "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, interior fit-outs, and facility management services across Dubai and the UAE.",
+    "description": "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
     "telephone": "+971543909946",
     "email": "info@euroedgets.com",
     "priceRange": "$$",
+    "currenciesAccepted": "AED",
+    "paymentAccepted": "Cash, Bank Transfer, Cheque",
+    "inLanguage": "en",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Al Quoz Industrial Area",
       "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
       "addressCountry": "AE"
     },
     "geo": {
@@ -23,6 +27,22 @@ export function JsonLd() {
       "latitude": 25.1634,
       "longitude": 55.2205
     },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+971543909946",
+        "contactType": "customer service",
+        "contactOption": "TollFree",
+        "areaServed": "AE",
+        "availableLanguage": ["English", "Arabic"]
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@euroedgets.com",
+        "contactType": "sales",
+        "areaServed": "AE"
+      }
+    ],
     "areaServed": [
       {
         "@type": "City",
@@ -51,13 +71,18 @@ export function JsonLd() {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Technical Services & Contracting Catalog",
+      "name": "Technical Contracting Services & MEP Works Catalog",
       "itemListElement": servicesData.map((service, index) => ({
         "@type": "OfferCatalog",
         "name": service.title,
         "position": index + 1,
         "url": `https://euroedgets.com/services/${service.slug}`
       }))
+    },
+    "potentialAction": {
+      "@type": "CommunicateAction",
+      "target": "https://euroedgets.com/contact",
+      "name": "Request a Quote"
     },
     "sameAs": [
       "https://wa.me/971543909946"

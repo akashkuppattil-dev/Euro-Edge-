@@ -6,17 +6,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export function AboutScrollAnimations() {
   useEffect(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger)
+    if (typeof window === "undefined") return
 
-    // Check for user's reduced-motion preference
+    // Accessibility check: Disable animations if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches
+    if (prefersReducedMotion) return
 
-    if (prefersReducedMotion) {
-      return
-    }
+    gsap.registerPlugin(ScrollTrigger)
 
     const isMobile = window.innerWidth < 768
 
@@ -386,19 +384,15 @@ export function AboutScrollAnimations() {
           )
         }
 
-        // Subtle background parallax on sunset banner
+        // Subtle background scale reveal on sunset banner
         const ctaBg = ctaSection.querySelector("[data-anim='about-cta-bg']")
         if (ctaBg) {
-          gsap.to(ctaBg, {
-            y: isMobile ? 12 : 25,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ctaSection,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1,
-            },
-          })
+          ctaTL.fromTo(
+            ctaBg,
+            { scale: 1.04 },
+            { scale: 1, duration: 1.2, ease: "power1.out" },
+            0
+          )
         }
       }
     })

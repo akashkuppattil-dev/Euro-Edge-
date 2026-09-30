@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Cormorant_Garamond, Playfair_Display, Outfit, Plus_Jakarta_Sans } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import { Inter, Cormorant_Garamond } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import { JsonLd } from '@/components/json-ld'
 import './globals.css'
 
@@ -17,36 +17,47 @@ const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
 })
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: '--font-playfair',
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: '--font-outfit',
-})
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: '--font-jakarta',
-})
-
 export const metadata: Metadata = {
-  title: "Euro Edge Technical Services L.L.C. | MEP, HVAC & Contracting Dubai",
-  description: "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, interior fit-outs, and facility management services across Dubai and the UAE.",
-  keywords: ["MEP contracting Dubai", "HVAC maintenance UAE", "Euro Edge Technical Services", "electrical contractor Dubai", "plumbing services Dubai", "villa fit-out", "DEWA approved contractor"],
+  title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
+  description: "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE. Request a free quote today.",
+  keywords: [
+    "MEP contractor Dubai",
+    "technical services company Dubai",
+    "civil contractor Dubai",
+    "HVAC installation Dubai",
+    "electrical contractor Dubai",
+    "plumbing services Dubai",
+    "building maintenance Dubai",
+    "swimming pool contractor Dubai",
+    "landscaping company Dubai",
+    "Euro Edge Technical Services",
+  ],
+  alternates: {
+    canonical: 'https://euroedgets.com/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
-    description: "Reliable technical contracting, MEP installations, HVAC systems, civil maintenance, and facility management across Dubai and the UAE.",
+    title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
+    description: "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
     type: 'website',
     url: 'https://euroedgets.com/',
+    siteName: 'Euro Edge Technical Services L.L.C.',
+    locale: 'en_AE',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
+    description: "Certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
   },
   icons: {
     icon: '/images/logo.png',

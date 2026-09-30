@@ -27,7 +27,7 @@ export function ServiceFaqAccordion({ faqs }: { faqs: FAQItem[] }) {
   if (!displayFaqs || displayFaqs.length === 0) return null
 
   return (
-    <section className="py-12 sm:py-16 px-4 lg:px-12 bg-slate-50/80 border-t border-slate-200">
+    <section className="py-12 sm:py-16 px-4 lg:px-12 bg-slate-50/80">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Centered Header */}
         <div className="text-center space-y-2.5">

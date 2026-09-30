@@ -5,24 +5,33 @@ import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { IndustriesPortfolio } from "@/components/industries-portfolio"
 
 export const metadata = {
-  title: "Industries We Serve | Euro Edge Technical Services L.L.C.",
+  title: "Industries We Serve | Euro Edge Technical Services — Dubai, UAE",
   description:
-    "From private villas and commercial properties to hospitality, industrial and specialized facilities, Euro Edge delivers integrated technical solutions tailored to every environment.",
+    "Euro Edge delivers integrated technical contracting for private villas, commercial buildings, hotels, retail, healthcare, and industrial facilities across Dubai and the wider UAE.",
+  keywords: [
+    "technical services for villas Dubai",
+    "commercial property maintenance Dubai",
+    "hospitality technical services UAE",
+    "industrial contractor Dubai",
+    "villa contractor Dubai",
+  ],
   alternates: {
     canonical: "https://euroedgets.com/industries",
   },
   openGraph: {
-    title: "Industries We Serve | Euro Edge Technical Services L.L.C.",
+    title: "Industries We Serve | Euro Edge Technical Services — Dubai, UAE",
     description:
-      "From private villas and commercial properties to hospitality, industrial and specialized facilities, Euro Edge delivers integrated technical solutions tailored to every environment.",
+      "Euro Edge delivers integrated technical contracting for private villas, commercial buildings, hotels, retail, healthcare, and industrial facilities across Dubai and the UAE.",
     type: "website",
     url: "https://euroedgets.com/industries",
+    siteName: "Euro Edge Technical Services L.L.C.",
+    locale: "en_AE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Industries We Serve | Euro Edge Technical Services L.L.C.",
+    title: "Industries We Serve | Euro Edge Technical Services — Dubai, UAE",
     description:
-      "From private villas and commercial properties to hospitality, industrial and specialized facilities, Euro Edge delivers integrated technical solutions tailored to every environment.",
+      "Integrated technical contracting for villas, commercial buildings, hotels, retail, healthcare, and industrial facilities across Dubai and the UAE.",
   },
 }
 

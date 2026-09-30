@@ -38,6 +38,11 @@
   --sidebar-accent-foreground: #0a2540;
   --sidebar-border: #e2e8f0;
   --sidebar-ring: #fbb03b;
+
+  /* Mobile spacing tokens */
+  --mobile-px: 20px;
+  --mobile-section-py: 56px;
+  --touch-min: 44px;
 }
 
 @theme inline {
@@ -87,16 +92,37 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
+
   html {
-    scroll-behavior: smooth;
     overflow-x: hidden;
     max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+    background-color: #071f33;
+    overscroll-behavior-y: none;
   }
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
     max-width: 100vw;
+    position: relative;
+    background-color: #071f33;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  /* Prevent mobile Safari & Chrome from auto-zooming into inputs on focus */
+  @media screen and (max-width: 768px) {
+
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
   }
 }
 
@@ -105,6 +131,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -119,10 +146,23 @@
 
 /* Custom Animation for Timeline */
 @keyframes moveLight {
-  0% { left: -10%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
 }
 
 .animate-timeline-light {
@@ -223,5 +263,241 @@
   }
 }
 
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
 
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
+/* ============================================================
+   SCROLL REVEAL SYSTEM - GSAP ScrollTrigger Active
+============================================================ */
+
+/* ============================================================
+   MOBILE RESPONSIVE SYSTEM — Euro Edge
+   Targets: 375px, 390px, 430px, 480px, 768px, 1024px+
+============================================================ */
+
+/* Mobile section utility */
+.mobile-section {
+  padding-top: var(--mobile-section-py);
+  padding-bottom: var(--mobile-section-py);
+  padding-left: var(--mobile-px);
+  padding-right: var(--mobile-px);
+}
+
+@media (min-width: 640px) {
+  .mobile-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Mobile image block — strong visual display */
+.mobile-img-block {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+@media (min-width: 640px) {
+  .mobile-img-block {
+    height: 320px;
+  }
+}
+
+/* Mobile process vertical step */
+.mobile-process-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 8px;
+}
+
+.mobile-process-number {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: #0a2540;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-cormorant), serif;
+}
+
+.mobile-process-connector {
+  width: 2px;
+  height: 28px;
+  background: linear-gradient(to bottom, #cbd5e1 80%, transparent);
+  margin-left: 23px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Mobile WHY section list item */
+.mobile-why-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* Mobile contact action buttons — large touch targets */
+.mobile-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  min-height: 64px;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: #0a2540;
+  width: 100%;
+}
+
+.mobile-contact-btn:hover,
+.mobile-contact-btn:focus {
+  border-color: #0066cc;
+  background: #f0f7ff;
+}
+
+/* Mobile footer compact */
+@media (max-width: 767px) {
+  .footer-hide-mobile {
+    display: none;
+  }
+}
+
+/* Mobile-only sticky CTA strip */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  padding: 10px 16px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-cta {
+    display: none;
+  }
+}
+
+/* Mobile hero minimum heights — intentional, not desktop-shrunk */
+@media (max-width: 639px) {
+  .mobile-hero {
+    min-height: 520px;
+    max-height: 680px;
+  }
+
+  /* Prevent decorative absolute elements from causing overflow */
+  .mobile-overflow-clip {
+    overflow: hidden;
+  }
+}
+
+/* Mobile-specific padding override — remove excessive desktop padding */
+@media (max-width: 639px) {
+  .mobile-px-safe {
+    padding-left: var(--mobile-px) !important;
+    padding-right: var(--mobile-px) !important;
+  }
+
+  .mobile-py-reduced {
+    padding-top: var(--mobile-section-py) !important;
+    padding-bottom: var(--mobile-section-py) !important;
+  }
+}
+
+/* Fluid responsive type */
+.fluid-h1 {
+  font-size: clamp(2.1rem, 9vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.fluid-h2 {
+  font-size: clamp(1.75rem, 7vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.fluid-h3 {
+  font-size: clamp(1.25rem, 5vw, 2rem);
+  line-height: 1.2;
+}
+
+/* Focus accessibility */
+:focus-visible {
+  outline: 2px solid #fbb03b;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Safe-area bottom spacing */
+.safe-area-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Service slug page — mobile sidebar form spacing */
+@media (max-width: 1023px) {
+  .service-form-mobile {
+    margin-top: 32px;
+  }
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent the huge footer brand text from overflow on narrow screens */
+@media (max-width: 480px) {
+  .footer-brand-text {
+    font-size: clamp(42px, 13vw, 80px) !important;
+  }
+}

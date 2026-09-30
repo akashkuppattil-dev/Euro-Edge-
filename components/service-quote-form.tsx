@@ -113,7 +113,7 @@ export function ServiceQuoteForm({ serviceTitle }: { serviceTitle: string }) {
 
           <div>
             <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-700 block mb-1">
-              Scope Details (Optional)
+              Scope Details
             </label>
             <textarea
               rows={3}

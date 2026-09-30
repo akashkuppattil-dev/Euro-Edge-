@@ -29,9 +29,10 @@ export async function generateMetadata({
     keywords: [
       service.title,
       `${service.title} Dubai`,
+      `${service.title} UAE`,
       "Euro Edge Technical Services",
-      "MEP contracting Dubai",
-      "Dubai technical services",
+      "technical contractor Dubai",
+      "MEP contractor Dubai",
     ],
     alternates: {
       canonical: `https://euroedgets.com/services/${service.slug}`,
@@ -41,6 +42,8 @@ export async function generateMetadata({
       description: service.shortDesc,
       type: "website",
       url: `https://euroedgets.com/services/${service.slug}`,
+      siteName: "Euro Edge Technical Services L.L.C.",
+      locale: "en_AE",
     },
     twitter: {
       card: "summary_large_image",
@@ -135,7 +138,7 @@ export default async function ServiceDetailPage({
   }
 
   return (
-    <main className="pb-16 md:pb-0 bg-background text-foreground font-sans min-h-screen">
+    <main className="bg-background text-foreground font-sans min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
@@ -147,25 +150,25 @@ export default async function ServiceDetailPage({
       <Header />
 
       {/* Breadcrumb & Navigation */}
-      <div className="bg-secondary py-4 px-4 lg:px-12 border-b border-border">
+      <div className="bg-secondary py-3 sm:py-4 px-4 lg:px-12">
         <div className="max-w-[1600px] mx-auto flex items-center justify-between text-xs">
           <Link
             href="/services"
-            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-medium transition-colors"
+            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-medium transition-colors min-h-[44px]"
           >
             <ChevronLeft className="w-4 h-4" />
             <span>Back to All Services</span>
           </Link>
-          <span className="text-muted-foreground">Euro Edge Technical Services L.L.C.</span>
+          <span className="text-muted-foreground hidden sm:inline">Euro Edge Technical Services L.L.C.</span>
         </div>
       </div>
 
       {/* Service Header */}
-      <section className="relative overflow-hidden bg-background text-foreground py-8 sm:py-12 lg:py-14 border-b border-border">
+      <section className="relative overflow-hidden bg-background text-foreground py-6 sm:py-12 lg:py-14">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="space-y-3 sm:space-y-4">
             <div className="flex items-start justify-between gap-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight leading-tight">
                 {service.title}
               </h1>
               <div className="flex-shrink-0 mt-1">
@@ -180,13 +183,13 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Service Details Section */}
-      <section className="py-8 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
+      <section className="py-6 sm:py-12 lg:py-14 px-4 lg:px-12 bg-background">
         {/* Top Section: Overview & Interactive Fast Quote Form */}
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
           {/* Main Description */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8 order-1">
             {/* Service Visual Image */}
-            <div className="relative h-[320px] sm:h-[420px] w-full rounded-2xl overflow-hidden border border-border shadow-md">
+            <div className="relative h-[240px] sm:h-[420px] w-full rounded-2xl overflow-hidden border border-border shadow-md">
               <Image
                 src={service.imageUrl}
                 alt={service.imageAlt || `${service.title} — Euro Edge Technical Services L.L.C. Dubai`}
@@ -198,22 +201,22 @@ export default async function ServiceDetailPage({
 
             <div className="space-y-4">
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">Service Overview</h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed whitespace-pre-line">
+              <p className="text-muted-foreground text-sm sm:text-base sm:text-lg leading-relaxed whitespace-pre-line">
                 {service.fullDesc}
               </p>
             </div>
           </div>
 
-          {/* Sidebar Interactive Fast Quote Form */}
-          <div className="lg:sticky lg:top-24">
+          {/* Sidebar Interactive Fast Quote Form — below image on mobile, sticky on desktop */}
+          <div className="lg:sticky lg:top-24 order-2">
             <ServiceQuoteForm serviceTitle={service.title} />
           </div>
         </div>
 
         {/* Full-Width Specialized Sub-Services & Capabilities Section */}
         {service.subServices && service.subServices.length > 0 ? (
-          <div className="max-w-[1600px] mx-auto space-y-8 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-border">
-            <div className="space-y-2 border-b border-border pb-5">
+          <div className="max-w-[1600px] mx-auto space-y-8 pt-12 sm:pt-16 mt-12 sm:mt-16">
+            <div className="space-y-2 pb-5">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground flex items-center gap-3">
                 <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600 flex-shrink-0" />
                 Specialized Services &amp; Capabilities
@@ -229,8 +232,8 @@ export default async function ServiceDetailPage({
                   key={idx}
                   className="group rounded-3xl bg-card border border-border/80 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row items-stretch"
                 >
-                  {/* Left Side: Generously Sized Photo */}
-                  <div className="relative w-full md:w-[420px] lg:w-[480px] xl:w-[520px] min-h-[260px] md:min-h-[320px] flex-shrink-0 overflow-hidden bg-muted">
+                  {/* Left Side: Photo */}
+                  <div className="relative w-full md:w-[420px] lg:w-[480px] xl:w-[520px] min-h-[200px] sm:min-h-[260px] md:min-h-[320px] flex-shrink-0 overflow-hidden bg-muted">
                     <Image
                       src={sub.imageUrl}
                       alt={sub.imageAlt || `${sub.title} — Euro Edge Technical Services L.L.C. Dubai`}
@@ -266,7 +269,7 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         ) : (
-          <div className="max-w-[1600px] mx-auto space-y-6 pt-12 mt-12 border-t border-border">
+          <div className="max-w-[1600px] mx-auto space-y-6 pt-12 mt-12">
             <h3 className="text-xl font-serif font-bold text-foreground flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-500" />
               Key Deliverables &amp; Capabilities

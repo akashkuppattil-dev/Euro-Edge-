@@ -46,7 +46,7 @@ export function WhyChooseUsAccordion() {
   ]
 
   return (
-    <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background border-t border-border relative">
+    <section className="py-10 sm:py-16 lg:py-24 px-4 lg:px-12 bg-background relative">
       <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
         {/* Header */}
         <div className="text-center space-y-2.5 sm:space-y-3">
