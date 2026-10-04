@@ -172,7 +172,7 @@ export default function ContactPage() {
                       CONTACT PERSON
                     </span>
                     <span className="text-sm font-bold text-[#0a2540] block mt-0.5">
-                      Pranoydas Mullasser
+                      Pranoydas Mullasseri
                     </span>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       <Briefcase className="w-3.5 h-3.5 text-slate-400" />

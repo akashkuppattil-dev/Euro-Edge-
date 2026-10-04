@@ -179,9 +179,9 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+971543909946"
-                  className="inline-flex items-center gap-2.5 text-white/90"
+                  className="flex items-center gap-2.5 text-white/90 hover:text-white transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white">
+                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white flex-shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <span className="font-medium">+971 54 390 9946</span>
@@ -193,9 +193,9 @@ export function Footer() {
                   href="https://wa.me/971543909946"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-white/90"
+                  className="flex items-center gap-2.5 text-white/90 hover:text-white transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white">
+                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white flex-shrink-0">
                     <WhatsAppIcon className="w-3.5 h-3.5" />
                   </div>
                   <span className="font-medium">+971 54 390 9946</span>
@@ -205,9 +205,9 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:info@euroedgets.com"
-                  className="inline-flex items-center gap-2.5 text-white/90"
+                  className="flex items-center gap-2.5 text-white/90 hover:text-white transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white">
+                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white flex-shrink-0">
                     <Mail className="w-3.5 h-3.5" />
                   </div>
                   <span>info@euroedgets.com</span>
@@ -215,8 +215,8 @@ export function Footer() {
               </li>
 
               <li>
-                <div className="inline-flex items-start gap-2.5 text-white/90">
-                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white flex-shrink-0 mt-0.5">
+                <div className="flex items-center gap-2.5 text-white/90">
+                  <div className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center text-white flex-shrink-0">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <span>Dubai, United Arab Emirates</span>
